@@ -124,7 +124,8 @@
   .about-right { padding:56px 40px 56px 52px; background:var(--bg2); display:flex; flex-direction:column; gap:28px; }
   .value-row { display:flex; gap:18px; padding-bottom:28px; border-bottom:1px solid var(--border); }
   .value-row:last-child { border-bottom:none; padding-bottom:0; }
-  .value-badge { width:32px; height:32px; border-radius:8px; background:rgba(0,242,166,0.1); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:var(--teal); flex-shrink:0; margin-top:2px; }
+  .value-bullet { width:32px; height:32px; border-radius:50%; background:rgba(0,242,166,0.1); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+  .value-bullet::after { content:''; width:7px; height:7px; border-radius:50%; background:var(--teal); display:block; }
   .value-title { font-family:var(--display); font-size:22px; font-weight:700; color:var(--white); margin-bottom:6px; }
   .value-desc { font-size:16px; color:var(--muted); line-height:1.65; font-weight:300; }
 
@@ -244,13 +245,13 @@
     <div class="service-card reveal reveal-delay-2" onclick="location.href='services.html?cat=photo'">
       <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="16" height="12" rx="2"/><circle cx="10" cy="11" r="3" fill="currentColor" stroke="none" opacity="0.7"/><path d="M7 5l1.5-2h3L13 5" stroke-linecap="round"/></svg></div>
       <div class="s-name">Photo</div>
-      <p class="s-desc">Stills that do more than document. Composition, light, and timing working together to make your property, your team, or your space look exactly as good as it is.</p>
+      <p class="s-desc">Stills captured on location or in studio. Authentic, expertly composed and retouched — making your property, team, or space look exactly as good as it is.</p>
       <ul class="s-list"><li>Headshots</li><li>Real Estate Photos</li><li>Drone Photos</li><li>3D Virtual Tours</li></ul>
     </div>
     <div class="service-card reveal reveal-delay-3" onclick="location.href='services.html?cat=animation'">
       <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10 Q7 3 10 10 Q13 17 17 10" stroke-linecap="round"/><circle cx="10" cy="10" r="2.5" fill="currentColor" stroke="none" opacity="0.8"/></svg></div>
       <div class="s-name">Animation</div>
-      <p class="s-desc">Complex ideas made clear. Motion and narrative working together to explain what words alone can't — and build recognition and trust while doing it.</p>
+      <p class="s-desc">Complex ideas made clear. Motion design, narration, and sound working together to educate and inspire.</p>
       <ul class="s-list"><li>Animated Explainers</li><li>Motion Graphics</li><li>Logo Animations</li><li>Website Animations / Lottie</li></ul>
     </div>
     <div class="service-card reveal reveal-delay-4" onclick="location.href='services.html?cat=design'">
@@ -357,7 +358,7 @@
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
       <div class="modal-cta">
-        <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="modal-btn-fill" id="modal-cta-primary">Get Your <span id="modal-cta-tag">Video</span> Made →</a>
+        <a href="brief.html" class="modal-btn-fill">Get a Quote →</a>
         <a href="pricing.html" class="modal-btn-ghost">See Pricing</a>
       </div>
     </div>
@@ -368,7 +369,7 @@
   <div class="section-header">
     <div>
       <div class="section-eyebrow reveal">03 — About</div>
-      <h2 class="section-title reveal reveal-delay-1">Who You're Working With</h2>
+      <h2 class="section-title reveal reveal-delay-1">Who We Are</h2>
     </div>
   </div>
   <div class="about-grid reveal">
@@ -380,15 +381,15 @@
     </div>
     <div class="about-right">
       <div class="value-row">
-        <div class="value-badge">01</div>
-        <div><div class="value-title">Results-Driven</div><p class="value-desc">We start with the finish line in mind.</p></div>
+        <div class="value-bullet"></div>
+        <div><div class="value-title">Start with the end result in mind</div><p class="value-desc">Every project begins with one question: what does success look like for you? The creative work flows from that answer.</p></div>
       </div>
       <div class="value-row">
-        <div class="value-badge">02</div>
+        <div class="value-bullet"></div>
         <div><div class="value-title">Client-Centered</div><p class="value-desc">I make it about you — your audience, your goals, your deadline. Great work doesn't have to be a painful process.</p></div>
       </div>
       <div class="value-row">
-        <div class="value-badge">03</div>
+        <div class="value-bullet"></div>
         <div><div class="value-title">No Surprises</div><p class="value-desc">Clear timelines, transparent pricing, and a final product that matches the vision you came in with.</p></div>
       </div>
     </div>
@@ -399,7 +400,7 @@
   <div class="section-header" style="padding-top:88px;">
     <div>
       <div class="section-eyebrow reveal">04 — Process</div>
-      <h2 class="section-title reveal reveal-delay-1">Let's Get to Work</h2>
+      <h2 class="section-title reveal reveal-delay-1">Wanna Team Up?</h2>
     </div>
   </div>
   <div class="process-grid">
@@ -407,7 +408,7 @@
       <div class="step-n">01</div>
       <div class="step-name">Reach Out</div>
       <p class="step-desc">Tell us about your goals. A quick call or a project brief — either works as a starting point.</p>
-      <a href="https://www.colegrovemedia.com/project-brief-form" class="step-link">Start a Brief →</a>
+      <a href="brief.html" class="step-link">Start a Brief →</a>
     </div>
     <div class="process-step reveal reveal-delay-2">
       <div class="step-n">02</div>
@@ -427,8 +428,8 @@
 <div class="quote-strip">
   <div class="quote-inner reveal">
     <div class="quote-mark">"</div>
-    <blockquote class="quote-text">Working with Logan was the smoothest production process we've ever experienced. The final video exceeded every expectation.</blockquote>
-    <div class="quote-attr"><strong>Satisfied Client</strong> &nbsp;·&nbsp; Bozeman, MT</div>
+    <blockquote class="quote-text">The team is STOKED about the video and believes it may be the best brand video they've ever seen!</blockquote>
+    <div class="quote-attr"><strong>Meaghann Gaffney</strong> &nbsp;·&nbsp; Ignis Technologies</div>
   </div>
 </div>
 
@@ -450,7 +451,7 @@
     <div class="cta-divider"></div>
     <div class="cta-btns">
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-cta btn-cta-fill">Schedule a Call →</a>
-      <a href="https://www.colegrovemedia.com/project-brief-form" class="btn-cta btn-cta-outline">Start a Brief</a>
+      <a href="brief.html" class="btn-cta btn-cta-outline">Start a Brief</a>
     </div>
   </div>
 </section>
@@ -487,7 +488,7 @@
         <li><a href="tel:4062099945">(406) 209-9945</a></li>
         <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
         <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="https://www.colegrovemedia.com/project-brief-form">Project Brief</a></li>
+        <li><a href="brief.html">Project Brief</a></li>
       </ul>
     </div>
   </div>
@@ -563,7 +564,6 @@ function openModal(idx) {
   document.getElementById('modal-specs').innerHTML = p.specs.map(function(s) {
     return '<div class="modal-spec"><span class="modal-spec-k">'+s.k+'</span><span class="modal-spec-v">'+s.v+'</span></div>';
   }).join('');
-  document.getElementById('modal-cta-tag').textContent = p.tag;
   document.getElementById('modal-iframe').src = 'https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
   var related = getRelated(p.slug, p.cats).slice(0,3);
   var labelText = 'More '+(catLabels[p.cats[0]]||'Work');
