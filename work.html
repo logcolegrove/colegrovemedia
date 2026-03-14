@@ -635,7 +635,35 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()
 // Footer year
 document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
 
-// Nav hide/show
+// Read URL params and apply filter before first render
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var initCat=params.get('cat');
+  if(initCat&&['video','photo','animation','design'].indexOf(initCat)>-1){
+    // activate the right category button
+    curCat=initCat;
+    document.querySelectorAll('#tier1 .filter-btn').forEach(function(b){
+      b.classList.toggle('active',b.dataset.cat===initCat);
+    });
+    // show tier2 sub-filters
+    var t2=document.getElementById('tier2');
+    t2.innerHTML='<span class="filter-label">Type</span>';
+    if(SUBTYPES[initCat]){
+      t2.classList.add('open');
+      var allBtn=document.createElement('button');
+      allBtn.className='filter-btn sub active';allBtn.dataset.type='all';
+      allBtn.textContent='All';allBtn.onclick=function(){setType('all');};
+      t2.appendChild(allBtn);
+      SUBTYPES[initCat].forEach(function(s){
+        var b=document.createElement('button');
+        b.className='filter-btn sub';b.dataset.type=s.type;
+        b.textContent=s.label;b.onclick=function(){setType(s.type);};
+        t2.appendChild(b);
+      });
+    }
+  }
+  render();
+})();
 (function(){
   var nav=document.getElementById('main-nav'),lastY=window.scrollY,ticking=false;
   window.addEventListener('scroll',function(){
