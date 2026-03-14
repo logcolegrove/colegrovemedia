@@ -48,7 +48,7 @@ nav.nav-hidden{transform:translateY(-100%);}
 .section-title{font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1;letter-spacing:-0.01em;margin-bottom:8px;}
 .section-sub{font-size:16px;color:var(--muted);font-weight:300;line-height:1.65;max-width:520px;margin-bottom:48px;}
 
-/* ── RETAINER TIERS ── */
+/* RETAINER TIERS */
 .retainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:visible;}
 .retainer-card{background:var(--bg2);padding:40px 32px;display:flex;flex-direction:column;gap:0;position:relative;isolation:isolate;}
 .retainer-card.featured{background:var(--bg3);}
@@ -63,7 +63,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .r-features{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1;margin-bottom:28px;}
 .r-features li{font-size:14px;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
 .r-features li::before{content:'';width:16px;height:16px;border-radius:50%;background:rgba(0,242,166,0.1);border:1px solid rgba(0,242,166,0.3);flex-shrink:0;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3L3 5L7 1' stroke='%2300f2a6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
-.r-features li.muted-feat{opacity:0.4;}
 .r-btn{display:block;text-align:center;padding:13px;border-radius:8px;font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;transition:opacity 0.18s,color 0.18s,border-color 0.18s;cursor:pointer;}
 .r-btn-fill{background:var(--teal);color:#0d1117;border:1px solid var(--teal);}
 .r-btn-fill:hover{opacity:0.85;}
@@ -71,7 +70,7 @@ nav.nav-hidden{transform:translateY(-100%);}
 .r-btn-outline:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 .retainer-note{margin-top:20px;font-size:13px;color:var(--muted);text-align:center;font-weight:300;}
 
-/* ── PACKAGES ── */
+/* PACKAGES */
 .packages-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
 .pkg-card{background:var(--bg2);padding:36px 32px;display:flex;flex-direction:column;gap:20px;}
 .pkg-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
@@ -86,7 +85,7 @@ nav.nav-hidden{transform:translateY(-100%);}
 .pkg-cta{margin-top:4px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--teal);letter-spacing:0.06em;text-transform:uppercase;transition:gap 0.18s;cursor:pointer;}
 .pkg-cta:hover{gap:10px;}
 
-/* ── À LA CARTE (same card style as services page) ── */
+/* À LA CARTE */
 .alc-category{margin-bottom:2px;}
 .alc-category:last-child{margin-bottom:0;}
 .alc-cat-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:1px solid var(--border);cursor:pointer;user-select:none;}
@@ -96,15 +95,12 @@ nav.nav-hidden{transform:translateY(-100%);}
 .alc-cat-toggle svg{transition:transform 0.25s;}
 .alc-cat-toggle.open svg{transform:rotate(180deg);}
 .alc-cat-toggle.open{color:var(--white);}
-/* collapse via display none — avoids overflow:hidden clipping dropdowns */
 .alc-grid{display:none;gap:2px;background:var(--border);border-radius:12px;overflow:visible;margin-bottom:0;}
 .alc-grid.open{display:grid;margin-bottom:16px;}
-/* give the à la carte section a high z-index so its dropdowns beat the policies strip */
 .pricing-section{position:relative;}
 #alc-wrap{position:relative;z-index:50;}
 .policies-strip{position:relative;z-index:0;}
 
-/* service card — identical to services.html */
 .svc-card{background:var(--bg2);padding:32px 28px;position:relative;isolation:isolate;transition:background 0.25s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s;}
 .svc-card:hover{background:var(--bg3);transform:scale(1.015);box-shadow:0 8px 32px rgba(0,0,0,0.4);}
 .svc-card.dropdown-open{z-index:20;transform:scale(1.015);}
@@ -131,14 +127,13 @@ nav.nav-hidden{transform:translateY(-100%);}
 .tier-list li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:7px;line-height:1.4;}
 .tier-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:5px;}
 
-/* ── POLICIES STRIP ── */
+/* POLICIES STRIP */
 .policies-strip{padding:0 40px;border-bottom:1px solid var(--border);position:relative;z-index:0;}
-.policies-inner{display:flex;gap:48px;flex-wrap:wrap;}
-.policy-card{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
-.policy-name{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap;}
-.policy-rate{font-size:13px;font-weight:600;color:var(--muted);}
-.policy-sep{font-size:13px;color:var(--border);margin:0 2px;}
-.policy-desc{font-size:13px;color:var(--muted);font-weight:300;opacity:0.7;line-height:1.5;}
+.policies-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:8px;overflow:hidden;}
+.policy-card{padding:18px 20px;background:var(--bg);display:flex;flex-direction:column;gap:4px;}
+.policy-name{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);opacity:0.6;}
+.policy-value{font-size:13px;font-weight:500;color:var(--muted);}
+.policy-desc{font-size:12px;color:var(--muted);font-weight:300;opacity:0.55;line-height:1.5;margin-top:2px;}
 
 /* CTA */
 .cta-wrap{padding:40px 40px 80px;}
@@ -169,7 +164,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   .page-hero,.pricing-section,.policies-strip,.cta-wrap{padding-left:24px;padding-right:24px;}
   .retainer-grid{grid-template-columns:1fr;}
   .packages-grid{grid-template-columns:1fr;}
-  .policies-inner{grid-template-columns:1fr;}.policy-card{border-right:none;border-bottom:1px solid var(--border);}.policy-card:last-child{border-bottom:none;}
+  .policies-inner{grid-template-columns:1fr 1fr;}
   .cta-band{padding:36px 28px;}
   .footer-main{grid-template-columns:1fr 1fr;padding:40px 24px 32px;}
   .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;}
@@ -190,7 +185,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     <li><a href="about.html">About</a></li>
     <li><a href="pricing.html" class="active">Pricing</a></li>
   </ul>
-  <a href="brief.html" class="nav-cta">Get a Quote</a>
+  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
 </nav>
 
 <!-- HERO -->
@@ -282,7 +277,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li>Satellite Map (Basic)</li>
         <li>3D Virtual Tour</li>
       </ul>
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="pkg-cta">Get a Quote →</a>
+      <a href="brief.html" class="pkg-cta">Get a Quote →</a>
     </div>
 
     <div class="pkg-card">
@@ -303,7 +298,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li>Product Demo Video</li>
         <li>Team Headshots</li>
       </ul>
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="pkg-cta">Get a Quote →</a>
+      <a href="brief.html" class="pkg-cta">Get a Quote →</a>
     </div>
 
     <div class="pkg-card">
@@ -324,7 +319,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li>Headshots for attendees / speakers</li>
         <li>Graphic Design (event materials)</li>
       </ul>
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="pkg-cta">Get a Quote →</a>
+      <a href="brief.html" class="pkg-cta">Get a Quote →</a>
     </div>
 
     <div class="pkg-card">
@@ -345,7 +340,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li>Motion Graphics set</li>
         <li>Graphic Design (social templates)</li>
       </ul>
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="pkg-cta">Get a Quote →</a>
+      <a href="brief.html" class="pkg-cta">Get a Quote →</a>
     </div>
 
   </div>
@@ -356,35 +351,32 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   <div class="section-eyebrow reveal">03 — À La Carte</div>
   <h2 class="section-title reveal">Individual Services</h2>
   <p class="section-sub reveal">Know exactly what you need? Every service is available individually. Click any category to see full pricing tiers.</p>
-
   <div id="alc-wrap" class="reveal"></div>
 </div>
 
 <!-- 4. POLICIES -->
-<div class="policies-strip" style="padding-top:40px;padding-bottom:40px;">
-  <div class="section-eyebrow" style="margin-bottom:20px;">Good to Know</div>
+<div class="policies-strip" style="padding-top:36px;padding-bottom:36px;">
+  <div class="section-eyebrow" style="margin-bottom:16px;opacity:0.5;">Good to Know</div>
   <div class="policies-inner">
     <div class="policy-card">
-      <span class="policy-name">Rush Fee</span>
-      <span class="policy-sep">—</span>
-      <span class="policy-rate">2× quoted rate.</span>
-      <span class="policy-desc">Applies to projects requiring delivery significantly shorter than the standard production schedule.</span>
+      <div class="policy-name">Rush Fee</div>
+      <div class="policy-value">2× quoted rate</div>
+      <div class="policy-desc">For delivery significantly shorter than the standard production schedule.</div>
     </div>
     <div class="policy-card">
-      <span class="policy-name">Travel Fee</span>
-      <span class="policy-sep">—</span>
-      <span class="policy-rate">$1/mile</span>
-      <span class="policy-desc">beyond 15 miles from Bozeman, MT. Multi-day productions are quoted individually.</span>
+      <div class="policy-name">Travel Fee</div>
+      <div class="policy-value">$1 / mile</div>
+      <div class="policy-desc">Beyond 15 miles from Bozeman, MT. Multi-day productions quoted individually.</div>
     </div>
     <div class="policy-card">
-      <span class="policy-name">Usage Rights</span>
-      <span class="policy-sep">—</span>
-      <span class="policy-desc">Full rights transfer to you on final delivery. No licensing fees.</span>
+      <div class="policy-name">Usage Rights</div>
+      <div class="policy-value">Full transfer on delivery</div>
+      <div class="policy-desc">All rights pass to you upon final delivery. No ongoing licensing fees.</div>
     </div>
     <div class="policy-card">
-      <span class="policy-name">Hourly / Day Rate</span>
-      <span class="policy-sep">—</span>
-      <span class="policy-desc">For ongoing work, maintenance, consulting, or any task billed by time: <strong style="color:var(--muted);font-weight:600;">$125/hr</strong> or <strong style="color:var(--muted);font-weight:600;">$1,000/day</strong>.</span>
+      <div class="policy-name">Hourly / Day Rate</div>
+      <div class="policy-value">$125 / hr &nbsp;·&nbsp; $1,000 / day</div>
+      <div class="policy-desc">For consulting, maintenance, or any work billed by time.</div>
     </div>
   </div>
 </div>
@@ -395,7 +387,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     <div class="cta-band-h">Ready to get <span>started?</span></div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-      <a href="https://www.colegrovemedia.com/project-brief-form" class="btn-ghost">Start a Project Brief</a>
+      <a href="brief.html" class="btn-ghost">Start a Project Brief</a>
     </div>
   </div>
 </div>
@@ -432,7 +424,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li><a href="tel:4062099945">(406) 209-9945</a></li>
         <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
         <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="https://www.colegrovemedia.com/project-brief-form">Project Brief</a></li>
+        <li><a href="brief.html">Project Brief</a></li>
       </ul>
     </div>
   </div>
@@ -445,7 +437,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <script>
 var CHEV = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
 
-// ── À LA CARTE DATA (matches services.html exactly) ──
 var ALC = [
   {cat:'Video', cols:3, services:[
     {name:'Real Estate Video',desc:'Showcase any property with cinematic drone and ground-level video. Built to sell.',tiers:[{n:'Basic',p:'$500',i:['Up to 30 seconds · Drone + ground footage','Professional edit · 1 revision']},{n:'Standard',p:'$900',i:['Up to 90 seconds · Drone + interior walkthrough','Color grade · Music · 2 revisions']},{n:'Advanced',p:'$1,500+',i:['Up to 3 minutes · Full property storytelling','Voiceover option · Social cuts included · Unlimited revisions']}]},
@@ -479,40 +470,32 @@ var ALC = [
   ]}
 ];
 
-// BUILD À LA CARTE
 function buildALC(){
-  var wrap = document.getElementById('alc-wrap');
-  ALC.forEach(function(cat, ci){
-    // category accordion header
-    var hdr = document.createElement('div');
-    hdr.className = 'alc-cat-header';
-    hdr.id = 'alc-cat-'+ci;
-    hdr.innerHTML = '<div class="alc-cat-name">'+cat.cat+'</div>'
-      +'<div class="alc-cat-toggle" id="alc-tog-'+ci+'">Expand '+CHEV+'</div>';
-    hdr.onclick = function(){ toggleALC(ci); };
+  var wrap=document.getElementById('alc-wrap');
+  ALC.forEach(function(cat,ci){
+    var hdr=document.createElement('div');
+    hdr.className='alc-cat-header';
+    hdr.innerHTML='<div class="alc-cat-name">'+cat.cat+'</div><div class="alc-cat-toggle" id="alc-tog-'+ci+'">Expand '+CHEV+'</div>';
+    hdr.onclick=function(){toggleALC(ci);};
     wrap.appendChild(hdr);
-
-    // grid of cards
-    var grid = document.createElement('div');
-    grid.className = 'alc-grid';
-    grid.id = 'alc-grid-'+ci;
-    grid.style.gridTemplateColumns = 'repeat('+Math.min(cat.cols, cat.services.length)+',1fr)';
-    cat.services.forEach(function(svc){
-      grid.appendChild(makeALCCard(svc));
-    });
+    var grid=document.createElement('div');
+    grid.className='alc-grid';
+    grid.id='alc-grid-'+ci;
+    grid.style.gridTemplateColumns='repeat('+Math.min(cat.cols,cat.services.length)+',1fr)';
+    cat.services.forEach(function(svc){ grid.appendChild(makeALCCard(svc)); });
     wrap.appendChild(grid);
   });
 }
 
 function makeALCCard(svc){
-  var tiersHtml = svc.tiers.map(function(t){
-    var items = t.i.map(function(li){return '<li>'+li+'</li>';}).join('');
-    var ph = t.p ? '<span class="tier-price">'+t.p+'</span>' : '';
+  var tiersHtml=svc.tiers.map(function(t){
+    var items=t.i.map(function(li){return '<li>'+li+'</li>';}).join('');
+    var ph=t.p?'<span class="tier-price">'+t.p+'</span>':'';
     return '<div class="tier"><div class="tier-header"><span class="tier-name">'+t.n+'</span>'+ph+'</div><ul class="tier-list">'+items+'</ul></div>';
   }).join('');
-  var card = document.createElement('div');
-  card.className = 'svc-card';
-  card.innerHTML =
+  var card=document.createElement('div');
+  card.className='svc-card';
+  card.innerHTML=
     '<div class="svc-name-row"><div class="svc-name">'+svc.name+'</div></div>'
     +'<p class="svc-desc">'+svc.desc+'</p>'
     +'<div class="svc-details-wrap">'
@@ -523,32 +506,30 @@ function makeALCCard(svc){
 }
 
 function toggleALC(ci){
-  var grid = document.getElementById('alc-grid-'+ci);
-  var tog  = document.getElementById('alc-tog-'+ci);
-  var open = grid.classList.contains('open');
-  grid.classList.toggle('open', !open);
-  tog.classList.toggle('open', !open);
-  tog.innerHTML = (open ? 'Expand ' : 'Collapse ') + CHEV;
+  var grid=document.getElementById('alc-grid-'+ci);
+  var tog=document.getElementById('alc-tog-'+ci);
+  var open=grid.classList.contains('open');
+  grid.classList.toggle('open',!open);
+  tog.classList.toggle('open',!open);
+  tog.innerHTML=(open?'Expand ':'Collapse ')+CHEV;
 }
 
-// PRICING DROPDOWN (same logic as services.html)
 function closeAllDropdowns(){
   document.querySelectorAll('.svc-details.open').forEach(function(d){d.classList.remove('open');});
   document.querySelectorAll('.svc-toggle.open').forEach(function(b){b.classList.remove('open');});
   document.querySelectorAll('.svc-card.dropdown-open').forEach(function(c){c.classList.remove('dropdown-open');});
 }
 function toggleTier(btn){
-  var card = btn.closest('.svc-card');
-  var det  = btn.nextElementSibling;
-  var open = det.classList.contains('open');
+  var card=btn.closest('.svc-card');
+  var det=btn.nextElementSibling;
+  var open=det.classList.contains('open');
   closeAllDropdowns();
   if(!open){det.classList.add('open');btn.classList.add('open');card.classList.add('dropdown-open');}
 }
 document.addEventListener('click',function(e){if(!e.target.closest('.svc-card'))closeAllDropdowns();});
 
-// INIT
 buildALC();
-document.getElementById('footer-year').textContent = '© '+new Date().getFullYear()+' Colegrove Media';
+document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
 
 (function(){
   var nav=document.getElementById('main-nav'),ly=window.scrollY,t=false;
