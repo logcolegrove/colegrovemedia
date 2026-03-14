@@ -16,32 +16,26 @@
     --border:rgba(0,242,166,0.12); --border2:rgba(242,244,248,0.06);
     --sans:'DM Sans',sans-serif; --display:'DM Sans',sans-serif;
   }
-  body { background:var(--bg); color:var(--white); font-family:var(--sans); font-weight:400; line-height:1.6; overflow-x:hidden; padding-top:68px; }
+  body { background:var(--bg); color:var(--white); font-family:var(--sans); font-weight:400; line-height:1.6; overflow-x:hidden; padding-top:68px; font-size:20px; }
   a { text-decoration:none; color:inherit; }
 
-  /* SCROLL REVEAL */
-  .reveal {
-    opacity:0; transform:translateY(22px);
-    transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
-  }
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
   .reveal.visible { opacity:1; transform:translateY(0); }
   .reveal-delay-1 { transition-delay:0.08s; }
   .reveal-delay-2 { transition-delay:0.16s; }
   .reveal-delay-3 { transition-delay:0.24s; }
   .reveal-delay-4 { transition-delay:0.32s; }
 
-  /* NAV */
   nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(22,26,37,0.92); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:68px; transform:translateY(0); transition:transform 0.32s cubic-bezier(0.4,0,0.2,1),background 0.2s ease; }
   nav.nav-hidden { transform:translateY(-100%); }
   .nav-logo { display:flex; align-items:center; flex-shrink:0; height:44px; }
-  .nav-logo img { height:36px; width:auto; display:block; }
+  .nav-logo img { height:48px; width:auto; display:block; }
   .nav-links { display:flex; list-style:none; gap:8px; }
-  .nav-links a { font-size:14px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); padding:6px 14px; border-radius:6px; transition:color 0.18s,background 0.18s; }
+  .nav-links a { font-size:16px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); padding:6px 14px; border-radius:6px; transition:color 0.18s,background 0.18s; }
   .nav-links a:hover { color:var(--white); background:rgba(0,242,166,0.07); }
-  .nav-cta { background:var(--teal); color:#0d1117; padding:10px 22px; border-radius:8px; font-size:13px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; cursor:pointer; transition:opacity 0.18s; display:inline-block; }
+  .nav-cta { background:var(--teal); color:#0d1117; padding:10px 22px; border-radius:8px; font-size:15px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; cursor:pointer; transition:opacity 0.18s; display:inline-block; }
   .nav-cta:hover { opacity:0.85; }
 
-  /* HERO */
   .hero { position:relative; height:calc(100vh - 68px); min-height:520px; overflow:hidden; border-bottom:1px solid var(--border); }
   .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; }
   .hero-scrim { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(22,26,37,0.18) 0%,rgba(22,26,37,0.08) 50%,rgba(22,26,37,0.55) 100%); }
@@ -49,67 +43,47 @@
   .btn-secondary { background:transparent; color:var(--muted); padding:12px 28px; border-radius:8px; font-size:13px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; border:1px solid var(--border); cursor:pointer; transition:color 0.18s,border-color 0.18s; display:inline-block; }
   .btn-secondary:hover { color:var(--white); border-color:rgba(0,242,166,0.4); }
 
-  /* SECTIONS */
   .section { padding:88px 40px; border-bottom:1px solid var(--border); }
-  .section-eyebrow { font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+  .section-eyebrow { font-size:14px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; display:flex; align-items:center; gap:10px; }
   .section-eyebrow::before { content:''; display:block; width:20px; height:1px; background:var(--teal); opacity:0.5; }
-  .section-title { font-family:var(--display); font-size:clamp(36px,4vw,52px); font-weight:700; line-height:1; letter-spacing:-0.01em; color:var(--white); }
+  .section-title { font-family:var(--display); font-size:clamp(44px,5vw,64px); font-weight:700; line-height:1; letter-spacing:-0.01em; color:var(--white); }
   .section-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:20px; }
-  .see-all { font-size:13px; font-weight:500; color:var(--muted); letter-spacing:0.06em; display:inline-flex; align-items:center; gap:6px; transition:color 0.18s; white-space:nowrap; }
+  .see-all { font-size:16px; font-weight:500; color:var(--muted); letter-spacing:0.06em; display:inline-flex; align-items:center; gap:6px; transition:color 0.18s; white-space:nowrap; }
   .see-all:hover { color:var(--teal); }
   .see-all::after { content:'→'; transition:transform 0.18s; }
   .see-all:hover::after { transform:translateX(3px); }
 
-  /* SERVICES */
   .services-grid { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:12px; overflow:visible; }
-  .service-card {
-    padding:36px 28px 32px; border-right:1px solid var(--border);
-    display:flex; flex-direction:column; gap:16px;
-    cursor:pointer; position:relative; overflow:hidden;
-    transition:background 0.25s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.3s;
-    border-radius:0;
-  }
+  .service-card { padding:36px 28px 32px; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:16px; cursor:pointer; position:relative; overflow:hidden; transition:background 0.25s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.3s; border-radius:0; }
   .service-card:first-child { border-radius:12px 0 0 12px; }
   .service-card:last-child { border-right:none; border-radius:0 12px 12px 0; }
   .service-card:hover { background:var(--bg3); transform:scale(1.015); box-shadow:0 8px 32px rgba(0,0,0,0.4); z-index:2; }
-  /* Top line — always rendered, scale reveals it */
-  .service-card::before {
-    content:''; position:absolute; top:0; left:0; right:0;
-    height:2px; background:var(--teal);
-    transform:scaleX(0); transform-origin:left;
-    transition:transform 0.3s ease;
-  }
+  .service-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--teal); transform:scaleX(0); transform-origin:left; transition:transform 0.3s ease; }
   .service-card:hover::before { transform:scaleX(1); }
   .s-icon { width:44px; height:44px; border-radius:10px; background:rgba(0,242,166,0.08); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--teal); flex-shrink:0; transition:background 0.25s; }
   .service-card:hover .s-icon { background:rgba(0,242,166,0.15); }
   .s-name { font-family:var(--display); font-size:26px; font-weight:700; letter-spacing:0.02em; color:var(--white); line-height:1; }
-  .s-desc { font-size:13px; color:var(--muted); line-height:1.65; font-weight:300; flex:1; }
+  .s-desc { font-size:16px; color:var(--muted); line-height:1.65; font-weight:300; flex:1; }
   .s-list { list-style:none; border-top:1px solid var(--border); padding-top:16px; }
-  .s-list li { font-size:12px; color:var(--muted); padding:7px 0; border-bottom:1px solid var(--border2); display:flex; align-items:center; justify-content:space-between; transition:color 0.18s; }
+  .s-list li { font-size:15px; color:var(--muted); padding:7px 0; border-bottom:1px solid var(--border2); display:flex; align-items:center; justify-content:space-between; transition:color 0.18s; }
   .s-list li:last-child { border-bottom:none; }
   .s-list li:hover { color:var(--teal); }
-  .s-list li::after { content:'→'; opacity:0; font-size:11px; color:var(--teal); transition:opacity 0.18s; }
+  .s-list li::after { content:'→'; opacity:0; font-size:13px; color:var(--teal); transition:opacity 0.18s; }
   .s-list li:hover::after { opacity:1; }
 
-  /* PORTFOLIO */
   .work-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--border); border-radius:12px; overflow:hidden; }
   .work-item { background:var(--bg3); position:relative; overflow:hidden; cursor:pointer; aspect-ratio:16/10; }
-  .work-item.featured { grid-column:1/-1; aspect-ratio:21/9; }
   .wi-thumb { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease,filter 0.3s ease; filter:brightness(0.82); }
   .work-item:hover .wi-thumb { transform:scale(1.04); filter:brightness(0.65); }
   .wi-gradient { position:absolute; inset:0; background:linear-gradient(to top,rgba(22,26,37,0.92) 0%,rgba(22,26,37,0.1) 55%,transparent 100%); }
   .wi-content { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:24px 28px; }
-  .work-item.featured .wi-content { padding:36px 40px; }
-  .wi-tag { display:inline-flex; align-items:center; background:rgba(0,242,166,0.12); border:1px solid rgba(0,242,166,0.25); border-radius:100px; padding:4px 12px; margin-bottom:10px; align-self:flex-start; font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); }
+  .wi-tag { display:inline-flex; align-items:center; background:rgba(0,242,166,0.15); border:1px solid rgba(0,242,166,0.25); border-radius:100px; padding:4px 12px; margin-bottom:10px; align-self:flex-start; font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
   .wi-title { font-size:18px; font-weight:600; color:var(--white); line-height:1.25; transition:color 0.2s; }
-  .work-item.featured .wi-title { font-size:26px; max-width:560px; }
   .work-item:hover .wi-title { color:var(--teal); }
   .wi-client { font-size:13px; color:rgba(242,244,248,0.4); margin-top:4px; }
   .wi-play-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.85); width:56px; height:56px; border-radius:50%; background:rgba(0,242,166,0.12); border:1.5px solid rgba(0,242,166,0.5); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.25s,transform 0.25s; backdrop-filter:blur(4px); }
-  .work-item.featured .wi-play-btn { width:68px; height:68px; }
   .work-item:hover .wi-play-btn { opacity:1; transform:translate(-50%,-50%) scale(1); }
 
-  /* MODAL */
   .modal-backdrop { position:fixed; inset:0; z-index:500; background:rgba(11,14,20,0.88); backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity 0.25s,visibility 0.25s; padding:24px; }
   .modal-backdrop.open { opacity:1; visibility:visible; }
   .modal { background:var(--bg2); border:1px solid var(--border); border-radius:16px; overflow:hidden; width:100%; max-width:960px; max-height:90vh; overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; transform:translateY(16px) scale(0.98); transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1); display:grid; grid-template-columns:1fr 360px; }
@@ -143,32 +117,27 @@
   .modal-btn-ghost { display:block; text-align:center; background:transparent; color:var(--muted); padding:12px; border-radius:8px; font-size:13px; font-weight:500; border:1px solid var(--border); transition:color 0.18s,border-color 0.18s; }
   .modal-btn-ghost:hover { color:var(--white); border-color:rgba(0,242,166,0.3); }
 
-  /* ABOUT */
   .about-grid { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
   .about-left { padding:56px 52px 56px 40px; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:24px; }
   .about-h2 { font-family:var(--display); font-size:clamp(28px,3vw,42px); font-weight:700; line-height:1.1; letter-spacing:-0.01em; }
-  .about-body { font-size:15px; color:var(--muted); line-height:1.78; font-weight:300; max-width:400px; }
+  .about-body { font-size:18px; color:var(--muted); line-height:1.78; font-weight:300; max-width:400px; }
   .about-right { padding:56px 40px 56px 52px; background:var(--bg2); display:flex; flex-direction:column; gap:28px; }
   .value-row { display:flex; gap:18px; padding-bottom:28px; border-bottom:1px solid var(--border); }
   .value-row:last-child { border-bottom:none; padding-bottom:0; }
-  .value-badge { width:32px; height:32px; border-radius:8px; background:rgba(0,242,166,0.1); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:var(--teal); flex-shrink:0; margin-top:2px; }
-  .value-title { font-family:var(--display); font-size:20px; font-weight:700; color:var(--white); margin-bottom:6px; }
-  .value-desc { font-size:13px; color:var(--muted); line-height:1.65; font-weight:300; }
+  .value-badge { width:32px; height:32px; border-radius:8px; background:rgba(0,242,166,0.1); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:600; color:var(--teal); flex-shrink:0; margin-top:2px; }
+  .value-title { font-family:var(--display); font-size:22px; font-weight:700; color:var(--white); margin-bottom:6px; }
+  .value-desc { font-size:16px; color:var(--muted); line-height:1.65; font-weight:300; }
 
-  /* PROCESS */
   .process-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
   .process-step { padding:44px 32px; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:14px; position:relative; transition:background 0.2s; }
   .process-step:last-child { border-right:none; }
   .process-step:hover { background:var(--teal-glow); }
   .step-n { font-family:var(--display); font-size:72px; font-weight:700; color:rgba(0,242,166,0.06); line-height:1; position:absolute; top:24px; right:24px; pointer-events:none; }
-  .step-dot { width:36px; height:36px; border-radius:50%; background:rgba(0,242,166,0.1); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
-  .step-dot-inner { width:10px; height:10px; border-radius:50%; background:var(--teal); }
   .step-name { font-family:var(--display); font-size:28px; font-weight:700; color:var(--white); line-height:1; }
   .step-desc { font-size:14px; color:var(--muted); line-height:1.7; font-weight:300; max-width:260px; }
   .step-link { margin-top:8px; font-size:12px; font-weight:500; color:var(--teal); letter-spacing:0.08em; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; transition:gap 0.18s; }
   .step-link:hover { gap:10px; }
 
-  /* QUOTE */
   .quote-strip { background:var(--bg2); border-bottom:1px solid var(--border); padding:72px 40px; }
   .quote-inner { max-width:720px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center; gap:20px; }
   .quote-mark { font-family:var(--display); font-size:72px; font-weight:700; color:var(--teal); opacity:0.25; line-height:0.7; }
@@ -176,7 +145,6 @@
   .quote-attr { font-size:12px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
   .quote-attr strong { color:var(--teal); font-weight:500; }
 
-  /* CTA */
   .cta-section { padding:100px 40px; display:flex; align-items:center; justify-content:space-between; gap:60px; position:relative; overflow:hidden; border-bottom:1px solid var(--border); }
   .cta-section::before { content:''; position:absolute; right:-100px; top:50%; transform:translateY(-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%); pointer-events:none; }
   .cta-h2 { font-family:var(--display); font-size:clamp(36px,4.5vw,58px); font-weight:700; line-height:0.98; letter-spacing:-0.015em; max-width:520px; }
@@ -194,7 +162,6 @@
   .btn-cta-outline { background:transparent; color:var(--muted); border:1px solid var(--border); }
   .btn-cta-outline:hover { color:var(--white); border-color:rgba(0,242,166,0.4); }
 
-  /* FOOTER */
   footer { background:var(--bg2); border-top:1px solid var(--border); }
   .footer-main { padding:56px 40px 40px; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:48px; border-bottom:1px solid var(--border); }
   .footer-logo-img { height:44px; width:auto; display:block; margin-bottom:14px; }
@@ -207,17 +174,15 @@
   .footer-bottom a { color:var(--muted); transition:color 0.18s; }
   .footer-bottom a:hover { color:var(--teal); }
 
-  /* RESPONSIVE */
   @media (max-width:960px) {
     nav { padding:0 24px; }
     .nav-links { display:none; }
-    .hero { height:60vw; min-height:420px; }
+    .hero { height:100svh; min-height:420px; }
     .services-grid { grid-template-columns:1fr 1fr; overflow:visible; }
     .service-card:nth-child(2) { border-right:none; }
     .service-card:nth-child(3) { border-top:1px solid var(--border); border-right:1px solid var(--border); }
     .service-card:nth-child(4) { border-top:1px solid var(--border); border-right:none; }
     .work-grid { grid-template-columns:1fr; }
-    .work-item.featured { aspect-ratio:16/9; grid-column:1; }
     .about-grid { grid-template-columns:1fr; }
     .about-left { border-right:none; border-bottom:1px solid var(--border); }
     .process-grid { grid-template-columns:1fr; }
@@ -234,7 +199,7 @@
     .service-card { border-right:none !important; border-top:1px solid var(--border); }
     .service-card:first-child { border-top:none; }
     .modal { grid-template-columns:1fr; }
-    .footer-main { grid-template-columns:1fr; }
+    .footer-main { grid-template-columns:1fr 1fr; }
     .cta-btns { flex-direction:column; }
   }
 </style>
@@ -274,7 +239,7 @@
       <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polygon points="6,4 16,10 6,16" fill="currentColor" opacity="0.9"/></svg></div>
       <div class="s-name">Video</div>
       <p class="s-desc">Cinematic storytelling that connects emotionally and drives people to act — whether it's a 10-second social cut or a full-length brand film.</p>
-      <ul class="s-list"><li>Brand Videos</li><li>Testimonials</li><li>Social Clips / Ads</li><li>Podcasts</li><li>Live Streams</li></ul>
+      <ul class="s-list"><li>Brand Videos</li><li>Testimonials</li><li>Social Clips / Ads</li><li>Live Streams</li></ul>
     </div>
     <div class="service-card reveal reveal-delay-2" onclick="location.href='https://www.colegrovemedia.com/category/photo'">
       <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="16" height="12" rx="2"/><circle cx="10" cy="11" r="3" fill="currentColor" stroke="none" opacity="0.7"/><path d="M7 5l1.5-2h3L13 5" stroke-linecap="round"/></svg></div>
@@ -301,12 +266,12 @@
   <div class="section-header" style="padding-top:88px;">
     <div>
       <div class="section-eyebrow reveal">02 — Portfolio</div>
-      <h2 class="section-title reveal reveal-delay-1">Selected Work</h2>
+      <h2 class="section-title reveal reveal-delay-1">Past Projects</h2>
     </div>
     <a href="https://www.colegrovemedia.com/work" class="see-all reveal reveal-delay-2">View All</a>
   </div>
   <div class="work-grid">
-    <div class="work-item featured reveal" onclick="openModal(0)">
+    <div class="work-item reveal" onclick="openModal(0)">
       <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg" alt="Ignis Technologies">
       <div class="wi-gradient"></div>
       <div class="wi-play-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg></div>
@@ -327,13 +292,13 @@
       </div>
     </div>
     <div class="work-item reveal reveal-delay-2" onclick="openModal(2)">
-      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e8cb2eb2e8fc0a7c2_66f38750bb92e144accdf66a_thumb%2520(12).jpeg" alt="Arctic Drone">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/6754f34a0ccac304599e4a4c_iceland%20no%20vin-3.jpg" alt="Iceland in Motion">
       <div class="wi-gradient"></div>
       <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
       <div class="wi-content">
         <div class="wi-tag">Drone / FPV</div>
-        <div class="wi-title">Above the Arctic Circle</div>
-        <div class="wi-client">Personal Travel Film — Northern Norway</div>
+        <div class="wi-title">Iceland in Motion</div>
+        <div class="wi-client">Hyperlapses, Drones & 8K Cinematics</div>
       </div>
     </div>
     <div class="work-item reveal reveal-delay-1" onclick="openModal(3)">
@@ -347,29 +312,28 @@
       </div>
     </div>
     <div class="work-item reveal reveal-delay-2" onclick="openModal(4)">
-      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f768eb0871ede95f20f300_upda.jpg" alt="GVLT Brand Video">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67a2b11e76d2956fbe1cd0d4_thumb%20(2).jpg" alt="SmartSimple Animated Explainer">
       <div class="wi-gradient"></div>
       <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
       <div class="wi-content">
-        <div class="wi-tag">Brand Video</div>
-        <div class="wi-title">Painted Hills</div>
-        <div class="wi-client">Gallatin Valley Land Trust</div>
+        <div class="wi-tag">Animation</div>
+        <div class="wi-title">SmartSimple</div>
+        <div class="wi-client">Animated Explainer</div>
       </div>
     </div>
     <div class="work-item reveal reveal-delay-3" onclick="openModal(5)">
-      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg" alt="Testimonial">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/691b5270e465783b9aab5d8e_thumb%20(16).jpg" alt="Rancher Grassland Restoration">
       <div class="wi-gradient"></div>
       <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
       <div class="wi-content">
-        <div class="wi-tag">Testimonial</div>
-        <div class="wi-title">Not Jumping Ship</div>
-        <div class="wi-client">In-Person Interview</div>
+        <div class="wi-tag">Client Story</div>
+        <div class="wi-title">A Rancher's Take on Grassland Restoration</div>
+        <div class="wi-client">Pheasants Forever</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MODAL -->
 <div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
   <div class="modal" id="modal">
     <div class="modal-left">
@@ -404,9 +368,8 @@
   <div class="section-header">
     <div>
       <div class="section-eyebrow reveal">03 — About</div>
-      <h2 class="section-title reveal reveal-delay-1">Let's Team Up</h2>
+      <h2 class="section-title reveal reveal-delay-1">Who You're Working With</h2>
     </div>
-    <a href="https://www.colegrovemedia.com/about" class="see-all reveal reveal-delay-2">About Logan</a>
   </div>
   <div class="about-grid reveal">
     <div class="about-left">
@@ -418,15 +381,15 @@
     <div class="about-right">
       <div class="value-row">
         <div class="value-badge">01</div>
-        <div><div class="value-title">Results-Driven</div><p class="value-desc">We start with the finish line. Every creative decision — shot selection, pacing, copy — is made in service of what you actually need the content to do.</p></div>
+        <div><div class="value-title">Results-Driven</div><p class="value-desc">We start with the finish line in mind.</p></div>
       </div>
       <div class="value-row">
         <div class="value-badge">02</div>
-        <div><div class="value-title">Client-Centered</div><p class="value-desc">To do this well, I have to get completely inside your world — your audience, your goals, your constraints. The work only lands when it's built around you, not around me.</p></div>
+        <div><div class="value-title">Client-Centered</div><p class="value-desc">I make it about you — your audience, your goals, your deadline. Great work doesn't have to be a painful process.</p></div>
       </div>
       <div class="value-row">
         <div class="value-badge">03</div>
-        <div><div class="value-title">No Surprises</div><p class="value-desc">Clear timelines, honest pricing, and a final product that matches the vision you came in with.</p></div>
+        <div><div class="value-title">No Surprises</div><p class="value-desc">Clear timelines, transparent pricing, and a final product that matches the vision you came in with.</p></div>
       </div>
     </div>
   </div>
@@ -436,27 +399,24 @@
   <div class="section-header" style="padding-top:88px;">
     <div>
       <div class="section-eyebrow reveal">04 — Process</div>
-      <h2 class="section-title reveal reveal-delay-1">Ready to Begin?</h2>
+      <h2 class="section-title reveal reveal-delay-1">Let's Get to Work</h2>
     </div>
   </div>
   <div class="process-grid">
     <div class="process-step reveal reveal-delay-1">
       <div class="step-n">01</div>
-      <div class="step-dot"><div class="step-dot-inner"></div></div>
       <div class="step-name">Reach Out</div>
       <p class="step-desc">Tell us about your goals. A quick call or a project brief — either works as a starting point.</p>
       <a href="https://www.colegrovemedia.com/project-brief-form" class="step-link">Start a Brief →</a>
     </div>
     <div class="process-step reveal reveal-delay-2">
       <div class="step-n">02</div>
-      <div class="step-dot"><div class="step-dot-inner"></div></div>
       <div class="step-name">Get a Proposal</div>
       <p class="step-desc">You'll receive a clear timeline, deliverables list, and a quote. No vague estimates.</p>
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="step-link">Schedule a Call →</a>
+      <a href="https://www.colegrovemedia.com/pricing" class="step-link">See Pricing →</a>
     </div>
     <div class="process-step reveal reveal-delay-3">
       <div class="step-n">03</div>
-      <div class="step-dot"><div class="step-dot-inner"></div></div>
       <div class="step-name">Get Great Media</div>
       <p class="step-desc">We handle production start to finish. You get a polished final product you're proud to share.</p>
       <a href="https://www.colegrovemedia.com/work" class="step-link">See Examples →</a>
@@ -540,7 +500,7 @@
 
 <script>
 var library = [
-  { slug:'powering-wildfire-intelligence',     title:'Powering Wildfire Intelligence', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg', cats:['brand-video'], vimeoId:'1011394531' },
+  { slug:'powering-wildfire-intelligence', title:'Powering Wildfire Intelligence', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg', cats:['brand-video'], vimeoId:'1011394531' },
   { slug:'streamline-your-nonprofit', title:'Streamline Your Nonprofit — Animated Explainer', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg', cats:['animated-explainer'], vimeoId:'1011466967' },
   { slug:'above-the-arctic-circle', title:'Above the Arctic Circle — Cinematic 4K Drone Film', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e8cb2eb2e8fc0a7c2_66f38750bb92e144accdf66a_thumb%2520(12).jpeg', cats:['drone-video-fpv'], vimeoId:'1012197311' },
   { slug:'all-in-one-foundation-management', title:'All-in-One Foundation Management Solution', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg', cats:['product-video','animated-explainer'], vimeoId:'1011444538' },
@@ -573,12 +533,12 @@ var library = [
 ];
 
 var projects = [
-  { slug:'powering-wildfire-intelligence', tag:'Brand Video', cats:['brand-video'], title:'Powering Wildfire Intelligence — Ignis Technologies', client:'Ignis Technologies', desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software — built to help firefighters and land managers stay ahead of fast-moving fires.',     specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2–3 weeks'}], vimeoId:'1011394531' },
+  { slug:'powering-wildfire-intelligence', tag:'Brand Video', cats:['brand-video'], title:'Powering Wildfire Intelligence — Ignis Technologies', client:'Ignis Technologies', desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software — built to help firefighters and land managers stay ahead of fast-moving fires.', specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2–3 weeks'}], vimeoId:'1011394531' },
   { slug:'streamline-your-nonprofit', tag:'Animation', cats:['animated-explainer'], title:'Streamline Your Nonprofit — Animated Explainer', client:'Nonprofit Client', desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.', specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'Nonprofit Client'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}], vimeoId:'1011466967' },
-  { slug:'above-the-arctic-circle', tag:'Drone / FPV', cats:['drone-video-fpv'], title:'Above the Arctic Circle — Cinematic 4K Drone Film', client:'Cinematic Film', desc:'A personal cinematic project shot above the Arctic Circle in Northern Norway. Sweeping 4K drone footage captures the raw scale of the landscape — fjords, snowfields, and endless sky — in a visual poem about the edge of the world.', specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Client',v:'Personal Project'},{k:'Format',v:'4K / LOG color'},{k:'Location',v:'Northern Norway'},{k:'Turnaround',v:'4 weeks'}], vimeoId:'1012197311' },
+  { slug:'iceland-in-motion', tag:'Drone / FPV', cats:['drone-video-fpv'], title:'Iceland in Motion', client:'Personal Travel Film', desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland. A personal cinematic project capturing the raw, otherworldly landscape — glaciers, volcanic fields, and endless light — in a technically ambitious travel film.', specs:[{k:'Type',v:'Cinematic Travel Film'},{k:'Client',v:'Personal Project'},{k:'Format',v:'8K Cinematic'},{k:'Location',v:'Iceland'},{k:'Turnaround',v:'4 weeks'}], vimeoId:'1036921693' },
   { slug:'all-in-one-foundation-management', tag:'Product Demo', cats:['product-video','animated-explainer'], title:'All-in-One Foundation Management Solution', client:'Software Client', desc:'A software overview video built to help a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable and powerful.', specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}], vimeoId:'1011444538' },
-  { slug:'painted-hills-gvlt', tag:'Brand Video', cats:['brand-video'], title:'Painted Hills — GVLT Brand Video', client:'Gallatin Valley Land Trust', desc:'A brand video for Gallatin Valley Land Trust (GVLT), shot on the Painted Hills property. The piece blends sweeping landscape photography with intimate storytelling to show why land conservation matters — and what GVLT makes possible for future generations.', specs:[{k:'Type',v:'Brand / Impact Video'},{k:'Client',v:'Gallatin Valley Land Trust'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2–3 weeks'}], vimeoId:'1011446090' },
-  { slug:'not-jumping-ship', tag:'Testimonial', cats:['testimonial'], title:'Not Jumping Ship — Client Testimonial Video', client:'In-Person Interview', desc:'An in-person testimonial video built around a real client story. Filmed with a clean, professional look that puts the subject at ease — the result is authentic, quotable content that builds trust far more effectively than any marketing copy.', specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Format',v:'4K Interview'},{k:'Deliverables',v:'Full cut + 30s version'},{k:'Turnaround',v:'1–2 weeks'}], vimeoId:'1011460491' }
+  { slug:'smartsimple-animated-explainer', tag:'Animation', cats:['animated-explainer'], title:'SmartSimple — Animated Explainer', client:'SmartSimple', desc:'A clean animated explainer built to communicate the value of a complex SaaS platform to a non-technical audience. Motion graphics and clear narration make the product feel approachable and worth exploring.', specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'SmartSimple'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}], vimeoId:'1053133749' },
+  { slug:'a-ranchers-take', tag:'Client Story', cats:['remote-client-story'], title:'A Rancher\'s Take on Grassland Restoration', client:'Pheasants Forever', desc:'Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family\'s farm north of Glasgow — and how partnering with Pheasants Forever made the process simple, fast, and affordable.', specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}], vimeoId:'1134497582' }
 ];
 
 var catLabels = {
@@ -604,18 +564,15 @@ function openModal(idx) {
     return '<div class="modal-spec"><span class="modal-spec-k">'+s.k+'</span><span class="modal-spec-v">'+s.v+'</span></div>';
   }).join('');
   document.getElementById('modal-cta-tag').textContent = p.tag;
-  document.getElementById('modal-iframe').src =
-    'https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
-
+  document.getElementById('modal-iframe').src = 'https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
   var related = getRelated(p.slug, p.cats).slice(0,3);
   var labelText = 'More '+(catLabels[p.cats[0]]||'Work');
   var relatedEl = document.getElementById('modal-related');
-  var label = document.getElementById('modal-related-label');
   if (related.length === 0) { relatedEl.style.display='none'; }
   else {
     relatedEl.style.display='';
     relatedEl.innerHTML='';
-    label = document.createElement('div');
+    var label = document.createElement('div');
     label.className='modal-related-label';
     label.textContent = labelText;
     relatedEl.appendChild(label);
@@ -623,9 +580,7 @@ function openModal(idx) {
       var d = document.createElement('div');
       d.className='modal-rel-item';
       d.setAttribute('onclick','openModalBySlug(\''+item.slug+'\')');
-      d.innerHTML='<img src="'+item.thumb+'" alt="" loading="lazy">'
-        +'<div><div class="modal-rel-title">'+item.title+'</div>'
-        +'<div class="modal-rel-tag">'+(catLabels[item.cats[0]]||item.cats[0])+'</div></div>';
+      d.innerHTML='<img src="'+item.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+item.title+'</div><div class="modal-rel-tag">'+(catLabels[item.cats[0]]||item.cats[0])+'</div></div>';
       relatedEl.appendChild(d);
     });
   }
@@ -650,7 +605,6 @@ function closeModal() {
 function handleBackdropClick(e) { if (e.target===document.getElementById('modal-backdrop')) closeModal(); }
 document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeModal(); });
 
-// NAV hide/show
 (function(){
   var nav=document.querySelector('nav'), lastY=window.scrollY, ticking=false;
   window.addEventListener('scroll',function(){
@@ -664,7 +618,6 @@ document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeMo
   },{passive:true});
 })();
 
-// SCROLL REVEAL
 (function(){
   var els = document.querySelectorAll('.reveal');
   var io = new IntersectionObserver(function(entries){
