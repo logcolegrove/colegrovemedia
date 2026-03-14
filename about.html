@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Colegrove Media</title>
+<meta name="description" content="Logan Colegrove is a multimedia producer based in Bozeman, MT with 10+ years of experience bridging business strategy and creative content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --bg:#161a25;--bg2:#212733;--bg3:#1c2030;
+  --teal:#00f2a6;--teal-glow:rgba(0,242,166,0.08);
+  --white:#f2f4f8;--muted:#7e8ca0;
+  --border:rgba(0,242,166,0.12);--border2:rgba(242,244,248,0.06);
+  --sans:'DM Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;padding-top:68px;}
+a{text-decoration:none;color:inherit;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.08s;}
+.reveal-delay-2{transition-delay:0.16s;}
+.reveal-delay-3{transition-delay:0.24s;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
+nav.nav-hidden{transform:translateY(-100%);}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
+.nav-logo img{height:48px;width:auto;display:block;}
+.nav-links{display:flex;list-style:none;gap:8px;}
+.nav-links a{font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:6px 14px;border-radius:6px;transition:color 0.18s,background 0.18s;}
+.nav-links a:hover{color:var(--white);background:rgba(0,242,166,0.07);}
+.nav-links a.active{color:var(--teal);background:rgba(0,242,166,0.07);}
+.nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
+.nav-cta:hover{opacity:0.85;}
+
+/* ── HERO ── */
+.about-hero{padding:88px 40px 80px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+
+.hero-inner{display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center;}
+.hero-eyebrow{font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
+.hero-h1{font-size:clamp(44px,5.5vw,72px);font-weight:700;line-height:1.0;letter-spacing:-0.02em;margin-bottom:24px;}
+.hero-h1 span{color:var(--teal);}
+.hero-body{font-size:18px;color:var(--muted);line-height:1.78;font-weight:300;max-width:500px;margin-bottom:36px;}
+.hero-body strong{color:var(--white);font-weight:500;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-fill{background:var(--teal);color:#0d1117;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:opacity 0.18s;display:inline-flex;align-items:center;gap:8px;}
+.btn-fill:hover{opacity:0.85;}
+.btn-ghost{background:transparent;color:var(--muted);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:color 0.18s,border-color 0.18s;display:inline-block;}
+.btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
+
+/* PHOTO — clip-path wipe reveal */
+.hero-photo-col{position:relative;}
+.photo-frame{position:relative;width:100%;aspect-ratio:3/4;}
+.photo-accent{position:absolute;top:-12px;right:-12px;width:60%;height:108%;background:rgba(0,242,166,0.07);border:1px solid rgba(0,242,166,0.15);border-radius:16px;z-index:-1;transform:rotate(2deg);}
+.photo-clip-wrap{position:absolute;inset:0;border-radius:16px;overflow:hidden;background:var(--bg2);clip-path:polygon(0 100%,100% 100%,100% 100%,0 100%);transition:clip-path 1s cubic-bezier(0.16,1,0.3,1);}
+.photo-clip-wrap.revealed{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);}
+.photo-clip-wrap img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.9);}
+.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 22px 22px;background:linear-gradient(to top,rgba(22,26,37,0.92) 0%,transparent 100%);border-radius:0 0 16px 16px;display:flex;align-items:flex-end;justify-content:space-between;}
+.photo-name{font-size:16px;font-weight:600;color:var(--white);}
+.photo-loc{font-size:12px;color:var(--muted);margin-top:3px;font-weight:300;}
+.photo-tag{background:rgba(0,242,166,0.15);border:1px solid rgba(0,242,166,0.3);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);}
+
+/* ── BRAIN SECTION ── */
+.brain-section{padding:80px 40px;border-bottom:1px solid var(--border);background:var(--bg2);overflow:hidden;}
+.section-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.section-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
+.section-title{font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1;letter-spacing:-0.01em;margin-bottom:8px;}
+.section-sub{font-size:16px;color:var(--muted);font-weight:300;margin-bottom:56px;max-width:560px;}
+.brain-widget{position:relative;width:100%;max-width:960px;margin:0 auto;user-select:none;}
+.brain-panels{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bg2);border-radius:12px;overflow:visible;}
+.brain-panel{background:var(--bg3);border-radius:0;padding:40px 36px;display:flex;flex-direction:column;gap:16px;transition:opacity 0.08s linear,box-shadow 0.3s;will-change:transform,opacity;border:none;}
+.brain-panels .brain-panel:first-child{border-radius:12px 0 0 12px;}
+.brain-panels .brain-panel:last-child{border-radius:0 12px 12px 0;}
+.brain-panel.active{box-shadow:0 24px 60px rgba(0,0,0,0.6);}
+.bp-hemi{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,242,166,0.3);margin-bottom:2px;transition:color 0.3s;}
+.brain-panel.active .bp-hemi{color:rgba(0,242,166,0.6);}
+.bp-label{font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);}
+.bp-title{font-size:22px;font-weight:700;color:var(--white);line-height:1.1;}
+.bp-list{list-style:none;display:flex;flex-direction:column;gap:9px;flex:1;}
+.bp-list li{font-size:13px;color:var(--muted);display:flex;align-items:flex-start;gap:8px;font-weight:300;line-height:1.45;transition:color 0.2s;}
+.brain-panel.active .bp-list li{color:rgba(242,244,248,0.8);}
+.bp-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:5px;}
+.brain-balance{margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:8px;}
+.balance-track{width:280px;height:3px;background:var(--border);border-radius:2px;position:relative;}
+.balance-fill{position:absolute;top:0;left:0;height:100%;background:var(--teal);border-radius:2px;transition:width 0.1s linear;}
+.balance-thumb{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--teal);border:2px solid var(--bg2);transform:translate(-50%,-50%);transition:left 0.1s linear;box-shadow:0 0 8px rgba(0,242,166,0.4);}
+.balance-labels{display:flex;justify-content:space-between;width:280px;font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+
+/* ── PHILOSOPHY ── */
+.values-section{padding:80px 40px;border-bottom:1px solid var(--border);}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:visible;}
+.value-card{background:var(--bg2);padding:40px 32px;position:relative;overflow:hidden;transition:background 0.25s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s;}
+.value-card:hover{background:var(--bg3);transform:scale(1.015);box-shadow:0 8px 32px rgba(0,0,0,0.4);z-index:2;}
+.value-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+.value-card:hover::before{transform:scaleX(1);}
+.value-num{font-size:64px;font-weight:700;color:rgba(0,242,166,0.05);line-height:1;position:absolute;bottom:16px;right:20px;pointer-events:none;}
+.value-icon{width:44px;height:44px;border-radius:10px;background:rgba(0,242,166,0.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--teal);margin-bottom:20px;}
+.value-title{font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.1;}
+.value-desc{font-size:15px;color:var(--muted);line-height:1.7;font-weight:300;}
+
+/* ── PROCESS ── */
+.process-section{padding:80px 40px;border-bottom:1px solid var(--border);}
+.process-track{display:grid;grid-template-columns:repeat(5,1fr);position:relative;margin-top:48px;}
+.process-track::before{content:'';position:absolute;top:21px;left:10%;right:10%;height:1px;background:var(--border);}
+.process-node{display:flex;flex-direction:column;align-items:center;gap:16px;padding:0 12px;}
+.node-circle{width:44px;height:44px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--teal);letter-spacing:0.06em;flex-shrink:0;transition:background 0.2s,border-color 0.2s;z-index:1;}
+.process-node:hover .node-circle{background:rgba(0,242,166,0.1);border-color:rgba(0,242,166,0.4);}
+.node-name{font-size:14px;font-weight:600;color:var(--white);text-align:center;}
+.node-desc{font-size:12px;color:var(--muted);text-align:center;line-height:1.55;font-weight:300;}
+
+/* ── GEAR ── */
+.gear-section{padding:80px 40px;border-bottom:1px solid var(--border);}
+.gear-tabs{display:flex;gap:4px;margin-bottom:2px;flex-wrap:wrap;}
+.gear-tab{background:transparent;border:1px solid var(--border);color:var(--muted);padding:8px 18px;border-radius:100px;font-size:13px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:all 0.18s;white-space:nowrap;}
+.gear-tab:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
+.gear-tab.active{background:var(--teal);color:#0d1117;border-color:var(--teal);font-weight:600;}
+.gear-panels{background:var(--border);border-radius:12px;overflow:hidden;}
+.gear-panel{display:none;grid-template-columns:repeat(3,1fr);gap:2px;}
+.gear-panel.active{display:grid;}
+.gear-col{background:var(--bg2);padding:32px 28px;}
+.gear-col-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;}
+.gear-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+.gear-list li{font-size:14px;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--border2);display:flex;align-items:center;justify-content:space-between;font-weight:300;transition:color 0.18s;}
+.gear-list li:last-child{border-bottom:none;}
+.gear-list li:hover{color:var(--white);}
+.gear-tag{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);opacity:0.7;background:rgba(0,242,166,0.06);border:1px solid rgba(0,242,166,0.15);border-radius:4px;padding:2px 7px;flex-shrink:0;}
+
+/* ── CREDENTIALS ── */
+.creds-section{padding:80px 40px;border-bottom:1px solid var(--border);background:var(--bg2);}
+.creds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
+.cred-card{background:var(--bg3);padding:36px 32px;}
+.cred-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;}
+.cred-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.cred-list li{font-size:14px;color:var(--muted);font-weight:300;line-height:1.4;display:flex;align-items:flex-start;gap:10px;}
+.cred-list li::before{content:'';width:16px;height:16px;border-radius:50%;background:rgba(0,242,166,0.08);border:1px solid rgba(0,242,166,0.25);flex-shrink:0;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3L3 5L7 1' stroke='%2300f2a6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
+
+/* ── FAQ ── */
+.faq-section{padding:80px 40px;border-bottom:1px solid var(--border);}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
+.faq-item{background:var(--bg2);}
+.faq-q{width:100%;background:none;border:none;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;font-family:var(--sans);text-align:left;}
+.faq-q-text{font-size:16px;font-weight:600;color:var(--white);line-height:1.3;}
+.faq-icon{width:28px;height:28px;border-radius:50%;background:rgba(0,242,166,0.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);transition:background 0.18s,transform 0.25s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:rgba(0,242,166,0.15);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.22,1,0.36,1);}
+.faq-a-inner{padding:0 32px 28px;font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;}
+.faq-item.open .faq-a{max-height:300px;}
+
+/* ── CTA ── */
+.cta-wrap{padding:40px 40px 80px;}
+.cta-band{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:52px 56px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;flex-wrap:wrap;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%);pointer-events:none;}
+.cta-band-h{font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.05;letter-spacing:-0.01em;}
+.cta-band-h span{color:var(--teal);}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);}
+.footer-main{padding:56px 40px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid var(--border);}
+.footer-logo-img{height:44px;width:auto;display:block;margin-bottom:14px;}
+.footer-tagline{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;max-width:220px;}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);margin-bottom:18px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:14px;color:var(--muted);font-weight:300;transition:color 0.18s;}
+.footer-links a:hover{color:var(--teal);}
+.footer-bottom{padding:20px 40px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);}
+.footer-bottom a{color:var(--muted);transition:color 0.18s;}
+.footer-bottom a:hover{color:var(--teal);}
+
+@media(max-width:960px){
+  nav{padding:0 24px;}.nav-links{display:none;}
+  .about-hero{padding:64px 24px 56px;}
+  .hero-inner{grid-template-columns:1fr;gap:48px;}
+  .hero-photo-col{max-width:380px;}
+  .brain-section,.values-section,.process-section,.gear-section,.creds-section,.faq-section{padding-left:24px;padding-right:24px;}
+  .brain-widget{height:auto;}
+  .brain-panels{position:relative;grid-template-columns:1fr;}
+  .brain-balance{display:none;}
+  .values-grid{grid-template-columns:1fr;}
+  .process-track{grid-template-columns:1fr 1fr;gap:32px;}.process-track::before{display:none;}
+  .gear-panel.active{grid-template-columns:1fr;}
+  .creds-grid{grid-template-columns:1fr;}
+  .faq-grid{grid-template-columns:1fr;}
+  .cta-wrap{padding:40px 24px 80px;}
+  .cta-band{padding:36px 28px;}
+  .footer-main{grid-template-columns:1fr 1fr;padding:40px 24px 32px;}
+  .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;}
+}
+@media(max-width:580px){
+  .process-track{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-logo"><a href="index.html"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media"></a></div>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Portfolio</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="about-hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow reveal">About</div>
+      <h1 class="hero-h1 reveal reveal-delay-1">The person<br>behind the <span>work.</span></h1>
+      <p class="hero-body reveal reveal-delay-2">I'm <strong>Logan Colegrove</strong> — a multimedia producer based in Bozeman, Montana, with <strong>10+ years of professional in-house experience</strong> bridging business strategy and creative craft.</p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
+        <a href="work.html" class="btn-ghost">View My Work</a>
+      </div>
+    </div>
+    <div class="hero-photo-col reveal reveal-delay-2">
+      <div class="photo-accent"></div>
+      <div class="photo-frame">
+        <div class="photo-clip-wrap" id="photoClip">
+          <img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/65210be093d6496c0eaad1bf_new.jpg" alt="Logan Colegrove" id="heroPhoto">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BRAIN / BALANCE ── -->
+<section class="brain-section">
+  <div class="section-eyebrow reveal">01 — The difference</div>
+  <h2 class="section-title reveal">Balancing right brain and left brain.</h2>
+  <p class="section-sub reveal">Most creatives live on one side. With degrees in Business Marketing, Business Management, and Music Technology — plus a decade of in-house experience — I bridge both.</p>
+
+  <div class="brain-widget reveal" id="brainWidget">
+    <div class="brain-panels" id="brainPanels">
+      <div class="brain-panel" id="panelLeft">
+        <div class="bp-title">The business side</div>
+        <ul class="bp-list">
+          <li>BA Business Marketing & Management</li>
+          <li>10+ years professional in-house experience</li>
+          <li>Content strategy & conversion goals</li>
+          <li>Project scoping, budgeting & delivery</li>
+          <li>Brand messaging & audience targeting</li>
+          <li>Google Analytics, HubSpot, Meta & TikTok Ads</li>
+        </ul>
+      </div>
+      <div class="brain-panel" id="panelRight">
+        <div class="bp-title">The creative side</div>
+        <ul class="bp-list">
+          <li>Cinematic production & direction</li>
+          <li>Motion graphics & 3D animation</li>
+          <li>Color grading & audio design</li>
+          <li>Drone cinematography (FAA + EASA licensed)</li>
+          <li>Visual storytelling & narrative pacing</li>
+          <li>Music & sound engineering (BS Music Tech)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="brain-balance">
+      <div class="balance-track" id="balanceTrack">
+        <div class="balance-fill" id="balanceFill" style="width:50%"></div>
+        <div class="balance-thumb" id="balanceThumb" style="left:50%"></div>
+      </div>
+      <div class="balance-labels">
+        <span>Strategic</span>
+        <span>Creative</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHILOSOPHY ── -->
+<section class="values-section">
+  <div class="section-eyebrow reveal">02 — Philosophy</div>
+  <h2 class="section-title reveal" style="margin-bottom:48px;">How I work.</h2>
+  <div class="values-grid">
+    <div class="value-card reveal reveal-delay-1">
+      <div class="value-num">01</div>
+      <div class="value-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2L3 7v11h5v-5h4v5h5V7L10 2z"/></svg></div>
+      <div class="value-title">Start with the end result in mind</div>
+      <p class="value-desc">Every project starts with one question: what does success look like for you? The creative work flows from that answer — not the other way around.</p>
+    </div>
+    <div class="value-card reveal reveal-delay-2">
+      <div class="value-num">02</div>
+      <div class="value-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 3" stroke-linecap="round"/></svg></div>
+      <div class="value-title">No surprises, ever</div>
+      <p class="value-desc">Clear scope, clear timeline, clear pricing — agreed upon before a single shot is fired. You know exactly what you're getting and when you're getting it.</p>
+    </div>
+    <div class="value-card reveal reveal-delay-3">
+      <div class="value-num">03</div>
+      <div class="value-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 10h3l3-7 4 14 3-7h3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="value-title">Craft that earns attention</div>
+      <p class="value-desc">Good content gets watched. Great content gets shared and remembered. The bar is never "good enough" — it's "would I be proud to put my name on this?"</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process-section">
+  <div class="section-eyebrow reveal">03 — Process</div>
+  <h2 class="section-title reveal">How a project actually runs.</h2>
+  <div class="process-track reveal">
+    <div class="process-node">
+      <div class="node-circle">01</div>
+      <div class="node-name">Discovery</div>
+      <div class="node-desc">Goals, audience, and what a win looks like — defined together.</div>
+    </div>
+    <div class="process-node">
+      <div class="node-circle">02</div>
+      <div class="node-name">Proposal</div>
+      <div class="node-desc">Clear scope, deliverables, timeline, and price. No vague estimates.</div>
+    </div>
+    <div class="process-node">
+      <div class="node-circle">03</div>
+      <div class="node-name">Pre-Production</div>
+      <div class="node-desc">Scripts, shot lists, logistics — everything locked before we roll.</div>
+    </div>
+    <div class="process-node">
+      <div class="node-circle">04</div>
+      <div class="node-name">Production</div>
+      <div class="node-desc">Show up prepared. Capture everything needed to nail the edit.</div>
+    </div>
+    <div class="process-node">
+      <div class="node-circle">05</div>
+      <div class="node-name">Delivery</div>
+      <div class="node-desc">Polished files, revisions included, in the format you need.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── GEAR ── -->
+<section class="gear-section">
+  <div class="section-eyebrow reveal">04 — Equipment</div>
+  <h2 class="section-title reveal" style="margin-bottom:32px;">Professional gear for any project.</h2>
+  <div class="gear-tabs reveal" id="gearTabs" style="margin-bottom:16px;">
+    <button class="gear-tab active" onclick="switchGear(0,this)">Cameras & Drones</button>
+    <button class="gear-tab" onclick="switchGear(1,this)">Audio & Lighting</button>
+    <button class="gear-tab" onclick="switchGear(2,this)">Supports & Accessories</button>
+    <button class="gear-tab" onclick="switchGear(3,this)">Video & Animation</button>
+    <button class="gear-tab" onclick="switchGear(4,this)">Photo & Design</button>
+    <button class="gear-tab" onclick="switchGear(5,this)">Marketing & Business</button>
+    <button class="gear-tab" onclick="switchGear(6,this)">AI</button>
+  </div>
+  <div class="gear-panels reveal">
+
+    <!-- 0: Cameras & Drones -->
+    <div class="gear-panel active">
+      <div class="gear-col">
+        <div class="gear-col-title">Cameras</div>
+        <ul class="gear-list">
+          <li>Sony A1 <span class="gear-tag">Primary</span></li>
+          <li>Sony A7S III <span class="gear-tag">Low Light</span></li>
+          <li>Sony PXW-Z200</li>
+          <li>GoPro Hero 9 (×3)</li>
+          <li>Panasonic HC-VX870</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Lenses</div>
+        <ul class="gear-list">
+          <li>Sony FE PZ 16-35</li>
+          <li>G Master 24-70</li>
+          <li>G Master 70-200</li>
+        </ul>
+        <div class="gear-col-title" style="margin-top:24px;">Stabilization</div>
+        <ul class="gear-list">
+          <li>DJI Ronin S Gimbal <span class="gear-tag">3-Axis</span></li>
+          <li>Atmos Shogun Monitor</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Drones</div>
+        <ul class="gear-list">
+          <li>DJI Mavic 4 Pro <span class="gear-tag">Aerial</span></li>
+          <li>DJI Mavic Air</li>
+          <li>iFlight Nazgul5 <span class="gear-tag">FPV</span></li>
+          <li>iFlight Chimera7 <span class="gear-tag">FPV</span></li>
+          <li>GEPRC Cinelog <span class="gear-tag">FPV</span></li>
+          <li>DJI Digital FPV System</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 1: Audio & Lighting -->
+    <div class="gear-panel">
+      <div class="gear-col">
+        <div class="gear-col-title">Audio Recorders & Mics</div>
+        <ul class="gear-list">
+          <li>Zoom F8n Pro <span class="gear-tag">Field</span></li>
+          <li>Zoom F1 (×3)</li>
+          <li>Deity Theos Wireless</li>
+          <li>Rode Wireless Pro</li>
+          <li>Rode NTG5 Shotgun</li>
+          <li>Electro Voice RE320 (×3)</li>
+          <li>SM58</li>
+          <li>Boom Pole</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Lighting</div>
+        <ul class="gear-list">
+          <li>Aputure Nova <span class="gear-tag">Key</span></li>
+          <li>Aputure MC (×4)</li>
+          <li>Amaran 300c</li>
+          <li>Amaran F1</li>
+          <li>Amaran T4C LED Tube</li>
+          <li>Amaran F22x</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Audio Software</div>
+        <ul class="gear-list">
+          <li>Adobe Audition</li>
+          <li>Logic Pro</li>
+          <li>Captivate</li>
+          <li>Neat Video</li>
+          <li>Reel Steady</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2: Supports & Accessories -->
+    <div class="gear-panel">
+      <div class="gear-col">
+        <div class="gear-col-title">Tripods & Supports</div>
+        <ul class="gear-list">
+          <li>Manfrotto 504X <span class="gear-tag">Fluid Head</span></li>
+          <li>iFootage Monopod</li>
+          <li>C-Stand (×3)</li>
+          <li>Spreader Stand (×7)</li>
+          <li>YC Onion Slider</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Accessories</div>
+        <ul class="gear-list">
+          <li>Teleprompter</li>
+          <li>Green Screen</li>
+          <li>Variable ND Filters</li>
+          <li>Atmos Shogun</li>
+          <li>Montek Portable Solar Generator</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Distribution</div>
+        <ul class="gear-list">
+          <li>Vimeo <span class="gear-tag">Pro</span></li>
+          <li>YouTube</li>
+          <li>Soundcloud</li>
+          <li>Spotify Podcasts</li>
+          <li>Apple Podcasts</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3: Video & Animation -->
+    <div class="gear-panel">
+      <div class="gear-col">
+        <div class="gear-col-title">Editing & Color</div>
+        <ul class="gear-list">
+          <li>Premiere Pro <span class="gear-tag">Primary</span></li>
+          <li>DaVinci Resolve <span class="gear-tag">Color</span></li>
+          <li>Camtasia</li>
+          <li>Neat Video</li>
+          <li>Reel Steady</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Motion & 3D</div>
+        <ul class="gear-list">
+          <li>After Effects <span class="gear-tag">Motion</span></li>
+          <li>Cinema 4D</li>
+          <li>Blender</li>
+          <li>Lottie</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">AI Tools</div>
+        <ul class="gear-list">
+          <li>Runway <span class="gear-tag">Gen AI</span></li>
+          <li>Topaz</li>
+          <li>Descript</li>
+          <li>Midjourney</li>
+          <li>Adobe Sensei</li>
+          <li>ChatGPT</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4: Photo & Design -->
+    <div class="gear-panel">
+      <div class="gear-col">
+        <div class="gear-col-title">Adobe Creative Suite</div>
+        <ul class="gear-list">
+          <li>Photoshop <span class="gear-tag">Retouching</span></li>
+          <li>Illustrator</li>
+          <li>InDesign</li>
+          <li>Lightroom</li>
+          <li>Adobe Contributor</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Web & UI</div>
+        <ul class="gear-list">
+          <li>Webflow <span class="gear-tag">Build</span></li>
+          <li>Figma</li>
+          <li>Google Earth Studio</li>
+          <li>Kuula (360° Tours)</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Stock Contributor</div>
+        <ul class="gear-list">
+          <li>Pond5 <span class="gear-tag">Video</span></li>
+          <li>Shutterstock</li>
+          <li>iStock</li>
+          <li>Envato</li>
+          <li>Adobe Stock</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5: Marketing & Business -->
+    <div class="gear-panel">
+      <div class="gear-col">
+        <div class="gear-col-title">Marketing</div>
+        <ul class="gear-list">
+          <li>Google Analytics <span class="gear-tag">Data</span></li>
+          <li>Google Ads</li>
+          <li>Meta Ads</li>
+          <li>TikTok Ads</li>
+          <li>HubSpot</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Business Ops</div>
+        <ul class="gear-list">
+          <li>Office 365</li>
+          <li>Google Suite</li>
+          <li>Atlassian</li>
+          <li>Zoom</li>
+          <li>Calendly</li>
+          <li>Novo</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Certifications</div>
+        <ul class="gear-list">
+          <li>FAA Part 107 <span class="gear-tag">Drone</span></li>
+          <li>EASA A1/A3 <span class="gear-tag">Drone</span></li>
+          <li>BS Music Technology</li>
+          <li>BA Business Marketing</li>
+          <li>BA Business Management</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6: AI -->
+    <div class="gear-panel">
+      <div class="gear-col">
+        <div class="gear-col-title">Language Models</div>
+        <ul class="gear-list">
+          <li>ChatGPT <span class="gear-tag">OpenAI</span></li>
+          <li>Claude <span class="gear-tag">Anthropic</span></li>
+          <li>Midjourney</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Video & Image</div>
+        <ul class="gear-list">
+          <li>Runway <span class="gear-tag">Gen AI</span></li>
+          <li>Topaz <span class="gear-tag">Upscale</span></li>
+          <li>Adobe Sensei</li>
+        </ul>
+      </div>
+      <div class="gear-col">
+        <div class="gear-col-title">Audio & Editing</div>
+        <ul class="gear-list">
+          <li>Descript</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="section-eyebrow reveal">05 — FAQ</div>
+  <h2 class="section-title reveal" style="margin-bottom:32px;">Common questions.</h2>
+  <div class="faq-grid reveal">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How do I get started?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Schedule a discovery call or send an email to logan@colegrovemedia.com. Share your project goals and vision — after that, you'll receive a free proposal with a clear timeline, deliverables, and price quote.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What does a project cost?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Every project is quoted clearly upfront — no vague estimates. Browse transparent pricing tiers on the <a href="pricing.html" style="color:var(--teal);">pricing page</a>, or book a call to get a custom quote for your specific needs.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Can you handle tight deadlines?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes — some services like headshots and 3D virtual tours can be completed same-day or same-week. For longer projects, tight deadlines may require a 2× rush fee to cover expedited production. Rush projects are always prioritized in the schedule.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What payment methods do you accept?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Credit/Debit Card, ACH Transfer, PayPal, Venmo, Cash, or Check. Payment is due within 30 days of delivery of the agreed-upon deliverables.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Can I get the raw footage or project files?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Raw footage and project files can be provided upon request, but typically require an additional fee to cover time, storage, and data transfer. Let me know upfront if you anticipate needing anything beyond the stated deliverables.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Do you travel for projects?</span>
+        <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1v10M1 6h10"/></svg></div>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Absolutely. Based in Bozeman, MT — a travel fee of $1/mile applies beyond 15 miles. Multi-day and out-of-state productions are quoted individually. The Iceland film is proof that distance is no limitation.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="cta-wrap">
+  <div class="cta-band reveal">
+    <div class="cta-band-h">Let's make something<br>worth <span>talking about.</span></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
+      <a href="https://www.colegrovemedia.com/project-brief-form" class="btn-ghost">Start a Project Brief</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div>
+      <img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" class="footer-logo-img">
+      <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Pages</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html?cat=video">Video</a></li>
+        <li><a href="services.html?cat=photo">Photo</a></li>
+        <li><a href="services.html?cat=animation">Animation</a></li>
+        <li><a href="services.html?cat=design">Design</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a></li>
+        <li><a href="tel:4062099945">(406) 209-9945</a></li>
+        <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
+        <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
+        <li><a href="https://www.colegrovemedia.com/project-brief-form">Project Brief</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="footer-year"></span>
+    <span>Bozeman, Montana</span>
+    <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+</footer>
+
+<script>
+// ── PHOTO REVEAL ──
+(function(){
+  var clip=document.getElementById('photoClip');
+  var img=document.getElementById('heroPhoto');
+  if(!clip||!img) return;
+  function reveal(){ setTimeout(function(){ clip.classList.add('revealed'); },200); }
+  if(img.complete) reveal();
+  else img.addEventListener('load',reveal);
+})();
+
+// ── BRAIN INTERACTION ──
+(function(){
+  var widget=document.getElementById('brainWidget');
+  var pL=document.getElementById('panelLeft');
+  var pR=document.getElementById('panelRight');
+  var fill=document.getElementById('balanceFill');
+  var thumb=document.getElementById('balanceThumb');
+  if(!widget||!fill) return;
+  function update(pct){
+    pct=Math.max(0,Math.min(1,pct));
+    fill.style.width=(pct*100)+'%';
+    thumb.style.left=(pct*100)+'%';
+
+    // how far from centre (0 = centre, 1 = full edge)
+    var offset=(pct-0.5)*2; // -1 to +1
+
+    // tilt: active side tilts toward viewer, passive side tilts away
+    var tiltL=-10*offset;
+    var tiltR=-10*offset;
+
+    // scale: whichever side cursor is on grows, other shrinks slightly
+    var scaleL=1+(-offset)*0.06;
+    var scaleR=1+(offset)*0.06;
+
+    // z depth: active side rises, inactive sinks
+    var transL=offset<0?'perspective(900px) rotateY('+tiltL+'deg) scale('+scaleL+') translateZ(20px)':'perspective(900px) rotateY('+tiltL+'deg) scale('+scaleL+') translateZ('+(-Math.abs(offset)*8)+'px)';
+    var transR=offset>0?'perspective(900px) rotateY('+tiltR+'deg) scale('+scaleR+') translateZ(20px)':'perspective(900px) rotateY('+tiltR+'deg) scale('+scaleR+') translateZ('+(-Math.abs(offset)*8)+'px)';
+
+    pL.style.transform=transL;
+    pR.style.transform=transR;
+
+    // text opacity — active side sharpens, inactive fades
+    var fadeL=offset<0?1:Math.max(0.35,1+offset*0.8);
+    var fadeR=offset>0?1:Math.max(0.35,1-offset*0.8);
+    pL.style.opacity=fadeL;
+    pR.style.opacity=fadeR;
+
+    pL.classList.toggle('active',pct<0.44);
+    pR.classList.toggle('active',pct>0.56);
+  }
+  widget.addEventListener('mousemove',function(e){
+    var r=widget.getBoundingClientRect();
+    update((e.clientX-r.left)/r.width);
+  });
+  widget.addEventListener('mouseleave',function(){
+    var cur=parseFloat(fill.style.width)/100||0.5,i=0;
+    var iv=setInterval(function(){
+      i++;cur=cur+(0.5-cur)*0.22;
+      update(cur);
+      if(i>24){clearInterval(iv);update(0.5);}
+    },16);
+  });
+  update(0.5);
+})();
+
+// ── GEAR TABS ──
+function switchGear(idx, btn){
+  document.querySelectorAll('.gear-tab').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.gear-panel').forEach(function(p){p.classList.remove('active');});
+  btn.classList.add('active');
+  document.querySelectorAll('.gear-panel')[idx].classList.add('active');
+}
+
+// ── FAQ ──
+function toggleFaq(btn){
+  var item=btn.closest('.faq-item');
+  var open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!open) item.classList.add('open');
+}
+
+document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
+
+(function(){
+  var nav=document.getElementById('main-nav'),ly=window.scrollY,t=false;
+  window.addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){
+    var y=window.scrollY;
+    if(y<80)nav.classList.remove('nav-hidden');
+    else if(y>ly)nav.classList.add('nav-hidden');
+    else nav.classList.remove('nav-hidden');
+    ly=y;t=false;
+  });t=true;}},{passive:true});
+})();
+
+(function(){
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
