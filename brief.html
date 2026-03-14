@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Brief — Colegrove Media</title>
+<meta name="description" content="Start a project with Colegrove Media. Tell us about your goals and we'll get back to you with a proposal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --bg:#161a25;--bg2:#212733;--bg3:#1c2030;
+  --teal:#00f2a6;--teal-glow:rgba(0,242,166,0.08);
+  --white:#f2f4f8;--muted:#7e8ca0;
+  --border:rgba(0,242,166,0.12);--border2:rgba(242,244,248,0.06);
+  --sans:'DM Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;padding-top:68px;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
+nav.nav-hidden{transform:translateY(-100%);}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
+.nav-logo img{height:48px;width:auto;display:block;}
+.nav-links{display:flex;list-style:none;gap:8px;}
+.nav-links a{font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:6px 14px;border-radius:6px;transition:color 0.18s,background 0.18s;}
+.nav-links a:hover{color:var(--white);background:rgba(0,242,166,0.07);}
+.nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
+.nav-cta:hover{opacity:0.85;}
+
+/* HERO */
+.page-hero{padding:72px 40px 56px;border-bottom:1px solid var(--border);}
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
+.page-h1{font-size:clamp(40px,5vw,64px);font-weight:700;line-height:1;letter-spacing:-0.02em;margin-bottom:16px;}
+.page-desc{font-size:18px;color:var(--muted);max-width:520px;line-height:1.75;font-weight:300;}
+
+/* FORM LAYOUT */
+.form-wrap{padding:64px 40px 100px;display:grid;grid-template-columns:1fr 380px;gap:64px;max-width:1100px;margin:0 auto;}
+
+/* FORM */
+.brief-form{display:flex;flex-direction:column;gap:32px;}
+.field-group{display:flex;flex-direction:column;gap:8px;}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field-label{font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);}
+.field-label span{color:var(--teal);margin-left:2px;}
+.field-input,.field-textarea,.field-select{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:10px;color:var(--white);font-family:var(--sans);font-size:15px;font-weight:300;transition:border-color 0.18s,background 0.18s;outline:none;}
+.field-input,.field-select{padding:14px 18px;height:52px;}
+.field-textarea{padding:14px 18px;resize:vertical;min-height:140px;line-height:1.6;}
+.field-input::placeholder,.field-textarea::placeholder{color:var(--muted);opacity:0.5;}
+.field-input:focus,.field-textarea:focus,.field-select:focus{border-color:rgba(0,242,166,0.4);background:rgba(33,39,51,0.8);}
+.field-select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237e8ca0' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;padding-right:44px;cursor:pointer;}
+.field-select option{background:var(--bg2);color:var(--white);}
+.field-select.placeholder{color:var(--muted);opacity:0.6;}
+.field-select.placeholder:focus,.field-select.has-value{opacity:1;color:var(--white);}
+
+/* checkbox group */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.check-item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:border-color 0.18s,background 0.18s;}
+.check-item:hover{border-color:rgba(0,242,166,0.3);}
+.check-item input{display:none;}
+.check-item.checked{background:rgba(0,242,166,0.06);border-color:rgba(0,242,166,0.35);}
+.check-box{width:18px;height:18px;border-radius:4px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 0.18s,border-color 0.18s;}
+.check-item.checked .check-box{background:var(--teal);border-color:var(--teal);}
+.check-mark{display:none;}
+.check-item.checked .check-mark{display:block;}
+.check-label{font-size:14px;color:var(--muted);font-weight:300;transition:color 0.18s;}
+.check-item.checked .check-label{color:var(--white);}
+
+/* submit */
+.form-submit{display:flex;flex-direction:column;gap:12px;}
+.btn-submit{background:var(--teal);color:#0d1117;padding:16px 36px;border-radius:10px;font-size:15px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:opacity 0.18s;font-family:var(--sans);display:flex;align-items:center;justify-content:center;gap:10px;}
+.btn-submit:hover{opacity:0.85;}
+.btn-submit:disabled{opacity:0.5;cursor:not-allowed;}
+.form-note{font-size:13px;color:var(--muted);font-weight:300;line-height:1.6;}
+
+/* SUCCESS STATE */
+.success-state{display:none;flex-direction:column;align-items:flex-start;gap:20px;padding:48px;background:var(--bg2);border:1px solid var(--border);border-radius:16px;position:relative;overflow:hidden;}
+.success-state.visible{display:flex;}
+.success-h{font-size:24px;font-weight:700;color:var(--white);}
+.success-p{font-size:15px;color:var(--muted);font-weight:300;line-height:1.7;max-width:400px;}
+.success-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--teal);letter-spacing:0.06em;text-transform:uppercase;margin-top:4px;transition:gap 0.18s;}
+.success-back:hover{gap:10px;}
+
+/* CONFETTI */
+#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999;}
+
+/* SIDEBAR */
+.form-sidebar{display:flex;flex-direction:column;gap:24px;padding-top:8px;}
+.sidebar-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px 24px;}
+.sidebar-card-title{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;}
+.sidebar-item{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border2);}
+.sidebar-item:last-child{border-bottom:none;padding-bottom:0;}
+.sidebar-icon{color:var(--teal);opacity:0.6;flex-shrink:0;margin-top:2px;}
+.sidebar-text{font-size:14px;color:var(--muted);font-weight:300;line-height:1.55;}
+.sidebar-text strong{color:var(--white);font-weight:500;display:block;margin-bottom:2px;}
+.sidebar-contact a{font-size:14px;color:rgba(242,244,248,0.6);font-weight:300;transition:color 0.18s;display:block;margin-bottom:4px;}
+.sidebar-contact a:hover{color:var(--teal);}
+.btn-call{display:block;text-align:center;background:transparent;color:var(--muted);padding:12px;border-radius:8px;font-size:13px;font-weight:500;border:1px solid var(--border);transition:color 0.18s,border-color 0.18s;margin-top:16px;}
+.btn-call:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);}
+.footer-main{padding:56px 40px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid var(--border);}
+.footer-logo-img{height:44px;width:auto;display:block;margin-bottom:14px;}
+.footer-tagline{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;max-width:220px;}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);margin-bottom:18px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:14px;color:var(--muted);font-weight:300;transition:color 0.18s;}
+.footer-links a:hover{color:var(--teal);}
+.footer-bottom{padding:20px 40px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);}
+.footer-bottom a{color:var(--muted);transition:color 0.18s;}
+.footer-bottom a:hover{color:var(--teal);}
+
+@media(max-width:960px){
+  nav{padding:0 24px;}.nav-links{display:none;}
+  .page-hero{padding:64px 24px 48px;}
+  .form-wrap{grid-template-columns:1fr;gap:40px;padding:48px 24px 80px;}
+  .form-sidebar{display:none;}
+  .field-row{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr 1fr;padding:40px 24px 32px;gap:32px;}
+  .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;}
+}
+@media(max-width:580px){
+  .check-grid{grid-template-columns:1fr;}
+  .footer-main{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-logo"><a href="index.html"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media"></a></div>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Get Started</div>
+  <h1 class="page-h1">Start a Project Brief</h1>
+  <p class="page-desc">Tell me about your project and I'll follow up with a proposal, timeline, and quote — usually within one business day.</p>
+</div>
+
+<div class="form-wrap">
+
+  <!-- FORM -->
+  <div>
+    <form class="brief-form" id="briefForm">
+      <input type="hidden" name="access_key" value="48445c9e-0ab9-4343-91a2-6a1d4765eaa3">
+      <input type="hidden" name="subject" value="New Project Brief — Colegrove Media">
+      <input type="hidden" name="from_name" value="Colegrove Media Website">
+      <!-- honeypot -->
+      <input type="checkbox" name="botcheck" style="display:none;">
+
+      <!-- Name + Email -->
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Name <span>*</span></label>
+          <input class="field-input" type="text" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Email <span>*</span></label>
+          <input class="field-input" type="email" name="email" placeholder="your@email.com" required>
+        </div>
+      </div>
+
+      <!-- Company + Phone -->
+      <div class="field-row">
+        <div class="field-group">
+          <label class="field-label">Company / Organization</label>
+          <input class="field-input" type="text" name="company" placeholder="Optional">
+        </div>
+        <div class="field-group">
+          <label class="field-label">Phone</label>
+          <input class="field-input" type="tel" name="phone" placeholder="Optional">
+        </div>
+      </div>
+
+      <!-- Service type -->
+      <div class="field-group">
+        <label class="field-label">Service Type <span>*</span></label>
+        <div class="check-grid" id="serviceGrid">
+          <div class="check-item" onclick="toggleCheck(this,'Video')">
+            <input type="checkbox" name="service" value="Video">
+            <div class="check-box"><svg class="check-mark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#0d1117" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="check-label">Video</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'Photo')">
+            <input type="checkbox" name="service" value="Photo">
+            <div class="check-box"><svg class="check-mark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#0d1117" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="check-label">Photo</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'Animation')">
+            <input type="checkbox" name="service" value="Animation">
+            <div class="check-box"><svg class="check-mark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#0d1117" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="check-label">Animation</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'Design')">
+            <input type="checkbox" name="service" value="Design">
+            <div class="check-box"><svg class="check-mark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#0d1117" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="check-label">Design</span>
+          </div>
+          <div class="check-item" onclick="toggleCheck(this,'Not sure yet')">
+            <input type="checkbox" name="service" value="Not sure yet">
+            <div class="check-box"><svg class="check-mark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#0d1117" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span class="check-label">Not sure yet</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget -->
+      <div class="field-group">
+        <label class="field-label">Budget Range</label>
+        <select class="field-select placeholder" name="budget" id="budgetSelect" onchange="this.classList.remove('placeholder');this.classList.add('has-value')">
+          <option value="" disabled selected>Select a range</option>
+          <option>Under $1,000</option>
+          <option>$1,000 – $3,000</option>
+          <option>$3,000 – $7,500</option>
+          <option>$7,500 – $15,000</option>
+          <option>$15,000+</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+
+      <!-- Timeline -->
+      <div class="field-group">
+        <label class="field-label">Timeline / Deadline</label>
+        <select class="field-select placeholder" name="timeline" onchange="this.classList.remove('placeholder');this.classList.add('has-value')">
+          <option value="" disabled selected>When do you need this?</option>
+          <option>ASAP / Rush</option>
+          <option>Within 2 weeks</option>
+          <option>Within a month</option>
+          <option>1–3 months</option>
+          <option>3+ months</option>
+          <option>Flexible</option>
+        </select>
+      </div>
+
+      <!-- Project Brief -->
+      <div class="field-group">
+        <label class="field-label">Project Brief <span>*</span></label>
+        <textarea class="field-textarea" name="brief" placeholder="Summarize your project — what are you making, who is it for, and what do you want it to accomplish?" required style="min-height:160px;"></textarea>
+      </div>
+
+      <!-- How did you hear -->
+      <div class="field-group">
+        <label class="field-label">How did you hear about us?</label>
+        <select class="field-select placeholder" name="referral" onchange="this.classList.remove('placeholder');this.classList.add('has-value')">
+          <option value="" disabled selected>Select one</option>
+          <option>Google Search</option>
+          <option>Social Media</option>
+          <option>Referral / Word of mouth</option>
+          <option>Past client</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <!-- Submit -->
+      <div class="form-submit">
+        <button class="btn-submit" type="submit" id="submitBtn">
+          <span id="submitText">Send Brief →</span>
+        </button>
+        <p class="form-note">I'll respond within one business day with next steps. No commitment required.</p>
+      </div>
+    </form>
+
+    <!-- SUCCESS -->
+    <div class="success-state" id="successState">
+      <div style="font-size:52px;line-height:1;" id="successEmoji">🎉</div>
+      <div class="success-h">Brief received — you're in good hands.</div>
+      <p class="success-p">Thanks for reaching out. I'll review your project and follow up within one business day with a proposal or any clarifying questions.</p>
+      <a href="index.html" class="success-back">← Back to home</a>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="form-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">What happens next</div>
+      <div class="sidebar-item">
+        <svg class="sidebar-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2" stroke-linecap="round"/></svg>
+        <div class="sidebar-text"><strong>Within 1 business day</strong>I'll review your brief and follow up with questions or a proposal.</div>
+      </div>
+      <div class="sidebar-item">
+        <svg class="sidebar-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2 2h12v10H2zM5 14h6"/><path d="M8 12v2"/></svg>
+        <div class="sidebar-text"><strong>Free proposal</strong>You'll receive a clear scope, timeline, and price — no vague estimates.</div>
+      </div>
+      <div class="sidebar-item">
+        <svg class="sidebar-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M13 5l-7 7-3-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="sidebar-text"><strong>No commitment</strong>A brief is just a conversation starter — nothing is locked in until you sign off.</div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">Prefer to talk first?</div>
+      <div class="sidebar-contact">
+        <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a>
+        <a href="tel:4062099945">(406) 209-9945</a>
+      </div>
+      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-call">Book a Call →</a>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">Not sure what you need?</div>
+      <div class="sidebar-item" style="border:none;padding:0;">
+        <div class="sidebar-text">Browse the <a href="services.html" style="color:var(--teal);">services page</a> to see what's available, or check <a href="pricing.html" style="color:var(--teal);">pricing</a> for transparent cost ranges before submitting.</div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div>
+      <img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" class="footer-logo-img">
+      <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Pages</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html?cat=video">Video</a></li>
+        <li><a href="services.html?cat=photo">Photo</a></li>
+        <li><a href="services.html?cat=animation">Animation</a></li>
+        <li><a href="services.html?cat=design">Design</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a></li>
+        <li><a href="tel:4062099945">(406) 209-9945</a></li>
+        <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
+        <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
+        <li><a href="brief.html">Project Brief</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="footer-year"></span>
+    <span>Bozeman, Montana</span>
+    <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+</footer>
+
+<script>
+// Checkbox toggle
+function toggleCheck(el, val){
+  el.classList.toggle('checked');
+  el.querySelector('input').checked = el.classList.contains('checked');
+}
+
+// Form submission
+document.getElementById('briefForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  var btn = document.getElementById('submitBtn');
+  var txt = document.getElementById('submitText');
+  btn.disabled = true;
+  txt.textContent = 'Sending...';
+
+  // collect checked services
+  var services = [];
+  document.querySelectorAll('#serviceGrid .check-item.checked').forEach(function(el){
+    services.push(el.querySelector('.check-label').textContent);
+  });
+
+  var data = new FormData(this);
+  // override service field with comma-joined values
+  data.delete('service');
+  data.append('service', services.length ? services.join(', ') : 'Not specified');
+
+  try {
+    var res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    });
+    var json = await res.json();
+    if(json.success){
+      document.getElementById('briefForm').style.display = 'none';
+      document.getElementById('successState').classList.add('visible');
+      launchConfetti();
+    } else {
+      txt.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    }
+  } catch(err){
+    txt.textContent = 'Network error — try again';
+    btn.disabled = false;
+  }
+});
+
+document.getElementById('footer-year').textContent = '© '+new Date().getFullYear()+' Colegrove Media';
+function launchConfetti(){
+  var canvas=document.createElement('canvas');
+  canvas.id='confetti-canvas';
+  document.body.appendChild(canvas);
+  var ctx=canvas.getContext('2d');
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+
+  var colors=['#00f2a6','#f2f4f8','#00b87a','#7e8ca0','#ffffff','#00f2a6'];
+  var pieces=[];
+  var count=160;
+
+  for(var i=0;i<count;i++){
+    pieces.push({
+      x:Math.random()*canvas.width,
+      y:-20-Math.random()*canvas.height*0.5,
+      w:6+Math.random()*8,
+      h:10+Math.random()*14,
+      r:Math.random()*Math.PI*2,
+      vx:(Math.random()-0.5)*4,
+      vy:2+Math.random()*4,
+      vr:(Math.random()-0.5)*0.15,
+      color:colors[Math.floor(Math.random()*colors.length)],
+      opacity:1,
+      shape:Math.random()>0.5?'rect':'circle'
+    });
+  }
+
+  var start=null;
+  var duration=3800;
+
+  function draw(ts){
+    if(!start) start=ts;
+    var elapsed=ts-start;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    pieces.forEach(function(p){
+      p.x+=p.vx;
+      p.y+=p.vy;
+      p.vy+=0.06; // gravity
+      p.r+=p.vr;
+      p.opacity=Math.max(0,1-(elapsed-2200)/1600);
+
+      ctx.save();
+      ctx.globalAlpha=p.opacity;
+      ctx.translate(p.x,p.y);
+      ctx.rotate(p.r);
+      ctx.fillStyle=p.color;
+      if(p.shape==='circle'){
+        ctx.beginPath();
+        ctx.arc(0,0,p.w/2,0,Math.PI*2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+      }
+      ctx.restore();
+    });
+
+    if(elapsed<duration) requestAnimationFrame(draw);
+    else canvas.remove();
+  }
+  requestAnimationFrame(draw);
+
+  // emoji burst animation
+  var emoji=document.getElementById('successEmoji');
+  emoji.style.transition='transform 0.4s cubic-bezier(0.34,1.8,0.64,1)';
+  emoji.style.transform='scale(1.6)';
+  setTimeout(function(){emoji.style.transform='scale(1)';},400);
+}
+
+(function(){
+  var nav=document.getElementById('main-nav'),ly=window.scrollY,t=false;
+  window.addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){
+    var y=window.scrollY;
+    if(y<80)nav.classList.remove('nav-hidden');
+    else if(y>ly)nav.classList.add('nav-hidden');
+    else nav.classList.remove('nav-hidden');
+    ly=y;t=false;
+  });t=true;}},{passive:true});
+})();
+</script>
+</body>
+</html>
