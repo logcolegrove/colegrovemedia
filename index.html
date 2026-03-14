@@ -206,7 +206,7 @@
 </head>
 <body>
 
-<nav>
+<nav id="main-nav">
   <div class="nav-logo">
     <a href="index.html"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media"></a>
   </div>
@@ -357,7 +357,7 @@
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
       <div class="modal-cta">
-        <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="modal-btn-fill">Get Your <span id="modal-cta-tag">Video</span> Made →</a>
+        <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="modal-btn-fill" id="modal-cta-primary">Get Your <span id="modal-cta-tag">Video</span> Made →</a>
         <a href="pricing.html" class="modal-btn-ghost">See Pricing</a>
       </div>
     </div>
@@ -368,7 +368,7 @@
   <div class="section-header">
     <div>
       <div class="section-eyebrow reveal">03 — About</div>
-      <h2 class="section-title reveal reveal-delay-1">Who We Are</h2>
+      <h2 class="section-title reveal reveal-delay-1">Who You're Working With</h2>
     </div>
   </div>
   <div class="about-grid reveal">
@@ -399,7 +399,7 @@
   <div class="section-header" style="padding-top:88px;">
     <div>
       <div class="section-eyebrow reveal">04 — Process</div>
-      <h2 class="section-title reveal reveal-delay-1">Want to Team Up?</h2>
+      <h2 class="section-title reveal reveal-delay-1">Let's Get to Work</h2>
     </div>
   </div>
   <div class="process-grid">
@@ -465,7 +465,7 @@
       <div class="footer-col-title">Pages</div>
       <ul class="footer-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="work.html">Selected Works</a></li>
+        <li><a href="work.html">Portfolio</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="pricing.html">Pricing</a></li>
@@ -494,13 +494,11 @@
   <div class="footer-bottom">
     <span id="footer-year"></span>
     <span>Bozeman, Montana</span>
-    <a href="terms.html">Terms & Conditions</a>
+    <a href="terms.html">Terms &amp; Conditions</a>
   </div>
 </footer>
 
 <script>
-document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear() + ' Colegrove Media';
-
 var library = [
   { slug:'powering-wildfire-intelligence', title:'Powering Wildfire Intelligence', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg', cats:['brand-video'], vimeoId:'1011394531' },
   { slug:'streamline-your-nonprofit', title:'Streamline Your Nonprofit — Animated Explainer', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg', cats:['animated-explainer'], vimeoId:'1011466967' },
@@ -520,10 +518,18 @@ var library = [
   { slug:'online-portal-animated-explainer', title:'Online Portal — Animated Explainer', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a24de84b6e9187122d_66f709b9558f8a683ddf9f3e_thumb%2520(28).jpeg', cats:['animated-explainer'], vimeoId:'1011465254' },
   { slug:'third-party-animated-explainer', title:'Third Party — Animated Explainer', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a721bcac8906831b13_66f70ac72dea665ef97fd473_thumb%2520(31).jpeg', cats:['animated-explainer'], vimeoId:'1011464669' },
   { slug:'software-demo-video', title:'Software Demo Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0ad_66f716dc08e34b6183b5923b_thumb%2520(42).jpeg', cats:['animated-explainer','product-video'], vimeoId:'1011464708' },
+  { slug:'accounting-product-demo', title:'Accounting — Product Demo', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe12c_66f71624792ad1ee55fc5c26_thumb%2520(40).jpeg', cats:['product-video'], vimeoId:'1011466308' },
+  { slug:'fundraising-product-demo', title:'Fundraising — Product Demo', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a03dbb3613d4333dcc_66f715ebed3b57860169aafb_thumb%2520(39).jpeg', cats:['product-video'], vimeoId:'1011466737' },
+  { slug:'reporting-product-demo', title:'Reporting — Product Demo', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a427672f65dbb982c4_66f7165aa272ae9e8939f9dc_thumb%2520(41).jpeg', cats:['product-video'], vimeoId:'1011466134' },
+  { slug:'constituent-relationship-management', title:'Constituent Relationship Management — Product Demo', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669ef33ba04f968e6cb9_66f7096926072825c32fa058_thumb%2520(27).jpeg', cats:['product-video'], vimeoId:'1011466519' },
   { slug:'client-service-testimonial', title:'Client Service Testimonial', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dcb70bd89e860c4a5_66f70913766b164a1bd00ebc_thumb%2520(13).jpeg', cats:['testimonial'], vimeoId:'1012194769' },
+  { slug:'team-testimonial', title:'Team Testimonial', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a7f33ba04f968e72ae_66f70b129950d13f73461415_thumb%2520(32).jpeg', cats:['testimonial'], vimeoId:'1011448652' },
   { slug:'transforming-workflows', title:'Transforming Workflows — Testimonial Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a827672f65dbb98565_66f39cbb4c785c3ecb9cdce6_thumb%2520(19).jpeg', cats:['testimonial'], vimeoId:'1011455705' },
   { slug:'salt-lake-summit', title:'Salt Lake Summit — Event Promo Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a68efb70416dfbc4f7_66f3a029748e9d2481f2e48b_thumb%2520(23).jpeg', cats:['testimonial'], vimeoId:'1011467103' },
-  { slug:'a-ranchers-take', title:'A Rancher\'s Take on Grassland Restoration', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/691b5270e465783b9aab5d8e_thumb%20(16).jpg', cats:['remote-client-story'], vimeoId:'1134497582' }
+  { slug:'doing-so-much-more', title:'Doing So Much More — Testimonial', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a03dbb3613d4333db1_66f7150d449cde8f782ff594_thumb%2520(36).jpeg', cats:['testimonial'], vimeoId:'1011448080' },
+  { slug:'meet-the-interns', title:'Meet The Interns — Company Culture Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a2f33ba04f968e6ea6_66f70c45e677908668bdc690_thumb%2520(35).jpeg', cats:['testimonial'], vimeoId:'1011467289' },
+  { slug:'retirement-celebration', title:'Retirement Celebration — Company Culture Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a4cb70bd89e860c9e3_66f70bef19069a3f3c043373_thumb%2520(34).jpeg', cats:['testimonial'], vimeoId:'1011445124' },
+  { slug:'client-philanthropy-story', title:'Client Philanthropy Story', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669d8a43c9b8b605d5d3_66f715a9ff867ab8b75fc513_thumb%2520(38).jpeg', cats:['testimonial'], vimeoId:'1011445089' }
 ];
 
 var projects = [
@@ -532,14 +538,14 @@ var projects = [
   { slug:'iceland-in-motion', tag:'Drone / FPV', cats:['drone-video-fpv'], title:'Iceland in Motion', client:'Personal Travel Film', desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland. A personal cinematic project capturing the raw, otherworldly landscape — glaciers, volcanic fields, and endless light — in a technically ambitious travel film.', specs:[{k:'Type',v:'Cinematic Travel Film'},{k:'Client',v:'Personal Project'},{k:'Format',v:'8K Cinematic'},{k:'Location',v:'Iceland'},{k:'Turnaround',v:'4 weeks'}], vimeoId:'1036921693' },
   { slug:'all-in-one-foundation-management', tag:'Product Demo', cats:['product-video','animated-explainer'], title:'All-in-One Foundation Management Solution', client:'Software Client', desc:'A software overview video built to help a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable and powerful.', specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}], vimeoId:'1011444538' },
   { slug:'smartsimple-animated-explainer', tag:'Animation', cats:['animated-explainer'], title:'SmartSimple — Animated Explainer', client:'SmartSimple', desc:'A clean animated explainer built to communicate the value of a complex SaaS platform to a non-technical audience. Motion graphics and clear narration make the product feel approachable and worth exploring.', specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'SmartSimple'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}], vimeoId:'1053133749' },
-  { slug:'a-ranchers-take', tag:'Remote Client Story', cats:['remote-client-story'], title:'A Rancher\'s Take on Grassland Restoration', client:'Pheasants Forever', desc:'Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family\'s farm north of Glasgow — and how partnering with Pheasants Forever made the process simple, fast, and affordable.', specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}], vimeoId:'1134497582' }
+  { slug:'a-ranchers-take', tag:'Client Story', cats:['remote-client-story'], title:'A Rancher\'s Take on Grassland Restoration', client:'Pheasants Forever', desc:'Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family\'s farm north of Glasgow — and how partnering with Pheasants Forever made the process simple, fast, and affordable.', specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}], vimeoId:'1134497582' }
 ];
 
 var catLabels = {
   'brand-video':'Brand Videos','animated-explainer':'Animated Explainers',
   'drone-video-fpv':'Drone & FPV Films','product-video':'Product Demos',
   'real-estate-video':'Real Estate Videos','testimonial':'Testimonials',
-  'remote-client-story':'Remote Client Stories'
+  'remote-client-story':'Client Stories'
 };
 
 function getRelated(slug, cats) {
@@ -560,6 +566,7 @@ function openModal(idx) {
   document.getElementById('modal-cta-tag').textContent = p.tag;
   document.getElementById('modal-iframe').src = 'https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
   var related = getRelated(p.slug, p.cats).slice(0,3);
+  var labelText = 'More '+(catLabels[p.cats[0]]||'Work');
   var relatedEl = document.getElementById('modal-related');
   if (related.length === 0) { relatedEl.style.display='none'; }
   else {
@@ -567,7 +574,7 @@ function openModal(idx) {
     relatedEl.innerHTML='';
     var label = document.createElement('div');
     label.className='modal-related-label';
-    label.textContent = 'More '+(catLabels[p.cats[0]]||'Work');
+    label.textContent = labelText;
     relatedEl.appendChild(label);
     related.forEach(function(item) {
       var d = document.createElement('div');
@@ -598,8 +605,10 @@ function closeModal() {
 function handleBackdropClick(e) { if (e.target===document.getElementById('modal-backdrop')) closeModal(); }
 document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeModal(); });
 
+document.getElementById('footer-year').textContent = '© '+new Date().getFullYear()+' Colegrove Media';
+
 (function(){
-  var nav=document.querySelector('nav'), lastY=window.scrollY, ticking=false;
+  var nav=document.getElementById('main-nav'), lastY=window.scrollY, ticking=false;
   window.addEventListener('scroll',function(){
     if(!ticking){requestAnimationFrame(function(){
       var y=window.scrollY;
