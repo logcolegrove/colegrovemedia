@@ -39,7 +39,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 
 /* ── HERO ── */
 .about-hero{padding:88px 40px 80px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
-
 .hero-inner{display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center;}
 .hero-eyebrow{font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:20px;}
 .hero-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
@@ -53,19 +52,15 @@ nav.nav-hidden{transform:translateY(-100%);}
 .btn-ghost{background:transparent;color:var(--muted);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:color 0.18s,border-color 0.18s;display:inline-block;}
 .btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 
-/* PHOTO — clip-path wipe reveal */
+/* PHOTO */
 .hero-photo-col{position:relative;}
 .photo-frame{position:relative;width:100%;aspect-ratio:3/4;}
 .photo-accent{position:absolute;top:-12px;right:-12px;width:60%;height:108%;background:rgba(0,242,166,0.07);border:1px solid rgba(0,242,166,0.15);border-radius:16px;z-index:-1;transform:rotate(2deg);}
 .photo-clip-wrap{position:absolute;inset:0;border-radius:16px;overflow:hidden;background:var(--bg2);clip-path:polygon(0 100%,100% 100%,100% 100%,0 100%);transition:clip-path 1s cubic-bezier(0.16,1,0.3,1);}
 .photo-clip-wrap.revealed{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);}
 .photo-clip-wrap img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.9);}
-.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:20px 22px 22px;background:linear-gradient(to top,rgba(22,26,37,0.92) 0%,transparent 100%);border-radius:0 0 16px 16px;display:flex;align-items:flex-end;justify-content:space-between;}
-.photo-name{font-size:16px;font-weight:600;color:var(--white);}
-.photo-loc{font-size:12px;color:var(--muted);margin-top:3px;font-weight:300;}
-.photo-tag{background:rgba(0,242,166,0.15);border:1px solid rgba(0,242,166,0.3);border-radius:6px;padding:5px 10px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);}
 
-/* ── BRAIN SECTION ── */
+/* ── BRAIN ── */
 .brain-section{padding:80px 40px;border-bottom:1px solid var(--border);background:var(--bg2);overflow:hidden;}
 .section-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .section-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
@@ -77,9 +72,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .brain-panels .brain-panel:first-child{border-radius:12px 0 0 12px;}
 .brain-panels .brain-panel:last-child{border-radius:0 12px 12px 0;}
 .brain-panel.active{box-shadow:0 24px 60px rgba(0,0,0,0.6);}
-.bp-hemi{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(0,242,166,0.3);margin-bottom:2px;transition:color 0.3s;}
-.brain-panel.active .bp-hemi{color:rgba(0,242,166,0.6);}
-.bp-label{font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);}
 .bp-title{font-size:22px;font-weight:700;color:var(--white);line-height:1.1;}
 .bp-list{list-style:none;display:flex;flex-direction:column;gap:9px;flex:1;}
 .bp-list li{font-size:13px;color:var(--muted);display:flex;align-items:flex-start;gap:8px;font-weight:300;line-height:1.45;transition:color 0.2s;}
@@ -130,15 +122,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .gear-list li:hover{color:var(--white);}
 .gear-tag{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);opacity:0.7;background:rgba(0,242,166,0.06);border:1px solid rgba(0,242,166,0.15);border-radius:4px;padding:2px 7px;flex-shrink:0;}
 
-/* ── CREDENTIALS ── */
-.creds-section{padding:80px 40px;border-bottom:1px solid var(--border);background:var(--bg2);}
-.creds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
-.cred-card{background:var(--bg3);padding:36px 32px;}
-.cred-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;}
-.cred-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
-.cred-list li{font-size:14px;color:var(--muted);font-weight:300;line-height:1.4;display:flex;align-items:flex-start;gap:10px;}
-.cred-list li::before{content:'';width:16px;height:16px;border-radius:50%;background:rgba(0,242,166,0.08);border:1px solid rgba(0,242,166,0.25);flex-shrink:0;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3L3 5L7 1' stroke='%2300f2a6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
-
 /* ── FAQ ── */
 .faq-section{padding:80px 40px;border-bottom:1px solid var(--border);}
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
@@ -176,14 +159,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   .about-hero{padding:64px 24px 56px;}
   .hero-inner{grid-template-columns:1fr;gap:48px;}
   .hero-photo-col{max-width:380px;}
-  .brain-section,.values-section,.process-section,.gear-section,.creds-section,.faq-section{padding-left:24px;padding-right:24px;}
-  .brain-widget{height:auto;}
-  .brain-panels{position:relative;grid-template-columns:1fr;}
+  .brain-section,.values-section,.process-section,.gear-section,.faq-section{padding-left:24px;padding-right:24px;}
+  .brain-panels{grid-template-columns:1fr;}
   .brain-balance{display:none;}
   .values-grid{grid-template-columns:1fr;}
   .process-track{grid-template-columns:1fr 1fr;gap:32px;}.process-track::before{display:none;}
   .gear-panel.active{grid-template-columns:1fr;}
-  .creds-grid{grid-template-columns:1fr;}
   .faq-grid{grid-template-columns:1fr;}
   .cta-wrap{padding:40px 24px 80px;}
   .cta-band{padding:36px 28px;}
@@ -206,7 +187,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="pricing.html">Pricing</a></li>
   </ul>
-  <a href="brief.html" class="nav-cta">Get a Quote</a>
+  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -227,7 +208,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <div class="photo-clip-wrap" id="photoClip">
           <img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/65210be093d6496c0eaad1bf_new.jpg" alt="Logan Colegrove" id="heroPhoto">
         </div>
-
       </div>
     </div>
   </div>
@@ -238,29 +218,28 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   <div class="section-eyebrow reveal">01 — The difference</div>
   <h2 class="section-title reveal">Balancing right brain and left brain.</h2>
   <p class="section-sub reveal">Most creatives live on one side. With degrees in Business Marketing, Business Management, and Music Technology — plus a decade of in-house experience — I bridge both.</p>
-
   <div class="brain-widget reveal" id="brainWidget">
     <div class="brain-panels" id="brainPanels">
       <div class="brain-panel" id="panelLeft">
         <div class="bp-title">The business side</div>
         <ul class="bp-list">
-          <li>BA Business Marketing & Management</li>
+          <li>BA Business Marketing &amp; Management</li>
           <li>10+ years professional in-house experience</li>
-          <li>Content strategy & conversion goals</li>
-          <li>Project scoping, budgeting & delivery</li>
-          <li>Brand messaging & audience targeting</li>
-          <li>Google Analytics, HubSpot, Meta & TikTok Ads</li>
+          <li>Content strategy &amp; conversion goals</li>
+          <li>Project scoping, budgeting &amp; delivery</li>
+          <li>Brand messaging &amp; audience targeting</li>
+          <li>Google Analytics, HubSpot, Meta &amp; TikTok Ads</li>
         </ul>
       </div>
       <div class="brain-panel" id="panelRight">
         <div class="bp-title">The creative side</div>
         <ul class="bp-list">
-          <li>Cinematic production & direction</li>
-          <li>Motion graphics & 3D animation</li>
-          <li>Color grading & audio design</li>
+          <li>Cinematic production &amp; direction</li>
+          <li>Motion graphics &amp; 3D animation</li>
+          <li>Color grading &amp; audio design</li>
           <li>Drone cinematography (FAA + EASA licensed)</li>
-          <li>Visual storytelling & narrative pacing</li>
-          <li>Music & sound engineering (BS Music Tech)</li>
+          <li>Visual storytelling &amp; narrative pacing</li>
+          <li>Music &amp; sound engineering (BS Music Tech)</li>
         </ul>
       </div>
     </div>
@@ -269,10 +248,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <div class="balance-fill" id="balanceFill" style="width:50%"></div>
         <div class="balance-thumb" id="balanceThumb" style="left:50%"></div>
       </div>
-      <div class="balance-labels">
-        <span>Strategic</span>
-        <span>Creative</span>
-      </div>
+      <div class="balance-labels"><span>Strategic</span><span>Creative</span></div>
     </div>
   </div>
 </section>
@@ -340,17 +316,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <section class="gear-section">
   <div class="section-eyebrow reveal">04 — Equipment</div>
   <h2 class="section-title reveal" style="margin-bottom:32px;">Professional gear for any project.</h2>
-  <div class="gear-tabs reveal" id="gearTabs" style="margin-bottom:16px;">
-    <button class="gear-tab active" onclick="switchGear(0,this)">Cameras & Drones</button>
-    <button class="gear-tab" onclick="switchGear(1,this)">Audio & Lighting</button>
-    <button class="gear-tab" onclick="switchGear(2,this)">Supports & Accessories</button>
-    <button class="gear-tab" onclick="switchGear(3,this)">Video & Animation</button>
-    <button class="gear-tab" onclick="switchGear(4,this)">Photo & Design</button>
-    <button class="gear-tab" onclick="switchGear(5,this)">Marketing & Business</button>
+  <div class="gear-tabs reveal" style="margin-bottom:16px;">
+    <button class="gear-tab active" onclick="switchGear(0,this)">Cameras &amp; Drones</button>
+    <button class="gear-tab" onclick="switchGear(1,this)">Audio &amp; Lighting</button>
+    <button class="gear-tab" onclick="switchGear(2,this)">Supports &amp; Accessories</button>
+    <button class="gear-tab" onclick="switchGear(3,this)">Video &amp; Animation</button>
+    <button class="gear-tab" onclick="switchGear(4,this)">Photo &amp; Design</button>
+    <button class="gear-tab" onclick="switchGear(5,this)">Marketing &amp; Business</button>
     <button class="gear-tab" onclick="switchGear(6,this)">AI</button>
   </div>
   <div class="gear-panels reveal">
-
     <!-- 0: Cameras & Drones -->
     <div class="gear-panel active">
       <div class="gear-col">
@@ -388,11 +363,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
     </div>
-
     <!-- 1: Audio & Lighting -->
     <div class="gear-panel">
       <div class="gear-col">
-        <div class="gear-col-title">Audio Recorders & Mics</div>
+        <div class="gear-col-title">Audio Recorders &amp; Mics</div>
         <ul class="gear-list">
           <li>Zoom F8n Pro <span class="gear-tag">Field</span></li>
           <li>Zoom F1 (×3)</li>
@@ -426,11 +400,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
     </div>
-
     <!-- 2: Supports & Accessories -->
     <div class="gear-panel">
       <div class="gear-col">
-        <div class="gear-col-title">Tripods & Supports</div>
+        <div class="gear-col-title">Tripods &amp; Supports</div>
         <ul class="gear-list">
           <li>Manfrotto 504X <span class="gear-tag">Fluid Head</span></li>
           <li>iFootage Monopod</li>
@@ -460,11 +433,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
     </div>
-
     <!-- 3: Video & Animation -->
     <div class="gear-panel">
       <div class="gear-col">
-        <div class="gear-col-title">Editing & Color</div>
+        <div class="gear-col-title">Editing &amp; Color</div>
         <ul class="gear-list">
           <li>Premiere Pro <span class="gear-tag">Primary</span></li>
           <li>DaVinci Resolve <span class="gear-tag">Color</span></li>
@@ -474,7 +446,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
       <div class="gear-col">
-        <div class="gear-col-title">Motion & 3D</div>
+        <div class="gear-col-title">Motion &amp; 3D</div>
         <ul class="gear-list">
           <li>After Effects <span class="gear-tag">Motion</span></li>
           <li>Cinema 4D</li>
@@ -494,7 +466,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
     </div>
-
     <!-- 4: Photo & Design -->
     <div class="gear-panel">
       <div class="gear-col">
@@ -508,7 +479,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
       <div class="gear-col">
-        <div class="gear-col-title">Web & UI</div>
+        <div class="gear-col-title">Web &amp; UI</div>
         <ul class="gear-list">
           <li>Webflow <span class="gear-tag">Build</span></li>
           <li>Figma</li>
@@ -527,7 +498,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
     </div>
-
     <!-- 5: Marketing & Business -->
     <div class="gear-panel">
       <div class="gear-col">
@@ -562,7 +532,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
     </div>
-
     <!-- 6: AI -->
     <div class="gear-panel">
       <div class="gear-col">
@@ -574,7 +543,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
       <div class="gear-col">
-        <div class="gear-col-title">Video & Image</div>
+        <div class="gear-col-title">Video &amp; Image</div>
         <ul class="gear-list">
           <li>Runway <span class="gear-tag">Gen AI</span></li>
           <li>Topaz <span class="gear-tag">Upscale</span></li>
@@ -582,13 +551,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         </ul>
       </div>
       <div class="gear-col">
-        <div class="gear-col-title">Audio & Editing</div>
+        <div class="gear-col-title">Audio &amp; Editing</div>
         <ul class="gear-list">
           <li>Descript</li>
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -648,7 +616,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     <div class="cta-band-h">Let's make something<br>worth <span>talking about.</span></div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-      <a href="https://www.colegrovemedia.com/project-brief-form" class="btn-ghost">Start a Project Brief</a>
+      <a href="brief.html" class="btn-ghost">Start a Project Brief</a>
     </div>
   </div>
 </div>
@@ -685,7 +653,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li><a href="tel:4062099945">(406) 209-9945</a></li>
         <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
         <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="https://www.colegrovemedia.com/project-brief-form">Project Brief</a></li>
+        <li><a href="brief.html">Project Brief</a></li>
       </ul>
     </div>
   </div>
@@ -719,31 +687,15 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     pct=Math.max(0,Math.min(1,pct));
     fill.style.width=(pct*100)+'%';
     thumb.style.left=(pct*100)+'%';
-
-    // how far from centre (0 = centre, 1 = full edge)
-    var offset=(pct-0.5)*2; // -1 to +1
-
-    // tilt: active side tilts toward viewer, passive side tilts away
-    var tiltL=-10*offset;
-    var tiltR=-10*offset;
-
-    // scale: whichever side cursor is on grows, other shrinks slightly
-    var scaleL=1+(-offset)*0.06;
-    var scaleR=1+(offset)*0.06;
-
-    // z depth: active side rises, inactive sinks
+    var offset=(pct-0.5)*2;
+    var tiltL=-10*offset, tiltR=-10*offset;
+    var scaleL=1+(-offset)*0.06, scaleR=1+(offset)*0.06;
     var transL=offset<0?'perspective(900px) rotateY('+tiltL+'deg) scale('+scaleL+') translateZ(20px)':'perspective(900px) rotateY('+tiltL+'deg) scale('+scaleL+') translateZ('+(-Math.abs(offset)*8)+'px)';
     var transR=offset>0?'perspective(900px) rotateY('+tiltR+'deg) scale('+scaleR+') translateZ(20px)':'perspective(900px) rotateY('+tiltR+'deg) scale('+scaleR+') translateZ('+(-Math.abs(offset)*8)+'px)';
-
-    pL.style.transform=transL;
-    pR.style.transform=transR;
-
-    // text opacity — active side sharpens, inactive fades
+    pL.style.transform=transL; pR.style.transform=transR;
     var fadeL=offset<0?1:Math.max(0.35,1+offset*0.8);
     var fadeR=offset>0?1:Math.max(0.35,1-offset*0.8);
-    pL.style.opacity=fadeL;
-    pR.style.opacity=fadeR;
-
+    pL.style.opacity=fadeL; pR.style.opacity=fadeR;
     pL.classList.toggle('active',pct<0.44);
     pR.classList.toggle('active',pct>0.56);
   }
@@ -754,8 +706,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   widget.addEventListener('mouseleave',function(){
     var cur=parseFloat(fill.style.width)/100||0.5,i=0;
     var iv=setInterval(function(){
-      i++;cur=cur+(0.5-cur)*0.22;
-      update(cur);
+      i++; cur=cur+(0.5-cur)*0.22; update(cur);
       if(i>24){clearInterval(iv);update(0.5);}
     },16);
   });
@@ -763,7 +714,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 })();
 
 // ── GEAR TABS ──
-function switchGear(idx, btn){
+function switchGear(idx,btn){
   document.querySelectorAll('.gear-tab').forEach(function(b){b.classList.remove('active');});
   document.querySelectorAll('.gear-panel').forEach(function(p){p.classList.remove('active');});
   btn.classList.add('active');
