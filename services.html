@@ -216,9 +216,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     <span class="hero-word-wrap"><span class="hero-word" id="hero-word">we do</span></span>
   </h1>
   <p class="page-desc reveal" id="hero-desc">Video, photo, animation, and design — all under one roof. Every service is built around what your audience needs to see, feel, and do.</p>
-  <div class="hero-btns reveal">
-    <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-  </div>
+
 </div>
 
 <div class="filter-bar">
@@ -681,11 +679,19 @@ function closeModal(){
 function handleBackdropClick(e){if(e.target===document.getElementById('modal-backdrop'))closeModal();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 
-// INIT
+// INIT — build grids first, then apply URL params after a tick
+// so the DOM is fully ready before setCat touches hero elements
 buildAll();
-var p=new URLSearchParams(window.location.search);
-var ic=p.get('cat');if(ic&&SVC[ic])setCat(ic);
-var ii=p.get('ind');if(ii&&ii!=='all')setInd(ii);
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  var ic=p.get('cat');
+  var ii=p.get('ind');
+  // Use setTimeout so reveal/animation classes are attached before we mutate them
+  setTimeout(function(){
+    if(ic&&SVC[ic]) setCat(ic);
+    if(ii&&ii!=='all') setInd(ii);
+  },0);
+})();
 
 document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
 (function(){
