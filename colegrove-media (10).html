@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colegrove Media — Bozeman, MT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  :root {
+    --bg:#161a25; --bg2:#212733; --bg3:#212733;
+    --teal:#00f2a6; --teal-dim:#00b87a; --teal-glow:rgba(0,242,166,0.08);
+    --white:#f2f4f8; --muted:#7e8ca0;
+    --border:rgba(0,242,166,0.12); --border2:rgba(242,244,248,0.06);
+    --sans:'DM Sans',sans-serif; --display:'DM Sans',sans-serif;
+  }
+  body { background:var(--bg); color:var(--white); font-family:var(--sans); font-weight:400; line-height:1.6; overflow-x:hidden; padding-top:68px; }
+  a { text-decoration:none; color:inherit; }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity:0; transform:translateY(22px);
+    transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1);
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.08s; }
+  .reveal-delay-2 { transition-delay:0.16s; }
+  .reveal-delay-3 { transition-delay:0.24s; }
+  .reveal-delay-4 { transition-delay:0.32s; }
+
+  /* NAV */
+  nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(22,26,37,0.92); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:68px; transform:translateY(0); transition:transform 0.32s cubic-bezier(0.4,0,0.2,1),background 0.2s ease; }
+  nav.nav-hidden { transform:translateY(-100%); }
+  .nav-logo { display:flex; align-items:center; flex-shrink:0; height:44px; }
+  .nav-logo img { height:36px; width:auto; display:block; }
+  .nav-links { display:flex; list-style:none; gap:8px; }
+  .nav-links a { font-size:14px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); padding:6px 14px; border-radius:6px; transition:color 0.18s,background 0.18s; }
+  .nav-links a:hover { color:var(--white); background:rgba(0,242,166,0.07); }
+  .nav-cta { background:var(--teal); color:#0d1117; padding:10px 22px; border-radius:8px; font-size:13px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; cursor:pointer; transition:opacity 0.18s; display:inline-block; }
+  .nav-cta:hover { opacity:0.85; }
+
+  /* HERO */
+  .hero { position:relative; height:calc(100vh - 68px); min-height:520px; overflow:hidden; border-bottom:1px solid var(--border); }
+  .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; }
+  .hero-scrim { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(22,26,37,0.18) 0%,rgba(22,26,37,0.08) 50%,rgba(22,26,37,0.55) 100%); }
+
+  .btn-secondary { background:transparent; color:var(--muted); padding:12px 28px; border-radius:8px; font-size:13px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; border:1px solid var(--border); cursor:pointer; transition:color 0.18s,border-color 0.18s; display:inline-block; }
+  .btn-secondary:hover { color:var(--white); border-color:rgba(0,242,166,0.4); }
+
+  /* SECTIONS */
+  .section { padding:88px 40px; border-bottom:1px solid var(--border); }
+  .section-eyebrow { font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--teal); margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+  .section-eyebrow::before { content:''; display:block; width:20px; height:1px; background:var(--teal); opacity:0.5; }
+  .section-title { font-family:var(--display); font-size:clamp(36px,4vw,52px); font-weight:700; line-height:1; letter-spacing:-0.01em; color:var(--white); }
+  .section-header { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:52px; gap:20px; }
+  .see-all { font-size:13px; font-weight:500; color:var(--muted); letter-spacing:0.06em; display:inline-flex; align-items:center; gap:6px; transition:color 0.18s; white-space:nowrap; }
+  .see-all:hover { color:var(--teal); }
+  .see-all::after { content:'→'; transition:transform 0.18s; }
+  .see-all:hover::after { transform:translateX(3px); }
+
+  /* SERVICES */
+  .services-grid { display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:12px; overflow:visible; }
+  .service-card {
+    padding:36px 28px 32px; border-right:1px solid var(--border);
+    display:flex; flex-direction:column; gap:16px;
+    cursor:pointer; position:relative; overflow:hidden;
+    transition:background 0.25s, transform 0.3s cubic-bezier(0.34,1.4,0.64,1), box-shadow 0.3s;
+    border-radius:0;
+  }
+  .service-card:first-child { border-radius:12px 0 0 12px; }
+  .service-card:last-child { border-right:none; border-radius:0 12px 12px 0; }
+  .service-card:hover { background:var(--bg3); transform:scale(1.015); box-shadow:0 8px 32px rgba(0,0,0,0.4); z-index:2; }
+  /* Top line — always rendered, scale reveals it */
+  .service-card::before {
+    content:''; position:absolute; top:0; left:0; right:0;
+    height:2px; background:var(--teal);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform 0.3s ease;
+  }
+  .service-card:hover::before { transform:scaleX(1); }
+  .s-icon { width:44px; height:44px; border-radius:10px; background:rgba(0,242,166,0.08); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; color:var(--teal); flex-shrink:0; transition:background 0.25s; }
+  .service-card:hover .s-icon { background:rgba(0,242,166,0.15); }
+  .s-name { font-family:var(--display); font-size:26px; font-weight:700; letter-spacing:0.02em; color:var(--white); line-height:1; }
+  .s-desc { font-size:13px; color:var(--muted); line-height:1.65; font-weight:300; flex:1; }
+  .s-list { list-style:none; border-top:1px solid var(--border); padding-top:16px; }
+  .s-list li { font-size:12px; color:var(--muted); padding:7px 0; border-bottom:1px solid var(--border2); display:flex; align-items:center; justify-content:space-between; transition:color 0.18s; }
+  .s-list li:last-child { border-bottom:none; }
+  .s-list li:hover { color:var(--teal); }
+  .s-list li::after { content:'→'; opacity:0; font-size:11px; color:var(--teal); transition:opacity 0.18s; }
+  .s-list li:hover::after { opacity:1; }
+
+  /* PORTFOLIO */
+  .work-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--border); border-radius:12px; overflow:hidden; }
+  .work-item { background:var(--bg3); position:relative; overflow:hidden; cursor:pointer; aspect-ratio:16/10; }
+  .work-item.featured { grid-column:1/-1; aspect-ratio:21/9; }
+  .wi-thumb { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease,filter 0.3s ease; filter:brightness(0.82); }
+  .work-item:hover .wi-thumb { transform:scale(1.04); filter:brightness(0.65); }
+  .wi-gradient { position:absolute; inset:0; background:linear-gradient(to top,rgba(22,26,37,0.92) 0%,rgba(22,26,37,0.1) 55%,transparent 100%); }
+  .wi-content { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:24px 28px; }
+  .work-item.featured .wi-content { padding:36px 40px; }
+  .wi-tag { display:inline-flex; align-items:center; background:rgba(0,242,166,0.12); border:1px solid rgba(0,242,166,0.25); border-radius:100px; padding:4px 12px; margin-bottom:10px; align-self:flex-start; font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); }
+  .wi-title { font-size:18px; font-weight:600; color:var(--white); line-height:1.25; transition:color 0.2s; }
+  .work-item.featured .wi-title { font-size:26px; max-width:560px; }
+  .work-item:hover .wi-title { color:var(--teal); }
+  .wi-client { font-size:13px; color:rgba(242,244,248,0.4); margin-top:4px; }
+  .wi-play-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.85); width:56px; height:56px; border-radius:50%; background:rgba(0,242,166,0.12); border:1.5px solid rgba(0,242,166,0.5); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.25s,transform 0.25s; backdrop-filter:blur(4px); }
+  .work-item.featured .wi-play-btn { width:68px; height:68px; }
+  .work-item:hover .wi-play-btn { opacity:1; transform:translate(-50%,-50%) scale(1); }
+
+  /* MODAL */
+  .modal-backdrop { position:fixed; inset:0; z-index:500; background:rgba(11,14,20,0.88); backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity 0.25s,visibility 0.25s; padding:24px; }
+  .modal-backdrop.open { opacity:1; visibility:visible; }
+  .modal { background:var(--bg2); border:1px solid var(--border); border-radius:16px; overflow:hidden; width:100%; max-width:960px; max-height:90vh; overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; transform:translateY(16px) scale(0.98); transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1); display:grid; grid-template-columns:1fr 360px; }
+  .modal::-webkit-scrollbar { display:none; }
+  .modal-backdrop.open .modal { transform:translateY(0) scale(1); }
+  .modal-left { background:#000; display:flex; flex-direction:column; }
+  .modal-embed { position:relative; width:100%; aspect-ratio:16/9; flex-shrink:0; }
+  .modal-embed iframe { position:absolute; inset:0; width:100%; height:100%; border:none; }
+  .modal-related { padding:16px 20px; border-top:1px solid rgba(255,255,255,0.06); display:flex; flex-direction:column; gap:12px; }
+  .modal-related-label { font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+  .modal-rel-item { display:flex; gap:10px; cursor:pointer; padding:6px; border-radius:8px; transition:background 0.18s; }
+  .modal-rel-item:hover { background:rgba(242,244,248,0.04); }
+  .modal-rel-item img { width:80px; height:48px; object-fit:cover; border-radius:5px; flex-shrink:0; }
+  .modal-rel-title { font-size:12px; font-weight:500; color:var(--white); line-height:1.35; }
+  .modal-rel-tag { font-size:10px; color:var(--muted); margin-top:2px; }
+  .modal-right { padding:28px 24px; display:flex; flex-direction:column; gap:18px; border-left:1px solid var(--border); }
+  .modal-header { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .modal-close { cursor:pointer; width:32px; height:32px; border-radius:50%; flex-shrink:0; background:var(--bg3); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; transition:background 0.18s; }
+  .modal-close:hover { background:rgba(0,242,166,0.1); }
+  .modal-vtag { display:inline-flex; background:rgba(0,242,166,0.1); border:1px solid rgba(0,242,166,0.2); border-radius:100px; padding:4px 12px; font-size:10px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--teal); }
+  .modal-title { font-size:20px; font-weight:700; color:var(--white); line-height:1.3; }
+  .modal-desc { font-size:13px; color:var(--muted); line-height:1.72; font-weight:300; }
+  .modal-divider { height:1px; background:var(--border); }
+  .modal-specs { display:flex; flex-direction:column; gap:9px; }
+  .modal-spec { display:flex; justify-content:space-between; align-items:baseline; font-size:12px; gap:10px; }
+  .modal-spec-k { color:var(--muted); }
+  .modal-spec-v { font-weight:600; color:var(--white); text-align:right; }
+  .modal-cta { display:flex; flex-direction:column; gap:8px; margin-top:4px; }
+  .modal-btn-fill { display:block; text-align:center; background:var(--teal); color:#0d1117; padding:13px; border-radius:8px; font-size:13px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; transition:opacity 0.18s; }
+  .modal-btn-fill:hover { opacity:0.85; }
+  .modal-btn-ghost { display:block; text-align:center; background:transparent; color:var(--muted); padding:12px; border-radius:8px; font-size:13px; font-weight:500; border:1px solid var(--border); transition:color 0.18s,border-color 0.18s; }
+  .modal-btn-ghost:hover { color:var(--white); border-color:rgba(0,242,166,0.3); }
+
+  /* ABOUT */
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .about-left { padding:56px 52px 56px 40px; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:24px; }
+  .about-h2 { font-family:var(--display); font-size:clamp(28px,3vw,42px); font-weight:700; line-height:1.1; letter-spacing:-0.01em; }
+  .about-body { font-size:15px; color:var(--muted); line-height:1.78; font-weight:300; max-width:400px; }
+  .about-right { padding:56px 40px 56px 52px; background:var(--bg2); display:flex; flex-direction:column; gap:28px; }
+  .value-row { display:flex; gap:18px; padding-bottom:28px; border-bottom:1px solid var(--border); }
+  .value-row:last-child { border-bottom:none; padding-bottom:0; }
+  .value-badge { width:32px; height:32px; border-radius:8px; background:rgba(0,242,166,0.1); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600; color:var(--teal); flex-shrink:0; margin-top:2px; }
+  .value-title { font-family:var(--display); font-size:20px; font-weight:700; color:var(--white); margin-bottom:6px; }
+  .value-desc { font-size:13px; color:var(--muted); line-height:1.65; font-weight:300; }
+
+  /* PROCESS */
+  .process-grid { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+  .process-step { padding:44px 32px; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:14px; position:relative; transition:background 0.2s; }
+  .process-step:last-child { border-right:none; }
+  .process-step:hover { background:var(--teal-glow); }
+  .step-n { font-family:var(--display); font-size:72px; font-weight:700; color:rgba(0,242,166,0.06); line-height:1; position:absolute; top:24px; right:24px; pointer-events:none; }
+  .step-dot { width:36px; height:36px; border-radius:50%; background:rgba(0,242,166,0.1); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; }
+  .step-dot-inner { width:10px; height:10px; border-radius:50%; background:var(--teal); }
+  .step-name { font-family:var(--display); font-size:28px; font-weight:700; color:var(--white); line-height:1; }
+  .step-desc { font-size:14px; color:var(--muted); line-height:1.7; font-weight:300; max-width:260px; }
+  .step-link { margin-top:8px; font-size:12px; font-weight:500; color:var(--teal); letter-spacing:0.08em; text-transform:uppercase; display:inline-flex; align-items:center; gap:6px; transition:gap 0.18s; }
+  .step-link:hover { gap:10px; }
+
+  /* QUOTE */
+  .quote-strip { background:var(--bg2); border-bottom:1px solid var(--border); padding:72px 40px; }
+  .quote-inner { max-width:720px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center; gap:20px; }
+  .quote-mark { font-family:var(--display); font-size:72px; font-weight:700; color:var(--teal); opacity:0.25; line-height:0.7; }
+  .quote-text { font-family:var(--display); font-size:clamp(22px,3vw,32px); font-weight:600; color:var(--white); line-height:1.2; letter-spacing:-0.01em; }
+  .quote-attr { font-size:12px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+  .quote-attr strong { color:var(--teal); font-weight:500; }
+
+  /* CTA */
+  .cta-section { padding:100px 40px; display:flex; align-items:center; justify-content:space-between; gap:60px; position:relative; overflow:hidden; border-bottom:1px solid var(--border); }
+  .cta-section::before { content:''; position:absolute; right:-100px; top:50%; transform:translateY(-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%); pointer-events:none; }
+  .cta-h2 { font-family:var(--display); font-size:clamp(36px,4.5vw,58px); font-weight:700; line-height:0.98; letter-spacing:-0.015em; max-width:520px; }
+  .cta-h2 span { color:var(--teal); }
+  .cta-right { flex-shrink:0; display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
+  .contact-row { display:flex; align-items:center; gap:12px; font-size:14px; font-weight:300; color:var(--muted); }
+  .contact-row a { color:rgba(240,244,244,0.7); transition:color 0.18s; }
+  .contact-row a:hover { color:var(--teal); }
+  .c-icon { color:var(--teal); opacity:0.6; flex-shrink:0; }
+  .cta-divider { width:100%; height:1px; background:var(--border); margin:4px 0; }
+  .cta-btns { display:flex; gap:12px; margin-top:4px; }
+  .btn-cta { padding:13px 28px; border-radius:8px; font-size:13px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:opacity 0.18s,color 0.18s,border-color 0.18s; }
+  .btn-cta-fill { background:var(--teal); color:#0d1117; border:1px solid var(--teal); }
+  .btn-cta-fill:hover { opacity:0.85; }
+  .btn-cta-outline { background:transparent; color:var(--muted); border:1px solid var(--border); }
+  .btn-cta-outline:hover { color:var(--white); border-color:rgba(0,242,166,0.4); }
+
+  /* FOOTER */
+  footer { background:var(--bg2); border-top:1px solid var(--border); }
+  .footer-main { padding:56px 40px 40px; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:48px; border-bottom:1px solid var(--border); }
+  .footer-logo-img { height:44px; width:auto; display:block; margin-bottom:14px; }
+  .footer-tagline { font-size:13px; color:var(--muted); line-height:1.65; font-weight:300; max-width:220px; }
+  .footer-col-title { font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--white); margin-bottom:18px; }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .footer-links a { font-size:13px; color:var(--muted); font-weight:300; transition:color 0.18s; }
+  .footer-links a:hover { color:var(--teal); }
+  .footer-bottom { padding:20px 40px; display:flex; align-items:center; justify-content:space-between; font-size:12px; color:var(--muted); letter-spacing:0.04em; }
+  .footer-bottom a { color:var(--muted); transition:color 0.18s; }
+  .footer-bottom a:hover { color:var(--teal); }
+
+  /* RESPONSIVE */
+  @media (max-width:960px) {
+    nav { padding:0 24px; }
+    .nav-links { display:none; }
+    .hero { height:60vw; min-height:420px; }
+    .services-grid { grid-template-columns:1fr 1fr; overflow:visible; }
+    .service-card:nth-child(2) { border-right:none; }
+    .service-card:nth-child(3) { border-top:1px solid var(--border); border-right:1px solid var(--border); }
+    .service-card:nth-child(4) { border-top:1px solid var(--border); border-right:none; }
+    .work-grid { grid-template-columns:1fr; }
+    .work-item.featured { aspect-ratio:16/9; grid-column:1; }
+    .about-grid { grid-template-columns:1fr; }
+    .about-left { border-right:none; border-bottom:1px solid var(--border); }
+    .process-grid { grid-template-columns:1fr; }
+    .process-step { border-right:none; border-bottom:1px solid var(--border); }
+    .process-step:last-child { border-bottom:none; }
+    .cta-section { flex-direction:column; padding:72px 24px; gap:40px; }
+    .footer-main { grid-template-columns:1fr 1fr; padding:40px 24px 32px; gap:32px; }
+    .footer-bottom { padding:16px 24px; flex-direction:column; gap:8px; }
+    .section { padding:64px 24px; }
+    .section-header { flex-direction:column; align-items:flex-start; }
+  }
+  @media (max-width:580px) {
+    .services-grid { grid-template-columns:1fr; }
+    .service-card { border-right:none !important; border-top:1px solid var(--border); }
+    .service-card:first-child { border-top:none; }
+    .modal { grid-template-columns:1fr; }
+    .footer-main { grid-template-columns:1fr; }
+    .cta-btns { flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="/"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media"></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="https://www.colegrovemedia.com/pricing">Pricing</a></li>
+  </ul>
+  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
+</nav>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="https://player.vimeo.com/progressive_redirect/playback/871650285/rendition/1440p/file.mp4%20%281440p%29.mp4?loc=external&log_user=0&signature=6fbcba8ef2c0fd1d4a134c37ae97e3136ddb9dfc4e7590d8a071071416fef3f9" type="video/mp4">
+  </video>
+  <div class="hero-scrim"></div>
+</section>
+
+<section class="section" id="services">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow reveal">01 — Services</div>
+      <h2 class="section-title reveal reveal-delay-1">What We Do</h2>
+    </div>
+    <a href="https://www.colegrovemedia.com/services" class="see-all reveal reveal-delay-2">All Services</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal reveal-delay-1" onclick="location.href='https://www.colegrovemedia.com/category/video'">
+      <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polygon points="6,4 16,10 6,16" fill="currentColor" opacity="0.9"/></svg></div>
+      <div class="s-name">Video</div>
+      <p class="s-desc">Cinematic storytelling that connects emotionally and drives people to act — whether it's a 10-second social cut or a full-length brand film.</p>
+      <ul class="s-list"><li>Brand Videos</li><li>Testimonials</li><li>Social Clips / Ads</li><li>Podcasts</li><li>Live Streams</li></ul>
+    </div>
+    <div class="service-card reveal reveal-delay-2" onclick="location.href='https://www.colegrovemedia.com/category/photo'">
+      <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="16" height="12" rx="2"/><circle cx="10" cy="11" r="3" fill="currentColor" stroke="none" opacity="0.7"/><path d="M7 5l1.5-2h3L13 5" stroke-linecap="round"/></svg></div>
+      <div class="s-name">Photo</div>
+      <p class="s-desc">Stills that do more than document. Composition, light, and timing working together to make your property, your team, or your space look exactly as good as it is.</p>
+      <ul class="s-list"><li>Headshots</li><li>Real Estate Photos</li><li>Drone Photos</li><li>3D Virtual Tours</li></ul>
+    </div>
+    <div class="service-card reveal reveal-delay-3" onclick="location.href='https://www.colegrovemedia.com/category/animation'">
+      <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10 Q7 3 10 10 Q13 17 17 10" stroke-linecap="round"/><circle cx="10" cy="10" r="2.5" fill="currentColor" stroke="none" opacity="0.8"/></svg></div>
+      <div class="s-name">Animation</div>
+      <p class="s-desc">Complex ideas made clear. Motion and narrative working together to explain what words alone can't — and build recognition and trust while doing it.</p>
+      <ul class="s-list"><li>Animated Explainers</li><li>Motion Graphics</li><li>Logo Animations</li><li>Website Animations / Lottie</li></ul>
+    </div>
+    <div class="service-card reveal reveal-delay-4" onclick="location.href='https://www.colegrovemedia.com/category/design'">
+      <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="2.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.9"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.9"/></svg></div>
+      <div class="s-name">Design</div>
+      <p class="s-desc">Visual identity that holds together. From the first impression to the final touchpoint, design that reflects who you are and gives people a reason to trust you.</p>
+      <ul class="s-list"><li>Graphic Design</li><li>Web Design</li><li>Virtual Stagings</li><li>Satellite Maps</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work" style="padding-top:0;border-top:none;">
+  <div class="section-header" style="padding-top:88px;">
+    <div>
+      <div class="section-eyebrow reveal">02 — Portfolio</div>
+      <h2 class="section-title reveal reveal-delay-1">Selected Work</h2>
+    </div>
+    <a href="https://www.colegrovemedia.com/work" class="see-all reveal reveal-delay-2">View All</a>
+  </div>
+  <div class="work-grid">
+    <div class="work-item featured reveal" onclick="openModal(0)">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg" alt="Ignis Technologies">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Brand Video</div>
+        <div class="wi-title">Powering Wildfire Intelligence</div>
+        <div class="wi-client">Ignis Technologies</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-1" onclick="openModal(1)">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg" alt="Animated Explainer">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Animation</div>
+        <div class="wi-title">Streamline Your Nonprofit</div>
+        <div class="wi-client">Nonprofit Client</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-2" onclick="openModal(2)">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e8cb2eb2e8fc0a7c2_66f38750bb92e144accdf66a_thumb%2520(12).jpeg" alt="Arctic Drone">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Drone / FPV</div>
+        <div class="wi-title">Above the Arctic Circle</div>
+        <div class="wi-client">Personal Travel Film — Northern Norway</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-1" onclick="openModal(3)">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg" alt="Foundation Software">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Product Demo</div>
+        <div class="wi-title">All-in-One Foundation Management Solution</div>
+        <div class="wi-client">Software Overview</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-2" onclick="openModal(4)">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f768eb0871ede95f20f300_upda.jpg" alt="GVLT Brand Video">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Brand Video</div>
+        <div class="wi-title">Painted Hills</div>
+        <div class="wi-client">Gallatin Valley Land Trust</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-3" onclick="openModal(5)">
+      <img class="wi-thumb" src="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg" alt="Testimonial">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Testimonial</div>
+        <div class="wi-title">Not Jumping Ship</div>
+        <div class="wi-client">In-Person Interview</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-left">
+      <div class="modal-embed">
+        <iframe id="modal-iframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="modal-related" id="modal-related">
+        <div class="modal-related-label" id="modal-related-label">More Brand Videos</div>
+      </div>
+    </div>
+    <div class="modal-right">
+      <div class="modal-header">
+        <span class="modal-vtag" id="modal-tag"></span>
+        <div class="modal-close" onclick="closeModal()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg>
+        </div>
+      </div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-divider"></div>
+      <div class="modal-specs" id="modal-specs"></div>
+      <div class="modal-divider"></div>
+      <div class="modal-cta">
+        <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="modal-btn-fill" id="modal-cta-primary">Get Your <span id="modal-cta-tag">Video</span> Made →</a>
+        <a href="https://www.colegrovemedia.com/pricing" class="modal-btn-ghost">See Pricing</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow reveal">03 — About</div>
+      <h2 class="section-title reveal reveal-delay-1">Let's Team Up</h2>
+    </div>
+    <a href="https://www.colegrovemedia.com/about" class="see-all reveal reveal-delay-2">About Logan</a>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-left">
+      <h3 class="about-h2">A creative partner for brands that mean business.</h3>
+      <p class="about-body">Colegrove Media is a multimedia production company dedicated to creating compelling content that drives real results — video, photo, animation, and design delivered with craft and care.</p>
+      <p class="about-body">Whether the project is a property listing or a national campaign, the approach is the same — show up prepared, ask the right questions, and make something you're proud to put your name on.</p>
+      <a href="https://www.colegrovemedia.com/about" class="btn-secondary" style="align-self:flex-start;margin-top:8px;">Learn More</a>
+    </div>
+    <div class="about-right">
+      <div class="value-row">
+        <div class="value-badge">01</div>
+        <div><div class="value-title">Results-Driven</div><p class="value-desc">We start with the finish line. Every creative decision — shot selection, pacing, copy — is made in service of what you actually need the content to do.</p></div>
+      </div>
+      <div class="value-row">
+        <div class="value-badge">02</div>
+        <div><div class="value-title">Client-Centered</div><p class="value-desc">To do this well, I have to get completely inside your world — your audience, your goals, your constraints. The work only lands when it's built around you, not around me.</p></div>
+      </div>
+      <div class="value-row">
+        <div class="value-badge">03</div>
+        <div><div class="value-title">No Surprises</div><p class="value-desc">Clear timelines, honest pricing, and a final product that matches the vision you came in with.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;border-top:none;">
+  <div class="section-header" style="padding-top:88px;">
+    <div>
+      <div class="section-eyebrow reveal">04 — Process</div>
+      <h2 class="section-title reveal reveal-delay-1">Ready to Begin?</h2>
+    </div>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-n">01</div>
+      <div class="step-dot"><div class="step-dot-inner"></div></div>
+      <div class="step-name">Reach Out</div>
+      <p class="step-desc">Tell us about your goals. A quick call or a project brief — either works as a starting point.</p>
+      <a href="https://www.colegrovemedia.com/project-brief-form" class="step-link">Start a Brief →</a>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-n">02</div>
+      <div class="step-dot"><div class="step-dot-inner"></div></div>
+      <div class="step-name">Get a Proposal</div>
+      <p class="step-desc">You'll receive a clear timeline, deliverables list, and a quote. No vague estimates.</p>
+      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="step-link">Schedule a Call →</a>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-n">03</div>
+      <div class="step-dot"><div class="step-dot-inner"></div></div>
+      <div class="step-name">Get Great Media</div>
+      <p class="step-desc">We handle production start to finish. You get a polished final product you're proud to share.</p>
+      <a href="https://www.colegrovemedia.com/work" class="step-link">See Examples →</a>
+    </div>
+  </div>
+</section>
+
+<div class="quote-strip">
+  <div class="quote-inner reveal">
+    <div class="quote-mark">"</div>
+    <blockquote class="quote-text">Working with Logan was the smoothest production process we've ever experienced. The final video exceeded every expectation.</blockquote>
+    <div class="quote-attr"><strong>Satisfied Client</strong> &nbsp;·&nbsp; Bozeman, MT</div>
+  </div>
+</div>
+
+<section class="cta-section">
+  <h2 class="cta-h2 reveal">Ready to make something <span>great</span>?</h2>
+  <div class="cta-right reveal reveal-delay-2">
+    <div class="contact-row">
+      <svg class="c-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1" y="3" width="14" height="10" rx="1.5"/><path d="M1 5.5l7 4.5 7-4.5"/></svg>
+      <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a>
+    </div>
+    <div class="contact-row">
+      <svg class="c-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M2.5 3C2.5 9.5 6.5 13.5 13 13.5l.9-.5.4-3-2.2-.5-.4.9c-1.8-.4-3.7-2.3-4-4l.9-.4-.5-2.2L4.5 3 2.5 3Z" stroke-linejoin="round"/></svg>
+      <a href="tel:4062099945">(406) 209-9945</a>
+    </div>
+    <div class="contact-row">
+      <svg class="c-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 1.5a4.5 4.5 0 0 1 4.5 4.5C12.5 9.5 8 14.5 8 14.5S3.5 9.5 3.5 6A4.5 4.5 0 0 1 8 1.5Z"/><circle cx="8" cy="6" r="1.5" fill="currentColor" stroke="none"/></svg>
+      <span>Bozeman, Montana</span>
+    </div>
+    <div class="cta-divider"></div>
+    <div class="cta-btns">
+      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-cta btn-cta-fill">Schedule a Call →</a>
+      <a href="https://www.colegrovemedia.com/project-brief-form" class="btn-cta btn-cta-outline">Start a Brief</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-main">
+    <div>
+      <img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" class="footer-logo-img">
+      <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Pages</div>
+      <ul class="footer-links">
+        <li><a href="https://www.colegrovemedia.com/">Home</a></li>
+        <li><a href="https://www.colegrovemedia.com/work">Selected Works</a></li>
+        <li><a href="https://www.colegrovemedia.com/about">About</a></li>
+        <li><a href="https://www.colegrovemedia.com/services">Services</a></li>
+        <li><a href="https://www.colegrovemedia.com/pricing">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="https://www.colegrovemedia.com/category/video">Video</a></li>
+        <li><a href="https://www.colegrovemedia.com/category/photo">Photo</a></li>
+        <li><a href="https://www.colegrovemedia.com/category/animation">Animation</a></li>
+        <li><a href="https://www.colegrovemedia.com/category/design">Design</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a></li>
+        <li><a href="tel:4062099945">(406) 209-9945</a></li>
+        <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
+        <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
+        <li><a href="https://www.colegrovemedia.com/project-brief-form">Project Brief</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Colegrove Media</span>
+    <span>Bozeman, Montana</span>
+    <a href="https://www.colegrovemedia.com/terms-and-conditions">Terms & Conditions</a>
+  </div>
+</footer>
+
+<script>
+var library = [
+  { slug:'powering-wildfire-intelligence',     title:'Powering Wildfire Intelligence', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg', cats:['brand-video'], vimeoId:'1011394531' },
+  { slug:'streamline-your-nonprofit', title:'Streamline Your Nonprofit — Animated Explainer', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg', cats:['animated-explainer'], vimeoId:'1011466967' },
+  { slug:'above-the-arctic-circle', title:'Above the Arctic Circle — Cinematic 4K Drone Film', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e8cb2eb2e8fc0a7c2_66f38750bb92e144accdf66a_thumb%2520(12).jpeg', cats:['drone-video-fpv'], vimeoId:'1012197311' },
+  { slug:'all-in-one-foundation-management', title:'All-in-One Foundation Management Solution', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg', cats:['product-video','animated-explainer'], vimeoId:'1011444538' },
+  { slug:'painted-hills-gvlt', title:'Painted Hills — GVLT Brand Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f768eb0871ede95f20f300_upda.jpg', cats:['brand-video'], vimeoId:'1011446090' },
+  { slug:'not-jumping-ship', title:'Not Jumping Ship — Testimonial Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg', cats:['testimonial'], vimeoId:'1011460491' },
+  { slug:'enhancing-habitats', title:'Enhancing Habitats through Mesic Restoration', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669ef33ba04f968e6c6a_66f39e494c785c3ecb9e429b_thumb%2520(21).jpeg', cats:['brand-video'], vimeoId:'1009737494' },
+  { slug:'foundant-brand-overview', title:'Foundant Brand Overview', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a0d295dfbc1cbbe46f_66f70b897f8b1cdbe74e2e5b_thumb%2520(33).jpeg', cats:['brand-video'], vimeoId:'1011467483' },
+  { slug:'girls-on-the-run', title:'Girls On The Run — Thrive Charity Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2464_66f3a054163f4c9d22ba6356_thumb%2520(22).jpeg', cats:['brand-video'], vimeoId:'1011397220' },
+  { slug:'montana-grassland-initiative', title:'Montana Grassland Initiative Explained', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67fa91f6159f177fd199707a_thumb%20(8).jpg', cats:['brand-video'], vimeoId:'1072711800' },
+  { slug:'drone-reel', title:'Drone Reel', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2415_66f39b9106d16f7bebe5a521_thumb%2520(18).jpeg', cats:['drone-video-fpv'], vimeoId:'1011433865' },
+  { slug:'iceland-in-motion', title:'Iceland in Motion: Hyperlapses, Drones, and 8K Cinematics', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/6754f34a0ccac304599e4a4c_iceland%20no%20vin-3.jpg', cats:['drone-video-fpv'], vimeoId:'1036921693' },
+  { slug:'someday-ranch', title:'Someday Ranch — Real Estate Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a51971e98896ddd771_66f71726105adea3df43b0ce_thumb%2520(44).jpeg', cats:['real-estate-video','drone-video-fpv'], vimeoId:'1011395960' },
+  { slug:'15-spring-ridge', title:'15 Spring Ridge Dr — Real Estate Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e3dbb3613d4333c69_66f39b33bc771ba2f81eb5aa_thumb%2520(17).jpeg', cats:['real-estate-video'], vimeoId:'823929975' },
+  { slug:'smartsimple-animated-explainer', title:'SmartSimple — Animated Explainer', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67a2b11e76d2956fbe1cd0d4_thumb%20(2).jpg', cats:['animated-explainer'], vimeoId:'1053133749' },
+  { slug:'online-portal-animated-explainer', title:'Online Portal — Animated Explainer', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a24de84b6e9187122d_66f709b9558f8a683ddf9f3e_thumb%2520(28).jpeg', cats:['animated-explainer'], vimeoId:'1011465254' },
+  { slug:'third-party-animated-explainer', title:'Third Party — Animated Explainer', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a721bcac8906831b13_66f70ac72dea665ef97fd473_thumb%2520(31).jpeg', cats:['animated-explainer'], vimeoId:'1011464669' },
+  { slug:'software-demo-video', title:'Software Demo Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0ad_66f716dc08e34b6183b5923b_thumb%2520(42).jpeg', cats:['animated-explainer','product-video'], vimeoId:'1011464708' },
+  { slug:'accounting-product-demo', title:'Accounting — Product Demo', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe12c_66f71624792ad1ee55fc5c26_thumb%2520(40).jpeg', cats:['product-video'], vimeoId:'1011466308' },
+  { slug:'fundraising-product-demo', title:'Fundraising — Product Demo', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a03dbb3613d4333dcc_66f715ebed3b57860169aafb_thumb%2520(39).jpeg', cats:['product-video'], vimeoId:'1011466737' },
+  { slug:'reporting-product-demo', title:'Reporting — Product Demo', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a427672f65dbb982c4_66f7165aa272ae9e8939f9dc_thumb%2520(41).jpeg', cats:['product-video'], vimeoId:'1011466134' },
+  { slug:'constituent-relationship-management', title:'Constituent Relationship Management — Product Demo', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669ef33ba04f968e6cb9_66f7096926072825c32fa058_thumb%2520(27).jpeg', cats:['product-video'], vimeoId:'1011466519' },
+  { slug:'client-service-testimonial', title:'Client Service Testimonial', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dcb70bd89e860c4a5_66f70913766b164a1bd00ebc_thumb%2520(13).jpeg', cats:['testimonial'], vimeoId:'1012194769' },
+  { slug:'team-testimonial', title:'Team Testimonial', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a7f33ba04f968e72ae_66f70b129950d13f73461415_thumb%2520(32).jpeg', cats:['testimonial'], vimeoId:'1011448652' },
+  { slug:'transforming-workflows', title:'Transforming Workflows — Testimonial Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a827672f65dbb98565_66f39cbb4c785c3ecb9cdce6_thumb%2520(19).jpeg', cats:['testimonial'], vimeoId:'1011455705' },
+  { slug:'salt-lake-summit', title:'Salt Lake Summit — Event Promo Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a68efb70416dfbc4f7_66f3a029748e9d2481f2e48b_thumb%2520(23).jpeg', cats:['testimonial'], vimeoId:'1011467103' },
+  { slug:'doing-so-much-more', title:'Doing So Much More — Testimonial', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a03dbb3613d4333db1_66f7150d449cde8f782ff594_thumb%2520(36).jpeg', cats:['testimonial'], vimeoId:'1011448080' },
+  { slug:'meet-the-interns', title:'Meet The Interns — Company Culture Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a2f33ba04f968e6ea6_66f70c45e677908668bdc690_thumb%2520(35).jpeg', cats:['testimonial'], vimeoId:'1011467289' },
+  { slug:'retirement-celebration', title:'Retirement Celebration — Company Culture Video', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a4cb70bd89e860c9e3_66f70bef19069a3f3c043373_thumb%2520(34).jpeg', cats:['testimonial'], vimeoId:'1011445124' },
+  { slug:'client-philanthropy-story', title:'Client Philanthropy Story', thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669d8a43c9b8b605d5d3_66f715a9ff867ab8b75fc513_thumb%2520(38).jpeg', cats:['testimonial'], vimeoId:'1011445089' }
+];
+
+var projects = [
+  { slug:'powering-wildfire-intelligence', tag:'Brand Video', cats:['brand-video'], title:'Powering Wildfire Intelligence — Ignis Technologies', client:'Ignis Technologies', desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software — built to help firefighters and land managers stay ahead of fast-moving fires.',     specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2–3 weeks'}], vimeoId:'1011394531' },
+  { slug:'streamline-your-nonprofit', tag:'Animation', cats:['animated-explainer'], title:'Streamline Your Nonprofit — Animated Explainer', client:'Nonprofit Client', desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.', specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'Nonprofit Client'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}], vimeoId:'1011466967' },
+  { slug:'above-the-arctic-circle', tag:'Drone / FPV', cats:['drone-video-fpv'], title:'Above the Arctic Circle — Cinematic 4K Drone Film', client:'Cinematic Film', desc:'A personal cinematic project shot above the Arctic Circle in Northern Norway. Sweeping 4K drone footage captures the raw scale of the landscape — fjords, snowfields, and endless sky — in a visual poem about the edge of the world.', specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Client',v:'Personal Project'},{k:'Format',v:'4K / LOG color'},{k:'Location',v:'Northern Norway'},{k:'Turnaround',v:'4 weeks'}], vimeoId:'1012197311' },
+  { slug:'all-in-one-foundation-management', tag:'Product Demo', cats:['product-video','animated-explainer'], title:'All-in-One Foundation Management Solution', client:'Software Client', desc:'A software overview video built to help a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable and powerful.', specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}], vimeoId:'1011444538' },
+  { slug:'painted-hills-gvlt', tag:'Brand Video', cats:['brand-video'], title:'Painted Hills — GVLT Brand Video', client:'Gallatin Valley Land Trust', desc:'A brand video for Gallatin Valley Land Trust (GVLT), shot on the Painted Hills property. The piece blends sweeping landscape photography with intimate storytelling to show why land conservation matters — and what GVLT makes possible for future generations.', specs:[{k:'Type',v:'Brand / Impact Video'},{k:'Client',v:'Gallatin Valley Land Trust'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2–3 weeks'}], vimeoId:'1011446090' },
+  { slug:'not-jumping-ship', tag:'Testimonial', cats:['testimonial'], title:'Not Jumping Ship — Client Testimonial Video', client:'In-Person Interview', desc:'An in-person testimonial video built around a real client story. Filmed with a clean, professional look that puts the subject at ease — the result is authentic, quotable content that builds trust far more effectively than any marketing copy.', specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Format',v:'4K Interview'},{k:'Deliverables',v:'Full cut + 30s version'},{k:'Turnaround',v:'1–2 weeks'}], vimeoId:'1011460491' }
+];
+
+var catLabels = {
+  'brand-video':'Brand Videos','animated-explainer':'Animated Explainers',
+  'drone-video-fpv':'Drone & FPV Films','product-video':'Product Demos',
+  'real-estate-video':'Real Estate Videos','testimonial':'Testimonials',
+  'remote-client-story':'Client Stories'
+};
+
+function getRelated(slug, cats) {
+  return library.filter(function(item) {
+    if (item.slug === slug) return false;
+    return item.cats.some(function(c) { return cats.indexOf(c) > -1; });
+  });
+}
+
+function openModal(idx) {
+  var p = projects[idx];
+  document.getElementById('modal-tag').textContent = p.tag;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('modal-specs').innerHTML = p.specs.map(function(s) {
+    return '<div class="modal-spec"><span class="modal-spec-k">'+s.k+'</span><span class="modal-spec-v">'+s.v+'</span></div>';
+  }).join('');
+  document.getElementById('modal-cta-tag').textContent = p.tag;
+  document.getElementById('modal-iframe').src =
+    'https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
+
+  var related = getRelated(p.slug, p.cats).slice(0,3);
+  var labelText = 'More '+(catLabels[p.cats[0]]||'Work');
+  var relatedEl = document.getElementById('modal-related');
+  var label = document.getElementById('modal-related-label');
+  if (related.length === 0) { relatedEl.style.display='none'; }
+  else {
+    relatedEl.style.display='';
+    relatedEl.innerHTML='';
+    label = document.createElement('div');
+    label.className='modal-related-label';
+    label.textContent = labelText;
+    relatedEl.appendChild(label);
+    related.forEach(function(item) {
+      var d = document.createElement('div');
+      d.className='modal-rel-item';
+      d.setAttribute('onclick','openModalBySlug(\''+item.slug+'\')');
+      d.innerHTML='<img src="'+item.thumb+'" alt="" loading="lazy">'
+        +'<div><div class="modal-rel-title">'+item.title+'</div>'
+        +'<div class="modal-rel-tag">'+(catLabels[item.cats[0]]||item.cats[0])+'</div></div>';
+      relatedEl.appendChild(d);
+    });
+  }
+  document.getElementById('modal-backdrop').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function openModalBySlug(slug) {
+  for (var i=0; i<projects.length; i++) { if (projects[i].slug===slug) { openModal(i); return; } }
+  var item=null;
+  for (var j=0; j<library.length; j++) { if (library[j].slug===slug) { item=library[j]; break; } }
+  if (!item) return;
+  var p = { slug:item.slug, tag:catLabels[item.cats[0]]||item.cats[0], cats:item.cats, title:item.title, client:'', desc:'', specs:[{k:'Type',v:catLabels[item.cats[0]]||item.cats[0]}], vimeoId:item.vimeoId };
+  projects.push(p); openModal(projects.length-1); projects.pop();
+}
+
+function closeModal() {
+  document.getElementById('modal-backdrop').classList.remove('open');
+  document.getElementById('modal-iframe').src='';
+  document.body.style.overflow='';
+}
+function handleBackdropClick(e) { if (e.target===document.getElementById('modal-backdrop')) closeModal(); }
+document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeModal(); });
+
+// NAV hide/show
+(function(){
+  var nav=document.querySelector('nav'), lastY=window.scrollY, ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(function(){
+      var y=window.scrollY;
+      if(y<80) nav.classList.remove('nav-hidden');
+      else if(y>lastY) nav.classList.add('nav-hidden');
+      else nav.classList.remove('nav-hidden');
+      lastY=y; ticking=false;
+    }); ticking=true;}
+  },{passive:true});
+})();
+
+// SCROLL REVEAL
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  },{threshold:0.12});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
