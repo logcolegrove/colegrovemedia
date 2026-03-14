@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions — Colegrove Media</title>
+<meta name="description" content="Terms and conditions for Colegrove Media services — Bozeman, MT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+:root{
+  --bg:#161a25;--bg2:#212733;--bg3:#1c2030;
+  --teal:#00f2a6;--teal-glow:rgba(0,242,166,0.08);
+  --white:#f2f4f8;--muted:#7e8ca0;
+  --border:rgba(0,242,166,0.12);--border2:rgba(242,244,248,0.06);
+  --sans:'DM Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;padding-top:68px;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
+nav.nav-hidden{transform:translateY(-100%);}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
+.nav-logo img{height:48px;width:auto;display:block;}
+.nav-links{display:flex;list-style:none;gap:8px;}
+.nav-links a{font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:6px 14px;border-radius:6px;transition:color 0.18s,background 0.18s;}
+.nav-links a:hover{color:var(--white);background:rgba(0,242,166,0.07);}
+.nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
+.nav-cta:hover{opacity:0.85;}
+
+/* HERO */
+.page-hero{padding:72px 40px 48px;border-bottom:1px solid var(--border);}
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
+.page-h1{font-size:clamp(36px,4.5vw,56px);font-weight:700;line-height:1;letter-spacing:-0.02em;margin-bottom:16px;}
+.page-meta{font-size:14px;color:var(--muted);font-weight:300;}
+.page-meta span{color:rgba(0,242,166,0.6);}
+
+/* LAYOUT */
+.terms-wrap{display:grid;grid-template-columns:220px 1fr;gap:64px;padding:64px 40px 100px;max-width:1100px;margin:0 auto;}
+
+/* TOC */
+.toc{position:sticky;top:96px;align-self:flex-start;}
+.toc-label{font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:2px;}
+.toc-list a{font-size:13px;color:var(--muted);font-weight:300;padding:6px 10px;border-radius:6px;display:block;transition:color 0.18s,background 0.18s;border-left:2px solid transparent;}
+.toc-list a:hover{color:var(--white);background:rgba(242,244,248,0.04);}
+.toc-list a.active{color:var(--teal);border-left-color:var(--teal);background:rgba(0,242,166,0.05);}
+
+/* CONTENT */
+.terms-content{min-width:0;}
+.terms-section{padding-bottom:48px;border-bottom:1px solid var(--border);margin-bottom:48px;}
+.terms-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.section-num{font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.section-title{font-size:22px;font-weight:700;color:var(--white);margin-bottom:20px;line-height:1.2;}
+.terms-p{font-size:15px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:16px;}
+.terms-p:last-child{margin-bottom:0;}
+.terms-p strong{color:var(--white);font-weight:500;}
+.terms-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+.terms-list li{font-size:15px;color:var(--muted);line-height:1.7;font-weight:300;display:flex;align-items:flex-start;gap:10px;}
+.terms-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:9px;}
+.terms-list li strong{color:var(--white);font-weight:500;}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);}
+.footer-main{padding:56px 40px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid var(--border);}
+.footer-logo-img{height:44px;width:auto;display:block;margin-bottom:14px;}
+.footer-tagline{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;max-width:220px;}
+.footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);margin-bottom:18px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:14px;color:var(--muted);font-weight:300;transition:color 0.18s;}
+.footer-links a:hover{color:var(--teal);}
+.footer-bottom{padding:20px 40px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);}
+.footer-bottom a{color:var(--muted);transition:color 0.18s;}
+.footer-bottom a:hover{color:var(--teal);}
+
+@media(max-width:960px){
+  nav{padding:0 24px;}.nav-links{display:none;}
+  .page-hero{padding:64px 24px 40px;}
+  .terms-wrap{grid-template-columns:1fr;gap:40px;padding:48px 24px 80px;}
+  .toc{display:none;}
+  .footer-main{grid-template-columns:1fr 1fr;padding:40px 24px 32px;gap:32px;}
+  .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <div class="nav-logo"><a href="index.html"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media"></a></div>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html">Portfolio</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Legal</div>
+  <h1 class="page-h1">Terms & Conditions</h1>
+  <p class="page-meta">Colegrove Media · Bozeman, Montana · <span>Effective date: March 14, 2026</span></p>
+</div>
+
+<div class="terms-wrap">
+
+  <!-- TOC -->
+  <nav class="toc" id="toc">
+    <div class="toc-label">On this page</div>
+    <ul class="toc-list">
+      <li><a href="#s1">1. Agreement</a></li>
+      <li><a href="#s2">2. Project Contract & Scope</a></li>
+      <li><a href="#s3">3. Payment Terms</a></li>
+      <li><a href="#s4">4. Rush Projects</a></li>
+      <li><a href="#s5">5. Cancellations</a></li>
+      <li><a href="#s6">6. Intellectual Property</a></li>
+      <li><a href="#s7">7. Consent & Permissions</a></li>
+      <li><a href="#s8">8. Confidentiality</a></li>
+      <li><a href="#s9">9. Data Protection</a></li>
+      <li><a href="#s10">10. Content Accuracy</a></li>
+      <li><a href="#s11">11. Indemnification</a></li>
+      <li><a href="#s12">12. Limitation of Liability</a></li>
+      <li><a href="#s13">13. Miscellaneous</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENT -->
+  <div class="terms-content">
+
+    <div class="terms-section" id="s0">
+      <p class="terms-p">Colegrove Media provides film, photography, design, marketing, and creative services (collectively, "Services"). By engaging Colegrove Media's services, you agree to be bound by the following terms and conditions (the "Agreement"). This Agreement, combined with your signed project contract or proposal, governs the relationship between Colegrove Media and you and/or your company (collectively, "Client").</p>
+    </div>
+
+    <div class="terms-section" id="s2">
+      <div class="section-num">02</div>
+      <h2 class="section-title">Project Contract & Scope</h2>
+      <p class="terms-p">Clients engage Colegrove Media's services by signing a project contract or proposal, which defines the scope, deliverables, timeline, and cost of the engagement.</p>
+      <p class="terms-p">Revisions are intended for adjustments and refinements within the agreed scope — not for changes to the project's overall vision, direction, or objectives. Revision rounds beyond those specified in the proposal may be subject to additional fees billed at the hourly rate. Requests for updates or changes after final delivery are considered a new scope of work.</p>
+    </div>
+
+    <div class="terms-section" id="s3">
+      <div class="section-num">03</div>
+      <h2 class="section-title">Payment Terms</h2>
+      <p class="terms-p">Payment in full is due within <strong>30 days of delivery</strong> of the agreed-upon deliverables, unless otherwise specified in the project contract.</p>
+      <p class="terms-p">Should the Client fail to remit payment within this period, Colegrove Media reserves the right to discontinue, suspend, or revoke access to any deliverables or ongoing services. Delinquent accounts will be responsible for the outstanding balance plus any fees incurred in pursuing collection, including but not limited to collection agency fees, reasonable attorney fees, and court costs.</p>
+      <p class="terms-p">Accepted payment methods include Credit/Debit Card, ACH Transfer, PayPal, Venmo, Cash, and Check.</p>
+    </div>
+
+    <div class="terms-section" id="s4">
+      <div class="section-num">04</div>
+      <h2 class="section-title">Rush Projects</h2>
+      <p class="terms-p">A rush project is defined as any engagement requiring delivery in a timeframe significantly shorter than the initially quoted production schedule.</p>
+      <ul class="terms-list">
+        <li><strong>Fee:</strong> Rush projects are billed at 2× the standard quoted rate to cover additional resources, overtime, and expedited production.</li>
+        <li><strong>Prioritization:</strong> Rush projects are given priority scheduling. Timely provision of all required materials and approvals by the Client is essential to meet the accelerated timeline.</li>
+        <li><strong>Payment:</strong> The rush fee will be reflected on the final invoice.</li>
+        <li><strong>Negotiation:</strong> Colegrove Media may waive or reduce the rush fee on a case-by-case basis depending on project nature and the Client's history.</li>
+        <li><strong>Exclusions:</strong> Not all projects qualify for rush status. Colegrove Media reserves the right to decline rush requests where quality may be compromised.</li>
+        <li><strong>Agreement:</strong> Rush terms will be acknowledged and agreed upon in writing by both parties before work begins.</li>
+      </ul>
+    </div>
+
+    <div class="terms-section" id="s5">
+      <div class="section-num">05</div>
+      <h2 class="section-title">Cancellations</h2>
+      <p class="terms-p">Clients may cancel any project by providing written notice prior to the scheduled start date at no penalty.</p>
+      <p class="terms-p">If cancellation occurs after work has commenced, the following tiered cancellation fees apply:</p>
+      <ul class="terms-list">
+        <li><strong>Before work begins:</strong> No cancellation fee.</li>
+        <li><strong>After work begins, before 50% completion:</strong> 50% of the total project cost.</li>
+        <li><strong>After 50% or more of work is complete:</strong> 80% of the total project cost.</li>
+      </ul>
+      <p class="terms-p" style="margin-top:16px;">The percentage of completion will be determined by Colegrove Media based on time invested, resources allocated, and deliverables produced to the date of cancellation notice.</p>
+      <p class="terms-p">Colegrove Media reserves the right to terminate a project if the Client is in breach of this Agreement or if continued engagement is no longer feasible. In such cases, the Client will be invoiced for all work completed to date.</p>
+    </div>
+
+    <div class="terms-section" id="s6">
+      <div class="section-num">06</div>
+      <h2 class="section-title">Intellectual Property & Usage Rights</h2>
+      <p class="terms-p">Upon receipt of full payment, the Client is granted <strong>perpetual, worldwide, unlimited, and non-exclusive rights</strong> to use the deliverables produced by Colegrove Media for any lawful purpose.</p>
+      <p class="terms-p">Colegrove Media retains the right to display work produced for the Client in its portfolio and for promotional or marketing purposes, unless otherwise agreed upon in writing. Raw files, project source files, and unedited footage remain the property of Colegrove Media unless explicitly included in the project contract.</p>
+    </div>
+
+    <div class="terms-section" id="s7">
+      <div class="section-num">07</div>
+      <h2 class="section-title">Consent & Permissions</h2>
+      <p class="terms-p">The Client is responsible for obtaining all necessary rights, releases, and consents from individuals who appear in or are otherwise relevant to the content produced — including models, actors, talent, and property owners (collectively, "Participants"). This includes authorization for Colegrove Media to use their likeness, image, voice, and performance as required to deliver the Services.</p>
+      <p class="terms-p">Colegrove Media may provide release form templates as a courtesy. However, Colegrove Media shall not be held liable for any claims, disputes, or legal actions arising from the Client's failure to obtain the necessary permissions. The Client agrees to indemnify and hold harmless Colegrove Media from any liabilities, losses, or expenses resulting from such failure.</p>
+    </div>
+
+    <div class="terms-section" id="s8">
+      <div class="section-num">08</div>
+      <h2 class="section-title">Confidentiality</h2>
+      <p class="terms-p">Both parties agree to maintain the confidentiality of all proprietary or sensitive information disclosed during the term of this Agreement. Confidential information includes any materials or data the disclosing party designates as confidential or that a reasonable person would understand to be confidential given the context of disclosure.</p>
+      <p class="terms-p">This obligation survives the termination of this Agreement.</p>
+    </div>
+
+    <div class="terms-section" id="s9">
+      <div class="section-num">09</div>
+      <h2 class="section-title">Data Protection & Privacy</h2>
+      <p class="terms-p">Any data collected in connection with the provision of Services — including names, email addresses, and project details — is used solely to deliver and improve those Services. Colegrove Media is committed to protecting your information from unauthorized access, disclosure, or misuse. Your data will not be sold, rented, or voluntarily shared with third parties except as required by law.</p>
+    </div>
+
+    <div class="terms-section" id="s10">
+      <div class="section-num">10</div>
+      <h2 class="section-title">Content Accuracy & Warranty Disclaimer</h2>
+      <p class="terms-p">The Client is responsible for ensuring the accuracy, legality, and appropriateness of all content, materials, and information provided to Colegrove Media for use in the Services.</p>
+      <p class="terms-p">Colegrove Media makes no warranty that the Services will be uninterrupted or error-free. All Services are provided "as-is." Colegrove Media disclaims all express or implied warranties, including warranties of merchantability or fitness for a particular purpose.</p>
+    </div>
+
+    <div class="terms-section" id="s11">
+      <div class="section-num">11</div>
+      <h2 class="section-title">Indemnification</h2>
+      <p class="terms-p">The Client agrees to indemnify, defend, and hold harmless Colegrove Media and its principals from any claims, liabilities, damages, losses, and expenses — including reasonable attorney fees — arising from or relating to: (i) the Client's use of the deliverables; (ii) the Client's violation of any third-party rights, including intellectual property, privacy, or publicity rights; or (iii) any content or materials supplied by the Client.</p>
+    </div>
+
+    <div class="terms-section" id="s12">
+      <div class="section-num">12</div>
+      <h2 class="section-title">Limitation of Liability</h2>
+      <p class="terms-p">To the fullest extent permitted by law, Colegrove Media shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, loss of data, or loss of goodwill — arising from or related to the Services, regardless of the theory of liability and whether or not Colegrove Media has been advised of the possibility of such damages.</p>
+      <p class="terms-p">This limitation applies to damages resulting from: (i) access to or inability to access the Services; (ii) conduct or content of any third party; (iii) the operation of cameras, drones, lighting, or other production equipment; or (iv) unauthorized access to or alteration of Client transmissions or content.</p>
+      <p class="terms-p">Colegrove Media's total liability to the Client for any claim arising under this Agreement shall not exceed the total fees paid by the Client for the specific project giving rise to the claim.</p>
+    </div>
+
+    <div class="terms-section" id="s13">
+      <div class="section-num">13</div>
+      <h2 class="section-title">Miscellaneous</h2>
+      <ul class="terms-list">
+        <li><strong>Governing Law:</strong> This Agreement is governed by the laws of the State of Montana, without regard to its conflict of law provisions.</li>
+        <li><strong>Force Majeure:</strong> Neither party shall be liable for delays or failures in performance resulting from causes beyond their reasonable control, including acts of God, governmental action, fire, flood, labor disputes, power failure, or transportation disruptions. This exception does not apply to payment obligations.</li>
+        <li><strong>Severability:</strong> If any provision of this Agreement is found to be unenforceable, the remaining provisions will continue in full force and effect.</li>
+        <li><strong>Entire Agreement:</strong> This Agreement, together with the signed project contract, constitutes the entire agreement between the parties and supersedes all prior discussions or understandings relating to the subject matter.</li>
+        <li><strong>Updates:</strong> Colegrove Media may update these Terms from time to time. Updated Terms are effective upon posting at <a href="https://colegrovemedia.com/terms-and-conditions" style="color:var(--teal);">colegrovemedia.com/terms-and-conditions</a>. Continued use of Services after an update constitutes acceptance of the revised Terms.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div>
+      <img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" class="footer-logo-img">
+      <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Pages</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html?cat=video">Video</a></li>
+        <li><a href="services.html?cat=photo">Photo</a></li>
+        <li><a href="services.html?cat=animation">Animation</a></li>
+        <li><a href="services.html?cat=design">Design</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a></li>
+        <li><a href="tel:4062099945">(406) 209-9945</a></li>
+        <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
+        <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
+        <li><a href="https://www.colegrovemedia.com/project-brief-form">Project Brief</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="footer-year"></span>
+    <span>Bozeman, Montana</span>
+    <a href="terms.html">Terms &amp; Conditions</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
+
+// Nav hide/show
+(function(){
+  var nav=document.getElementById('main-nav'),ly=window.scrollY,t=false;
+  window.addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){
+    var y=window.scrollY;
+    if(y<80)nav.classList.remove('nav-hidden');
+    else if(y>ly)nav.classList.add('nav-hidden');
+    else nav.classList.remove('nav-hidden');
+    ly=y;t=false;
+  });t=true;}},{passive:true});
+})();
+
+// TOC active state on scroll
+(function(){
+  var links=document.querySelectorAll('.toc-list a');
+  var sections=[];
+  links.forEach(function(a){
+    var id=a.getAttribute('href').slice(1);
+    var el=document.getElementById(id);
+    if(el) sections.push({el:el,a:a});
+  });
+  function onScroll(){
+    var scrollY=window.scrollY+120;
+    var current=sections[0];
+    sections.forEach(function(s){
+      if(s.el.offsetTop<=scrollY) current=s;
+    });
+    links.forEach(function(a){a.classList.remove('active');});
+    if(current) current.a.classList.add('active');
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
