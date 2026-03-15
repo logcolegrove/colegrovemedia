@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services — Colegrove Media</title>
-<meta name="description" content="Video, photo, animation, and design services from Colegrove Media — Bozeman, MT.">
+<title>Portfolio — Colegrove Media</title>
+<meta name="description" content="Browse brand videos, animations, drone films, testimonials, product demos, real estate and more from Colegrove Media — Bozeman, MT.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -17,7 +17,7 @@ html{scroll-behavior:smooth;}
   --border:rgba(0,242,166,0.12);--border2:rgba(242,244,248,0.06);
   --sans:'DM Sans',sans-serif;
 }
-body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;padding-top:68px;}
+body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;padding-top:68px;font-size:18px;}
 a{text-decoration:none;color:inherit;}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
@@ -25,7 +25,6 @@ a{text-decoration:none;color:inherit;}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
 nav.nav-hidden{transform:translateY(-100%);}
-.nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
 .nav-logo img{height:48px;width:auto;display:block;}
 .nav-links{display:flex;list-style:none;gap:8px;}
 .nav-links a{font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:6px 14px;border-radius:6px;transition:color 0.18s,background 0.18s;}
@@ -34,137 +33,114 @@ nav.nav-hidden{transform:translateY(-100%);}
 .nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
 .nav-cta:hover{opacity:0.85;}
 
-/* HERO */
+/* PAGE HERO */
 .page-hero{padding:80px 40px 56px;border-bottom:1px solid var(--border);}
 .eyebrow{font-size:14px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
 .eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
-.page-h1{font-size:clamp(44px,5.5vw,72px);font-weight:700;line-height:1.05;letter-spacing:-0.02em;margin-bottom:16px;display:flex;align-items:baseline;gap:0.22em;flex-wrap:wrap;}
-.hero-static{color:var(--white);}
-.hero-word-wrap{display:inline-block;vertical-align:baseline;padding-bottom:6px;}
-.hero-word{color:var(--teal);display:inline-block;}
-.hero-word.exit{animation:wExit 0.2s ease-in forwards;}
-.hero-word.enter{animation:wEnter 0.3s ease-out forwards;}
-@keyframes wExit{0%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-12px);}}
-@keyframes wEnter{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
-.page-desc{font-size:18px;color:var(--muted);max-width:560px;line-height:1.75;font-weight:300;margin-bottom:36px;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-fill{background:var(--teal);color:#0d1117;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:opacity 0.18s;display:inline-flex;align-items:center;gap:8px;}
-.btn-fill:hover{opacity:0.85;}
-.btn-ghost{background:transparent;color:var(--muted);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:color 0.18s,border-color 0.18s;display:inline-block;}
-.btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
+.page-h1{font-size:clamp(44px,5.5vw,72px);font-weight:700;line-height:1;letter-spacing:-0.02em;margin-bottom:16px;}
+.page-desc{font-size:18px;color:var(--muted);max-width:520px;line-height:1.75;font-weight:300;}
 
 /* FILTER BAR */
-.filter-bar{border-bottom:1px solid var(--border);}
-.filter-row{padding:16px 40px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.filter-row.ind-row{padding-top:12px;padding-bottom:16px;border-top:1px solid var(--border2);}
-.filter-label{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-right:4px;white-space:nowrap;flex-shrink:0;}
-.filter-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:100px;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.18s;font-family:var(--sans);white-space:nowrap;line-height:1;}
+.filter-bar{padding:24px 40px 0;border-bottom:1px solid var(--border);}
+.filter-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-bottom:16px;}
+.filter-row.tier2{padding-top:4px;padding-bottom:0;max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.22,1,0.36,1),padding 0.3s ease;}
+.filter-row.tier2.open{max-height:120px;padding-bottom:16px;}
+.filter-label{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-right:4px;white-space:nowrap;flex-shrink:0;}
+.filter-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:7px 16px;border-radius:100px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.18s;font-family:var(--sans);white-space:nowrap;line-height:1;}
 .filter-btn:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 .filter-btn.active{background:var(--teal);color:#0d1117;border-color:var(--teal);font-weight:600;}
-.filter-btn.ind.active{background:rgba(0,242,166,0.1);color:var(--teal);border-color:rgba(0,242,166,0.4);font-weight:600;}
+.filter-btn.sub.active{background:rgba(0,242,166,0.12);color:var(--teal);border-color:rgba(0,242,166,0.4);font-weight:600;}
 
-/* SERVICES */
-.services-wrap{padding:0 40px 80px;}
-.cat-section{padding-top:64px;}
-.cat-section.hidden{display:none;}
-.cat-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:20px;}
-.cat-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.cat-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
-.cat-title{font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1;letter-spacing:-0.01em;}
-.cat-desc{font-size:16px;color:var(--muted);max-width:480px;line-height:1.7;font-weight:300;margin-top:12px;}
-.see-all{font-size:14px;font-weight:500;color:var(--muted);letter-spacing:0.06em;display:inline-flex;align-items:center;gap:6px;transition:color 0.18s;white-space:nowrap;flex-shrink:0;}
-.see-all:hover{color:var(--teal);}
-.see-all::after{content:'→';transition:transform 0.18s;}
-.see-all:hover::after{transform:translateX(3px);}
+/* RESULTS BAR */
+.results-bar{padding:18px 40px;display:flex;align-items:center;justify-content:space-between;}
+.results-count{font-size:14px;color:var(--muted);}
 
-/* CARDS */
-.svc-grid{display:grid;gap:2px;background:var(--border);border-radius:12px;}
-.svc-card{background:var(--bg2);padding:32px 28px;position:relative;isolation:isolate;transition:background 0.25s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s;}
-.svc-card.hidden{display:none;}
-.svc-card:hover{background:var(--bg3);transform:scale(1.015);box-shadow:0 8px 32px rgba(0,0,0,0.4);}
-.svc-card.dropdown-open{z-index:20;transform:scale(1.015);}
-.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
-.svc-card:hover::before,.svc-card.dropdown-open::before{transform:scaleX(1);}
-.svc-name-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
-.svc-name{font-size:20px;font-weight:700;color:var(--white);line-height:1.2;}
-.svc-preview-btn{width:32px;height:32px;border-radius:50%;background:rgba(0,242,166,0.1);border:1px solid rgba(0,242,166,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 0.18s;}
-.svc-preview-btn:hover{background:rgba(0,242,166,0.2);}
-.svc-desc{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:20px;}
-.svc-toggle{width:100%;background:none;border:none;border-top:1px solid var(--border);padding:14px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;font-family:var(--sans);transition:color 0.18s;}
-.svc-toggle:hover{color:var(--white);}
-.svc-toggle svg{transition:transform 0.25s;flex-shrink:0;}
-.svc-toggle.open{color:var(--white);}
-.svc-toggle.open svg{transform:rotate(180deg);}
-.svc-details-wrap{position:relative;}
-.svc-details{position:absolute;left:-1px;right:-1px;top:100%;background:var(--bg2);border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.22,1,0.36,1);pointer-events:none;z-index:30;}
-.svc-details.open{max-height:700px;box-shadow:0 20px 48px rgba(0,0,0,0.6);pointer-events:auto;}
-.svc-details-inner{padding:4px 28px 20px;}
-.tier{padding:14px 0;border-bottom:1px solid var(--border2);}
-.tier:last-child{border-bottom:none;}
-.tier-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
-.tier-name{font-size:14px;font-weight:600;color:var(--white);}
-.tier-price{font-size:14px;font-weight:700;color:var(--teal);}
-.tier-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
-.tier-list li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:7px;line-height:1.4;}
-.tier-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:5px;}
-.no-results{padding:48px;text-align:center;color:var(--muted);font-size:15px;background:var(--bg2);border-radius:12px;margin-top:64px;}
-.cat-divider{height:1px;background:var(--border);margin-top:64px;}
+/* GRID */
+.portfolio-wrap{padding:0 40px 80px;}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
+.work-item{background:var(--bg3);position:relative;overflow:hidden;cursor:pointer;aspect-ratio:16/10;}
+.work-item.coming-soon{cursor:default;}
+.wi-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.3s ease;filter:brightness(0.82);}
+.work-item:not(.coming-soon):hover .wi-thumb{transform:scale(1.04);filter:brightness(0.62);}
+.wi-gradient{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,26,37,0.92) 0%,rgba(22,26,37,0.08) 55%,transparent 100%);}
+.wi-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 22px;}
+.wi-tag{display:inline-flex;align-items:center;background:rgba(0,242,166,0.15);border:1px solid rgba(0,242,166,0.25);border-radius:100px;padding:4px 12px;margin-bottom:8px;align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+.wi-title{font-size:16px;font-weight:600;color:var(--white);line-height:1.25;transition:color 0.2s;}
+.work-item:not(.coming-soon):hover .wi-title{color:var(--teal);}
+.wi-client{font-size:13px;color:rgba(242,244,248,0.4);margin-top:3px;}
+.wi-play-btn,.wi-expand-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(0.85);width:52px;height:52px;border-radius:50%;background:rgba(0,242,166,0.12);border:1.5px solid rgba(0,242,166,0.5);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.25s,transform 0.25s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);}
+.work-item:not(.coming-soon):hover .wi-play-btn,
+.work-item:not(.coming-soon):hover .wi-expand-btn{opacity:1;transform:translate(-50%,-50%) scale(1);}
 
-/* PROCESS */
-.process-wrap{padding:64px 40px 0;}
-.section-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.section-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
-.section-title{font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1;letter-spacing:-0.01em;margin-bottom:40px;}
-.process-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-.ps{padding:40px 32px;border-right:1px solid var(--border);position:relative;transition:background 0.2s;}
-.ps:last-child{border-right:none;}
-.ps:hover{background:var(--teal-glow);}
-.ps-n{font-size:72px;font-weight:700;color:rgba(0,242,166,0.05);position:absolute;top:20px;right:20px;line-height:1;}
-.ps-dot{width:34px;height:34px;border-radius:50%;background:rgba(0,242,166,0.1);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
-.ps-dot-inner{width:10px;height:10px;border-radius:50%;background:var(--teal);}
-.ps-name{font-size:24px;font-weight:700;margin-bottom:10px;}
-.ps-desc{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;}
+/* COMING SOON CARD */
+.coming-soon-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg2);}
+.cs-icon{width:48px;height:48px;border-radius:12px;background:rgba(0,242,166,0.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--teal);}
+.cs-service{font-size:16px;font-weight:600;color:var(--white);}
+.cs-label{font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
 
-/* CTA */
-.cta-wrap{padding:40px 40px 80px;}
-.cta-band{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:52px 56px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;flex-wrap:wrap;position:relative;overflow:hidden;}
-.cta-band::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%);pointer-events:none;}
-.cta-band-h{font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.05;letter-spacing:-0.01em;}
-.cta-band-h span{color:var(--teal);}
+/* LOAD MORE */
+.load-more-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;padding-top:40px;}
+.load-more-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:13px 36px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.18s;font-family:var(--sans);}
+.load-more-btn:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
+.load-more-info{font-size:14px;color:var(--muted);}
 
 /* MODAL */
 .modal-backdrop{position:fixed;inset:0;z-index:500;background:rgba(11,14,20,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.25s,visibility 0.25s;padding:24px;}
 .modal-backdrop.open{opacity:1;visibility:visible;}
-.modal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;width:100%;max-width:960px;max-height:90vh;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;transform:translateY(16px) scale(0.98);transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1);display:grid;grid-template-columns:1fr 360px;}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;width:100%;max-width:960px;max-height:90vh;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;transform:translateY(16px) scale(0.98);transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1);display:grid;grid-template-columns:1fr 340px;}
 .modal::-webkit-scrollbar{display:none;}
 .modal-backdrop.open .modal{transform:translateY(0) scale(1);}
 .modal-left{background:#000;display:flex;flex-direction:column;min-height:240px;}
 .modal-embed{position:relative;width:100%;aspect-ratio:16/9;flex-shrink:0;}
 .modal-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
-.modal-related{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;gap:12px;}
-.modal-related-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
-.modal-rel-item{display:flex;gap:10px;cursor:pointer;padding:6px;border-radius:8px;transition:background 0.18s;}
+.modal-preview{display:flex;flex-direction:column;flex:1;background:var(--bg3);}
+.modal-preview-main{position:relative;width:100%;aspect-ratio:4/3;background:#0d1117;overflow:hidden;flex-shrink:0;}
+.modal-preview-main img{width:100%;height:100%;object-fit:cover;display:block;}
+.modal-preview-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;}
+.preview-ph-icon{width:64px;height:64px;border-radius:16px;background:rgba(0,242,166,0.08);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--teal);}
+.preview-ph-label{font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0.04em;}
+.modal-gallery-strip{display:flex;gap:4px;padding:8px;background:#0d1117;overflow-x:auto;flex-shrink:0;}
+.modal-gallery-strip::-webkit-scrollbar{display:none;}
+.gthumb{width:64px;height:42px;object-fit:cover;border-radius:4px;cursor:pointer;opacity:0.45;transition:opacity 0.18s,border-color 0.18s;flex-shrink:0;border:1.5px solid transparent;}
+.gthumb.active{opacity:1;border-color:var(--teal);}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:rgba(22,26,37,0.82);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.18s;color:var(--white);font-size:18px;line-height:1;user-select:none;z-index:2;}
+.gallery-arrow:hover{background:rgba(0,242,166,0.2);}
+.gallery-arrow.prev{left:10px;}
+.gallery-arrow.next{right:10px;}
+.modal-related{padding:14px 18px;border-top:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;gap:10px;}
+.modal-related-label{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.modal-rel-item{display:flex;gap:10px;cursor:pointer;padding:5px;border-radius:8px;transition:background 0.18s;}
 .modal-rel-item:hover{background:rgba(242,244,248,0.04);}
-.modal-rel-item img{width:80px;height:48px;object-fit:cover;border-radius:5px;flex-shrink:0;}
+.modal-rel-item img{width:76px;height:46px;object-fit:cover;border-radius:5px;flex-shrink:0;}
 .modal-rel-title{font-size:12px;font-weight:500;color:var(--white);line-height:1.35;}
-.modal-rel-tag{font-size:10px;color:var(--muted);margin-top:2px;}
-.modal-right{padding:28px 24px;display:flex;flex-direction:column;gap:18px;border-left:1px solid var(--border);overflow-y:auto;}
+.modal-rel-tag{font-size:11px;color:var(--muted);margin-top:2px;}
+.modal-right{padding:26px 22px;display:flex;flex-direction:column;gap:16px;border-left:1px solid var(--border);overflow-y:auto;}
 .modal-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
 .modal-close{cursor:pointer;width:32px;height:32px;border-radius:50%;flex-shrink:0;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:background 0.18s;}
 .modal-close:hover{background:rgba(0,242,166,0.1);}
 .modal-vtag{display:inline-flex;background:rgba(0,242,166,0.1);border:1px solid rgba(0,242,166,0.2);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);}
-.modal-title{font-size:20px;font-weight:700;color:var(--white);line-height:1.3;}
+.modal-title{font-size:19px;font-weight:700;color:var(--white);line-height:1.3;}
 .modal-desc{font-size:13px;color:var(--muted);line-height:1.72;font-weight:300;}
-.modal-divider{height:1px;background:var(--border);}
-.modal-specs{display:flex;flex-direction:column;gap:9px;}
-.modal-spec{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;gap:10px;}
+.modal-divider{height:1px;background:var(--border);flex-shrink:0;}
+.modal-specs{display:flex;flex-direction:column;gap:8px;}
+.modal-spec{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;gap:10px;}
 .modal-spec-k{color:var(--muted);}
 .modal-spec-v{font-weight:600;color:var(--white);text-align:right;}
-.modal-cta{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.modal-cta{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:4px;}
 .modal-btn-fill{display:block;text-align:center;background:var(--teal);color:#0d1117;padding:13px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;transition:opacity 0.18s;}
 .modal-btn-fill:hover{opacity:0.85;}
-.modal-btn-ghost{display:block;text-align:center;background:transparent;color:var(--muted);padding:12px;border-radius:8px;font-size:13px;font-weight:500;border:1px solid var(--border);transition:color 0.18s,border-color 0.18s;}
+.modal-btn-ghost{display:block;text-align:center;background:transparent;color:var(--muted);padding:11px;border-radius:8px;font-size:13px;font-weight:500;border:1px solid var(--border);transition:color 0.18s,border-color 0.18s;}
 .modal-btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.3);}
+
+/* CTA BAND */
+.cta-band{margin:0 40px 80px;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:52px 56px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;flex-wrap:wrap;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%);pointer-events:none;}
+.cta-band-h{font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.05;letter-spacing:-0.01em;}
+.cta-band-h span{color:var(--teal);}
+.btn-fill{background:var(--teal);color:#0d1117;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:opacity 0.18s;display:inline-flex;align-items:center;gap:8px;}
+.btn-fill:hover{opacity:0.85;}
+.btn-ghost{background:transparent;color:var(--muted);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:color 0.18s,border-color 0.18s;display:inline-block;}
+.btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 
 /* FOOTER */
 footer{background:var(--bg2);border-top:1px solid var(--border);}
@@ -181,17 +157,15 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 
 @media(max-width:960px){
   nav{padding:0 24px;}.nav-links{display:none;}
-  .page-hero,.services-wrap,.process-wrap,.cta-wrap{padding-left:24px;padding-right:24px;}
-  .filter-row{padding-left:24px;padding-right:24px;}
-  .svc-grid{grid-template-columns:1fr 1fr!important;}
-  .process-grid{grid-template-columns:1fr;}.ps{border-right:none;border-bottom:1px solid var(--border);}.ps:last-child{border-bottom:none;}
-  .cta-band{padding:36px 28px;}
+  .page-hero,.filter-bar,.results-bar,.portfolio-wrap{padding-left:24px;padding-right:24px;}
+  .cta-band{margin-left:24px;margin-right:24px;padding:36px 28px;}
+  .work-grid{grid-template-columns:1fr 1fr;}
   .footer-main{grid-template-columns:1fr 1fr;padding:40px 24px 32px;}
   .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;}
-  .modal{grid-template-columns:1fr;}
 }
-@media(max-width:580px){
-  .svc-grid{grid-template-columns:1fr!important;}
+@media(max-width:640px){
+  .work-grid{grid-template-columns:1fr;}
+  .modal{grid-template-columns:1fr;}
   .footer-main{grid-template-columns:1fr 1fr;}
 }
 </style>
@@ -199,10 +173,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <body>
 
 <nav id="main-nav">
-  <div class="nav-logo"><a href="index.html"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media"></a></div>
+  <a href="index.html" style="display:flex;align-items:center;flex-shrink:0;height:44px;"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" style="height:48px;width:auto;display:block;"></a>
   <ul class="nav-links">
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="work.html">Portfolio</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="work.html" class="active">Portfolio</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="pricing.html">Pricing</a></li>
   </ul>
@@ -210,130 +184,50 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 </nav>
 
 <div class="page-hero">
-  <div class="eyebrow reveal">Services</div>
-  <h1 class="page-h1 reveal">
-    <span class="hero-static">Everything</span>
-    <span class="hero-word-wrap"><span class="hero-word" id="hero-word">we do</span></span>
-  </h1>
-  <p class="page-desc reveal" id="hero-desc">Video, photo, animation, and design — all under one roof. Every service is built around what your audience needs to see, feel, and do.</p>
-  <div class="hero-btns reveal">
-    <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-  </div>
+  <div class="eyebrow reveal">Portfolio</div>
+  <h1 class="page-h1 reveal">Past Projects</h1>
+  <p class="page-desc reveal">Brand videos, animations, drone films, testimonials, product demos, real estate, and more — everything in one place.</p>
 </div>
 
-<div class="filter-bar">
-  <div class="filter-row" id="cat-row">
+<div class="filter-bar reveal">
+  <div class="filter-row" id="tier1">
     <span class="filter-label">Category</span>
-    <button class="filter-btn active" data-cat="all"       onclick="setCat('all')">All</button>
-    <button class="filter-btn"        data-cat="video"     onclick="setCat('video')">Video</button>
-    <button class="filter-btn"        data-cat="photo"     onclick="setCat('photo')">Photo</button>
-    <button class="filter-btn"        data-cat="animation" onclick="setCat('animation')">Animation</button>
-    <button class="filter-btn"        data-cat="design"    onclick="setCat('design')">Design</button>
+    <button class="filter-btn active" data-cat="all" onclick="setCat('all')">All</button>
+    <button class="filter-btn" data-cat="video" onclick="setCat('video')">Video</button>
+    <button class="filter-btn" data-cat="animation" onclick="setCat('animation')">Animation</button>
+    <button class="filter-btn" data-cat="photo" onclick="setCat('photo')">Photo</button>
+    <button class="filter-btn" data-cat="design" onclick="setCat('design')">Design</button>
   </div>
-  <div class="filter-row ind-row" id="ind-row">
-    <span class="filter-label">Industry</span>
-    <button class="filter-btn ind active" data-ind="all"          onclick="setInd('all')">All</button>
-    <button class="filter-btn ind"        data-ind="real-estate"  onclick="setInd('real-estate')">Real Estate</button>
-    <button class="filter-btn ind"        data-ind="corporate"    onclick="setInd('corporate')">Corporate</button>
-    <button class="filter-btn ind"        data-ind="nonprofit"    onclick="setInd('nonprofit')">Non-Profit</button>
-    <button class="filter-btn ind"        data-ind="tech"         onclick="setInd('tech')">Tech / SaaS</button>
-    <button class="filter-btn ind"        data-ind="events"       onclick="setInd('events')">Events</button>
-    <button class="filter-btn ind"        data-ind="social-media" onclick="setInd('social-media')">Social Media</button>
+  <div class="filter-row tier2" id="tier2">
+    <span class="filter-label">Type</span>
   </div>
 </div>
 
-<div class="services-wrap">
-  <!-- VIDEO -->
-  <div class="cat-section" id="cat-video">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow">Video</div>
-        <h2 class="cat-title">Video Services</h2>
-        <p class="cat-desc">Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.</p>
-      </div>
-      <a href="work.html?cat=video" class="see-all">View Video Work</a>
-    </div>
-    <div class="svc-grid" id="grid-video" style="grid-template-columns:repeat(3,1fr)"></div>
-  </div>
-  <div class="cat-divider" id="div-video"></div>
-
-  <!-- PHOTO -->
-  <div class="cat-section" id="cat-photo">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow">Photo</div>
-        <h2 class="cat-title">Photo Services</h2>
-        <p class="cat-desc">Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.</p>
-      </div>
-      <a href="work.html?cat=photo" class="see-all">View Photo Work</a>
-    </div>
-    <div class="svc-grid" id="grid-photo" style="grid-template-columns:repeat(4,1fr)"></div>
-  </div>
-  <div class="cat-divider" id="div-photo"></div>
-
-  <!-- ANIMATION -->
-  <div class="cat-section" id="cat-animation">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow">Animation</div>
-        <h2 class="cat-title">Animation Services</h2>
-        <p class="cat-desc">Motion and narrative working together to explain what words alone can't — and build recognition while doing it.</p>
-      </div>
-      <a href="work.html?cat=animation" class="see-all">View Animation Work</a>
-    </div>
-    <div class="svc-grid" id="grid-animation" style="grid-template-columns:repeat(4,1fr)"></div>
-  </div>
-  <div class="cat-divider" id="div-animation"></div>
-
-  <!-- DESIGN -->
-  <div class="cat-section" id="cat-design">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow">Design</div>
-        <h2 class="cat-title">Design Services</h2>
-        <p class="cat-desc">Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.</p>
-      </div>
-      <a href="work.html?cat=design" class="see-all">View Design Work</a>
-    </div>
-    <div class="svc-grid" id="grid-design" style="grid-template-columns:repeat(4,1fr)"></div>
-  </div>
-
-  <div id="no-results" class="no-results" style="display:none;">
-    No services match that combination — try adjusting the filters above.
-  </div>
+<div class="results-bar">
+  <span class="results-count" id="results-count"></span>
 </div>
 
-<div class="process-wrap reveal">
-  <div class="section-eyebrow">How It Works</div>
-  <h2 class="section-title">Simple from start to finish.</h2>
-  <div class="process-grid">
-    <div class="ps"><div class="ps-n">01</div><div class="ps-dot"><div class="ps-dot-inner"></div></div><div class="ps-name">Discovery</div><p class="ps-desc">A 30-minute call to understand your goals, audience, and what a win looks like. No pressure, just clarity.</p></div>
-    <div class="ps"><div class="ps-n">02</div><div class="ps-dot"><div class="ps-dot-inner"></div></div><div class="ps-name">Pre-Production</div><p class="ps-desc">Script, shot list, locations, and logistics locked before anything starts. No winging it.</p></div>
-    <div class="ps"><div class="ps-n">03</div><div class="ps-dot"><div class="ps-dot-inner"></div></div><div class="ps-name">Delivery</div><p class="ps-desc">Polished, export-ready files with revisions included. You get work you're proud to share.</p></div>
-  </div>
-</div>
-
-<div class="cta-wrap">
-  <div class="cta-band reveal">
-    <div class="cta-band-h">Not sure where to <span>start?</span></div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-      <a href="brief.html" class="btn-ghost">Start a Project Brief</a>
-    </div>
+<div class="portfolio-wrap">
+  <div class="work-grid" id="work-grid"></div>
+  <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+    <button class="load-more-btn" onclick="loadMore()">Load More</button>
+    <span class="load-more-info" id="load-more-info"></span>
   </div>
 </div>
 
 <!-- MODAL -->
 <div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
-  <div class="modal">
+  <div class="modal" id="modal">
     <div class="modal-left" id="modal-left"></div>
     <div class="modal-right">
       <div class="modal-header">
         <span class="modal-vtag" id="modal-tag"></span>
-        <div class="modal-close" onclick="closeModal()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></div>
+        <div class="modal-close" onclick="closeModal()">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg>
+        </div>
       </div>
       <div class="modal-title" id="modal-title"></div>
-      <div class="modal-desc" id="modal-desc-r"></div>
+      <div class="modal-desc" id="modal-desc"></div>
       <div class="modal-divider"></div>
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
@@ -342,6 +236,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <a href="pricing.html" class="modal-btn-ghost">See Pricing</a>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="cta-band reveal">
+  <div class="cta-band-h">Ready to make your<br><span>next project?</span></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
+    <a href="brief.html" class="btn-ghost">Start a Project Brief</a>
   </div>
 </div>
 
@@ -382,242 +284,176 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     </div>
   </div>
   <div class="footer-bottom">
-    <span id="footer-year"></span><span>Bozeman, Montana</span>
+    <span id="footer-year"></span>
+    <span>Bozeman, Montana</span>
     <a href="terms.html">Terms &amp; Conditions</a>
   </div>
 </footer>
 
 <script>
-var PLAY = '<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1.5L9 6L1 10.5V1.5Z" fill="rgba(0,242,166,0.9)"/></svg>';
-var EXPAND = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(0,242,166,0.9)" stroke-width="1.5" stroke-linecap="round"><path d="M1 5V1h4M9 1h4v4M13 9v4h-4M5 13H1V9"/></svg>';
-var CHEV = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
-
-var HW = {all:'we do',video:'video',photo:'photography',animation:'animation',design:'design'};
-var HD = {
-  all:'Video, photo, animation, and design — all under one roof. Every service is built around what your audience needs to see, feel, and do.',
-  video:'Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.',
-  photo:'Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.',
-  animation:"Complex ideas made clear. Motion and narrative working together to explain what words alone can't.",
-  design:'Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.'
-};
-
-function animWord(w){
-  var el=document.getElementById('hero-word');
-  if(el.textContent===w) return;
-  el.classList.remove('enter');
-  el.classList.add('exit');
-  setTimeout(function(){el.textContent=w;el.classList.remove('exit');el.classList.add('enter');},200);
-}
-
-var SVC = {
-  video:[
-    {id:'real-estate-video',name:'Real Estate Video',icon:'play',ind:['real-estate'],
-     sample:{vimeoId:'1011395960',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a51971e98896ddd771_66f71726105adea3df43b0ce_thumb%2520(44).jpeg',title:'Someday Ranch',client:'Real Estate Listing',tag:'Real Estate Video',desc:'An immersive real estate video for a Montana ranch listing combining drone and ground-level cinematics. Showcases the property\'s scale, landscape, and lifestyle in a way that photos simply can\'t.',specs:[{k:'Type',v:'Real Estate Video'},{k:'Client',v:'Real Estate Listing'},{k:'Format',v:'4K Drone + Ground'},{k:'Deliverables',v:'Full video + social cut'},{k:'Turnaround',v:'1–2 weeks'}]},
-     desc:'Showcase any property with cinematic drone and ground-level video — ranch listings, residential homes, commercial spaces, and land. Built to sell.',
-     tiers:[{n:'Basic',p:'$500',i:['Drone + ground footage up to 30 seconds','Professional edit · Music · 1 revision']},{n:'Standard',p:'$900',i:['Up to 90 seconds · Drone + interior walkthrough','Color grade · Music · 2 revisions']},{n:'Advanced',p:'$1,500+',i:['Up to 3 minutes · Full property storytelling','Voiceover option · Social cuts included · Unlimited revisions']}]},
-    {id:'brand-video',name:'Brand Videos',icon:'play',ind:['corporate','nonprofit','tech','social-media'],
-     sample:{vimeoId:'1011394531',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg',title:'Powering Wildfire Intelligence',client:'Ignis Technologies',tag:'Brand Video',desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software.',specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2–3 weeks'}]},
-     desc:'Communicate your mission, values, and offering with a cinematic brand film — content that makes an impact and drives real results.',
-     tiers:[{n:'Basic',p:'$3,500',i:['1 shooting location','1 voiceover or interview','Professional lighting, audio, and branding','1 revision · 1 final edit']},{n:'Standard',p:'$6,500',i:['Script + storyboard','Up to 2 shooting locations','B-roll, motion graphics, and thumbnail design','2 revisions · Full video + social cut']},{n:'Advanced',p:'$9,500+',i:['Multi-day, multi-location production','End-to-end strategy and publishing support','Unlimited revisions · 3 final files + image asset kit']}]},
-    {id:'testimonials',name:'Testimonials',icon:'play',ind:['corporate','nonprofit','tech','real-estate'],
-     sample:{vimeoId:'1011460491',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg',title:'Not Jumping Ship',client:'Foundant Technologies',tag:'Testimonial',desc:'An in-person testimonial built around a real client story. Clean production that puts the subject at ease and delivers authentic, quotable content that builds trust faster than any marketing copy.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Format',v:'4K Interview'},{k:'Deliverables',v:'Full cut + 30s version'},{k:'Turnaround',v:'1–2 weeks'}]},
-     desc:'Let your satisfied customers do the talking. Committed to making interviewees feel comfortable while capturing high-impact, authentic content.',
-     tiers:[{n:'Basic',p:'$900',i:['Client-provided recording (editing only)','Speaker overlay, background music, thumbnail','1 revision']},{n:'Standard',p:'$2,000',i:['On-site interview · Single participant','Professional lighting and audio · 2 cameras','2 revisions']},{n:'Advanced',p:'$2,400',i:['On-site interview · Up to 4 participants','Extended filming for custom B-roll','2 video edits · 3 revisions']}]},
-    {id:'podcasts',name:'Podcasts',icon:'play',ind:['corporate','nonprofit','social-media'],
-     sample:{vimeoId:'1103018945',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/68dc8e1ab3aaf9489ef05e6a_thumb%20(15).jpg',title:'Field Notes: Grassland Conversation',client:'Pheasants Forever',tag:'Podcast',desc:'A roundtable conversation with Montana ranchers about grassland conservation — authentic voices captured and produced as a polished podcast episode.',specs:[{k:'Type',v:'Podcast'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Multi-guest'},{k:'Turnaround',v:'1 week'}]},
-     desc:'Recording, editing, and audio engineering to humanize your brand. Whether you need an editor or a full producer, solutions are tailored to your needs.',
-     tiers:[{n:'Basic Editing',p:'$700',i:['Up to 1-hour episode (editing only)','Audio mixing & mastering · 1 revision']},{n:'Standard',p:'$1,200',i:['Up to 1-hour (recording + editing)','1 camera angle · Mics provided · 2 revisions']},{n:'Advanced',p:'$2,000',i:['Up to 4-hour episodes · 3 camera angles','Transcript, show notes, artwork · Unlimited revisions']}]},
-    {id:'product-videos',name:'Product Videos',icon:'play',ind:['tech','corporate'],
-     sample:{vimeoId:'1011444538',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg',title:'All-in-One Foundation Management',client:'Foundant Technologies',tag:'Product Demo',desc:'A software overview video helping a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable.',specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}]},
-     desc:'Educate and excite viewers on your physical product or software — from a 30-second cut to a full-featured walkthrough with graphics and B-roll.',
-     tiers:[{n:'Basic',p:'$600',i:['30 seconds · Product shots · 1 revision']},{n:'Standard',p:'$1,100',i:['Up to 2 minutes (4K) · Professional lighting and audio · 2 revisions']},{n:'Advanced',p:'$2,000',i:['Up to 5 minutes (4K) · B-roll · Informative graphics · Unlimited revisions']}]},
-    {id:'live-streams',name:'Live Streams',icon:null,ind:['corporate','nonprofit','events'],
-     desc:'Professionally broadcast your conference, meeting, or special occasion. Public or private link via Zoom, YouTube, social media, and more.',
-     tiers:[{n:'Basic',p:'$1,500',i:['1-hour 1080p stream · 1 static camera','1 streaming technician · PowerPoint integration']},{n:'Standard',p:'$1,900',i:['2-hour 1080p stream · 2 cameras + live switching']},{n:'Advanced',p:'$2,500',i:['4-hour stream · 1 camera operator + 2 static angles','Overlay graphics · Help with registration & embedding']}]},
-    {id:'remote-client-stories',name:'Remote Client Stories',icon:'play',ind:['corporate','nonprofit','tech'],
-     sample:{vimeoId:'1134497582',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/691b5270e465783b9aab5d8e_thumb%20(16).jpg',title:"A Rancher's Take on Grassland Restoration",client:'Pheasants Forever',tag:'Remote Client Story',desc:"Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family's farm — and how partnering with Pheasants Forever made the entire process simple, fast, and affordable.",specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}]},
-     desc:'Transform virtual interviews into polished short-form stories. We guide you from interview planning to on-camera direction — or lead it ourselves.',
-     tiers:[{n:'Basic',p:'$1,100',i:['Editing only · Royalty-free music · 1 revision']},{n:'Standard',p:'$2,100',i:['1 interview recorded at high fidelity · Animations, B-roll · 2 revisions']},{n:'Advanced',p:'$3,400+',i:['Multiple interviews · Multiple edits + social cuts · Unlimited revisions']}]},
-    {id:'drone-fpv',name:'Drone / FPV',icon:'play',ind:['real-estate','corporate','social-media','events'],
-     sample:{vimeoId:'1036921693',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/6754f34a0ccac304599e4a4c_iceland%20no%20vin-3.jpg',title:'Iceland in Motion',client:'Personal Travel Film',tag:'Drone / FPV',desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland. A personal cinematic project capturing the raw, otherworldly landscape in a technically ambitious travel film.',specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Client',v:'Personal Project'},{k:'Format',v:'8K Cinematic'},{k:'Location',v:'Iceland'},{k:'Turnaround',v:'4 weeks'}]},
-     desc:'Cinematic aerials or dynamic FPV flythroughs that add the wow-factor. FAA licensed pilot. Available standalone or as part of a larger production.',
-     tiers:[{n:'Regular',p:'$300',i:['Stable DJI 4K footage · 1–2 minute edit · 1 revision']},{n:'FPV',p:'$500',i:['First-person view 4K · 3–5 minute edit · 2 revisions']},{n:'Regular + FPV',p:'$700',i:['Up to 10-minute edit · 3 social clips · Unlimited revisions']}]},
-    {id:'social-clips',name:'Social Clips / Ads',icon:null,ind:['corporate','real-estate','nonprofit','tech','social-media'],
-     desc:'Market your products and services on social media or YouTube. Short-form content cut for attention and optimized for wherever your audience lives.',
-     tiers:[{n:'Basic',p:'$1,500',i:['Single-platform ad cut · Existing footage · 1 revision']},{n:'Standard',p:'$2,500',i:['Fresh shoot + edit · 2 platform-optimized cuts · 2 revisions']},{n:'Advanced',p:'$4,000',i:['Full commercial production · Multiple platforms · Unlimited revisions']}]},
-    {id:'video-editing',name:'Video Editing',icon:null,ind:['corporate','nonprofit','tech','social-media','events'],
-     desc:'Already have footage? Enhance your Zoom, Teams, Loom, or raw recordings into polished, engaging content.',
-     tiers:[{n:'$125 / hour',p:'',i:['Rough cut assembly','Color correction and audio cleanup','Lower thirds, titles, and basic graphics','Music sync and pacing edits','Export in any format or platform spec']}]}
-  ],
-  photo:[
-    {id:'headshots',name:'Headshots',icon:'expand',ind:['corporate','real-estate','tech'],
-     desc:"High-quality portrait photography for personal branding and professional profiles. Efficient sessions that deliver images you'll actually use.",
-     tiers:[{n:'Basic',p:'$100',i:['Up to 30-min · 5 edited images']},{n:'Standard',p:'$200',i:['Up to 1-hour · 15 edited images · Outfit changes welcome']},{n:'Advanced',p:'$350',i:['Up to 2-hour · 30 edited images · Full retouching + social kit']}]},
-    {id:'real-estate-photos',name:'Real Estate Photos',icon:'expand',ind:['real-estate'],
-     desc:'Carefully planned, composed, and retouched interior and exterior property images. Optimized for MLS, Zillow, and marketing materials.',
-     tiers:[{n:'Basic',p:'$150',i:['15 edited interior + exterior photos']},{n:'Standard',p:'$250',i:['30 edited photos · Twilight exterior · HDR blending']},{n:'Advanced',p:'$400',i:['60 edited photos · Aerial photos included · 24-hour delivery']}]},
-    {id:'drone-photos',name:'Drone Photos',icon:'expand',ind:['real-estate','corporate','events'],
-     desc:'Stunning aerial imagery of real estate, landscapes, events, and more. FAA licensed pilot. Available standalone or paired with ground photography.',
-     tiers:[{n:'Basic',p:'$100',i:['10 edited aerial photos · FAA licensed']},{n:'Standard',p:'$175',i:['20 edited aerial photos · Multiple angles']},{n:'Advanced',p:'$300',i:['60 edited aerial photos · Twilight aerials available']}]},
-    {id:'3d-virtual-tour',name:'3D Virtual Tours',icon:'expand',ind:['real-estate'],
-     desc:"Interactive 360° Matterport tours allowing buyers to explore every angle of a property anytime, anywhere.",
-     tiers:[{n:'Standard',p:'Contact for quote',i:['Full Matterport 3D scan','Hosted tour link · Floor plan included','Embedded into any website or MLS listing']}]}
-  ],
-  animation:[
-    {id:'animated-explainer',name:'Animated Explainers',icon:'play',ind:['tech','nonprofit','corporate'],
-     sample:{vimeoId:'1011466967',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg',title:'Streamline Your Nonprofit',client:'Nonprofit Client',tag:'Animated Explainer',desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}]},
-     desc:"Complex ideas made clear in under 2 minutes. High retention, high trust. Motion and narration working together to explain what words alone can't.",
-     tiers:[{n:'Basic',p:'$2,500',i:['Up to 60 seconds · Simple 2D motion graphics · 1 revision']},{n:'Standard',p:'$5,000',i:['Up to 90 seconds · Script + storyboard · Custom graphics · Master + social cut · 2 revisions']},{n:'Advanced',p:'$8,500+',i:['Up to 3 minutes · Full creative direction · Custom illustration style · Unlimited revisions']}]},
-    {id:'motion-graphics',name:'Motion Graphics',icon:null,ind:['corporate','tech','social-media'],
-     desc:'Animated graphics for ads, social content, presentations, and video overlays — motion that makes your brand impossible to ignore.',
-     tiers:[{n:'Basic',p:'$500',i:['Single animated graphic · Looping + one-shot · 1 revision']},{n:'Standard',p:'$1,200',i:['Up to 5 animated elements · Multiple format exports · 2 revisions']},{n:'Advanced',p:'$2,500+',i:['Full motion graphics package · 10+ elements · Unlimited revisions']}]},
-    {id:'logo-animation',name:'Logo Animations',icon:null,ind:['corporate','tech','nonprofit','social-media'],
-     desc:'Bring your logo to life with a custom animated intro — perfect for video openers, social profiles, and presentations.',
-     tiers:[{n:'Basic',p:'$300',i:['Simple reveal animation · MP4 + transparent version · 1 revision']},{n:'Standard',p:'$600',i:['Custom motion · Multiple versions · 2 revisions']},{n:'Advanced',p:'$1,000',i:['Full animated brand identity suite · Unlimited revisions']}]},
-    {id:'lottie-animation',name:'Website Animations / Lottie',icon:null,ind:['tech','corporate'],
-     desc:'Lightweight, scalable animations built for the web — Lottie files that integrate seamlessly into any website or app without slowing it down.',
-     tiers:[{n:'Basic',p:'$400',i:['Single Lottie animation · JSON + MP4 export · 1 revision']},{n:'Standard',p:'$900',i:['Up to 3 Lottie animations · Developer handoff included · 2 revisions']},{n:'Advanced',p:'$2,000+',i:['Full-site animation package · Scroll-triggered and interactive animations · Unlimited revisions']}]}
-  ],
-  design:[
-    {id:'graphic-design',name:'Graphic Design',icon:'expand',ind:['corporate','nonprofit','real-estate','events','social-media'],
-     desc:'Visuals for digital and print — infographics, ads, business cards, brochures, posters, and more. Consistent, polished, on-brand.',
-     tiers:[{n:'Business Card',p:'$150',i:['Front + back design · Print-ready files · 2 revisions']},{n:'Flyer / Poster',p:'$200',i:['Single or double-sided · Digital + print formats · 2 revisions']},{n:'Brochure',p:'$400+',i:['Tri-fold or multi-page · Print-ready + digital PDF · 3 revisions']}]},
-    {id:'web-design',name:'Web Design',icon:'expand',ind:['corporate','nonprofit','tech','real-estate'],
-     desc:'Custom Webflow websites — responsive, accessible, and built to convert. From simple landing pages to full multi-page sites.',
-     tiers:[{n:'Landing Page',p:'$500',i:['Single-page design + build in Webflow','Mobile responsive · CMS ready · 2 revisions']},{n:'Multi-Page Site',p:'$1,500+',i:['Up to 5 pages · Custom animations · SEO setup · 3 revisions']},{n:'Full Website',p:'$3,500+',i:['Unlimited pages · E-commerce or booking integration','Training session + ongoing support · Unlimited revisions']}]},
-    {id:'satellite-map',name:'Satellite Maps',icon:'expand',ind:['real-estate'],
-     desc:'Animated Google Earth flyovers showing property lines, nearby attractions, and custom labels. A powerful tool for real estate and land listings.',
-     tiers:[{n:'Basic',p:'$150',i:['Simple flyover · Property boundary overlay · 1 revision']},{n:'Standard',p:'$300',i:['Flyover + custom labels and callouts · 2 revisions']},{n:'Advanced',p:'$500+',i:['Full animated property tour · Multiple POIs · Unlimited revisions']}]},
-    {id:'virtual-staging',name:'Virtual Staging',icon:'expand',ind:['real-estate'],
-     desc:'Transform any empty room into a fully-furnished, beautifully designed space — without moving a single piece of furniture.',
-     tiers:[{n:'1 Image',p:'$50',i:['1 virtually staged room · 2 style options · 2 revisions']},{n:'5 Images',p:'$200',i:['5 virtually staged rooms · Consistent style · 2 revisions']},{n:'10 Images',p:'$350',i:['10 virtually staged rooms · Rush delivery available · Unlimited revisions']}]}
-  ]
-};
-
-var PORT=[
-  {tag:'Real Estate Video',vimeoId:'1011395960',title:'Someday Ranch',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a51971e98896ddd771_66f71726105adea3df43b0ce_thumb%2520(44).jpeg'},
-  {tag:'Real Estate Video',vimeoId:'823929975',title:'15 Spring Ridge Dr',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e3dbb3613d4333c69_66f39b33bc771ba2f81eb5aa_thumb%2520(17).jpeg'},
-  {tag:'Brand Video',vimeoId:'1011394531',title:'Powering Wildfire Intelligence',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg'},
-  {tag:'Brand Video',vimeoId:'1011446090',title:'Painted Hills — GVLT',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f768eb0871ede95f20f300_upda.jpg'},
-  {tag:'Brand Video',vimeoId:'1011397220',title:'Girls On The Run',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2464_66f3a054163f4c9d22ba6356_thumb%2520(22).jpeg'},
-  {tag:'Testimonial',vimeoId:'1011460491',title:'Not Jumping Ship',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg'},
-  {tag:'Testimonial',vimeoId:'1011448652',title:'Team Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a7f33ba04f968e72ae_66f70b129950d13f73461415_thumb%2520(32).jpeg'},
-  {tag:'Testimonial',vimeoId:'1011455705',title:'Transforming Workflows',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a827672f65dbb98565_66f39cbb4c785c3ecb9cdce6_thumb%2520(19).jpeg'},
-  {tag:'Product Demo',vimeoId:'1011444538',title:'All-in-One Foundation Management',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg'},
-  {tag:'Product Demo',vimeoId:'1011464708',title:'Software Demo Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0ad_66f716dc08e34b6183b5923b_thumb%2520(42).jpeg'},
-  {tag:'Podcast',vimeoId:'1103018945',title:'Field Notes: Grassland Conversation',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/68dc8e1ab3aaf9489ef05e6a_thumb%20(15).jpg'},
-  {tag:'Remote Client Story',vimeoId:'1134497582',title:"A Rancher's Take on Grassland Restoration",thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/691b5270e465783b9aab5d8e_thumb%20(16).jpg'},
-  {tag:'Drone / FPV',vimeoId:'1036921693',title:'Iceland in Motion',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/6754f34a0ccac304599e4a4c_iceland%20no%20vin-3.jpg'},
-  {tag:'Drone / FPV',vimeoId:'1011433865',title:'Drone Reel',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2415_66f39b9106d16f7bebe5a521_thumb%2520(18).jpeg'},
-  {tag:'Animated Explainer',vimeoId:'1011466967',title:'Streamline Your Nonprofit',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg'},
-  {tag:'Animated Explainer',vimeoId:'1053133749',title:'SmartSimple — Animated Explainer',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67a2b11e76d2956fbe1cd0d4_thumb%20(2).jpg'}
+var ALL = [
+  {slug:'powering-wildfire-intelligence',title:'Powering Wildfire Intelligence',client:'Ignis Technologies',cat:'video',type:'brand-video',typeLabel:'Brand Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg',vimeoId:'1011394531',desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software.',specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'}]},
+  {slug:'painted-hills-gvlt',title:'Painted Hills',client:'Gallatin Valley Land Trust',cat:'video',type:'brand-video',typeLabel:'Brand Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f768eb0871ede95f20f300_upda.jpg',vimeoId:'1011446090',desc:'A brand video shot on the Painted Hills property for Gallatin Valley Land Trust. Sweeping landscape photography meets intimate storytelling about land conservation.',specs:[{k:'Type',v:'Brand / Impact Video'},{k:'Client',v:'Gallatin Valley Land Trust'},{k:'Format',v:'4K Cinematic'}]},
+  {slug:'montana-grassland-initiative',title:'Montana Grassland Initiative Explained',client:'Pheasants Forever',cat:'video',type:'brand-video',typeLabel:'Brand Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67fa91f6159f177fd199707a_thumb%20(8).jpg',vimeoId:'1072711800',desc:'A brand video explaining the Montana Grassland Initiative and its conservation impact across the state.',specs:[{k:'Type',v:'Brand / Impact Video'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'4K Cinematic'}]},
+  {slug:'foundant-brand-overview',title:'Foundant Brand Overview',client:'Foundant Technologies',cat:'video',type:'brand-video',typeLabel:'Brand Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a0d295dfbc1cbbe46f_66f70b897f8b1cdbe74e2e5b_thumb%2520(33).jpeg',vimeoId:'1011467483',desc:'A comprehensive brand overview video communicating Foundant\'s mission, values, and product suite.',specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Foundant Technologies'},{k:'Format',v:'4K Cinematic'}]},
+  {slug:'girls-on-the-run',title:'Girls On The Run — Thrive Charity Video',client:'Girls On The Run',cat:'video',type:'brand-video',typeLabel:'Brand Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2464_66f3a054163f4c9d22ba6356_thumb%2520(22).jpeg',vimeoId:'1011397220',desc:'A charity brand video capturing the mission, impact, and joy of Girls On The Run.',specs:[{k:'Type',v:'Charity Brand Video'},{k:'Client',v:'Girls On The Run'},{k:'Format',v:'4K Cinematic'}]},
+  {slug:'enhancing-habitats',title:'Enhancing Habitats through Mesic Restoration',client:'Pheasants Forever',cat:'video',type:'brand-video',typeLabel:'Brand Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669ef33ba04f968e6c6a_66f39e494c785c3ecb9e429b_thumb%2520(21).jpeg',vimeoId:'1009737494',desc:'A project highlight showcasing Pheasants Forever\'s mesic restoration work and habitat impact across Montana.',specs:[{k:'Type',v:'Project Highlight'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'4K Cinematic'}]},
+  {slug:'not-jumping-ship',title:'Not Jumping Ship',client:'Foundant Technologies',cat:'video',type:'testimonial',typeLabel:'Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg',vimeoId:'1011460491',desc:'An in-person testimonial built around a real client story. Clean production that puts the subject at ease and delivers authentic, quotable content.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Format',v:'4K Interview'}]},
+  {slug:'client-service-testimonial',title:'Client Service Testimonial',client:'Foundant Technologies',cat:'video',type:'testimonial',typeLabel:'Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dcb70bd89e860c4a5_66f70913766b164a1bd00ebc_thumb%2520(13).jpeg',vimeoId:'1012194769',desc:'An on-site testimonial focused on service experience. Professional lighting, clean audio, and a 2-camera setup.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Format',v:'4K Multi-cam'}]},
+  {slug:'from-farmland-to-grassland',title:'From Farmland to Grassland: Sterling\'s Story',client:'Pheasants Forever',cat:'video',type:'testimonial',typeLabel:'Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/694040c50423cbba0af3f780_thumb%20(17).jpg',vimeoId:'1104993187',desc:'A rancher shares his conservation journey — intimate, story-driven testimonial about grassland restoration on a Montana family farm.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Pheasants Forever'},{k:'Location',v:'Montana'}]},
+  {slug:'team-testimonial',title:'Team Testimonial',client:'Foundant Technologies',cat:'video',type:'testimonial',typeLabel:'Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a7f33ba04f968e72ae_66f70b129950d13f73461415_thumb%2520(32).jpeg',vimeoId:'1011448652',desc:'A multi-person team testimonial capturing authentic voices and company culture.',specs:[{k:'Type',v:'Team Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Format',v:'4K Multi-cam'}]},
+  {slug:'transforming-workflows',title:'Transforming Workflows',client:'Foundant Technologies',cat:'video',type:'testimonial',typeLabel:'Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a827672f65dbb98565_66f39cbb4c785c3ecb9cdce6_thumb%2520(19).jpeg',vimeoId:'1011455705',desc:'A testimonial about workflow transformation — how one platform changed the way an entire team operates.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'doing-so-much-more',title:'Doing So Much More',client:'Foundant Technologies',cat:'video',type:'testimonial',typeLabel:'Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a03dbb3613d4333db1_66f7150d449cde8f782ff594_thumb%2520(36).jpeg',vimeoId:'1011448080',desc:'A testimonial about how the platform far exceeded a client\'s initial expectations.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'meet-the-interns',title:'Meet The Interns — Company Culture',client:'Foundant Technologies',cat:'video',type:'testimonial',typeLabel:'Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a2f33ba04f968e6ea6_66f70c45e677908668bdc690_thumb%2520(35).jpeg',vimeoId:'1011467289',desc:'A company culture video spotlighting intern perspectives and organizational energy.',specs:[{k:'Type',v:'Company Culture'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'salt-lake-summit',title:'Salt Lake Summit — Event Promo',client:'Foundant Technologies',cat:'video',type:'testimonial',typeLabel:'Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a68efb70416dfbc4f7_66f3a029748e9d2481f2e48b_thumb%2520(23).jpeg',vimeoId:'1011467103',desc:'An event promo capturing the energy and key moments from the Salt Lake Summit.',specs:[{k:'Type',v:'Event Promo'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'all-in-one-foundation',title:'All-in-One Foundation Management',client:'Foundant Technologies',cat:'video',type:'product-video',typeLabel:'Product Demo',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg',vimeoId:'1011444538',desc:'A software overview video helping a foundation management platform communicate complex functionality to a non-technical audience.',specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen Capture + MoGraph'}]},
+  {slug:'software-demo-video',title:'Software Demo Video',client:'Foundant Technologies',cat:'video',type:'product-video',typeLabel:'Product Demo',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0ad_66f716dc08e34b6183b5923b_thumb%2520(42).jpeg',vimeoId:'1011464708',desc:'A software demo combining screen recordings and motion graphics to walk users through a complex product suite.',specs:[{k:'Type',v:'Software Demo'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'reporting-product-demo',title:'Reporting — Product Demo',client:'Foundant Technologies',cat:'video',type:'product-video',typeLabel:'Product Demo',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a427672f65dbb982c4_66f7165aa272ae9e8939f9dc_thumb%2520(41).jpeg',vimeoId:'1011466134',desc:'A product demo focused on reporting features with clean screen recordings and clear voiceover.',specs:[{k:'Type',v:'Product Demo'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'accounting-product-demo',title:'Accounting — Product Demo',client:'Foundant Technologies',cat:'video',type:'product-video',typeLabel:'Product Demo',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe12c_66f71624792ad1ee55fc5c26_thumb%2520(40).jpeg',vimeoId:'1011466308',desc:'A focused product demo walking viewers through accounting features in a complex software platform.',specs:[{k:'Type',v:'Product Demo'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'fundraising-product-demo',title:'Fundraising — Product Demo',client:'Foundant Technologies',cat:'video',type:'product-video',typeLabel:'Product Demo',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a03dbb3613d4333dcc_66f715ebed3b57860169aafb_thumb%2520(39).jpeg',vimeoId:'1011466737',desc:'A product demo for fundraising features designed for nonprofits and grantmakers.',specs:[{k:'Type',v:'Product Demo'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'constituent-relationship-management',title:'Constituent Relationship Management',client:'Foundant Technologies',cat:'video',type:'product-video',typeLabel:'Product Demo',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669ef33ba04f968e6cb9_66f7096926072825c32fa058_thumb%2520(27).jpeg',vimeoId:'1011466519',desc:'A product demo walking viewers through CRM features built for nonprofits and foundations.',specs:[{k:'Type',v:'Product Demo'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'iceland-in-motion',title:'Iceland in Motion',client:'Personal Travel Film',cat:'video',type:'drone-video-fpv',typeLabel:'Drone / FPV',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/6754f34a0ccac304599e4a4c_iceland%20no%20vin-3.jpg',vimeoId:'1036921693',desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland — a technically ambitious personal travel film.',specs:[{k:'Type',v:'Cinematic Travel Film'},{k:'Format',v:'8K Cinematic'},{k:'Location',v:'Iceland'}]},
+  {slug:'above-the-arctic-circle',title:'Above the Arctic Circle',client:'Northern Norway',cat:'video',type:'drone-video-fpv',typeLabel:'Drone / FPV',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e8cb2eb2e8fc0a7c2_66f38750bb92e144accdf66a_thumb%2520(12).jpeg',vimeoId:'1012197311',desc:'A personal cinematic project above the Arctic Circle. Sweeping 4K drone footage of fjords, snowfields, and endless sky.',specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Format',v:'4K / LOG'},{k:'Location',v:'Northern Norway'}]},
+  {slug:'drone-reel',title:'Drone Reel',client:'Colegrove Media',cat:'video',type:'drone-video-fpv',typeLabel:'Drone / FPV',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2415_66f39b9106d16f7bebe5a521_thumb%2520(18).jpeg',vimeoId:'1011433865',desc:'A showreel of cinematic aerial footage — orbits, top-downs, FPV flythroughs, and wide landscapes.',specs:[{k:'Type',v:'Showreel'},{k:'Equipment',v:'DJI + FPV'},{k:'Format',v:'4K'}]},
+  {slug:'someday-ranch',title:'Someday Ranch',client:'Real Estate Listing',cat:'video',type:'real-estate-video',typeLabel:'Real Estate Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a51971e98896ddd771_66f71726105adea3df43b0ce_thumb%2520(44).jpeg',vimeoId:'1011395960',desc:'An immersive real estate video for a Montana ranch listing combining drone and ground-level cinematics.',specs:[{k:'Type',v:'Real Estate Video'},{k:'Format',v:'4K Drone + Ground'},{k:'Location',v:'Montana'}]},
+  {slug:'15-spring-ridge',title:'15 Spring Ridge Dr',client:'Dahlquist Realtors',cat:'video',type:'real-estate-video',typeLabel:'Real Estate Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e3dbb3613d4333c69_66f39b33bc771ba2f81eb5aa_thumb%2520(17).jpeg',vimeoId:'823929975',desc:'An immersive residential listing video with gimbal-stabilized interior and exterior shots.',specs:[{k:'Type',v:'Real Estate Video'},{k:'Client',v:'Dahlquist Realtors'},{k:'Format',v:'4K'}]},
+  {slug:'a-ranchers-take',title:'A Rancher\'s Take on Grassland Restoration',client:'Pheasants Forever',cat:'video',type:'remote-client-story',typeLabel:'Remote Client Story',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/691b5270e465783b9aab5d8e_thumb%20(16).jpg',vimeoId:'1134497582',desc:'Jeff Sather shares how partnering with Pheasants Forever helped him restore grassland on his family\'s farm affordably and effectively.',specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Location',v:'Glasgow, MT'}]},
+  {slug:'remote-testimonial',title:'Remote Testimonial',client:'Foundant Technologies',cat:'video',type:'remote-client-story',typeLabel:'Remote Client Story',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a4f33ba04f968e6f83_66f70a655a18aeb3a18b2814_thumb%2520(30).jpeg',vimeoId:'1011464238',desc:'A polished remote testimonial transforming a virtual interview recording into a high-quality marketing asset.',specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'field-notes-grassland',title:'Field Notes: Grassland Conversation with Montana Ranchers',client:'Pheasants Forever',cat:'video',type:'podcast',typeLabel:'Podcast',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/68dc8e1ab3aaf9489ef05e6a_thumb%20(15).jpg',vimeoId:'1103018945',desc:'A roundtable conversation with Montana ranchers about grassland conservation — authentic voices captured and produced as a podcast episode.',specs:[{k:'Type',v:'Podcast'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Multi-guest'}]},
+  {slug:'streamline-your-nonprofit',title:'Streamline Your Nonprofit',client:'Nonprofit Client',cat:'animation',type:'animated-explainer',typeLabel:'Animated Explainer',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg',vimeoId:'1011466967',desc:'An animated explainer walking nonprofit administrators through a complex software product — motion graphics replace a wall of features with a compelling story.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'}]},
+  {slug:'smartsimple-animated-explainer',title:'SmartSimple — Animated Explainer',client:'SmartSimple',cat:'animation',type:'animated-explainer',typeLabel:'Animated Explainer',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67a2b11e76d2956fbe1cd0d4_thumb%20(2).jpg',vimeoId:'1053133749',desc:'A clean animated explainer built to make a complex SaaS platform feel approachable and worth exploring.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'SmartSimple'},{k:'Style',v:'2D Motion Graphics'}]},
+  {slug:'online-portal-animated-explainer',title:'Online Portal — Animated Explainer',client:'Foundant Technologies',cat:'animation',type:'animated-explainer',typeLabel:'Animated Explainer',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a24de84b6e9187122d_66f709b9558f8a683ddf9f3e_thumb%2520(28).jpeg',vimeoId:'1011465254',desc:'An animated explainer guiding users through an online portal — motion makes navigation intuitive.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'third-party-animated-explainer',title:'Third Party — Animated Explainer',client:'Foundant Technologies',cat:'animation',type:'animated-explainer',typeLabel:'Animated Explainer',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a721bcac8906831b13_66f70ac72dea665ef97fd473_thumb%2520(31).jpeg',vimeoId:'1011464669',desc:'An animated explainer demystifying third-party integrations in a complex software ecosystem.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'Foundant Technologies'}]},
+  {slug:'cs-motion-graphics',title:'Motion Graphics',client:'',cat:'animation',type:'motion-graphics',typeLabel:'Motion Graphics',thumb:null,coming:true,desc:'Animated graphics for ads, social content, presentations, and video overlays.',specs:[{k:'Type',v:'Motion Graphics'},{k:'Starting At',v:'Contact for quote'}]},
+  {slug:'cs-logo-animation',title:'Logo Animations',client:'',cat:'animation',type:'logo-animation',typeLabel:'Logo Animation',thumb:null,coming:true,desc:'Bring your logo to life with a custom animated intro.',specs:[{k:'Type',v:'Logo Animation'},{k:'Starting At',v:'Contact for quote'}]},
+  {slug:'cs-lottie-animation',title:'Website Animations / Lottie',client:'',cat:'animation',type:'lottie-animation',typeLabel:'Website / Lottie',thumb:null,coming:true,desc:'Lightweight, scalable animations built for the web.',specs:[{k:'Type',v:'Lottie / Web Animation'},{k:'Starting At',v:'Contact for quote'}]},
+  {slug:'cs-headshots',title:'Professional Headshots',client:'',cat:'photo',type:'headshots',typeLabel:'Headshots',thumb:null,coming:true,desc:'High-quality portrait photography for personal branding and professional profiles.',specs:[{k:'Type',v:'Headshots'},{k:'Starting At',v:'$100'}]},
+  {slug:'cs-real-estate-photos',title:'Real Estate Photography',client:'',cat:'photo',type:'real-estate-photos',typeLabel:'Real Estate Photos',thumb:null,coming:true,desc:'Carefully planned, composed, and retouched interior and exterior property photography.',specs:[{k:'Type',v:'Real Estate Photos'},{k:'Starting At',v:'$150'}]},
+  {slug:'cs-drone-photos',title:'Drone Photography',client:'',cat:'photo',type:'drone-photos',typeLabel:'Drone Photos',thumb:null,coming:true,desc:'Stunning aerial imagery of real estate, landscapes, events, and more. FAA licensed pilot.',specs:[{k:'Type',v:'Drone Photos'},{k:'Starting At',v:'$100'}]},
+  {slug:'cs-3d-virtual-tour',title:'3D Virtual Tours',client:'',cat:'photo',type:'3d-virtual-tour',typeLabel:'3D Virtual Tour',thumb:null,coming:true,desc:'Interactive 360° Matterport tours allowing buyers to explore every angle of a property anytime, anywhere.',specs:[{k:'Type',v:'3D Virtual Tour'},{k:'Platform',v:'Matterport'}]},
+  {slug:'cs-graphic-design',title:'Graphic Design',client:'',cat:'design',type:'graphic-design',typeLabel:'Graphic Design',thumb:null,coming:true,desc:'Visuals for digital and print — infographics, ads, business cards, brochures, posters, and more.',specs:[{k:'Type',v:'Graphic Design'},{k:'Starting At',v:'$150'}]},
+  {slug:'cs-web-design',title:'Web Design',client:'',cat:'design',type:'web-design',typeLabel:'Web Design',thumb:null,coming:true,desc:'Custom Webflow websites — responsive, accessible, and built to convert.',specs:[{k:'Type',v:'Web Design'},{k:'Starting At',v:'$500'}]},
+  {slug:'cs-satellite-map',title:'Satellite Maps',client:'',cat:'design',type:'satellite-map',typeLabel:'Satellite Map',thumb:null,coming:true,desc:'Animated Google Earth flyovers showing property lines, nearby attractions, and custom labels.',specs:[{k:'Type',v:'Satellite Map'},{k:'Starting At',v:'$150'}]},
+  {slug:'cs-virtual-staging',title:'Virtual Staging',client:'',cat:'design',type:'virtual-staging',typeLabel:'Virtual Staging',thumb:null,coming:true,desc:'Transform any empty room into a fully-furnished, beautifully designed space.',specs:[{k:'Type',v:'Virtual Staging'},{k:'Starting At',v:'$50 / image'}]}
 ];
 
-var curCat='all', curInd='all';
+var SUBTYPES={
+  video:[{type:'brand-video',label:'Brand Video'},{type:'testimonial',label:'Testimonial'},{type:'product-video',label:'Product Demo'},{type:'drone-video-fpv',label:'Drone / FPV'},{type:'real-estate-video',label:'Real Estate'},{type:'remote-client-story',label:'Remote Client Story'},{type:'podcast',label:'Podcast'}],
+  animation:[{type:'animated-explainer',label:'Animated Explainer'},{type:'motion-graphics',label:'Motion Graphics'},{type:'logo-animation',label:'Logo Animation'},{type:'lottie-animation',label:'Website / Lottie'}],
+  photo:[{type:'headshots',label:'Headshots'},{type:'real-estate-photos',label:'Real Estate Photos'},{type:'drone-photos',label:'Drone Photos'},{type:'3d-virtual-tour',label:'3D Virtual Tour'}],
+  design:[{type:'graphic-design',label:'Graphic Design'},{type:'web-design',label:'Web Design'},{type:'satellite-map',label:'Satellite Map'},{type:'virtual-staging',label:'Virtual Staging'}]
+};
 
-function buildAll(){
-  Object.keys(SVC).forEach(function(cat){
-    var grid=document.getElementById('grid-'+cat);
-    SVC[cat].forEach(function(svc){ grid.appendChild(makeCard(svc,cat)); });
-  });
+var CS_ICONS={
+  'motion-graphics':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10 Q7 3 10 10 Q13 17 17 10" stroke-linecap="round"/><circle cx="10" cy="10" r="2.5" fill="currentColor" stroke="none" opacity="0.8"/></svg>',
+  'logo-animation':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3l2 4h4l-3 3 1 4-4-2.5L6 14l1-4-3-3h4z"/></svg>',
+  'lottie-animation':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M7 10l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  'headshots':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="16" height="12" rx="2"/><circle cx="10" cy="11" r="3" fill="currentColor" stroke="none" opacity="0.7"/><path d="M7 5l1.5-2h3L13 5" stroke-linecap="round"/></svg>',
+  'real-estate-photos':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="18" height="14" rx="2"/><path d="M3 13l4-4 3 3 4-5 3 6"/></svg>',
+  'drone-photos':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h2M14 8h2M8 4v2M12 4v2"/><circle cx="10" cy="10" r="2"/><path d="M6 6l1.5 1.5M13 6l-1.5 1.5M6 14l1.5-1.5M13 14l-1.5-1.5"/></svg>',
+  '3d-virtual-tour':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2L18 6v8l-8 4-8-4V6z"/><path d="M10 2v12M2 6l8 4 8-4"/></svg>',
+  'graphic-design':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="2.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.9"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.9"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/></svg>',
+  'web-design':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="18" height="14" rx="2"/><path d="M1 7h18M5 5h.01M7 5h.01M9 5h.01"/></svg>',
+  'satellite-map':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 3a9 9 0 0 1 0 14M3 10h14"/></svg>',
+  'virtual-staging':'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="16" height="9" rx="1"/><path d="M6 7V5a4 4 0 0 1 8 0v2"/></svg>'
+};
+
+function placeholderSVG(type){
+  var icon=CS_ICONS[type]||'<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="16" height="16" rx="3"/></svg>';
+  return '<div class="modal-preview-placeholder"><div class="preview-ph-icon" style="width:72px;height:72px;border-radius:18px;">'+icon.replace('width="20" height="20"','width="28" height="28"')+'</div><div class="preview-ph-label">Gallery Coming Soon</div></div>';
 }
 
-function makeCard(svc,cat){
-  var isExpand=(svc.icon==='expand');
-  var btnHtml='';
-  if(svc.icon==='play'&&svc.sample){
-    btnHtml='<button class="svc-preview-btn" onclick="openModal(\''+svc.id+'\')">'+PLAY+'</button>';
-  } else if(isExpand){
-    btnHtml='<button class="svc-preview-btn" onclick="location.href=\'work.html?cat='+cat+'\'">'+EXPAND+'</button>';
-  }
-  var tiersHtml=svc.tiers.map(function(t){
-    var items=t.i.map(function(li){return '<li>'+li+'</li>';}).join('');
-    var ph=t.p?'<span class="tier-price">'+t.p+'</span>':'';
-    return '<div class="tier"><div class="tier-header"><span class="tier-name">'+t.n+'</span>'+ph+'</div><ul class="tier-list">'+items+'</ul></div>';
-  }).join('');
-  var card=document.createElement('div');
-  card.className='svc-card';
-  card.dataset.id=svc.id;
-  card.dataset.ind=svc.ind.join(',');
-  card.innerHTML=
-    '<div class="svc-name-row"><div class="svc-name">'+svc.name+'</div>'+btnHtml+'</div>'
-    +'<p class="svc-desc">'+svc.desc+'</p>'
-    +'<div class="svc-details-wrap">'
-      +'<button class="svc-toggle" onclick="toggleTier(this)">Pricing &amp; Details '+CHEV+'</button>'
-      +'<div class="svc-details"><div class="svc-details-inner">'+tiersHtml+'</div></div>'
-    +'</div>';
-  return card;
-}
+var curCat='all',curType='all',shown=12,PER_PAGE=12;
 
-function applyFilters(){
-  var anyVisible=false;
-  ['video','photo','animation','design'].forEach(function(cat){
-    var sec=document.getElementById('cat-'+cat);
-    var div=document.getElementById('div-'+cat);
-    var showCat=(curCat==='all'||curCat===cat);
-    if(!showCat){sec.classList.add('hidden');div.style.display='none';return;}
-    sec.classList.remove('hidden');div.style.display='';
-    var cards=sec.querySelectorAll('.svc-card');
-    var catHasVisible=false;
-    cards.forEach(function(card){
-      var inds=card.dataset.ind.split(',');
-      var show=(curInd==='all'||inds.indexOf(curInd)>-1);
-      card.classList.toggle('hidden',!show);
-      if(show) catHasVisible=true;
-    });
-    if(!catHasVisible){sec.classList.add('hidden');div.style.display='none';}
-    else anyVisible=true;
+function getFiltered(){
+  return ALL.filter(function(w){
+    if(curCat!=='all'&&w.cat!==curCat) return false;
+    if(curType!=='all'&&w.type!==curType) return false;
+    return true;
   });
-  document.getElementById('no-results').style.display=anyVisible?'none':'block';
-  closeAll();
 }
 
 function setCat(cat){
-  curCat=cat;
-  document.querySelectorAll('#cat-row .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});
-  animWord(HW[cat]||'we do');
-  document.getElementById('hero-desc').textContent=HD[cat]||HD.all;
-  history.replaceState(null,'',cat==='all'?'services.html':'services.html?cat='+cat);
-  applyFilters();
+  curCat=cat;curType='all';shown=PER_PAGE;
+  document.querySelectorAll('#tier1 .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});
+  var t2=document.getElementById('tier2');
+  t2.innerHTML='<span class="filter-label">Type</span>';
+  if(cat!=='all'&&SUBTYPES[cat]){
+    t2.classList.add('open');
+    var allBtn=document.createElement('button');
+    allBtn.className='filter-btn sub active';allBtn.dataset.type='all';
+    allBtn.textContent='All';allBtn.onclick=function(){setType('all');};
+    t2.appendChild(allBtn);
+    SUBTYPES[cat].forEach(function(s){
+      var b=document.createElement('button');
+      b.className='filter-btn sub';b.dataset.type=s.type;
+      b.textContent=s.label;b.onclick=function(){setType(s.type);};
+      t2.appendChild(b);
+    });
+  } else {
+    t2.classList.remove('open');
+  }
+  render();
 }
 
-function setInd(ind){
-  curInd=ind;
-  document.querySelectorAll('#ind-row .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.ind===ind);});
-  applyFilters();
+function setType(type){
+  curType=type;shown=PER_PAGE;
+  document.querySelectorAll('#tier2 .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.type===type);});
+  render();
 }
 
-function closeAll(){
-  document.querySelectorAll('.svc-details.open').forEach(function(d){d.classList.remove('open');});
-  document.querySelectorAll('.svc-toggle.open').forEach(function(b){b.classList.remove('open');});
-  document.querySelectorAll('.svc-card.dropdown-open').forEach(function(c){c.classList.remove('dropdown-open');});
-}
-function toggleTier(btn){
-  var card=btn.closest('.svc-card');
-  var det=btn.nextElementSibling;
-  var open=det.classList.contains('open');
-  closeAll();
-  if(!open){det.classList.add('open');btn.classList.add('open');card.classList.add('dropdown-open');}
-}
-document.addEventListener('click',function(e){if(!e.target.closest('.svc-card'))closeAll();});
+function loadMore(){shown+=PER_PAGE;render(true);}
 
-function findSvc(id){
-  var found=null;
-  Object.keys(SVC).forEach(function(cat){SVC[cat].forEach(function(s){if(s.id===id)found=s;});});
-  return found;
+function render(append){
+  var filtered=getFiltered();
+  var grid=document.getElementById('work-grid');
+  var page=filtered.slice(0,shown);
+  if(!append) grid.innerHTML='';
+  var start=append?grid.children.length:0;
+  page.slice(start).forEach(function(w){grid.appendChild(makeCard(w));});
+  document.getElementById('results-count').textContent=filtered.length+' project'+(filtered.length===1?'':'s');
+  var lmw=document.getElementById('load-more-wrap');
+  if(shown<filtered.length){
+    lmw.style.display='flex';
+    document.getElementById('load-more-info').textContent='Showing '+Math.min(shown,filtered.length)+' of '+filtered.length;
+  } else {
+    lmw.style.display='none';
+  }
 }
 
-function openModal(id){
-  var svc=findSvc(id);
-  if(!svc||!svc.sample) return;
-  var s=svc.sample;
-  document.getElementById('modal-tag').textContent=s.tag;
-  document.getElementById('modal-title').textContent=s.title;
-  document.getElementById('modal-desc-r').textContent=s.desc;
-  document.getElementById('modal-specs').innerHTML=s.specs.map(function(sp){
-    return '<div class="modal-spec"><span class="modal-spec-k">'+sp.k+'</span><span class="modal-spec-v">'+sp.v+'</span></div>';
+function makeCard(w){
+  var el=document.createElement('div');
+  el.className='work-item'+(w.coming?' coming-soon':'');
+  if(w.coming){
+    el.innerHTML='<div class="coming-soon-inner"><div class="cs-icon">'+(CS_ICONS[w.type]||'')+'</div><div class="cs-service">'+w.title+'</div><div class="cs-label">Coming Soon</div></div>';
+  } else {
+    var isStatic=(w.cat==='photo'||w.cat==='design');
+    var btn=isStatic
+      ?'<div class="wi-expand-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(0,242,166,0.95)" stroke-width="1.5" stroke-linecap="round"><path d="M1 5V1h4M11 1h4v4M15 11v4h-4M5 15H1v-4"/></svg></div>'
+      :'<div class="wi-play-btn"><svg width="14" height="16" viewBox="0 0 14 16" fill="none"><path d="M1 1.5L13 8L1 14.5V1.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>';
+    el.innerHTML='<img class="wi-thumb" src="'+w.thumb+'" alt="'+w.title+'" loading="lazy">'
+      +'<div class="wi-gradient"></div>'+btn
+      +'<div class="wi-content"><div class="wi-tag">'+w.typeLabel+'</div>'
+      +'<div class="wi-title">'+w.title+'</div>'
+      +(w.client?'<div class="wi-client">'+w.client+'</div>':'')
+      +'</div>';
+    el.onclick=function(){openModal(w.slug);};
+  }
+  return el;
+}
+
+var galleryIdx=0;
+
+function openModal(slug){
+  var w=ALL.find(function(x){return x.slug===slug;});
+  if(!w||w.coming) return;
+  document.getElementById('modal-tag').textContent=w.typeLabel;
+  document.getElementById('modal-title').textContent=w.title;
+  document.getElementById('modal-desc').textContent=w.desc;
+  document.getElementById('modal-specs').innerHTML=w.specs.map(function(s){
+    return '<div class="modal-spec"><span class="modal-spec-k">'+s.k+'</span><span class="modal-spec-v">'+s.v+'</span></div>';
   }).join('');
-  // Update CTA tag text — use friendly label where tag is grammatically awkward
+  // Update CTA tag text — use friendly label where typeLabel is grammatically awkward
   var ctaLabels={
     'Brand Video':'Brand Video','Testimonial':'Testimonial','Product Demo':'Product Demo',
     'Drone / FPV':'Drone Film','Real Estate Video':'Real Estate Video',
@@ -625,37 +461,102 @@ function openModal(id){
     'Animated Explainer':'Animated Explainer','Motion Graphics':'Motion Graphics',
     'Logo Animation':'Logo Animation','Website / Lottie':'Web Animation'
   };
-  document.getElementById('modal-cta-tag').textContent=ctaLabels[s.tag]||s.tag;
+  document.getElementById('modal-cta-tag').textContent=ctaLabels[w.typeLabel]||w.typeLabel;
   var ml=document.getElementById('modal-left');
   ml.innerHTML='';
-  var emb=document.createElement('div');emb.className='modal-embed';
-  var ifr=document.createElement('iframe');
-  ifr.src='https://player.vimeo.com/video/'+s.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
-  ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
-  ifr.setAttribute('allowfullscreen','');
-  emb.appendChild(ifr);ml.appendChild(emb);
-  var related=PORT.filter(function(p){return p.tag===s.tag&&p.vimeoId!==s.vimeoId;}).slice(0,3);
-  if(related.length){
-    var rel=document.createElement('div');rel.className='modal-related';
-    var lbl=document.createElement('div');lbl.className='modal-related-label';
-    lbl.textContent='More '+s.tag+'s';rel.appendChild(lbl);
-    related.forEach(function(r){
-      var d=document.createElement('div');d.className='modal-rel-item';
-      d.onclick=function(){
-        ifr.src='https://player.vimeo.com/video/'+r.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
-        document.getElementById('modal-tag').textContent=r.tag;
-        document.getElementById('modal-title').textContent=r.title;
-        document.getElementById('modal-desc-r').textContent='';
-        document.getElementById('modal-specs').innerHTML='';
-        document.getElementById('modal-cta-tag').textContent=r.tag;
-      };
-      d.innerHTML='<img src="'+r.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+r.title+'</div><div class="modal-rel-tag">'+r.tag+'</div></div>';
-      rel.appendChild(d);
-    });
-    ml.appendChild(rel);
-  }
+  var isStatic=(w.cat==='photo'||w.cat==='design');
+  if(isStatic){buildStaticModal(w,ml);}else{buildVideoModal(w,ml);}
   document.getElementById('modal-backdrop').classList.add('open');
   document.body.style.overflow='hidden';
+}
+
+function buildVideoModal(w,ml){
+  var embedDiv=document.createElement('div');embedDiv.className='modal-embed';
+  var iframe=document.createElement('iframe');
+  iframe.src='https://player.vimeo.com/video/'+w.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
+  iframe.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
+  iframe.setAttribute('allowfullscreen','');
+  embedDiv.appendChild(iframe);ml.appendChild(embedDiv);
+  buildRelated(w,ml);
+}
+
+function buildStaticModal(w,ml){
+  var preview=document.createElement('div');preview.className='modal-preview';
+  var mainDiv=document.createElement('div');mainDiv.className='modal-preview-main';
+  if(w.images&&w.images.length){
+    galleryIdx=0;
+    var img=document.createElement('img');img.src=w.images[0];img.alt=w.title;
+    mainDiv.appendChild(img);
+    if(w.images.length>1){
+      mainDiv.innerHTML+='<div class="gallery-arrow prev" onclick="shiftGallery(-1)">&#8249;</div>'
+        +'<div class="gallery-arrow next" onclick="shiftGallery(1)">&#8250;</div>';
+    }
+    preview.appendChild(mainDiv);
+    if(w.images.length>1){
+      var strip=document.createElement('div');strip.className='modal-gallery-strip';
+      w.images.forEach(function(src,i){
+        var t=document.createElement('img');
+        t.className='gthumb'+(i===0?' active':'');
+        t.src=src;t.alt='';
+        t.onclick=(function(idx){return function(){setGalleryImg(idx);};})(i);
+        strip.appendChild(t);
+      });
+      preview.appendChild(strip);
+    }
+  } else {
+    mainDiv.innerHTML=placeholderSVG(w.type);
+    preview.appendChild(mainDiv);
+  }
+  ml.appendChild(preview);
+  buildRelatedStatic(w,ml);
+}
+
+function buildRelated(w,ml){
+  var related=ALL.filter(function(x){return x.slug!==w.slug&&!x.coming&&x.type===w.type;}).slice(0,3);
+  if(!related.length) return;
+  var rel=document.createElement('div');rel.className='modal-related';
+  var lbl=document.createElement('div');lbl.className='modal-related-label';
+  lbl.textContent='More '+w.typeLabel+'s';rel.appendChild(lbl);
+  related.forEach(function(r){
+    var d=document.createElement('div');d.className='modal-rel-item';
+    d.onclick=function(){openModal(r.slug);};
+    d.innerHTML='<img src="'+r.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+r.title+'</div><div class="modal-rel-tag">'+r.typeLabel+'</div></div>';
+    rel.appendChild(d);
+  });
+  ml.appendChild(rel);
+}
+
+function buildRelatedStatic(w,ml){
+  var related=ALL.filter(function(x){return x.slug!==w.slug&&x.cat===w.cat;}).slice(0,3);
+  if(!related.length) return;
+  var rel=document.createElement('div');rel.className='modal-related';
+  var lbl=document.createElement('div');lbl.className='modal-related-label';
+  lbl.textContent='Other '+capitalise(w.cat)+' Services';rel.appendChild(lbl);
+  related.forEach(function(r){
+    var d=document.createElement('div');d.className='modal-rel-item';
+    if(!r.coming) d.onclick=function(){openModal(r.slug);};
+    var thumbHtml=r.thumb
+      ?'<img src="'+r.thumb+'" alt="" loading="lazy">'
+      :'<div style="width:76px;height:46px;border-radius:5px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--teal);">'+(CS_ICONS[r.type]||'')+'</div>';
+    d.innerHTML=thumbHtml+'<div><div class="modal-rel-title">'+r.typeLabel+'</div><div class="modal-rel-tag">'+(r.coming?'Coming Soon':'View project')+'</div></div>';
+    rel.appendChild(d);
+  });
+  ml.appendChild(rel);
+}
+
+function capitalise(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+
+function setGalleryImg(i){
+  galleryIdx=i;
+  var mainImg=document.querySelector('.modal-preview-main img');
+  var thumbs=document.querySelectorAll('.gthumb');
+  if(mainImg&&thumbs[i]) mainImg.src=thumbs[i].src;
+  thumbs.forEach(function(t,j){t.classList.toggle('active',j===i);});
+}
+function shiftGallery(dir){
+  var thumbs=document.querySelectorAll('.gthumb');
+  if(!thumbs.length) return;
+  setGalleryImg((galleryIdx+dir+thumbs.length)%thumbs.length);
 }
 
 function closeModal(){
@@ -666,24 +567,50 @@ function closeModal(){
 function handleBackdropClick(e){if(e.target===document.getElementById('modal-backdrop'))closeModal();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 
-buildAll();
+document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
+
 (function(){
-  var p=new URLSearchParams(window.location.search);
-  var ic=p.get('cat');
-  var ii=p.get('ind');
-  setTimeout(function(){
-    if(ic&&SVC[ic]) setCat(ic);
-    if(ii&&ii!=='all') setInd(ii);
-  },0);
+  var params=new URLSearchParams(window.location.search);
+  var initCat=params.get('cat');
+  if(initCat&&['video','photo','animation','design'].indexOf(initCat)>-1){
+    curCat=initCat;
+    document.querySelectorAll('#tier1 .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===initCat);});
+    var t2=document.getElementById('tier2');
+    t2.innerHTML='<span class="filter-label">Type</span>';
+    if(SUBTYPES[initCat]){
+      t2.classList.add('open');
+      var allBtn=document.createElement('button');
+      allBtn.className='filter-btn sub active';allBtn.dataset.type='all';
+      allBtn.textContent='All';allBtn.onclick=function(){setType('all');};
+      t2.appendChild(allBtn);
+      SUBTYPES[initCat].forEach(function(s){
+        var b=document.createElement('button');
+        b.className='filter-btn sub';b.dataset.type=s.type;
+        b.textContent=s.label;b.onclick=function(){setType(s.type);};
+        t2.appendChild(b);
+      });
+    }
+  }
+  render();
 })();
 
-document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
 (function(){
-  var nav=document.getElementById('main-nav'),ly=window.scrollY,t=false;
-  window.addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){var y=window.scrollY;if(y<80)nav.classList.remove('nav-hidden');else if(y>ly)nav.classList.add('nav-hidden');else nav.classList.remove('nav-hidden');ly=y;t=false;});t=true;}},{passive:true});
+  var nav=document.getElementById('main-nav'),lastY=window.scrollY,ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(function(){
+      var y=window.scrollY;
+      if(y<80)nav.classList.remove('nav-hidden');
+      else if(y>lastY)nav.classList.add('nav-hidden');
+      else nav.classList.remove('nav-hidden');
+      lastY=y;ticking=false;
+    });ticking=true;}
+  },{passive:true});
 })();
+
 (function(){
-  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:0.1});
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+  },{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 })();
 </script>
