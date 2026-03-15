@@ -215,6 +215,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   </div>
 </div>
 
+<!-- MODAL -->
 <div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
   <div class="modal" id="modal">
     <div class="modal-left" id="modal-left"></div>
@@ -231,8 +232,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
       <div class="modal-cta">
-        <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="modal-btn-fill">Get a Quote →</a>
-        <a href="https://www.colegrovemedia.com/project-brief-form" class="modal-btn-ghost">Start a Project Brief</a>
+        <a href="brief.html" class="modal-btn-fill" id="modal-cta-primary">Get Your <span id="modal-cta-tag">Video</span> Made →</a>
+        <a href="pricing.html" class="modal-btn-ghost">See Pricing</a>
       </div>
     </div>
   </div>
@@ -242,7 +243,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   <div class="cta-band-h">Ready to make your<br><span>next project?</span></div>
   <div style="display:flex;gap:12px;flex-wrap:wrap;">
     <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-    <a href="https://www.colegrovemedia.com/project-brief-form" class="btn-ghost">Start a Project Brief</a>
+    <a href="brief.html" class="btn-ghost">Start a Project Brief</a>
   </div>
 </div>
 
@@ -278,7 +279,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li><a href="tel:4062099945">(406) 209-9945</a></li>
         <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
         <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="https://www.colegrovemedia.com/project-brief-form">Project Brief</a></li>
+        <li><a href="brief.html">Project Brief</a></li>
       </ul>
     </div>
   </div>
@@ -452,6 +453,8 @@ function openModal(slug){
   document.getElementById('modal-specs').innerHTML=w.specs.map(function(s){
     return '<div class="modal-spec"><span class="modal-spec-k">'+s.k+'</span><span class="modal-spec-v">'+s.v+'</span></div>';
   }).join('');
+  // Update CTA tag text to match the project type
+  document.getElementById('modal-cta-tag').textContent=w.typeLabel;
   var ml=document.getElementById('modal-left');
   ml.innerHTML='';
   var isStatic=(w.cat==='photo'||w.cat==='design');
