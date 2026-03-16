@@ -34,8 +34,8 @@
     100% { clip-path: inset(0 0 100% 0); opacity:1; }
   }
   #lottie-wrap {
-    width: min(900px, 90vw);
-    transform: translateX(5vw);
+    width: 100vw;
+    transform: translateX(-2vw);
     opacity: 0;
     transition: opacity 0.2s ease;
   }
@@ -536,12 +536,12 @@
   var wrap      = document.getElementById('lottie-wrap');
   var video     = document.getElementById('hero-video');
   var ANIM_MS   = 2670;
-  var FREEZE_MS = 1000;
+  var FREEZE_MS = 600;  // shortened freeze
   var WIPE_MS   = 900;
 
   function doWipe() {
     loader.classList.add('hide');
-    setTimeout(function(){ video.play(); }, WIPE_MS * 0.4);
+    setTimeout(function(){ video.play(); }, 0); // start immediately as wipe begins
     setTimeout(function(){ loader.style.display = 'none'; }, WIPE_MS + 50);
   }
 
