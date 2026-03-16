@@ -1,0 +1,69 @@
+name: Download & Cache Images
+
+on:
+  workflow_dispatch: # run manually from the Actions tab
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create images folder
+        run: mkdir -p assets/images
+
+      - name: Download all images
+        run: |
+          declare -A IMAGES
+          # Logo
+          IMAGES["logo.svg"]="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg"
+          # Headshot
+          IMAGES["logan-headshot.jpg"]="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/65210be093d6496c0eaad1bf_new.jpg"
+          # Portfolio thumbnails
+          IMAGES["thumb-ignis.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg"
+          IMAGES["thumb-nonprofit-explainer.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg"
+          IMAGES["thumb-arctic.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e8cb2eb2e8fc0a7c2_66f38750bb92e144accdf66a_thumb%2520(12).jpeg"
+          IMAGES["thumb-foundation-mgmt.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg"
+          IMAGES["thumb-painted-hills.jpg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f768eb0871ede95f20f300_upda.jpg"
+          IMAGES["thumb-not-jumping-ship.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg"
+          IMAGES["thumb-enhancing-habitats.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669ef33ba04f968e6c6a_66f39e494c785c3ecb9e429b_thumb%2520(21).jpeg"
+          IMAGES["thumb-foundant-brand.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a0d295dfbc1cbbe46f_66f70b897f8b1cdbe74e2e5b_thumb%2520(33).jpeg"
+          IMAGES["thumb-girls-on-the-run.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2464_66f3a054163f4c9d22ba6356_thumb%2520(22).jpeg"
+          IMAGES["thumb-grassland-initiative.jpg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67fa91f6159f177fd199707a_thumb%20(8).jpg"
+          IMAGES["thumb-drone-reel.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2415_66f39b9106d16f7bebe5a521_thumb%2520(18).jpeg"
+          IMAGES["thumb-iceland.jpg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/6754f34a0ccac304599e4a4c_iceland%20no%20vin-3.jpg"
+          IMAGES["thumb-someday-ranch.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a51971e98896ddd771_66f71726105adea3df43b0ce_thumb%2520(44).jpeg"
+          IMAGES["thumb-spring-ridge.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e3dbb3613d4333c69_66f39b33bc771ba2f81eb5aa_thumb%2520(17).jpeg"
+          IMAGES["thumb-smartsimple.jpg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67a2b11e76d2956fbe1cd0d4_thumb%20(2).jpg"
+          IMAGES["thumb-client-service.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dcb70bd89e860c4a5_66f70913766b164a1bd00ebc_thumb%2520(13).jpeg"
+          IMAGES["thumb-sterling.jpg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/694040c50423cbba0af3f780_thumb%20(17).jpg"
+          IMAGES["thumb-team-testimonial.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a7f33ba04f968e72ae_66f70b129950d13f73461415_thumb%2520(32).jpeg"
+          IMAGES["thumb-transforming-workflows.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a827672f65dbb98565_66f39cbb4c785c3ecb9cdce6_thumb%2520(19).jpeg"
+          IMAGES["thumb-doing-so-much-more.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a03dbb3613d4333db1_66f7150d449cde8f782ff594_thumb%2520(36).jpeg"
+          IMAGES["thumb-meet-the-interns.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a2f33ba04f968e6ea6_66f70c45e677908668bdc690_thumb%2520(35).jpeg"
+          IMAGES["thumb-salt-lake-summit.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a68efb70416dfbc4f7_66f3a029748e9d2481f2e48b_thumb%2520(23).jpeg"
+          IMAGES["thumb-all-in-one-foundation.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg"
+          IMAGES["thumb-software-demo.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0ad_66f716dc08e34b6183b5923b_thumb%2520(42).jpeg"
+          IMAGES["thumb-reporting-demo.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a427672f65dbb982c4_66f7165aa272ae9e8939f9dc_thumb%2520(41).jpeg"
+          IMAGES["thumb-accounting-demo.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe12c_66f71624792ad1ee55fc5c26_thumb%2520(40).jpeg"
+          IMAGES["thumb-fundraising-demo.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a03dbb3613d4333dcc_66f715ebed3b57860169aafb_thumb%2520(39).jpeg"
+          IMAGES["thumb-crm-demo.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669ef33ba04f968e6cb9_66f7096926072825c32fa058_thumb%2520(27).jpeg"
+          IMAGES["thumb-online-portal.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a24de84b6e9187122d_66f709b9558f8a683ddf9f3e_thumb%2520(28).jpeg"
+          IMAGES["thumb-third-party.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a721bcac8906831b13_66f70ac72dea665ef97fd473_thumb%2520(31).jpeg"
+          IMAGES["thumb-ranchers-take.jpg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/691b5270e465783b9aab5d8e_thumb%20(16).jpg"
+          IMAGES["thumb-remote-testimonial.jpeg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a4f33ba04f968e6f83_66f70a655a18aeb3a18b2814_thumb%2520(30).jpeg"
+          IMAGES["thumb-field-notes.jpg"]="https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/68dc8e1ab3aaf9489ef05e6a_thumb%20(15).jpg"
+
+          for FILENAME in "${!IMAGES[@]}"; do
+            URL="${IMAGES[$FILENAME]}"
+            echo "Downloading $FILENAME..."
+            curl -L -o "assets/images/$FILENAME" "$URL" || echo "FAILED: $FILENAME"
+          done
+
+      - name: Commit images to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/images/
+          git diff --staged --quiet || git commit -m "chore: cache all Webflow CDN images locally"
+          git push
