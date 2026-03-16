@@ -530,50 +530,58 @@
 <script>
 // ── LOADING SCREEN ──
 (function(){
-  var SEEN_KEY = 'cm_intro_seen';
-  var loader = document.getElementById('loader');
-  var wrap = document.getElementById('lottie-wrap');
-  var video = document.getElementById('hero-video');
+  var SEEN_KEY  = 'cm_intro_seen';
+  var loader    = document.getElementById('loader');
+  var wrap      = document.getElementById('lottie-wrap');
+  var video     = document.getElementById('hero-video');
+  var ANIM_MS   = 2670;
+  var FREEZE_MS = 1000;
+  var WIPE_MS   = 900;
 
-  // Total timing: 2.67s animation + 1s freeze + 0.9s wipe = ~4.6s before video plays
-  var ANIM_MS  = 2670; // Lottie duration (160fr @ 60fps)
-  var FREEZE_MS = 1000; // hold last frame
-  var WIPE_MS   = 900;  // CSS wipe animation duration
+  function doWipe() {
+    loader.classList.add('hide');
+    setTimeout(function(){ video.play(); }, WIPE_MS * 0.4);
+    setTimeout(function(){ loader.style.display = 'none'; }, WIPE_MS + 50);
+  }
+
+  // Safety net — always reveal after 6s no matter what
+  var safetyTimer = setTimeout(function(){
+    console.warn('Loader safety timeout fired — Lottie may have failed to load');
+    doWipe();
+  }, 6000);
 
   if (sessionStorage.getItem(SEEN_KEY)) {
-    // Already seen this session — remove loader instantly, start video
+    clearTimeout(safetyTimer);
     loader.style.display = 'none';
     video.play();
     return;
   }
 
-  // First visit — play the intro
   sessionStorage.setItem(SEEN_KEY, '1');
+
+  // Clear session so you can test repeatedly — remove these two lines when done testing
+  // sessionStorage.removeItem(SEEN_KEY);
 
   var anim = lottie.loadAnimation({
     container: wrap,
     renderer: 'svg',
     loop: false,
     autoplay: false,
-    path: 'assets/lottie/logo-animation.json'
+    path: 'assets/lottie/colegrove media logo Animation.json'
   });
 
   anim.addEventListener('DOMLoaded', function(){
+    console.log('Lottie loaded OK');
+    clearTimeout(safetyTimer);
     wrap.classList.add('visible');
     anim.play();
+    setTimeout(function(){ doWipe(); }, ANIM_MS + FREEZE_MS);
+  });
 
-    // After animation completes, freeze for 1s then wipe
-    setTimeout(function(){
-      loader.classList.add('hide');
-      // Start video slightly before wipe ends so it's already playing when revealed
-      setTimeout(function(){
-        video.play();
-      }, WIPE_MS * 0.4);
-      // Remove loader from DOM after wipe completes
-      setTimeout(function(){
-        loader.style.display = 'none';
-      }, WIPE_MS + 50);
-    }, ANIM_MS + FREEZE_MS);
+  anim.addEventListener('data_failed', function(){
+    console.error('Lottie failed to load animation data');
+    clearTimeout(safetyTimer);
+    doWipe();
   });
 })();
 
