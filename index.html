@@ -187,7 +187,14 @@
   .quote-attr strong { color:var(--teal); font-weight:500; }
   .quote-arrow { width:40px; height:40px; border-radius:50%; background:transparent; border:1px solid var(--border); color:var(--muted); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:color 0.18s, border-color 0.18s; font-size:18px; line-height:1; flex-shrink:0; }
   .quote-arrow:hover { color:var(--white); border-color:rgba(0,242,166,0.4); }
-  @media(max-width:580px){ .quote-arrow{ display:none; } }
+  @media(max-width:580px){
+    .quote-arrow { display:none; }
+    .quote-strip { padding:72px 0; }
+    .quote-inner { padding:0 24px; }
+    .quote-viewport { overflow:visible; }
+    .quote-row { overflow:hidden; margin:0 -24px; padding:0 24px; }
+    .quote-slide { padding-right:72px; }
+  }
 
   .cta-section { padding:100px 40px; display:flex; align-items:center; justify-content:space-between; gap:60px; position:relative; overflow:hidden; border-bottom:1px solid var(--border); }
   .cta-section::before { content:''; position:absolute; right:-100px; top:50%; transform:translateY(-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%); pointer-events:none; }
