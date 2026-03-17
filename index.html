@@ -866,30 +866,23 @@ function homeLoadMore() {
   var vp = document.getElementById('quote-viewport');
   var slides = Array.prototype.slice.call(track.querySelectorAll('.quote-slide'));
   var count = slides.length;
-
-  // Clone first and last for infinite illusion
-  var firstClone = slides[0].cloneNode(true);
-  var lastClone = slides[count-1].cloneNode(true);
-  track.appendChild(firstClone);
-  track.insertBefore(lastClone, slides[0]);
-
-  var cur = 1; // start on real first slide
-  track.style.transform = 'translateX(-' + (cur * 100) + '%)';
-  track.style.transition = 'none';
+  var cur = 0;
+  var animating = false;
 
   function goTo(n, animate){
-    cur = n;
+    cur = ((n % count) + count) % count;
     track.style.transition = animate === false ? 'none' : 'transform 0.45s cubic-bezier(0.22,1,0.36,1)';
     track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+    if(animate !== false){
+      animating = true;
+      setTimeout(function(){ animating = false; }, 500);
+    }
   }
 
-  track.addEventListener('transitionend', function(){
-    var total = count + 2;
-    if(cur === 0){ goTo(count, false); }
-    if(cur === total - 1){ goTo(1, false); }
-  });
-
-  window.shiftQuote = function(dir){ goTo(cur + dir, true); };
+  window.shiftQuote = function(dir){
+    if(animating) return;
+    goTo(cur + dir, true);
+  };
 
   // swipe
   var startX = 0;
