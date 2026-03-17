@@ -66,7 +66,7 @@
 
   .hero { position:relative; height:calc(100vh - 68px); min-height:520px; overflow:hidden; border-bottom:1px solid var(--border); }
   .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; }
-  .hero-scrim { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(22,26,37,0.18) 0%,rgba(22,26,37,0.08) 50%,rgba(22,26,37,0.55) 100%); }
+  .hero-scrim { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(22,26,37,0.18) 0%,rgba(22,26,37,0.08) 50%,rgba(22,26,37,0.55) 100%); cursor:pointer; }
 
   .btn-secondary { background:transparent; color:var(--muted); padding:12px 28px; border-radius:8px; font-size:13px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; border:1px solid var(--border); cursor:pointer; transition:color 0.18s,border-color 0.18s; display:inline-block; }
   .btn-secondary:hover { color:var(--white); border-color:rgba(0,242,166,0.4); }
@@ -257,7 +257,7 @@
   <video class="hero-video" id="hero-video" muted loop playsinline>
     <source src="https://player.vimeo.com/progressive_redirect/playback/871650285/rendition/1440p/file.mp4%20%281440p%29.mp4?loc=external&log_user=0&signature=6fbcba8ef2c0fd1d4a134c37ae97e3136ddb9dfc4e7590d8a071071416fef3f9" type="video/mp4">
   </video>
-  <div class="hero-scrim"></div>
+  <div class="hero-scrim" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});"></div>
 </section>
 
 <section class="section" id="services">
@@ -531,7 +531,6 @@
   </div>
 </footer>
 
-<!-- Lottie player from CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
 <script>
@@ -542,16 +541,15 @@
   var wrap      = document.getElementById('lottie-wrap');
   var video     = document.getElementById('hero-video');
   var ANIM_MS   = 2670;
-  var FREEZE_MS = 600;  // shortened freeze
+  var FREEZE_MS = 600;
   var WIPE_MS   = 900;
 
   function doWipe() {
     loader.classList.add('hide');
-    setTimeout(function(){ video.play(); }, 0); // start immediately as wipe begins
+    setTimeout(function(){ video.play(); }, 0);
     setTimeout(function(){ loader.style.display = 'none'; }, WIPE_MS + 50);
   }
 
-  // Safety net — always reveal after 6s no matter what
   var safetyTimer = setTimeout(function(){
     console.warn('Loader safety timeout fired — Lottie may have failed to load');
     doWipe();
@@ -566,9 +564,6 @@
 
   sessionStorage.setItem(SEEN_KEY, '1');
 
-  // Clear session so you can test repeatedly — remove these two lines when done testing
-  // sessionStorage.removeItem(SEEN_KEY);
-
   var anim = lottie.loadAnimation({
     container: wrap,
     renderer: 'svg',
@@ -578,7 +573,6 @@
   });
 
   anim.addEventListener('DOMLoaded', function(){
-    console.log('Lottie loaded OK');
     clearTimeout(safetyTimer);
     wrap.classList.add('visible');
     anim.play();
@@ -586,7 +580,6 @@
   });
 
   anim.addEventListener('data_failed', function(){
-    console.error('Lottie failed to load animation data');
     clearTimeout(safetyTimer);
     doWipe();
   });
