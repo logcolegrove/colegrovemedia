@@ -34,15 +34,15 @@
     100% { clip-path: inset(0 0 100% 0); opacity:1; }
   }
   #lottie-wrap {
-    width: 100vw;
-    transform: translateX(1vw);
+    width: 90vw;
+    transform: translateX(9vw);
     opacity: 0;
     transition: opacity 0.2s ease;
   }
-  @media (max-width: 768px) {
+  @media (min-width: 769px) {
     #lottie-wrap {
-      width: 90vw;
-      transform: translateX(9vw);
+      width: 100vw;
+      transform: translateX(1vw);
     }
   }
   #lottie-wrap.visible { opacity: 1; }
