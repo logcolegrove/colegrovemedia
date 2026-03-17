@@ -168,19 +168,18 @@
   .step-link:hover { gap:10px; }
 
   .quote-strip { background:var(--bg2); border-bottom:1px solid var(--border); padding:72px 40px; overflow:hidden; }
-  .quote-inner { max-width:720px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center; gap:20px; }
+  .quote-inner { max-width:960px; margin:0 auto; text-align:center; display:flex; flex-direction:column; align-items:center; gap:20px; }
   .quote-mark { font-family:var(--display); font-size:72px; font-weight:700; color:var(--teal); opacity:0.25; line-height:0.7; }
+  .quote-row { display:flex; align-items:center; gap:24px; width:100%; }
+  .quote-viewport { flex:1; overflow:hidden; }
   .quote-track { display:flex; transition:transform 0.45s cubic-bezier(0.22,1,0.36,1); width:100%; }
-  .quote-slide { min-width:100%; display:flex; flex-direction:column; align-items:center; gap:20px; padding:0 8px; }
+  .quote-slide { min-width:100%; display:flex; flex-direction:column; align-items:center; gap:16px; padding:0 8px; }
   .quote-text { font-family:var(--display); font-size:clamp(22px,3vw,32px); font-weight:600; color:var(--white); line-height:1.2; letter-spacing:-0.01em; }
   .quote-attr { font-size:12px; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
   .quote-attr strong { color:var(--teal); font-weight:500; }
-  .quote-dots { display:flex; gap:8px; margin-top:8px; }
-  .quote-dot { width:6px; height:6px; border-radius:50%; background:var(--muted); opacity:0.35; cursor:pointer; transition:opacity 0.2s, background 0.2s; border:none; padding:0; }
-  .quote-dot.active { background:var(--teal); opacity:1; }
-  .quote-nav { display:flex; gap:12px; margin-top:4px; }
-  .quote-arrow { width:36px; height:36px; border-radius:50%; background:transparent; border:1px solid var(--border); color:var(--muted); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:color 0.18s, border-color 0.18s; font-size:16px; line-height:1; }
+  .quote-arrow { width:40px; height:40px; border-radius:50%; background:transparent; border:1px solid var(--border); color:var(--muted); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:color 0.18s, border-color 0.18s; font-size:18px; line-height:1; flex-shrink:0; }
   .quote-arrow:hover { color:var(--white); border-color:rgba(0,242,166,0.4); }
+  @media(max-width:580px){ .quote-arrow{ display:none; } }
 
   .cta-section { padding:100px 40px; display:flex; align-items:center; justify-content:space-between; gap:60px; position:relative; overflow:hidden; border-bottom:1px solid var(--border); }
   .cta-section::before { content:''; position:absolute; right:-100px; top:50%; transform:translateY(-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%); pointer-events:none; }
@@ -537,31 +536,30 @@
 <div class="quote-strip">
   <div class="quote-inner reveal">
     <div class="quote-mark">"</div>
-    <div style="width:100%;overflow:hidden;" id="quote-viewport">
-      <div class="quote-track" id="quote-track">
-        <div class="quote-slide">
-          <blockquote class="quote-text">The team is STOKED about the video and believes it may be the best brand video they've ever seen!</blockquote>
-          <div class="quote-attr"><strong>Meaghann Gaffney</strong> &nbsp;·&nbsp; Ignis Technologies</div>
-        </div>
-        <div class="quote-slide">
-          <blockquote class="quote-text">Colegrove Media is like a creative swiss army knife. Truly eyebrow-raising stuff.</blockquote>
-          <div class="quote-attr"><strong>Isaac Miller</strong> &nbsp;·&nbsp; PhD</div>
-        </div>
-        <div class="quote-slide">
-          <blockquote class="quote-text">Damn, you made that sick Colter Curry set.</blockquote>
-          <div class="quote-attr"><strong>Colter Curry</strong> &nbsp;·&nbsp; Tennis</div>
-        </div>
-        <div class="quote-slide">
-          <blockquote class="quote-text">Wow, that was really cool. I'm so proud of you.</blockquote>
-          <div class="quote-attr"><strong>Mom</strong> &nbsp;·&nbsp; My Biggest Fan</div>
+    <div class="quote-row">
+      <button class="quote-arrow" onclick="shiftQuote(-1)">&#8592;</button>
+      <div class="quote-viewport" id="quote-viewport">
+        <div class="quote-track" id="quote-track">
+          <div class="quote-slide">
+            <blockquote class="quote-text">The team is STOKED about the video and believes it may be the best brand video they've ever seen!</blockquote>
+            <div class="quote-attr"><strong>Meaghann Gaffney</strong> &nbsp;·&nbsp; Ignis Technologies</div>
+          </div>
+          <div class="quote-slide">
+            <blockquote class="quote-text">Colegrove Media is like a creative swiss army knife. Truly eyebrow-raising stuff.</blockquote>
+            <div class="quote-attr"><strong>Isaac Miller</strong> &nbsp;·&nbsp; PhD</div>
+          </div>
+          <div class="quote-slide">
+            <blockquote class="quote-text">Damn, you made that sick.</blockquote>
+            <div class="quote-attr"><strong>Colter Curry</strong> &nbsp;·&nbsp; Set Tennis</div>
+          </div>
+          <div class="quote-slide">
+            <blockquote class="quote-text">That was really cool. I'm so proud of you.</blockquote>
+            <div class="quote-attr"><strong>Mom</strong> &nbsp;·&nbsp; My Biggest Fan</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="quote-nav">
-      <button class="quote-arrow" onclick="shiftQuote(-1)">&#8592;</button>
       <button class="quote-arrow" onclick="shiftQuote(1)">&#8594;</button>
     </div>
-    <div class="quote-dots" id="quote-dots"></div>
   </div>
 </div>
 
@@ -841,34 +839,40 @@ function homeLoadMore() {
 // ── QUOTE CAROUSEL ──
 (function(){
   var track = document.getElementById('quote-track');
-  var dotsWrap = document.getElementById('quote-dots');
-  var slides = track.querySelectorAll('.quote-slide');
-  var cur = 0;
-  var dots = [];
+  var vp = document.getElementById('quote-viewport');
+  var slides = Array.prototype.slice.call(track.querySelectorAll('.quote-slide'));
+  var count = slides.length;
 
-  slides.forEach(function(_, i){
-    var d = document.createElement('button');
-    d.className = 'quote-dot' + (i===0?' active':'');
-    d.onclick = function(){ goTo(i); };
-    dotsWrap.appendChild(d);
-    dots.push(d);
-  });
+  // Clone first and last for infinite illusion
+  var firstClone = slides[0].cloneNode(true);
+  var lastClone = slides[count-1].cloneNode(true);
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
 
-  function goTo(n){
-    cur = (n + slides.length) % slides.length;
+  var cur = 1; // start on real first slide
+  track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+  track.style.transition = 'none';
+
+  function goTo(n, animate){
+    cur = n;
+    track.style.transition = animate === false ? 'none' : 'transform 0.45s cubic-bezier(0.22,1,0.36,1)';
     track.style.transform = 'translateX(-' + (cur * 100) + '%)';
-    dots.forEach(function(d,i){ d.classList.toggle('active', i===cur); });
   }
 
-  window.shiftQuote = function(dir){ goTo(cur + dir); };
+  track.addEventListener('transitionend', function(){
+    var total = count + 2;
+    if(cur === 0){ goTo(count, false); }
+    if(cur === total - 1){ goTo(1, false); }
+  });
 
-  // swipe support
+  window.shiftQuote = function(dir){ goTo(cur + dir, true); };
+
+  // swipe
   var startX = 0;
-  var vp = document.getElementById('quote-viewport');
   vp.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
   vp.addEventListener('touchend', function(e){
     var diff = startX - e.changedTouches[0].clientX;
-    if(Math.abs(diff) > 40) goTo(cur + (diff > 0 ? 1 : -1));
+    if(Math.abs(diff) > 40) shiftQuote(diff > 0 ? 1 : -1);
   }, {passive:true});
 })();
 
