@@ -304,7 +304,8 @@
     </div>
     <a href="work.html" class="see-all reveal reveal-delay-2">View All</a>
   </div>
-  <div class="work-grid">
+  <div class="work-grid" id="home-work-grid">
+    <!-- Row 1 -->
     <div class="work-item reveal" onclick="openModal(0)">
       <img class="wi-thumb" src="assets/images/thumb-ignis.jpeg" alt="Ignis Technologies">
       <div class="wi-gradient"></div>
@@ -316,15 +317,16 @@
       </div>
     </div>
     <div class="work-item reveal reveal-delay-1" onclick="openModal(1)">
-      <img class="wi-thumb" src="assets/images/thumb-nonprofit-explainer.jpeg" alt="Animated Explainer">
+      <img class="wi-thumb" src="assets/images/thumb-nonprofit-explainer.jpeg" alt="Streamline Your Nonprofit">
       <div class="wi-gradient"></div>
       <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
       <div class="wi-content">
         <div class="wi-tag">Animation</div>
         <div class="wi-title">Streamline Your Nonprofit</div>
-        <div class="wi-client">Nonprofit Client</div>
+        <div class="wi-client">NonprofitCore</div>
       </div>
     </div>
+    <!-- Row 2 -->
     <div class="work-item reveal reveal-delay-2" onclick="openModal(2)">
       <img class="wi-thumb" src="assets/images/thumb-iceland.jpg" alt="Iceland in Motion">
       <div class="wi-gradient"></div>
@@ -332,31 +334,32 @@
       <div class="wi-content">
         <div class="wi-tag">Drone / FPV</div>
         <div class="wi-title">Iceland in Motion</div>
-        <div class="wi-client">Hyperlapses, Drones & 8K Cinematics</div>
+        <div class="wi-client">Personal Travel Film</div>
       </div>
     </div>
     <div class="work-item reveal reveal-delay-1" onclick="openModal(3)">
-      <img class="wi-thumb" src="assets/images/thumb-foundation-mgmt.jpeg" alt="Foundation Software">
-      <div class="wi-gradient"></div>
-      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
-      <div class="wi-content">
-        <div class="wi-tag">Product Demo</div>
-        <div class="wi-title">All-in-One Foundation Management Solution</div>
-        <div class="wi-client">Software Overview</div>
-      </div>
-    </div>
-    <div class="work-item reveal reveal-delay-2" onclick="openModal(4)">
-      <img class="wi-thumb" src="assets/images/thumb-smartsimple.jpg" alt="SmartSimple Animated Explainer">
+      <img class="wi-thumb" src="assets/images/thumb-smartsimple.jpg" alt="SaaS Explainer">
       <div class="wi-gradient"></div>
       <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
       <div class="wi-content">
         <div class="wi-tag">Animation</div>
-        <div class="wi-title">SmartSimple</div>
-        <div class="wi-client">Animated Explainer</div>
+        <div class="wi-title">SaaS Explainer</div>
+        <div class="wi-client">SmartSimple</div>
+      </div>
+    </div>
+    <!-- Row 3 -->
+    <div class="work-item reveal reveal-delay-2" onclick="openModal(4)">
+      <img class="wi-thumb" src="assets/images/thumb-grassland-initiative.jpg" alt="Montana Grassland Initiative">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Brand Video</div>
+        <div class="wi-title">Montana Grassland Initiative Explained</div>
+        <div class="wi-client">Pheasants Forever</div>
       </div>
     </div>
     <div class="work-item reveal reveal-delay-3" onclick="openModal(5)">
-      <img class="wi-thumb" src="assets/images/thumb-ranchers-take.jpg" alt="Rancher Grassland Restoration">
+      <img class="wi-thumb" src="assets/images/thumb-ranchers-take.jpg" alt="A Rancher's Take">
       <div class="wi-gradient"></div>
       <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
       <div class="wi-content">
@@ -365,6 +368,71 @@
         <div class="wi-client">Pheasants Forever</div>
       </div>
     </div>
+    <!-- Rows 4–6 hidden initially -->
+    <div class="work-item reveal home-extra" style="display:none;" onclick="openModal(6)">
+      <img class="wi-thumb" src="assets/images/thumb-drone-reel.jpeg" alt="Drone Reel">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Drone / FPV</div>
+        <div class="wi-title">Drone Reel</div>
+        <div class="wi-client">Colegrove Media</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-1 home-extra" style="display:none;" onclick="openModal(7)">
+      <img class="wi-thumb" src="assets/images/thumb-arctic.jpeg" alt="Above the Arctic Circle">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Drone / FPV</div>
+        <div class="wi-title">Above the Arctic Circle</div>
+        <div class="wi-client">Northern Norway</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-2 home-extra" style="display:none;" onclick="openModal(8)">
+      <img class="wi-thumb" src="assets/images/thumb-field-notes.jpg" alt="Field Notes">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Podcast</div>
+        <div class="wi-title">Field Notes: Grassland Conversation</div>
+        <div class="wi-client">Pheasants Forever</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-1 home-extra" style="display:none;" onclick="openModal(9)">
+      <img class="wi-thumb" src="assets/images/thumb-reporting-demo.jpeg" alt="Reporting Product Demo">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Product Demo</div>
+        <div class="wi-title">Reporting — Product Demo</div>
+        <div class="wi-client">Foundant Technologies</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-2 home-extra" style="display:none;" onclick="openModal(10)">
+      <img class="wi-thumb" src="assets/images/thumb-salt-lake-summit.jpeg" alt="Salt Lake Summit">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Testimonial</div>
+        <div class="wi-title">Salt Lake Summit</div>
+        <div class="wi-client">Foundant Technologies</div>
+      </div>
+    </div>
+    <div class="work-item reveal reveal-delay-3 home-extra" style="display:none;" onclick="openModal(11)">
+      <img class="wi-thumb" src="assets/images/thumb-foundation-mgmt.jpeg" alt="Foundation Management">
+      <div class="wi-gradient"></div>
+      <div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div>
+      <div class="wi-content">
+        <div class="wi-tag">Product Demo</div>
+        <div class="wi-title">All-in-One Foundation Management</div>
+        <div class="wi-client">Foundant Technologies</div>
+      </div>
+    </div>
+  </div>
+  <!-- Load more / See all -->
+  <div style="display:flex;justify-content:center;margin-top:32px;">
+    <button id="home-load-btn" onclick="homeLoadMore()" style="background:transparent;border:1px solid var(--border);color:var(--muted);padding:13px 36px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:color 0.18s,border-color 0.18s;" onmouseover="this.style.color='var(--white)';this.style.borderColor='rgba(0,242,166,0.4)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Load More</button>
   </div>
 </section>
 
@@ -619,11 +687,17 @@ var library = [
 
 var projects = [
   { slug:'powering-wildfire-intelligence', tag:'Brand Video', cats:['brand-video'], cta:'Get Your Brand Video Made →', title:'Powering Wildfire Intelligence — Ignis Technologies', client:'Ignis Technologies', desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software — built to help firefighters and land managers stay ahead of fast-moving fires.', specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2–3 weeks'}], vimeoId:'1011394531' },
-  { slug:'streamline-your-nonprofit', tag:'Animation', cats:['animated-explainer'], cta:'Get Your Animation Made →', title:'Streamline Your Nonprofit — Animated Explainer', client:'Nonprofit Client', desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.', specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'Nonprofit Client'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}], vimeoId:'1011466967' },
+  { slug:'streamline-your-nonprofit', tag:'Animation', cats:['animated-explainer'], cta:'Get Your Animation Made →', title:'Streamline Your Nonprofit — Animated Explainer', client:'NonprofitCore', desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.', specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'NonprofitCore'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}], vimeoId:'1011466967' },
   { slug:'iceland-in-motion', tag:'Drone / FPV', cats:['drone-video-fpv'], cta:'Get Your Drone Film Made →', title:'Iceland in Motion', client:'Personal Travel Film', desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland. A personal cinematic project capturing the raw, otherworldly landscape — glaciers, volcanic fields, and endless light — in a technically ambitious travel film.', specs:[{k:'Type',v:'Cinematic Travel Film'},{k:'Client',v:'Personal Project'},{k:'Format',v:'8K Cinematic'},{k:'Location',v:'Iceland'},{k:'Turnaround',v:'4 weeks'}], vimeoId:'1036921693' },
-  { slug:'all-in-one-foundation-management', tag:'Product Demo', cats:['product-video','animated-explainer'], cta:'Get Your Product Demo Made →', title:'All-in-One Foundation Management Solution', client:'Software Client', desc:'A software overview video built to help a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable and powerful.', specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}], vimeoId:'1011444538' },
-  { slug:'smartsimple-animated-explainer', tag:'Animation', cats:['animated-explainer'], cta:'Get Your Animation Made →', title:'SmartSimple — Animated Explainer', client:'SmartSimple', desc:'A clean animated explainer built to communicate the value of a complex SaaS platform to a non-technical audience. Motion graphics and clear narration make the product feel approachable and worth exploring.', specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'SmartSimple'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}], vimeoId:'1053133749' },
-  { slug:'a-ranchers-take', tag:'Remote Client Story', cats:['remote-client-story'], cta:'Get Your Client Story Made →', title:'A Rancher\'s Take on Grassland Restoration', client:'Pheasants Forever', desc:'Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family\'s farm north of Glasgow — and how partnering with Pheasants Forever made the process simple, fast, and affordable.', specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}], vimeoId:'1134497582' }
+  { slug:'smartsimple-animated-explainer', tag:'Animation', cats:['animated-explainer'], cta:'Get Your Animation Made →', title:'SaaS Explainer', client:'SmartSimple', desc:'A clean animated explainer built to communicate the value of a complex SaaS platform to a non-technical audience. Motion graphics and clear narration make the product feel approachable and worth exploring.', specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'SmartSimple'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}], vimeoId:'1053133749' },
+  { slug:'montana-grassland-initiative', tag:'Brand Video', cats:['brand-video'], cta:'Get Your Brand Video Made →', title:'Montana Grassland Initiative Explained', client:'Pheasants Forever', desc:'A brand video explaining the Montana Grassland Initiative and its conservation impact across the state.', specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'4K Cinematic'}], vimeoId:'1072711800' },
+  { slug:'a-ranchers-take', tag:'Remote Client Story', cats:['remote-client-story'], cta:'Get Your Client Story Made →', title:'A Rancher\'s Take on Grassland Restoration', client:'Pheasants Forever', desc:'Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family\'s farm north of Glasgow — and how partnering with Pheasants Forever made the process simple, fast, and affordable.', specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}], vimeoId:'1134497582' },
+  { slug:'drone-reel', tag:'Drone / FPV', cats:['drone-video-fpv'], cta:'Get Your Drone Film Made →', title:'Drone Reel', client:'Colegrove Media', desc:'A showreel of cinematic aerial footage — orbits, top-downs, FPV flythroughs, and wide landscapes.', specs:[{k:'Type',v:'Showreel'},{k:'Equipment',v:'DJI + FPV'},{k:'Format',v:'4K'}], vimeoId:'1011433865' },
+  { slug:'above-the-arctic-circle', tag:'Drone / FPV', cats:['drone-video-fpv'], cta:'Get Your Drone Film Made →', title:'Above the Arctic Circle', client:'Northern Norway', desc:'A personal cinematic project above the Arctic Circle. Sweeping 4K drone footage of fjords, snowfields, and endless sky.', specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Format',v:'4K / LOG'},{k:'Location',v:'Northern Norway'}], vimeoId:'1012197311' },
+  { slug:'field-notes-grassland', tag:'Podcast', cats:['podcast'], cta:'Get a Quote →', title:'Field Notes: Grassland Conversation', client:'Pheasants Forever', desc:'A roundtable conversation with Montana ranchers about grassland conservation — authentic voices captured and produced as a polished podcast episode.', specs:[{k:'Type',v:'Podcast'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Multi-guest'}], vimeoId:'1103018945' },
+  { slug:'reporting-product-demo', tag:'Product Demo', cats:['product-video'], cta:'Get Your Product Demo Made →', title:'Reporting — Product Demo', client:'Foundant Technologies', desc:'A product demo focused on reporting features with clean screen recordings and clear voiceover.', specs:[{k:'Type',v:'Product Demo'},{k:'Client',v:'Foundant Technologies'}], vimeoId:'1011466134' },
+  { slug:'salt-lake-summit', tag:'Testimonial', cats:['testimonial'], cta:'Get a Quote →', title:'Salt Lake Summit', client:'Foundant Technologies', desc:'An event promo capturing the energy and key moments from the Salt Lake Summit.', specs:[{k:'Type',v:'Event Promo'},{k:'Client',v:'Foundant Technologies'}], vimeoId:'1011467103' },
+  { slug:'all-in-one-foundation-management', tag:'Product Demo', cats:['product-video','animated-explainer'], cta:'Get Your Product Demo Made →', title:'All-in-One Foundation Management', client:'Foundant Technologies', desc:'A software overview video built to help a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable and powerful.', specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}], vimeoId:'1011444538' }
 ];
 
 var catLabels = {
@@ -689,6 +763,14 @@ function closeModal() {
 }
 function handleBackdropClick(e) { if (e.target===document.getElementById('modal-backdrop')) closeModal(); }
 document.addEventListener('keydown', function(e) { if (e.key==='Escape') closeModal(); });
+
+function homeLoadMore() {
+  var extras = document.querySelectorAll('.home-extra');
+  extras.forEach(function(el){ el.style.display = ''; });
+  var btn = document.getElementById('home-load-btn');
+  btn.textContent = 'See All Projects';
+  btn.onclick = function(){ location.href = 'work.html'; };
+}
 
 document.getElementById('footer-year').textContent = '© '+new Date().getFullYear()+' Colegrove Media';
 
