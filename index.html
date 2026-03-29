@@ -73,7 +73,7 @@
   .nav-cta:hover { opacity:0.85; }
 
   .hero { position:relative; height:calc(100vh - 68px); min-height:520px; overflow:hidden; border-bottom:1px solid var(--border); }
-  .hero-video { position:absolute; inset:0; width:100%; height:100%; border:none; pointer-events:none; }
+  .hero-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; pointer-events:none; }
   .hero-scrim { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(22,26,37,0.18) 0%,rgba(22,26,37,0.08) 50%,rgba(22,26,37,0.55) 100%); cursor:pointer; }
 
   .btn-secondary { background:transparent; color:var(--muted); padding:12px 28px; border-radius:8px; font-size:13px; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; border:1px solid var(--border); cursor:pointer; transition:color 0.18s,border-color 0.18s; display:inline-block; }
@@ -277,7 +277,9 @@
 </nav>
 
 <section class="hero">
-  <iframe class="hero-video" src="https://player.vimeo.com/video/871650285?background=1&autoplay=1&loop=1&muted=1&quality=1080p" frameborder="0" allowfullscreen></iframe>
+  <video class="hero-video" id="hero-video" muted loop playsinline>
+    <source src="https://player.vimeo.com/progressive_redirect/playback/871650285/rendition/1440p/file.mp4%20%281440p%29.mp4?loc=external&log_user=0&signature=6fbcba8ef2c0fd1d4a134c37ae97e3136ddb9dfc4e7590d8a071071416fef3f9" type="video/mp4">
+  </video>
   <div class="hero-scrim" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});"></div>
 </section>
 
@@ -643,12 +645,14 @@
   var SEEN_KEY  = 'cm_intro_seen';
   var loader    = document.getElementById('loader');
   var wrap      = document.getElementById('lottie-wrap');
+  var video     = document.getElementById('hero-video');
   var ANIM_MS   = 2670;
   var FREEZE_MS = 600;
   var WIPE_MS   = 900;
 
   function doWipe() {
     loader.classList.add('hide');
+    setTimeout(function(){ video.play(); }, 0);
     setTimeout(function(){ loader.style.display = 'none'; }, WIPE_MS + 50);
   }
 
@@ -660,6 +664,7 @@
   if (sessionStorage.getItem(SEEN_KEY)) {
     clearTimeout(safetyTimer);
     loader.style.display = 'none';
+    video.play();
     return;
   }
 
