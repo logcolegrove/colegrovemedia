@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Colegrove Media</title>
 <meta name="description" content="Video, photo, animation, and design services from Colegrove Media — Bozeman, MT.">
+<meta property="og:title" content="Services — Colegrove Media">
+<meta property="og:description" content="Video, photo, animation, and design services from Colegrove Media — Bozeman, MT.">
+<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove media og image-100.jpg">
+<meta property="og:url" content="https://colegrovemedia.com/services">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/images/Colegrove Media Favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -22,7 +29,6 @@ a{text-decoration:none;color:inherit;}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
 nav.nav-hidden{transform:translateY(-100%);}
 .nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
@@ -34,7 +40,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
 .nav-cta:hover{opacity:0.85;}
 
-/* HERO */
 .page-hero{padding:80px 40px 56px;border-bottom:1px solid var(--border);}
 .eyebrow{font-size:14px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
 .eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
@@ -53,7 +58,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .btn-ghost{background:transparent;color:var(--muted);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:color 0.18s,border-color 0.18s;display:inline-block;}
 .btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 
-/* FILTER BAR */
 .filter-bar{border-bottom:1px solid var(--border);}
 .filter-row{padding:16px 40px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .filter-row.ind-row{padding-top:12px;padding-bottom:16px;border-top:1px solid var(--border2);}
@@ -63,7 +67,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .filter-btn.active{background:var(--teal);color:#0d1117;border-color:var(--teal);font-weight:600;}
 .filter-btn.ind.active{background:rgba(0,242,166,0.1);color:var(--teal);border-color:rgba(0,242,166,0.4);font-weight:600;}
 
-/* SERVICES */
 .services-wrap{padding:0 40px 80px;}
 .cat-section{padding-top:64px;}
 .cat-section.hidden{display:none;}
@@ -77,7 +80,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .see-all::after{content:'→';transition:transform 0.18s;}
 .see-all:hover::after{transform:translateX(3px);}
 
-/* CARDS */
 .svc-grid{display:grid;gap:2px;background:var(--border);border-radius:12px;}
 .svc-card{background:var(--bg2);padding:32px 28px;position:relative;isolation:isolate;transition:background 0.25s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s;}
 .svc-card.hidden{display:none;}
@@ -110,7 +112,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .no-results{padding:48px;text-align:center;color:var(--muted);font-size:15px;background:var(--bg2);border-radius:12px;margin-top:64px;}
 .cat-divider{height:1px;background:var(--border);margin-top:64px;}
 
-/* PROCESS */
 .process-wrap{padding:64px 40px 0;}
 .section-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .section-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
@@ -125,14 +126,12 @@ nav.nav-hidden{transform:translateY(-100%);}
 .ps-name{font-size:24px;font-weight:700;margin-bottom:10px;}
 .ps-desc{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;}
 
-/* CTA */
 .cta-wrap{padding:40px 40px 80px;}
 .cta-band{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:52px 56px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;flex-wrap:wrap;position:relative;overflow:hidden;}
 .cta-band::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%);pointer-events:none;}
 .cta-band-h{font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.05;letter-spacing:-0.01em;}
 .cta-band-h span{color:var(--teal);}
 
-/* MODAL */
 .modal-backdrop{position:fixed;inset:0;z-index:500;background:rgba(11,14,20,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.25s,visibility 0.25s;padding:24px;}
 .modal-backdrop.open{opacity:1;visibility:visible;}
 .modal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;width:100%;max-width:960px;max-height:90vh;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;transform:translateY(16px) scale(0.98);transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1);display:grid;grid-template-columns:1fr 360px;}
@@ -166,7 +165,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .modal-btn-ghost{display:block;text-align:center;background:transparent;color:var(--muted);padding:12px;border-radius:8px;font-size:13px;font-weight:500;border:1px solid var(--border);transition:color 0.18s,border-color 0.18s;}
 .modal-btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.3);}
 
-/* FOOTER */
 footer{background:var(--bg2);border-top:1px solid var(--border);}
 .footer-main{padding:56px 40px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid var(--border);}
 .footer-logo-img{height:44px;width:auto;display:block;margin-bottom:14px;}
@@ -199,14 +197,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <body>
 
 <nav id="main-nav">
-  <div class="nav-logo"><a href="index.html"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media"></a></div>
+  <div class="nav-logo"><a href="/"><img src="/assets/images/logo.svg" alt="Colegrove Media"></a></div>
   <ul class="nav-links">
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="work.html">Portfolio</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="/services" class="active">Services</a></li>
+    <li><a href="/work">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/pricing">Pricing</a></li>
   </ul>
-  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
+  <a href="/brief" class="nav-cta">Get a Quote</a>
 </nav>
 
 <div class="page-hero">
@@ -243,7 +241,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 </div>
 
 <div class="services-wrap">
-  <!-- VIDEO -->
   <div class="cat-section" id="cat-video">
     <div class="cat-header">
       <div>
@@ -251,13 +248,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <h2 class="cat-title">Video Services</h2>
         <p class="cat-desc">Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.</p>
       </div>
-      <a href="work.html?cat=video" class="see-all">View Video Work</a>
+      <a href="/work?cat=video" class="see-all">View Video Work</a>
     </div>
     <div class="svc-grid" id="grid-video" style="grid-template-columns:repeat(3,1fr)"></div>
   </div>
   <div class="cat-divider" id="div-video"></div>
 
-  <!-- PHOTO -->
   <div class="cat-section" id="cat-photo">
     <div class="cat-header">
       <div>
@@ -265,13 +261,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <h2 class="cat-title">Photo Services</h2>
         <p class="cat-desc">Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.</p>
       </div>
-      <a href="work.html?cat=photo" class="see-all">View Photo Work</a>
+      <a href="/work?cat=photo" class="see-all">View Photo Work</a>
     </div>
     <div class="svc-grid" id="grid-photo" style="grid-template-columns:repeat(4,1fr)"></div>
   </div>
   <div class="cat-divider" id="div-photo"></div>
 
-  <!-- ANIMATION -->
   <div class="cat-section" id="cat-animation">
     <div class="cat-header">
       <div>
@@ -279,13 +274,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <h2 class="cat-title">Animation Services</h2>
         <p class="cat-desc">Motion and narrative working together to explain what words alone can't — and build recognition while doing it.</p>
       </div>
-      <a href="work.html?cat=animation" class="see-all">View Animation Work</a>
+      <a href="/work?cat=animation" class="see-all">View Animation Work</a>
     </div>
     <div class="svc-grid" id="grid-animation" style="grid-template-columns:repeat(4,1fr)"></div>
   </div>
   <div class="cat-divider" id="div-animation"></div>
 
-  <!-- DESIGN -->
   <div class="cat-section" id="cat-design">
     <div class="cat-header">
       <div>
@@ -293,7 +287,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <h2 class="cat-title">Design Services</h2>
         <p class="cat-desc">Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.</p>
       </div>
-      <a href="work.html?cat=design" class="see-all">View Design Work</a>
+      <a href="/work?cat=design" class="see-all">View Design Work</a>
     </div>
     <div class="svc-grid" id="grid-design" style="grid-template-columns:repeat(4,1fr)"></div>
   </div>
@@ -318,12 +312,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     <div class="cta-band-h">Not sure where to <span>start?</span></div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-      <a href="brief.html" class="btn-ghost">Start a Project Brief</a>
+      <a href="/brief" class="btn-ghost">Start a Project Brief</a>
     </div>
   </div>
 </div>
 
-<!-- MODAL -->
 <div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
   <div class="modal">
     <div class="modal-left" id="modal-left"></div>
@@ -338,8 +331,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
       <div class="modal-cta">
-        <a href="brief.html" class="modal-btn-fill" id="modal-cta-primary">Get Your <span id="modal-cta-tag">Video</span> Made →</a>
-        <a href="pricing.html" class="modal-btn-ghost">See Pricing</a>
+        <a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get Your <span id="modal-cta-tag">Video</span> Made →</a>
+        <a href="/pricing" class="modal-btn-ghost">See Pricing</a>
       </div>
     </div>
   </div>
@@ -348,26 +341,26 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <footer>
   <div class="footer-main">
     <div>
-      <img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" class="footer-logo-img">
+      <img src="/assets/images/logo.svg" alt="Colegrove Media" class="footer-logo-img">
       <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
     </div>
     <div>
       <div class="footer-col-title">Pages</div>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="work.html">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/work">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/pricing">Pricing</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Services</div>
       <ul class="footer-links">
-        <li><a href="services.html?cat=video">Video</a></li>
-        <li><a href="services.html?cat=photo">Photo</a></li>
-        <li><a href="services.html?cat=animation">Animation</a></li>
-        <li><a href="services.html?cat=design">Design</a></li>
+        <li><a href="/services?cat=video">Video</a></li>
+        <li><a href="/services?cat=photo">Photo</a></li>
+        <li><a href="/services?cat=animation">Animation</a></li>
+        <li><a href="/services?cat=design">Design</a></li>
       </ul>
     </div>
     <div>
@@ -377,23 +370,23 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li><a href="tel:4062099945">(406) 209-9945</a></li>
         <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
         <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="brief.html">Project Brief</a></li>
+        <li><a href="/brief">Project Brief</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span id="footer-year"></span><span>Bozeman, Montana</span>
-    <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="/terms">Terms &amp; Conditions</a>
   </div>
 </footer>
 
 <script>
-var PLAY = '<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1.5L9 6L1 10.5V1.5Z" fill="rgba(0,242,166,0.9)"/></svg>';
-var EXPAND = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(0,242,166,0.9)" stroke-width="1.5" stroke-linecap="round"><path d="M1 5V1h4M9 1h4v4M13 9v4h-4M5 13H1V9"/></svg>';
-var CHEV = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
+var PLAY='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1.5L9 6L1 10.5V1.5Z" fill="rgba(0,242,166,0.9)"/></svg>';
+var EXPAND='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(0,242,166,0.9)" stroke-width="1.5" stroke-linecap="round"><ellipse cx="7" cy="7" rx="6" ry="4"/><circle cx="7" cy="7" r="1.8" fill="rgba(0,242,166,0.9)" stroke="none"/></svg>';
+var CHEV='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
 
-var HW = {all:'we do',video:'video',photo:'photography',animation:'animation',design:'design'};
-var HD = {
+var HW={all:'we do',video:'video',photo:'photography',animation:'animation',design:'design'};
+var HD={
   all:'Video, photo, animation, and design — all under one roof. Every service is built around what your audience needs to see, feel, and do.',
   video:'Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.',
   photo:'Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.',
@@ -404,42 +397,41 @@ var HD = {
 function animWord(w){
   var el=document.getElementById('hero-word');
   if(el.textContent===w) return;
-  el.classList.remove('enter');
-  el.classList.add('exit');
+  el.classList.remove('enter');el.classList.add('exit');
   setTimeout(function(){el.textContent=w;el.classList.remove('exit');el.classList.add('enter');},200);
 }
 
-var SVC = {
+var SVC={
   video:[
     {id:'real-estate-video',name:'Real Estate Video',icon:'play',ind:['real-estate'],
-     sample:{vimeoId:'1011395960',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a51971e98896ddd771_66f71726105adea3df43b0ce_thumb%2520(44).jpeg',title:'Someday Ranch',client:'Real Estate Listing',tag:'Real Estate Video',desc:'An immersive real estate video for a Montana ranch listing combining drone and ground-level cinematics. Showcases the property\'s scale, landscape, and lifestyle in a way that photos simply can\'t.',specs:[{k:'Type',v:'Real Estate Video'},{k:'Client',v:'Real Estate Listing'},{k:'Format',v:'4K Drone + Ground'},{k:'Deliverables',v:'Full video + social cut'},{k:'Turnaround',v:'1–2 weeks'}]},
+     sample:{vimeoId:'1011395960',thumb:'/assets/images/thumb-someday-ranch.jpeg',title:'Someday Ranch',client:'Real Estate Listing',tag:'Real Estate Video',desc:'An immersive real estate video for a Montana ranch listing combining drone and ground-level cinematics. Showcases the property\'s scale, landscape, and lifestyle in a way that photos simply can\'t.',specs:[{k:'Type',v:'Real Estate Video'},{k:'Client',v:'Real Estate Listing'},{k:'Deliverables',v:'Full video + social cut'},{k:'Turnaround',v:'1–2 weeks'}]},
      desc:'Showcase any property with cinematic drone and ground-level video — ranch listings, residential homes, commercial spaces, and land. Built to sell.',
      tiers:[{n:'Basic',p:'$500',i:['Drone + ground footage up to 30 seconds','Professional edit · Music · 1 revision']},{n:'Standard',p:'$900',i:['Up to 90 seconds · Drone + interior walkthrough','Color grade · Music · 2 revisions']},{n:'Advanced',p:'$1,500+',i:['Up to 3 minutes · Full property storytelling','Voiceover option · Social cuts included · Unlimited revisions']}]},
     {id:'brand-video',name:'Brand Videos',icon:'play',ind:['corporate','nonprofit','tech','social-media'],
-     sample:{vimeoId:'1011394531',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg',title:'Powering Wildfire Intelligence',client:'Ignis Technologies',tag:'Brand Video',desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software.',specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Format',v:'4K Cinematic'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2–3 weeks'}]},
+     sample:{vimeoId:'1011394531',thumb:'/assets/images/thumb-ignis.jpeg',title:'Powering Wildfire Intelligence',client:'Ignis Technologies',tag:'Brand Video',desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software.',specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Production',v:'Strategy session, script, storyboard, 1 day shoot'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2 months'}]},
      desc:'Communicate your mission, values, and offering with a cinematic brand film — content that makes an impact and drives real results.',
      tiers:[{n:'Basic',p:'$3,500',i:['1 shooting location','1 voiceover or interview','Professional lighting, audio, and branding','1 revision · 1 final edit']},{n:'Standard',p:'$6,500',i:['Script + storyboard','Up to 2 shooting locations','B-roll, motion graphics, and thumbnail design','2 revisions · Full video + social cut']},{n:'Advanced',p:'$9,500+',i:['Multi-day, multi-location production','End-to-end strategy and publishing support','Unlimited revisions · 3 final files + image asset kit']}]},
     {id:'testimonials',name:'Testimonials',icon:'play',ind:['corporate','nonprofit','tech','real-estate'],
-     sample:{vimeoId:'1011460491',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg',title:'Not Jumping Ship',client:'Foundant Technologies',tag:'Testimonial',desc:'An in-person testimonial built around a real client story. Clean production that puts the subject at ease and delivers authentic, quotable content that builds trust faster than any marketing copy.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Format',v:'4K Interview'},{k:'Deliverables',v:'Full cut + 30s version'},{k:'Turnaround',v:'1–2 weeks'}]},
+     sample:{vimeoId:'1011460491',thumb:'/assets/images/thumb-not-jumping-ship.jpeg',title:'Not Jumping Ship',client:'Foundant Technologies',tag:'Testimonial',desc:'An in-person testimonial built around a real client story. Clean production that puts the subject at ease and delivers authentic, quotable content that builds trust faster than any marketing copy.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Deliverables',v:'Full cut + 30s version'},{k:'Turnaround',v:'1–2 weeks'}]},
      desc:'Let your satisfied customers do the talking. Committed to making interviewees feel comfortable while capturing high-impact, authentic content.',
      tiers:[{n:'Basic',p:'$900',i:['Client-provided recording (editing only)','Speaker overlay, background music, thumbnail','1 revision']},{n:'Standard',p:'$2,000',i:['On-site interview · Single participant','Professional lighting and audio · 2 cameras','2 revisions']},{n:'Advanced',p:'$2,400',i:['On-site interview · Up to 4 participants','Extended filming for custom B-roll','2 video edits · 3 revisions']}]},
     {id:'podcasts',name:'Podcasts',icon:'play',ind:['corporate','nonprofit','social-media'],
-     sample:{vimeoId:'1103018945',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/68dc8e1ab3aaf9489ef05e6a_thumb%20(15).jpg',title:'Field Notes: Grassland Conversation',client:'Pheasants Forever',tag:'Podcast',desc:'A roundtable conversation with Montana ranchers about grassland conservation — authentic voices captured and produced as a polished podcast episode.',specs:[{k:'Type',v:'Podcast'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Multi-guest'},{k:'Turnaround',v:'1 week'}]},
+     sample:{vimeoId:'1103018945',thumb:'/assets/images/thumb-field-notes.jpg',title:'Field Notes: Grassland Conversation',client:'Pheasants Forever',tag:'Podcast',desc:'A roundtable conversation with Montana ranchers about grassland conservation — authentic voices captured and produced as a polished podcast episode.',specs:[{k:'Type',v:'Podcast'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Multi-guest'},{k:'Turnaround',v:'1 week'}]},
      desc:'Recording, editing, and audio engineering to humanize your brand. Whether you need an editor or a full producer, solutions are tailored to your needs.',
      tiers:[{n:'Basic Editing',p:'$700',i:['Up to 1-hour episode (editing only)','Audio mixing & mastering · 1 revision']},{n:'Standard',p:'$1,200',i:['Up to 1-hour (recording + editing)','1 camera angle · Mics provided · 2 revisions']},{n:'Advanced',p:'$2,000',i:['Up to 4-hour episodes · 3 camera angles','Transcript, show notes, artwork · Unlimited revisions']}]},
     {id:'product-videos',name:'Product Videos',icon:'play',ind:['tech','corporate'],
-     sample:{vimeoId:'1011444538',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg',title:'All-in-One Foundation Management',client:'Foundant Technologies',tag:'Product Demo',desc:'A software overview video helping a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable.',specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}]},
+     sample:{vimeoId:'1011444538',thumb:'/assets/images/thumb-foundation-mgmt.jpeg',title:'All-in-One Foundation Management',client:'Foundant Technologies',tag:'Product Demo',desc:'A software overview video helping a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable.',specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}]},
      desc:'Educate and excite viewers on your physical product or software — from a 30-second cut to a full-featured walkthrough with graphics and B-roll.',
      tiers:[{n:'Basic',p:'$600',i:['30 seconds · Product shots · 1 revision']},{n:'Standard',p:'$1,100',i:['Up to 2 minutes (4K) · Professional lighting and audio · 2 revisions']},{n:'Advanced',p:'$2,000',i:['Up to 5 minutes (4K) · B-roll · Informative graphics · Unlimited revisions']}]},
     {id:'live-streams',name:'Live Streams',icon:null,ind:['corporate','nonprofit','events'],
      desc:'Professionally broadcast your conference, meeting, or special occasion. Public or private link via Zoom, YouTube, social media, and more.',
      tiers:[{n:'Basic',p:'$1,500',i:['1-hour 1080p stream · 1 static camera','1 streaming technician · PowerPoint integration']},{n:'Standard',p:'$1,900',i:['2-hour 1080p stream · 2 cameras + live switching']},{n:'Advanced',p:'$2,500',i:['4-hour stream · 1 camera operator + 2 static angles','Overlay graphics · Help with registration & embedding']}]},
     {id:'remote-client-stories',name:'Remote Client Stories',icon:'play',ind:['corporate','nonprofit','tech'],
-     sample:{vimeoId:'1134497582',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/691b5270e465783b9aab5d8e_thumb%20(16).jpg',title:"A Rancher's Take on Grassland Restoration",client:'Pheasants Forever',tag:'Remote Client Story',desc:"Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family's farm — and how partnering with Pheasants Forever made the entire process simple, fast, and affordable.",specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}]},
+     sample:{vimeoId:'1134497582',thumb:'/assets/images/thumb-ranchers-take.jpg',title:"A Rancher's Take on Grassland Restoration",client:'Pheasants Forever',tag:'Remote Client Story',desc:"Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family's farm — and how partnering with Pheasants Forever made the entire process simple, fast, and affordable.",specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}]},
      desc:'Transform virtual interviews into polished short-form stories. We guide you from interview planning to on-camera direction — or lead it ourselves.',
      tiers:[{n:'Basic',p:'$1,100',i:['Editing only · Royalty-free music · 1 revision']},{n:'Standard',p:'$2,100',i:['1 interview recorded at high fidelity · Animations, B-roll · 2 revisions']},{n:'Advanced',p:'$3,400+',i:['Multiple interviews · Multiple edits + social cuts · Unlimited revisions']}]},
     {id:'drone-fpv',name:'Drone / FPV',icon:'play',ind:['real-estate','corporate','social-media','events'],
-     sample:{vimeoId:'1036921693',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/6754f34a0ccac304599e4a4c_iceland%20no%20vin-3.jpg',title:'Iceland in Motion',client:'Personal Travel Film',tag:'Drone / FPV',desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland. A personal cinematic project capturing the raw, otherworldly landscape in a technically ambitious travel film.',specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Client',v:'Personal Project'},{k:'Format',v:'8K Cinematic'},{k:'Location',v:'Iceland'},{k:'Turnaround',v:'4 weeks'}]},
+     sample:{vimeoId:'1036921693',thumb:'/assets/images/thumb-iceland.jpg',title:'Iceland in Motion',client:'Personal Travel Film',tag:'Drone / FPV',desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland. A personal cinematic project capturing the raw, otherworldly landscape in a technically ambitious travel film.',specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Client',v:'Personal Project'},{k:'Location',v:'Iceland'},{k:'Turnaround',v:'4 weeks'}]},
      desc:'Cinematic aerials or dynamic FPV flythroughs that add the wow-factor. FAA licensed pilot. Available standalone or as part of a larger production.',
      tiers:[{n:'Regular',p:'$300',i:['Stable DJI 4K footage · 1–2 minute edit · 1 revision']},{n:'FPV',p:'$500',i:['First-person view 4K · 3–5 minute edit · 2 revisions']},{n:'Regular + FPV',p:'$700',i:['Up to 10-minute edit · 3 social clips · Unlimited revisions']}]},
     {id:'social-clips',name:'Social Clips / Ads',icon:null,ind:['corporate','real-estate','nonprofit','tech','social-media'],
@@ -465,7 +457,7 @@ var SVC = {
   ],
   animation:[
     {id:'animated-explainer',name:'Animated Explainers',icon:'play',ind:['tech','nonprofit','corporate'],
-     sample:{vimeoId:'1011466967',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg',title:'Streamline Your Nonprofit',client:'Nonprofit Client',tag:'Animated Explainer',desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}]},
+     sample:{vimeoId:'1011466967',thumb:'/assets/images/thumb-nonprofit-explainer.jpeg',title:'Streamline Your Nonprofit',client:'NonprofitCore',tag:'Animated Explainer',desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'NonprofitCore'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}]},
      desc:"Complex ideas made clear in under 2 minutes. High retention, high trust. Motion and narration working together to explain what words alone can't.",
      tiers:[{n:'Basic',p:'$2,500',i:['Up to 60 seconds · Simple 2D motion graphics · 1 revision']},{n:'Standard',p:'$5,000',i:['Up to 90 seconds · Script + storyboard · Custom graphics · Master + social cut · 2 revisions']},{n:'Advanced',p:'$8,500+',i:['Up to 3 minutes · Full creative direction · Custom illustration style · Unlimited revisions']}]},
     {id:'motion-graphics',name:'Motion Graphics',icon:null,ind:['corporate','tech','social-media'],
@@ -495,30 +487,30 @@ var SVC = {
 };
 
 var PORT=[
-  {tag:'Real Estate Video',vimeoId:'1011395960',title:'Someday Ranch',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a51971e98896ddd771_66f71726105adea3df43b0ce_thumb%2520(44).jpeg'},
-  {tag:'Real Estate Video',vimeoId:'823929975',title:'15 Spring Ridge Dr',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669e3dbb3613d4333c69_66f39b33bc771ba2f81eb5aa_thumb%2520(17).jpeg'},
-  {tag:'Brand Video',vimeoId:'1011394531',title:'Powering Wildfire Intelligence',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0b9_66f395631f69c0b5e15ea8cb_thumb%2520(15).jpeg'},
-  {tag:'Brand Video',vimeoId:'1011446090',title:'Painted Hills — GVLT',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f768eb0871ede95f20f300_upda.jpg'},
-  {tag:'Brand Video',vimeoId:'1011397220',title:'Girls On The Run',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2464_66f3a054163f4c9d22ba6356_thumb%2520(22).jpeg'},
-  {tag:'Testimonial',vimeoId:'1011460491',title:'Not Jumping Ship',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a34de84b6e9187129a_66f3a2d9b15c5e16d5e607e8_thumb%2520(6).jpeg'},
-  {tag:'Testimonial',vimeoId:'1011448652',title:'Team Testimonial',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a7f33ba04f968e72ae_66f70b129950d13f73461415_thumb%2520(32).jpeg'},
-  {tag:'Testimonial',vimeoId:'1011455705',title:'Transforming Workflows',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a827672f65dbb98565_66f39cbb4c785c3ecb9cdce6_thumb%2520(19).jpeg'},
-  {tag:'Product Demo',vimeoId:'1011444538',title:'All-in-One Foundation Management',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f7669dd295dfbc1cbbe18b_66f39db88064b690b62d25d8_thumb%2520(20).jpeg'},
-  {tag:'Product Demo',vimeoId:'1011464708',title:'Software Demo Video',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a5cf4096846876b0ad_66f716dc08e34b6183b5923b_thumb%2520(42).jpeg'},
-  {tag:'Podcast',vimeoId:'1103018945',title:'Field Notes: Grassland Conversation',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/68dc8e1ab3aaf9489ef05e6a_thumb%20(15).jpg'},
-  {tag:'Remote Client Story',vimeoId:'1134497582',title:"A Rancher's Take on Grassland Restoration",thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/691b5270e465783b9aab5d8e_thumb%20(16).jpg'},
-  {tag:'Drone / FPV',vimeoId:'1036921693',title:'Iceland in Motion',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/6754f34a0ccac304599e4a4c_iceland%20no%20vin-3.jpg'},
-  {tag:'Drone / FPV',vimeoId:'1011433865',title:'Drone Reel',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a040c43375f10d2415_66f39b9106d16f7bebe5a521_thumb%2520(18).jpeg'},
-  {tag:'Animated Explainer',vimeoId:'1011466967',title:'Streamline Your Nonprofit',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/66f766a78efb70416dfbc5e3_66f39a3fbb4f17d6a49c7a7d_thumb%2520(16).jpeg'},
-  {tag:'Animated Explainer',vimeoId:'1053133749',title:'SmartSimple — Animated Explainer',thumb:'https://cdn.prod.website-files.com/64488adc835c279b756c4fe2/67a2b11e76d2956fbe1cd0d4_thumb%20(2).jpg'}
+  {tag:'Real Estate Video',vimeoId:'1011395960',title:'Someday Ranch',thumb:'/assets/images/thumb-someday-ranch.jpeg'},
+  {tag:'Real Estate Video',vimeoId:'823929975',title:'15 Spring Ridge Dr',thumb:'/assets/images/thumb-spring-ridge.jpeg'},
+  {tag:'Brand Video',vimeoId:'1011394531',title:'Powering Wildfire Intelligence',thumb:'/assets/images/thumb-ignis.jpeg'},
+  {tag:'Brand Video',vimeoId:'1011446090',title:'Painted Hills',thumb:'/assets/images/thumb-painted-hills.jpg'},
+  {tag:'Brand Video',vimeoId:'1011397220',title:'Girls On The Run',thumb:'/assets/images/thumb-girls-on-the-run.jpeg'},
+  {tag:'Testimonial',vimeoId:'1011460491',title:'Not Jumping Ship',thumb:'/assets/images/thumb-not-jumping-ship.jpeg'},
+  {tag:'Testimonial',vimeoId:'1011448652',title:'Team Testimonial',thumb:'/assets/images/thumb-team-testimonial.jpeg'},
+  {tag:'Testimonial',vimeoId:'1011455705',title:'Transforming Workflows',thumb:'/assets/images/thumb-transforming-workflows.jpeg'},
+  {tag:'Product Demo',vimeoId:'1011444538',title:'All-in-One Foundation Management',thumb:'/assets/images/thumb-foundation-mgmt.jpeg'},
+  {tag:'Product Demo',vimeoId:'1011464708',title:'Software Demo Video',thumb:'/assets/images/thumb-software-demo.jpeg'},
+  {tag:'Podcast',vimeoId:'1103018945',title:'Field Notes: Grassland Conversation',thumb:'/assets/images/thumb-field-notes.jpg'},
+  {tag:'Remote Client Story',vimeoId:'1134497582',title:"A Rancher's Take on Grassland Restoration",thumb:'/assets/images/thumb-ranchers-take.jpg'},
+  {tag:'Drone / FPV',vimeoId:'1036921693',title:'Iceland in Motion',thumb:'/assets/images/thumb-iceland.jpg'},
+  {tag:'Drone / FPV',vimeoId:'1011433865',title:'Drone Reel',thumb:'/assets/images/thumb-drone-reel.jpeg'},
+  {tag:'Animated Explainer',vimeoId:'1011466967',title:'Streamline Your Nonprofit',thumb:'/assets/images/thumb-nonprofit-explainer.jpeg'},
+  {tag:'Animated Explainer',vimeoId:'1053133749',title:'SmartSimple — Animated Explainer',thumb:'/assets/images/thumb-smartsimple.jpg'}
 ];
 
-var curCat='all', curInd='all';
+var curCat='all',curInd='all';
 
 function buildAll(){
   Object.keys(SVC).forEach(function(cat){
     var grid=document.getElementById('grid-'+cat);
-    SVC[cat].forEach(function(svc){ grid.appendChild(makeCard(svc,cat)); });
+    SVC[cat].forEach(function(svc){grid.appendChild(makeCard(svc,cat));});
   });
 }
 
@@ -528,7 +520,7 @@ function makeCard(svc,cat){
   if(svc.icon==='play'&&svc.sample){
     btnHtml='<button class="svc-preview-btn" onclick="openModal(\''+svc.id+'\')">'+PLAY+'</button>';
   } else if(isExpand){
-    btnHtml='<button class="svc-preview-btn" onclick="location.href=\'work.html?cat='+cat+'\'">'+EXPAND+'</button>';
+    btnHtml='<button class="svc-preview-btn" onclick="location.href=\'/work?cat='+cat+'\'">'+EXPAND+'</button>';
   }
   var tiersHtml=svc.tiers.map(function(t){
     var items=t.i.map(function(li){return '<li>'+li+'</li>';}).join('');
@@ -577,7 +569,7 @@ function setCat(cat){
   document.querySelectorAll('#cat-row .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});
   animWord(HW[cat]||'we do');
   document.getElementById('hero-desc').textContent=HD[cat]||HD.all;
-  history.replaceState(null,'',cat==='all'?'services.html':'services.html?cat='+cat);
+  history.replaceState(null,'',cat==='all'?'/services':'/services?cat='+cat);
   applyFilters();
 }
 
@@ -617,7 +609,6 @@ function openModal(id){
   document.getElementById('modal-specs').innerHTML=s.specs.map(function(sp){
     return '<div class="modal-spec"><span class="modal-spec-k">'+sp.k+'</span><span class="modal-spec-v">'+sp.v+'</span></div>';
   }).join('');
-  // Update CTA tag text to match the service type
   document.getElementById('modal-cta-tag').textContent=s.tag;
   var ml=document.getElementById('modal-left');
   ml.innerHTML='';
