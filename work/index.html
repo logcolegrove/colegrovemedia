@@ -247,6 +247,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   <div class="footer-main">
     <div>
       <img src="/assets/images/logo.svg" alt="Colegrove Media" class="footer-logo-img">
+
       <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
     </div>
     <div>
@@ -344,6 +345,8 @@ var ALL = [
   {slug:'cs-satellite-map',title:'Satellite Maps',client:'',cat:'design',type:'satellite-map',typeLabel:'Satellite Map',thumb:null,coming:true,desc:'Animated Google Earth flyovers showing property lines, nearby attractions, and custom labels.',specs:[{k:'Type',v:'Satellite Map'},{k:'Starting At',v:'$150'}]},
   {slug:'cs-virtual-staging',title:'Virtual Staging',client:'',cat:'design',type:'virtual-staging',typeLabel:'Virtual Staging',thumb:null,coming:true,desc:'Transform any empty room into a fully-furnished, beautifully designed space.',specs:[{k:'Type',v:'Virtual Staging'},{k:'Starting At',v:'$50 / image'}]}
 ];
+
+ALL.forEach(function(w){ if(w.thumb&&w.thumb.charAt(0)!=='/') w.thumb='/'+w.thumb; });
 
 var SUBTYPES={
   video:[{type:'brand-video',label:'Brand Video'},{type:'testimonial',label:'Testimonial'},{type:'product-video',label:'Product Demo'},{type:'drone-video-fpv',label:'Drone / FPV'},{type:'real-estate-video',label:'Real Estate'},{type:'remote-client-story',label:'Remote Client Story'},{type:'podcast',label:'Podcast'}],
