@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing — Colegrove Media</title>
 <meta name="description" content="Transparent pricing for video, photo, animation, and design services. Retainer partnerships, popular bundles, and à la carte — Colegrove Media, Bozeman MT.">
+<meta property="og:title" content="Pricing — Colegrove Media">
+<meta property="og:description" content="Transparent pricing for video, photo, animation, and design services.">
+<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove media og image-100.jpg">
+<meta property="og:url" content="https://colegrovemedia.com/pricing">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/images/Colegrove Media Favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -22,7 +29,6 @@ a{text-decoration:none;color:inherit;}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1);}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
 nav.nav-hidden{transform:translateY(-100%);}
 .nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
@@ -34,21 +40,18 @@ nav.nav-hidden{transform:translateY(-100%);}
 .nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
 .nav-cta:hover{opacity:0.85;}
 
-/* HERO */
 .page-hero{padding:80px 40px 56px;border-bottom:1px solid var(--border);}
 .eyebrow{font-size:14px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
 .eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
 .page-h1{font-size:clamp(44px,5.5vw,72px);font-weight:700;line-height:1;letter-spacing:-0.02em;margin-bottom:16px;}
 .page-desc{font-size:18px;color:var(--muted);max-width:560px;line-height:1.75;font-weight:300;}
 
-/* SECTION SHELL */
 .pricing-section{padding:72px 40px;border-bottom:1px solid var(--border);}
 .section-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
 .section-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
 .section-title{font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1;letter-spacing:-0.01em;margin-bottom:8px;}
 .section-sub{font-size:16px;color:var(--muted);font-weight:300;line-height:1.65;max-width:520px;margin-bottom:48px;}
 
-/* RETAINER TIERS */
 .retainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:visible;}
 .retainer-card{background:var(--bg2);padding:40px 32px;display:flex;flex-direction:column;gap:0;position:relative;isolation:isolate;}
 .retainer-card.featured{background:var(--bg3);}
@@ -70,7 +73,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .r-btn-outline:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 .retainer-note{margin-top:20px;font-size:13px;color:var(--muted);text-align:center;font-weight:300;}
 
-/* PACKAGES */
 .packages-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
 .pkg-card{background:var(--bg2);padding:36px 32px;display:flex;flex-direction:column;gap:20px;}
 .pkg-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
@@ -85,7 +87,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .pkg-cta{margin-top:4px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--teal);letter-spacing:0.06em;text-transform:uppercase;transition:gap 0.18s;cursor:pointer;}
 .pkg-cta:hover{gap:10px;}
 
-/* À LA CARTE */
 .alc-category{margin-bottom:2px;}
 .alc-category:last-child{margin-bottom:0;}
 .alc-cat-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:1px solid var(--border);cursor:pointer;user-select:none;}
@@ -127,7 +128,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .tier-list li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:7px;line-height:1.4;}
 .tier-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:5px;}
 
-/* POLICIES STRIP */
 .policies-strip{padding:0 40px;border-bottom:1px solid var(--border);position:relative;z-index:0;}
 .policies-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:8px;overflow:hidden;}
 .policy-card{padding:18px 20px;background:var(--bg);display:flex;flex-direction:column;gap:4px;}
@@ -135,7 +135,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .policy-value{font-size:13px;font-weight:500;color:var(--muted);}
 .policy-desc{font-size:12px;color:var(--muted);font-weight:300;opacity:0.55;line-height:1.5;margin-top:2px;}
 
-/* CTA */
 .cta-wrap{padding:40px 40px 80px;}
 .cta-band{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:52px 56px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;flex-wrap:wrap;position:relative;overflow:hidden;}
 .cta-band::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%);pointer-events:none;}
@@ -146,7 +145,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .btn-ghost{background:transparent;color:var(--muted);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:color 0.18s,border-color 0.18s;display:inline-block;}
 .btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 
-/* FOOTER */
 footer{background:var(--bg2);border-top:1px solid var(--border);}
 .footer-main{padding:56px 40px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid var(--border);}
 .footer-logo-img{height:44px;width:auto;display:block;margin-bottom:14px;}
@@ -178,30 +176,27 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <body>
 
 <nav id="main-nav">
-  <div class="nav-logo"><a href="index.html"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media"></a></div>
+  <div class="nav-logo"><a href="/"><img src="/assets/images/logo.svg" alt="Colegrove Media"></a></div>
   <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="work.html">Portfolio</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="pricing.html" class="active">Pricing</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/pricing" class="active">Pricing</a></li>
   </ul>
-  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
+  <a href="/brief" class="nav-cta">Get a Quote</a>
 </nav>
 
-<!-- HERO -->
 <div class="page-hero">
   <div class="eyebrow reveal">Pricing</div>
   <h1 class="page-h1 reveal">Transparent pricing.<br>No surprises.</h1>
   <p class="page-desc reveal">Every project is quoted clearly upfront. Whether you need one deliverable or an ongoing creative partner, there's a structure that fits.</p>
 </div>
 
-<!-- 1. RETAINER -->
 <div class="pricing-section">
   <div class="section-eyebrow reveal">01 — Partnership</div>
   <h2 class="section-title reveal">Monthly Retainer Plans</h2>
   <p class="section-sub reveal">The most cost-effective way to work together. A consistent monthly commitment means priority scheduling, a creative partner who actually knows your brand, and content that compounds over time.</p>
   <div class="retainer-grid reveal">
-
     <div class="retainer-card">
       <div class="r-name">Essentials</div>
       <div class="r-price">$2,000<span>/mo</span></div>
@@ -215,7 +210,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
       </ul>
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="r-btn r-btn-outline">Book a Call →</a>
     </div>
-
     <div class="retainer-card featured">
       <div class="r-name">Capacity Building</div>
       <div class="r-price">$3,500<span>/mo</span></div>
@@ -231,7 +225,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
       </ul>
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="r-btn r-btn-fill">Book a Call →</a>
     </div>
-
     <div class="retainer-card">
       <div class="r-name">Partner</div>
       <div class="r-price">$6,500<span>/mo</span></div>
@@ -247,106 +240,50 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
       </ul>
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="r-btn r-btn-outline">Book a Call →</a>
     </div>
-
   </div>
   <p class="retainer-note reveal">Not sure which plan fits? <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" style="color:var(--teal);">Let's talk</a> — retainers can be customized around your content calendar.</p>
 </div>
 
-<!-- 2. PACKAGES -->
 <div class="pricing-section">
   <div class="section-eyebrow reveal">02 — Bundles</div>
   <h2 class="section-title reveal">Popular Packages</h2>
   <p class="section-sub reveal">Common combinations of services for specific needs — priced as a bundle and coordinated as a single project. Contact for a custom quote.</p>
   <div class="packages-grid reveal">
-
     <div class="pkg-card">
       <div class="pkg-header">
-        <div>
-          <div class="pkg-name">Real Estate</div>
-          <div class="pkg-desc">Everything you need to market a listing — from aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.</div>
-        </div>
-        <div class="pkg-price-badge">
-          <span class="pkg-price-from">From</span>
-          <span class="pkg-price-val">$1,200</span>
-        </div>
+        <div><div class="pkg-name">Real Estate</div><div class="pkg-desc">Everything you need to market a listing — from aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.</div></div>
+        <div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$1,200</span></div>
       </div>
-      <ul class="pkg-services">
-        <li>Real Estate Video</li>
-        <li>Real Estate Photos</li>
-        <li>Drone Video</li>
-        <li>Satellite Map</li>
-        <li>3D Virtual Tour</li>
-      </ul>
-      <a href="brief.html" class="pkg-cta">Get a Quote →</a>
+      <ul class="pkg-services"><li>Real Estate Video</li><li>Real Estate Photos</li><li>Drone Video</li><li>Satellite Map</li><li>3D Virtual Tour</li></ul>
+      <a href="/brief" class="pkg-cta">Get a Quote →</a>
     </div>
-
     <div class="pkg-card">
       <div class="pkg-header">
-        <div>
-          <div class="pkg-name">Corporate / Brand</div>
-          <div class="pkg-desc">A full content suite for companies that want to show up professionally — across web, social, and sales conversations.</div>
-        </div>
-        <div class="pkg-price-badge">
-          <span class="pkg-price-from">From</span>
-          <span class="pkg-price-val">$2,500</span>
-        </div>
+        <div><div class="pkg-name">Corporate / Brand</div><div class="pkg-desc">A full content suite for companies that want to show up professionally — across web, social, and sales conversations.</div></div>
+        <div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$2,500</span></div>
       </div>
-      <ul class="pkg-services">
-        <li>Brand Video</li>
-        <li>Testimonial</li>
-        <li>Animated Explainer</li>
-        <li>Product Demo Video</li>
-        <li>Team Headshots</li>
-      </ul>
-      <a href="brief.html" class="pkg-cta">Get a Quote →</a>
+      <ul class="pkg-services"><li>Brand Video</li><li>Testimonial</li><li>Animated Explainer</li><li>Product Demo Video</li><li>Team Headshots</li></ul>
+      <a href="/brief" class="pkg-cta">Get a Quote →</a>
     </div>
-
     <div class="pkg-card">
       <div class="pkg-header">
-        <div>
-          <div class="pkg-name">Live Event</div>
-          <div class="pkg-desc">Full event coverage — broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.</div>
-        </div>
-        <div class="pkg-price-badge">
-          <span class="pkg-price-from">From</span>
-          <span class="pkg-price-val">$3,000</span>
-        </div>
+        <div><div class="pkg-name">Live Event</div><div class="pkg-desc">Full event coverage — broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.</div></div>
+        <div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$3,000</span></div>
       </div>
-      <ul class="pkg-services">
-        <li>Live Stream</li>
-        <li>Event Highlight Video</li>
-        <li>Testimonials on-site</li>
-        <li>Headshots for attendees / speakers</li>
-        <li>Graphic Design</li>
-      </ul>
-      <a href="brief.html" class="pkg-cta">Get a Quote →</a>
+      <ul class="pkg-services"><li>Live Stream</li><li>Event Highlight Video</li><li>Testimonials on-site</li><li>Headshots for attendees / speakers</li><li>Graphic Design</li></ul>
+      <a href="/brief" class="pkg-cta">Get a Quote →</a>
     </div>
-
     <div class="pkg-card">
       <div class="pkg-header">
-        <div>
-          <div class="pkg-name">Social Media</div>
-          <div class="pkg-desc">A month of content in a single shoot day — video, stills, and graphics ready to post across all your channels.</div>
-        </div>
-        <div class="pkg-price-badge">
-          <span class="pkg-price-from">From</span>
-          <span class="pkg-price-val">$2,500</span>
-        </div>
+        <div><div class="pkg-name">Social Media</div><div class="pkg-desc">A month of content in a single shoot day — video, stills, and graphics ready to post across all your channels.</div></div>
+        <div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$2,500</span></div>
       </div>
-      <ul class="pkg-services">
-        <li>Social Clips / Ads</li>
-        <li>Drone Video</li>
-        <li>Headshots</li>
-        <li>Motion Graphics set</li>
-        <li>Graphic Design</li>
-      </ul>
-      <a href="brief.html" class="pkg-cta">Get a Quote →</a>
+      <ul class="pkg-services"><li>Social Clips / Ads</li><li>Drone Video</li><li>Headshots</li><li>Motion Graphics set</li><li>Graphic Design</li></ul>
+      <a href="/brief" class="pkg-cta">Get a Quote →</a>
     </div>
-
   </div>
 </div>
 
-<!-- 3. À LA CARTE -->
 <div class="pricing-section">
   <div class="section-eyebrow reveal">03 — À La Carte</div>
   <h2 class="section-title reveal">Individual Services</h2>
@@ -354,7 +291,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   <div id="alc-wrap" class="reveal"></div>
 </div>
 
-<!-- 4. POLICIES -->
 <div class="policies-strip" style="padding-top:36px;padding-bottom:36px;">
   <div class="section-eyebrow" style="margin-bottom:16px;">Good to Know</div>
   <div class="policies-inner">
@@ -381,13 +317,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   </div>
 </div>
 
-<!-- CTA -->
 <div class="cta-wrap">
   <div class="cta-band reveal">
     <div class="cta-band-h">Ready to get <span>started?</span></div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-      <a href="brief.html" class="btn-ghost">Start a Project Brief</a>
+      <a href="/brief" class="btn-ghost">Start a Project Brief</a>
     </div>
   </div>
 </div>
@@ -395,26 +330,26 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <footer>
   <div class="footer-main">
     <div>
-      <img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" class="footer-logo-img">
+      <img src="/assets/images/logo.svg" alt="Colegrove Media" class="footer-logo-img">
       <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
     </div>
     <div>
       <div class="footer-col-title">Pages</div>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="work.html">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/work">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/pricing">Pricing</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Services</div>
       <ul class="footer-links">
-        <li><a href="services.html?cat=video">Video</a></li>
-        <li><a href="services.html?cat=photo">Photo</a></li>
-        <li><a href="services.html?cat=animation">Animation</a></li>
-        <li><a href="services.html?cat=design">Design</a></li>
+        <li><a href="/services?cat=video">Video</a></li>
+        <li><a href="/services?cat=photo">Photo</a></li>
+        <li><a href="/services?cat=animation">Animation</a></li>
+        <li><a href="/services?cat=design">Design</a></li>
       </ul>
     </div>
     <div>
@@ -424,21 +359,21 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li><a href="tel:4062099945">(406) 209-9945</a></li>
         <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
         <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="brief.html">Project Brief</a></li>
+        <li><a href="/brief">Project Brief</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span id="footer-year"></span><span>Bozeman, Montana</span>
-    <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="/terms">Terms &amp; Conditions</a>
   </div>
 </footer>
 
 <script>
-var CHEV = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
+var CHEV='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
 
-var ALC = [
-  {cat:'Video', cols:3, services:[
+var ALC=[
+  {cat:'Video',cols:3,services:[
     {name:'Real Estate Video',desc:'Showcase any property with cinematic drone and ground-level video. Built to sell.',tiers:[{n:'Basic',p:'$500',i:['Up to 30 seconds · Drone + ground footage','Professional edit · 1 revision']},{n:'Standard',p:'$900',i:['Up to 90 seconds · Drone + interior walkthrough','Color grade · Music · 2 revisions']},{n:'Advanced',p:'$1,500+',i:['Up to 3 minutes · Full property storytelling','Voiceover option · Social cuts included · Unlimited revisions']}]},
     {name:'Brand Videos',desc:'Communicate your mission and offering with a cinematic brand film that makes an impact.',tiers:[{n:'Basic',p:'$3,500',i:['1 shooting location','1 voiceover or interview','Professional lighting, audio, and branding','1 revision · 1 final edit']},{n:'Standard',p:'$6,500',i:['Script + storyboard','Up to 2 shooting locations','B-roll, motion graphics, and thumbnail design','2 revisions · Full video + social cut']},{n:'Advanced',p:'$9,500+',i:['Multi-day, multi-location production','End-to-end strategy and publishing support','Unlimited revisions · 3 final files + image asset kit']}]},
     {name:'Testimonials',desc:'Let your satisfied customers do the talking. Authentic content that builds trust faster than any copy.',tiers:[{n:'Basic',p:'$900',i:['Client-provided recording (editing only)','Speaker overlay, background music, thumbnail','1 revision']},{n:'Standard',p:'$2,000',i:['On-site interview · Single participant','Professional lighting and audio · 2 cameras','2 revisions']},{n:'Advanced',p:'$2,400',i:['On-site interview · Up to 4 participants','Extended filming for custom B-roll','2 video edits · 3 revisions']}]},
@@ -450,19 +385,19 @@ var ALC = [
     {name:'Social Clips / Ads',desc:'Short-form content cut for attention and optimized for wherever your audience lives.',tiers:[{n:'Basic',p:'$1,500',i:['Single-platform ad cut · Existing footage · 1 revision']},{n:'Standard',p:'$2,500',i:['Fresh shoot + edit · 2 platform-optimized cuts · 2 revisions']},{n:'Advanced',p:'$4,000',i:['Full commercial production · Multiple platforms · Unlimited revisions']}]},
     {name:'Video Editing',desc:'Already have footage? Enhance Zoom, Loom, or raw recordings into polished content.',tiers:[{n:'$125 / hour',p:'',i:['Rough cut assembly','Color correction and audio cleanup','Lower thirds, titles, and basic graphics','Music sync and pacing edits','Export in any format or platform spec']}]}
   ]},
-  {cat:'Photo', cols:4, services:[
+  {cat:'Photo',cols:4,services:[
     {name:'Headshots',desc:'High-quality portraits for personal branding and professional profiles.',tiers:[{n:'Basic',p:'$100',i:['Up to 30-min · 5 edited images']},{n:'Standard',p:'$200',i:['Up to 1-hour · 15 edited images · Outfit changes welcome']},{n:'Advanced',p:'$350',i:['Up to 2-hour · 30 edited images · Full retouching + social kit']}]},
     {name:'Real Estate Photos',desc:'Interior and exterior property images optimized for MLS, Zillow, and marketing.',tiers:[{n:'Basic',p:'$150',i:['15 edited interior + exterior photos']},{n:'Standard',p:'$250',i:['30 edited photos · Twilight exterior · HDR blending']},{n:'Advanced',p:'$400',i:['60 edited photos · Aerial photos included · 24-hour delivery']}]},
     {name:'Drone Photos',desc:'Stunning aerial imagery of real estate, landscapes, and events. FAA licensed.',tiers:[{n:'10 Photos',p:'$100',i:['10 edited aerial photos · FAA licensed pilot']},{n:'20 Photos',p:'$150',i:['20 edited aerial photos · Multiple angles']},{n:'60 Photos',p:'$300',i:['60 edited aerial photos · Twilight aerials available']}]},
     {name:'3D Virtual Tours',desc:'Interactive 360° Matterport tours allowing buyers to explore any property online.',tiers:[{n:'Standard',p:'Contact for quote',i:['Full Matterport 3D scan','Hosted tour link · Floor plan included','Embedded into any website or MLS listing']}]}
   ]},
-  {cat:'Animation', cols:4, services:[
+  {cat:'Animation',cols:4,services:[
     {name:'Animated Explainers',desc:'Complex ideas made clear in under 2 minutes. High retention, high trust.',tiers:[{n:'Basic',p:'$2,500',i:['Up to 60 seconds · Simple 2D motion graphics · 1 revision']},{n:'Standard',p:'$5,000',i:['Up to 90 seconds · Script + storyboard · Custom graphics · Master + social cut · 2 revisions']},{n:'Advanced',p:'$8,500+',i:['Up to 3 minutes · Full creative direction · Custom illustration style · Unlimited revisions']}]},
     {name:'Motion Graphics',desc:'Animated graphics for ads, social content, presentations, and video overlays.',tiers:[{n:'Basic',p:'$500',i:['Single animated graphic · Looping + one-shot · 1 revision']},{n:'Standard',p:'$1,200',i:['Up to 5 animated elements · Multiple format exports · 2 revisions']},{n:'Advanced',p:'$2,500+',i:['Full motion graphics package · 10+ elements · Unlimited revisions']}]},
     {name:'Logo Animations',desc:'Bring your logo to life — perfect for video openers, social profiles, and presentations.',tiers:[{n:'Basic',p:'$300',i:['Simple reveal animation · MP4 + transparent version · 1 revision']},{n:'Standard',p:'$600',i:['Custom motion · Multiple versions · 2 revisions']},{n:'Advanced',p:'$1,000',i:['Full animated brand identity suite · Unlimited revisions']}]},
     {name:'Website Animations / Lottie',desc:'Lightweight Lottie files that integrate seamlessly into any website or app.',tiers:[{n:'Basic',p:'$400',i:['Single Lottie animation · JSON + MP4 export · 1 revision']},{n:'Standard',p:'$900',i:['Up to 3 Lottie animations · Developer handoff included · 2 revisions']},{n:'Advanced',p:'$2,000+',i:['Full-site animation package · Scroll-triggered and interactive · Unlimited revisions']}]}
   ]},
-  {cat:'Design', cols:4, services:[
+  {cat:'Design',cols:4,services:[
     {name:'Graphic Design',desc:'Visuals for digital and print — ads, business cards, brochures, posters, and more.',tiers:[{n:'Business Card',p:'$150',i:['Front + back design · Print-ready files · 2 revisions']},{n:'Flyer / Poster',p:'$200',i:['Single or double-sided · Digital + print formats · 2 revisions']},{n:'Brochure',p:'$400+',i:['Tri-fold or multi-page · Print-ready + digital PDF · 3 revisions']}]},
     {name:'Web Design',desc:'Custom Webflow websites — responsive, accessible, and built to convert.',tiers:[{n:'Landing Page',p:'$500',i:['Single-page design + build in Webflow','Mobile responsive · CMS ready · 2 revisions']},{n:'Multi-Page Site',p:'$1,500+',i:['Up to 5 pages · Custom animations · SEO setup · 3 revisions']},{n:'Full Website',p:'$3,500+',i:['Unlimited pages · E-commerce or booking integration','Training session + ongoing support · Unlimited revisions']}]},
     {name:'Satellite Maps',desc:'Animated Google Earth flyovers showing property lines, labels, and nearby attractions.',tiers:[{n:'Basic',p:'$150',i:['Simple flyover · Property boundary overlay · 1 revision']},{n:'Standard',p:'$300',i:['Flyover + custom labels and callouts · 2 revisions']},{n:'Advanced',p:'$500+',i:['Full animated property tour · Multiple POIs · Unlimited revisions']}]},
@@ -482,7 +417,7 @@ function buildALC(){
     grid.className='alc-grid';
     grid.id='alc-grid-'+ci;
     grid.style.gridTemplateColumns='repeat('+Math.min(cat.cols,cat.services.length)+',1fr)';
-    cat.services.forEach(function(svc){ grid.appendChild(makeALCCard(svc)); });
+    cat.services.forEach(function(svc){grid.appendChild(makeALCCard(svc));});
     wrap.appendChild(grid);
   });
 }
