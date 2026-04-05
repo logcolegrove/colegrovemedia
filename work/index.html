@@ -222,14 +222,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <body>
 
 <nav id="main-nav">
-  <a href="index.html" style="display:flex;align-items:center;flex-shrink:0;height:44px;"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" style="height:48px;width:auto;display:block;"></a>
+  <a href="/" style="display:flex;align-items:center;flex-shrink:0;height:44px;"><img src="https://cdn.prod.website-files.com/60a938bc0e890bb09b993113/6450158f1bef6bd4998fed8f_Colerove%20Media%20Logo.svg" alt="Colegrove Media" style="height:48px;width:auto;display:block;"></a>
   <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="work.html" class="active">Portfolio</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/work/" class="active">Portfolio</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/pricing/">Pricing</a></li>
   </ul>
-  <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="nav-cta">Book a Call</a>
+  <a href="/brief/" class="nav-cta">Book a Call</a>
 </nav>
 
 <div class="page-hero">
@@ -281,8 +281,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
       <div class="modal-cta">
-        <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a>
-        <a href="pricing.html" class="modal-btn-ghost" id="modal-cta-secondary">See Pricing</a>
+        <a href="/brief/" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a>
+        <a href="/pricing/" class="modal-btn-ghost" id="modal-cta-secondary">See Pricing</a>
       </div>
     </div>
   </div>
@@ -291,8 +291,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <div class="cta-band reveal">
   <div class="cta-band-h">Ready to make your<br><span>next project?</span></div>
   <div style="display:flex;gap:12px;flex-wrap:wrap;">
-    <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
-    <a href="https://www.colegrovemedia.com/project-brief-form" class="btn-ghost">Start a Project Brief</a>
+    <a href="/brief/" class="btn-fill">Book a Call →</a>
+    <a href="/brief/" class="btn-ghost">Start a Project Brief</a>
   </div>
 </div>
 
@@ -305,20 +305,20 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     <div>
       <div class="footer-col-title">Pages</div>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="work.html">Portfolio</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/work/">Portfolio</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-title">Services</div>
       <ul class="footer-links">
-        <li><a href="video.html">Video</a></li>
-        <li><a href="photo.html">Photo</a></li>
-        <li><a href="animation.html">Animation</a></li>
-        <li><a href="design.html">Design</a></li>
+        <li><a href="/services/?cat=video">Video</a></li>
+        <li><a href="/services/?cat=photo">Photo</a></li>
+        <li><a href="/services/?cat=animation">Animation</a></li>
+        <li><a href="/services/?cat=design">Design</a></li>
       </ul>
     </div>
     <div>
@@ -327,15 +327,15 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
         <li><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a></li>
         <li><a href="tel:4062099945">(406) 209-9945</a></li>
         <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
-        <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="https://www.colegrovemedia.com/project-brief-form">Project Brief</a></li>
+        <li><a href="/brief/">Schedule a Call</a></li>
+        <li><a href="/brief/">Project Brief</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span id="footer-year"></span>
     <span>Bozeman, Montana</span>
-    <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="/terms/">Terms &amp; Conditions</a>
   </div>
 </footer>
 
@@ -422,7 +422,7 @@ var ALL = [
    ],
    related:false,
    cta:'Book Your Headshot Session →',
-   ctaHref:'https://www.colegrovemedia.com/project-brief-form',
+   ctaHref:'/brief/',
    desc:'High-quality portrait photography for personal branding, professional profiles, and team pages. Efficient, relaxed sessions — so you get images that actually look like you at your best.',
    specs:[]},
   // PHOTO — coming soon
@@ -631,12 +631,12 @@ function openModal(slug){
   var ctaEl=document.getElementById('modal-cta-primary');
   if(ctaEl){
     ctaEl.textContent=w.cta||TYPE_CTA[w.type]||'Get a Quote →';
-    ctaEl.href=w.ctaHref||'https://calendar.app.google/VkHDTa5U2EankpWW6';
+    ctaEl.href=w.ctaHref||'/brief/';
   }
   var ghostEl=document.getElementById('modal-cta-secondary');
   if(ghostEl){
     ghostEl.textContent=w.ghostText||'See Pricing';
-    ghostEl.href=w.ghostHref||'pricing.html';
+    ghostEl.href=w.ghostHref||'/pricing/';
   }
   // build left panel
   var ml=document.getElementById('modal-left');
