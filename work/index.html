@@ -204,8 +204,19 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 }
 @media(max-width:640px){
   .work-grid{grid-template-columns:1fr;}
-  .modal{grid-template-columns:1fr;}
+  .modal{grid-template-columns:1fr;max-height:100svh;}
   .footer-main{grid-template-columns:1fr 1fr;}
+  /* photo modal mobile — shorter preview, arrows at bottom corners */
+  .modal-preview-main{aspect-ratio:4/3;}
+  .gallery-arrow{width:32px;height:32px;font-size:18px;top:auto;bottom:10px;transform:none;}
+  .gallery-arrow.prev{left:10px;}
+  .gallery-arrow.next{right:10px;}
+  .gallery-counter{top:8px;right:8px;font-size:10px;padding:3px 8px;}
+  .gthumb{width:44px;height:56px;}
+  .modal-gallery-strip{padding:6px 8px;gap:4px;}
+  /* lottie mobile */
+  .modal-lottie-player{aspect-ratio:16/9;}
+  .lottie-thumb{width:56px;height:40px;}
 }
 </style>
 </head>
