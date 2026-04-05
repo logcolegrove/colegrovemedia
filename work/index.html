@@ -204,19 +204,18 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 }
 @media(max-width:640px){
   .work-grid{grid-template-columns:1fr;}
-  .modal{grid-template-columns:1fr;max-height:100svh;}
+  .modal{grid-template-columns:1fr;max-width:100%;}
   .footer-main{grid-template-columns:1fr 1fr;}
-  /* photo modal mobile — shorter preview, arrows at bottom corners */
-  .modal-preview-main{aspect-ratio:4/3;}
-  .gallery-arrow{width:32px;height:32px;font-size:18px;top:auto;bottom:10px;transform:none;}
-  .gallery-arrow.prev{left:10px;}
-  .gallery-arrow.next{right:10px;}
-  .gallery-counter{top:8px;right:8px;font-size:10px;padding:3px 8px;}
-  .gthumb{width:44px;height:56px;}
-  .modal-gallery-strip{padding:6px 8px;gap:4px;}
-  /* lottie mobile */
-  .modal-lottie-player{aspect-ratio:16/9;}
-  .lottie-thumb{width:56px;height:40px;}
+
+  /* keep arrows inside the image */
+  .modal-preview-main{overflow:hidden;}
+
+  /* thumbnail strip wraps instead of scrolling off screen */
+  .modal-gallery-strip{flex-wrap:wrap;overflow-x:visible;}
+
+  /* CTA buttons can't exceed modal width */
+  .modal-btn-fill,.modal-btn-ghost{box-sizing:border-box;width:100%;}
+  .modal-right{overflow:hidden;}
 }
 </style>
 </head>
@@ -904,6 +903,23 @@ function closeModal(){
   _lottieThumbAnims.forEach(function(a){ try{a.destroy();}catch(e){} }); _lottieThumbAnims=[];
   document.body.style.overflow='';
 }
+
+// swipe support for mobile photo gallery
+(function(){
+  var startX=0, startY=0;
+  document.addEventListener('touchstart',function(e){
+    var ml=document.getElementById('modal-left');
+    if(!ml||!ml.querySelector('.modal-preview-main')) return;
+    startX=e.touches[0].clientX; startY=e.touches[0].clientY;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    var ml=document.getElementById('modal-left');
+    if(!ml||!ml.querySelector('.modal-preview-main')) return;
+    var dx=startX-e.changedTouches[0].clientX;
+    var dy=Math.abs(startY-e.changedTouches[0].clientY);
+    if(Math.abs(dx)>40&&dy<60){ shiftGallery(dx>0?1:-1); }
+  },{passive:true});
+})();
 function handleBackdropClick(e){if(e.target===document.getElementById('modal-backdrop'))closeModal();}
 document.addEventListener('keydown',function(e){
   var backdrop=document.getElementById('modal-backdrop');
