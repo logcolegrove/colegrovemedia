@@ -7,40 +7,17 @@
 <meta name="description" content="Terms and conditions for Colegrove Media services — Bozeman, MT.">
 <meta property="og:title" content="Terms & Conditions — Colegrove Media">
 <meta property="og:description" content="Terms and conditions for Colegrove Media services — Bozeman, MT.">
-<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove media og image-100.jpg">
+<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove-media-og-image.jpg">
 <meta property="og:url" content="https://colegrovemedia.com/terms">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/assets/images/Colegrove Media Favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/images/colegrove-media-favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/global.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-:root{
-  --bg:#161a25;--bg2:#212733;--bg3:#1c2030;
-  --teal:#00f2a6;--teal-glow:rgba(0,242,166,0.08);
-  --white:#f2f4f8;--muted:#7e8ca0;
-  --border:rgba(0,242,166,0.12);--border2:rgba(242,244,248,0.06);
-  --sans:'DM Sans',sans-serif;
-}
-body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;padding-top:68px;}
-a{text-decoration:none;color:inherit;}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
-nav.nav-hidden{transform:translateY(-100%);}
-.nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
-.nav-logo img{height:48px;width:auto;display:block;}
-.nav-links{display:flex;list-style:none;gap:8px;}
-.nav-links a{font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:6px 14px;border-radius:6px;transition:color 0.18s,background 0.18s;}
-.nav-links a:hover{color:var(--white);background:rgba(0,242,166,0.07);}
-.nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
-.nav-cta:hover{opacity:0.85;}
-
-.page-hero{padding:72px 40px 48px;border-bottom:1px solid var(--border);}
-.eyebrow{font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
-.page-h1{font-size:clamp(36px,4.5vw,56px);font-weight:700;line-height:1;letter-spacing:-0.02em;margin-bottom:16px;}
+/* ── TERMS-SPECIFIC STYLES (only exists on this page) ── */
+.page-hero{padding:72px 40px 48px;}
 .page-meta{font-size:14px;color:var(--muted);font-weight:300;}
 .page-meta span{color:rgba(0,242,166,0.6);}
 
@@ -57,39 +34,16 @@ nav.nav-hidden{transform:translateY(-100%);}
 .terms-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:9px;}
 .terms-list li strong{color:var(--white);font-weight:500;}
 
-footer{background:var(--bg2);border-top:1px solid var(--border);}
-.footer-main{padding:56px 40px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid var(--border);}
-.footer-logo-img{height:44px;width:auto;display:block;margin-bottom:14px;}
-.footer-tagline{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;max-width:220px;}
-.footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);margin-bottom:18px;}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-links a{font-size:14px;color:var(--muted);font-weight:300;transition:color 0.18s;}
-.footer-links a:hover{color:var(--teal);}
-.footer-bottom{padding:20px 40px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);}
-.footer-bottom a{color:var(--muted);transition:color 0.18s;}
-.footer-bottom a:hover{color:var(--teal);}
-
 @media(max-width:960px){
-  nav{padding:0 24px;}.nav-links{display:none;}
   .page-hero{padding:64px 24px 40px;}
   .terms-content{padding:48px 24px 80px;}
-  .footer-main{grid-template-columns:1fr 1fr;padding:40px 24px 32px;gap:32px;}
-  .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;}
 }
 </style>
 </head>
 <body>
 
-<nav id="main-nav">
-  <div class="nav-logo"><a href="/"><img src="/assets/images/logo.svg" alt="Colegrove Media"></a></div>
-  <ul class="nav-links">
-    <li><a href="/services">Services</a></li>
-    <li><a href="/work">Portfolio</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/pricing">Pricing</a></li>
-  </ul>
-  <a href="/brief" class="nav-cta">Get a Quote</a>
-</nav>
+<!-- NAV (injected by components.js) -->
+<div id="site-nav" data-active=""></div>
 
 <div class="page-hero">
   <div class="eyebrow">Legal</div>
@@ -224,62 +178,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 
 </div>
 
-<footer>
-  <div class="footer-main">
-    <div>
-      <img src="/assets/images/logo.svg" alt="Colegrove Media" class="footer-logo-img">
-      <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Pages</div>
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/work">Portfolio</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Services</div>
-      <ul class="footer-links">
-        <li><a href="/services?cat=video">Video</a></li>
-        <li><a href="/services?cat=photo">Photo</a></li>
-        <li><a href="/services?cat=animation">Animation</a></li>
-        <li><a href="/services?cat=design">Design</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a></li>
-        <li><a href="tel:4062099945">(406) 209-9945</a></li>
-        <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
-        <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="/brief">Project Brief</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span id="footer-year"></span>
-    <span>Bozeman, Montana</span>
-    <a href="/terms">Terms &amp; Conditions</a>
-  </div>
-</footer>
+<!-- FOOTER (injected by components.js) -->
+<div id="site-footer"></div>
 
-<script>
-document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
-
-(function(){
-  var nav=document.getElementById('main-nav'),ly=window.scrollY,t=false;
-  window.addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){
-    var y=window.scrollY;
-    if(y<80)nav.classList.remove('nav-hidden');
-    else if(y>ly)nav.classList.add('nav-hidden');
-    else nav.classList.remove('nav-hidden');
-    ly=y;t=false;
-  });t=true;}},{passive:true});
-})();
-</script>
+<!-- SHARED JS -->
+<script src="/assets/js/components.js"></script>
+<script src="/assets/js/shared.js"></script>
 </body>
 </html>
