@@ -16,7 +16,6 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/global.css">
 <style>
-/* ── SERVICES-SPECIFIC STYLES ── */
 .page-h1{display:flex;align-items:baseline;gap:0.22em;flex-wrap:wrap;line-height:1.05;}
 .hero-static{color:var(--white);}
 .hero-word-wrap{display:inline-block;vertical-align:baseline;padding-bottom:6px;}
@@ -26,7 +25,6 @@
 @keyframes wExit{0%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-12px);}}
 @keyframes wEnter{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
 .page-desc{margin-bottom:36px;}
-
 .filter-bar{border-bottom:1px solid var(--border);}
 .filter-row{padding:16px 40px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .filter-row.ind-row{padding-top:12px;padding-bottom:16px;border-top:1px solid var(--border2);}
@@ -35,7 +33,6 @@
 .filter-btn:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 .filter-btn.active{background:var(--teal);color:#0d1117;border-color:var(--teal);font-weight:600;}
 .filter-btn.ind.active{background:rgba(0,242,166,0.1);color:var(--teal);border-color:rgba(0,242,166,0.4);font-weight:600;}
-
 .services-wrap{padding:0 40px 80px;}
 .cat-section{padding-top:64px;}
 .cat-section.hidden{display:none;}
@@ -46,7 +43,7 @@
 .cat-desc{font-size:16px;color:var(--muted);max-width:480px;line-height:1.7;font-weight:300;margin-top:12px;}
 .no-results{padding:48px;text-align:center;color:var(--muted);font-size:15px;background:var(--bg2);border-radius:12px;margin-top:64px;}
 .cat-divider{height:1px;background:var(--border);margin-top:64px;}
-
+.cat-header .see-all{font-size:14px;}
 .process-wrap{padding:64px 40px 0;}
 .process-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .ps{padding:40px 32px;border-right:1px solid var(--border);position:relative;transition:background 0.2s;}
@@ -58,18 +55,13 @@
 .ps-name{font-size:24px;font-weight:700;margin-bottom:10px;}
 .ps-desc{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;}
 
-/* Services page uses .see-all at 14px (global is 16px) */
-.cat-header .see-all{font-size:14px;}
-
 @media(max-width:960px){
   .services-wrap,.process-wrap{padding-left:24px;padding-right:24px;}
   .filter-row{padding-left:24px;padding-right:24px;}
   .svc-grid{grid-template-columns:1fr 1fr!important;}
   .process-grid{grid-template-columns:1fr;}.ps{border-right:none;border-bottom:1px solid var(--border);}.ps:last-child{border-bottom:none;}
 }
-@media(max-width:580px){
-  .svc-grid{grid-template-columns:1fr!important;}
-}
+@media(max-width:580px){.svc-grid{grid-template-columns:1fr!important;}}
 </style>
 </head>
 <body>
@@ -78,10 +70,7 @@
 
 <div class="page-hero">
   <div class="eyebrow reveal">Services</div>
-  <h1 class="page-h1 reveal">
-    <span class="hero-static">Everything</span>
-    <span class="hero-word-wrap"><span class="hero-word" id="hero-word">we do</span></span>
-  </h1>
+  <h1 class="page-h1 reveal"><span class="hero-static">Everything</span><span class="hero-word-wrap"><span class="hero-word" id="hero-word">we do</span></span></h1>
   <p class="page-desc reveal" id="hero-desc">Video, photo, animation, and design — all under one roof. Every service is built around what your audience needs to see, feel, and do.</p>
 </div>
 
@@ -106,28 +95,7 @@
   </div>
 </div>
 
-<div class="services-wrap">
-  <div class="cat-section" id="cat-video">
-    <div class="cat-header"><div><div class="cat-eyebrow">Video</div><h2 class="cat-title">Video Services</h2><p class="cat-desc">Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.</p></div><a href="/work?cat=video" class="see-all">View Video Work</a></div>
-    <div class="svc-grid" id="grid-video" style="grid-template-columns:repeat(3,1fr)"></div>
-  </div>
-  <div class="cat-divider" id="div-video"></div>
-  <div class="cat-section" id="cat-photo">
-    <div class="cat-header"><div><div class="cat-eyebrow">Photo</div><h2 class="cat-title">Photo Services</h2><p class="cat-desc">Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.</p></div><a href="/work?cat=photo" class="see-all">View Photo Work</a></div>
-    <div class="svc-grid" id="grid-photo" style="grid-template-columns:repeat(4,1fr)"></div>
-  </div>
-  <div class="cat-divider" id="div-photo"></div>
-  <div class="cat-section" id="cat-animation">
-    <div class="cat-header"><div><div class="cat-eyebrow">Animation</div><h2 class="cat-title">Animation Services</h2><p class="cat-desc">Motion and narrative working together to explain what words alone can't — and build recognition while doing it.</p></div><a href="/work?cat=animation" class="see-all">View Animation Work</a></div>
-    <div class="svc-grid" id="grid-animation" style="grid-template-columns:repeat(4,1fr)"></div>
-  </div>
-  <div class="cat-divider" id="div-animation"></div>
-  <div class="cat-section" id="cat-design">
-    <div class="cat-header"><div><div class="cat-eyebrow">Design</div><h2 class="cat-title">Design Services</h2><p class="cat-desc">Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.</p></div><a href="/work?cat=design" class="see-all">View Design Work</a></div>
-    <div class="svc-grid" id="grid-design" style="grid-template-columns:repeat(4,1fr)"></div>
-  </div>
-  <div id="no-results" class="no-results" style="display:none;">No services match that combination — try adjusting the filters above.</div>
-</div>
+<div class="services-wrap" id="services-wrap"></div>
 
 <div class="process-wrap reveal">
   <div class="section-eyebrow">How It Works</div>
@@ -153,17 +121,14 @@
   <div class="modal">
     <div class="modal-left" id="modal-left"></div>
     <div class="modal-right">
-      <div class="modal-header">
-        <span class="modal-vtag" id="modal-tag"></span>
-        <div class="modal-close" onclick="closeModal()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></div>
-      </div>
+      <div class="modal-header"><span class="modal-vtag" id="modal-tag"></span><div class="modal-close" onclick="closeModal()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></div></div>
       <div class="modal-title" id="modal-title"></div>
       <div class="modal-desc" id="modal-desc-r"></div>
       <div class="modal-divider"></div>
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
       <div class="modal-cta">
-        <a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get Your <span id="modal-cta-tag">Video</span> Made →</a>
+        <a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a>
         <a href="/pricing" class="modal-btn-ghost">See Pricing</a>
       </div>
     </div>
@@ -172,149 +137,44 @@
 
 <div id="site-footer"></div>
 
+<script src="/assets/js/portfolio-data.js"></script>
+<script src="/assets/js/pricing-data.js"></script>
 <script src="/assets/js/components.js"></script>
 <script src="/assets/js/shared.js"></script>
 <script>
-/* ── SERVICES-SPECIFIC JS ── */
 var PLAY='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1.5L9 6L1 10.5V1.5Z" fill="rgba(0,242,166,0.9)"/></svg>';
 var EXPAND='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(0,242,166,0.9)" stroke-width="1.5" stroke-linecap="round"><ellipse cx="7" cy="7" rx="6" ry="4"/><circle cx="7" cy="7" r="1.8" fill="rgba(0,242,166,0.9)" stroke="none"/></svg>';
 var CHEV='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
 
 var HW={all:'we do',video:'video',photo:'photography',animation:'animation',design:'design'};
-var HD={
-  all:'Video, photo, animation, and design — all under one roof. Every service is built around what your audience needs to see, feel, and do.',
-  video:'Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.',
-  photo:'Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.',
-  animation:"Complex ideas made clear. Motion and narrative working together to explain what words alone can't.",
-  design:'Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.'
-};
+var HD={all:'Video, photo, animation, and design — all under one roof. Every service is built around what your audience needs to see, feel, and do.',video:'Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.',photo:'Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.',animation:"Complex ideas made clear. Motion and narrative working together to explain what words alone can't.",design:'Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.'};
 
-function animWord(w){
-  var el=document.getElementById('hero-word');
-  if(el.textContent===w) return;
-  el.classList.remove('enter');el.classList.add('exit');
-  setTimeout(function(){el.textContent=w;el.classList.remove('exit');el.classList.add('enter');},200);
-}
-
-var SVC={
-  video:[
-    {id:'real-estate-video',name:'Real Estate Video',icon:'play',ind:['real-estate'],
-     sample:{vimeoId:'1011395960',thumb:'/assets/images/thumb-someday-ranch.jpeg',title:'Someday Ranch',client:'Real Estate Listing',tag:'Real Estate Video',desc:'An immersive real estate video for a Montana ranch listing combining drone and ground-level cinematics. Showcases the property\'s scale, landscape, and lifestyle in a way that photos simply can\'t.',specs:[{k:'Type',v:'Real Estate Video'},{k:'Client',v:'Real Estate Listing'},{k:'Deliverables',v:'Full video + social cut'},{k:'Turnaround',v:'1–2 weeks'}]},
-     desc:'Showcase any property with cinematic drone and ground-level video — ranch listings, residential homes, commercial spaces, and land. Built to sell.',
-     tiers:[{n:'Basic',p:'$500',i:['Drone + ground footage up to 30 seconds','Professional edit · Music · 1 revision']},{n:'Standard',p:'$900',i:['Up to 90 seconds · Drone + interior walkthrough','Color grade · Music · 2 revisions']},{n:'Advanced',p:'$1,500+',i:['Up to 3 minutes · Full property storytelling','Voiceover option · Social cuts included · Unlimited revisions']}]},
-    {id:'brand-video',name:'Brand Videos',icon:'play',ind:['corporate','nonprofit','tech','social-media'],
-     sample:{vimeoId:'1011394531',thumb:'/assets/images/thumb-ignis.jpeg',title:'Powering Wildfire Intelligence',client:'Ignis Technologies',tag:'Brand Video',desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software.',specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Production',v:'Strategy session, script, storyboard, 1 day shoot'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2 months'}]},
-     desc:'Communicate your mission, values, and offering with a cinematic brand film — content that makes an impact and drives real results.',
-     tiers:[{n:'Basic',p:'$3,500',i:['1 shooting location','1 voiceover or interview','Professional lighting, audio, and branding','1 revision · 1 final edit']},{n:'Standard',p:'$6,500',i:['Script + storyboard','Up to 2 shooting locations','B-roll, motion graphics, and thumbnail design','2 revisions · Full video + social cut']},{n:'Advanced',p:'$9,500+',i:['Multi-day, multi-location production','End-to-end strategy and publishing support','Unlimited revisions · 3 final files + image asset kit']}]},
-    {id:'testimonials',name:'Testimonials',icon:'play',ind:['corporate','nonprofit','tech','real-estate'],
-     sample:{vimeoId:'1011460491',thumb:'/assets/images/thumb-not-jumping-ship.jpeg',title:'Not Jumping Ship',client:'Foundant Technologies',tag:'Testimonial',desc:'An in-person testimonial built around a real client story. Clean production that puts the subject at ease and delivers authentic, quotable content that builds trust faster than any marketing copy.',specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Foundant Technologies'},{k:'Deliverables',v:'Full cut + 30s version'},{k:'Turnaround',v:'1–2 weeks'}]},
-     desc:'Let your satisfied customers do the talking. Committed to making interviewees feel comfortable while capturing high-impact, authentic content.',
-     tiers:[{n:'Basic',p:'$900',i:['Client-provided recording (editing only)','Speaker overlay, background music, thumbnail','1 revision']},{n:'Standard',p:'$2,000',i:['On-site interview · Single participant','Professional lighting and audio · 2 cameras','2 revisions']},{n:'Advanced',p:'$2,400',i:['On-site interview · Up to 4 participants','Extended filming for custom B-roll','2 video edits · 3 revisions']}]},
-    {id:'podcasts',name:'Podcasts',icon:'play',ind:['corporate','nonprofit','social-media'],
-     sample:{vimeoId:'1103018945',thumb:'/assets/images/thumb-field-notes.jpg',title:'Field Notes: Grassland Conversation',client:'Pheasants Forever',tag:'Podcast',desc:'A roundtable conversation with Montana ranchers about grassland conservation — authentic voices captured and produced as a polished podcast episode.',specs:[{k:'Type',v:'Podcast'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Multi-guest'},{k:'Turnaround',v:'1 week'}]},
-     desc:'Recording, editing, and audio engineering to humanize your brand. Whether you need an editor or a full producer, solutions are tailored to your needs.',
-     tiers:[{n:'Basic Editing',p:'$700',i:['Up to 1-hour episode (editing only)','Audio mixing & mastering · 1 revision']},{n:'Standard',p:'$1,200',i:['Up to 1-hour (recording + editing)','1 camera angle · Mics provided · 2 revisions']},{n:'Advanced',p:'$2,000',i:['Up to 4-hour episodes · 3 camera angles','Transcript, show notes, artwork · Unlimited revisions']}]},
-    {id:'product-videos',name:'Product Videos',icon:'play',ind:['tech','corporate'],
-     sample:{vimeoId:'1011444538',thumb:'/assets/images/thumb-foundation-mgmt.jpeg',title:'All-in-One Foundation Management',client:'Foundant Technologies',tag:'Product Demo',desc:'A software overview video helping a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable.',specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}]},
-     desc:'Educate and excite viewers on your physical product or software — from a 30-second cut to a full-featured walkthrough with graphics and B-roll.',
-     tiers:[{n:'Basic',p:'$600',i:['30 seconds · Product shots · 1 revision']},{n:'Standard',p:'$1,100',i:['Up to 2 minutes (4K) · Professional lighting and audio · 2 revisions']},{n:'Advanced',p:'$2,000',i:['Up to 5 minutes (4K) · B-roll · Informative graphics · Unlimited revisions']}]},
-    {id:'live-streams',name:'Live Streams',icon:null,ind:['corporate','nonprofit','events'],
-     desc:'Professionally broadcast your conference, meeting, or special occasion. Public or private link via Zoom, YouTube, social media, and more.',
-     tiers:[{n:'Basic',p:'$1,500',i:['1-hour 1080p stream · 1 static camera','1 streaming technician · PowerPoint integration']},{n:'Standard',p:'$1,900',i:['2-hour 1080p stream · 2 cameras + live switching']},{n:'Advanced',p:'$2,500',i:['4-hour stream · 1 camera operator + 2 static angles','Overlay graphics · Help with registration & embedding']}]},
-    {id:'remote-client-stories',name:'Remote Client Stories',icon:'play',ind:['corporate','nonprofit','tech'],
-     sample:{vimeoId:'1134497582',thumb:'/assets/images/thumb-ranchers-take.jpg',title:"A Rancher's Take on Grassland Restoration",client:'Pheasants Forever',tag:'Remote Client Story',desc:"Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family's farm — and how partnering with Pheasants Forever made the entire process simple, fast, and affordable.",specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}]},
-     desc:'Transform virtual interviews into polished short-form stories. We guide you from interview planning to on-camera direction — or lead it ourselves.',
-     tiers:[{n:'Basic',p:'$1,100',i:['Editing only · Royalty-free music · 1 revision']},{n:'Standard',p:'$2,100',i:['1 interview recorded at high fidelity · Animations, B-roll · 2 revisions']},{n:'Advanced',p:'$3,400+',i:['Multiple interviews · Multiple edits + social cuts · Unlimited revisions']}]},
-    {id:'drone-fpv',name:'Drone / FPV',icon:'play',ind:['real-estate','corporate','social-media','events'],
-     sample:{vimeoId:'1036921693',thumb:'/assets/images/thumb-iceland.jpg',title:'Iceland in Motion',client:'Personal Travel Film',tag:'Drone / FPV',desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland. A personal cinematic project capturing the raw, otherworldly landscape in a technically ambitious travel film.',specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Client',v:'Personal Project'},{k:'Location',v:'Iceland'},{k:'Turnaround',v:'4 weeks'}]},
-     desc:'Cinematic aerials or dynamic FPV flythroughs that add the wow-factor. FAA licensed pilot. Available standalone or as part of a larger production.',
-     tiers:[{n:'Regular',p:'$300',i:['Stable DJI 4K footage · 1–2 minute edit · 1 revision']},{n:'FPV',p:'$500',i:['First-person view 4K · 3–5 minute edit · 2 revisions']},{n:'Regular + FPV',p:'$700',i:['Up to 10-minute edit · 3 social clips · Unlimited revisions']}]},
-    {id:'social-clips',name:'Social Clips / Ads',icon:null,ind:['corporate','real-estate','nonprofit','tech','social-media'],
-     desc:'Market your products and services on social media or YouTube. Short-form content cut for attention and optimized for wherever your audience lives.',
-     tiers:[{n:'Basic',p:'$1,500',i:['Single-platform ad cut · Existing footage · 1 revision']},{n:'Standard',p:'$2,500',i:['Fresh shoot + edit · 2 platform-optimized cuts · 2 revisions']},{n:'Advanced',p:'$4,000',i:['Full commercial production · Multiple platforms · Unlimited revisions']}]},
-    {id:'video-editing',name:'Video Editing',icon:null,ind:['corporate','nonprofit','tech','social-media','events'],
-     desc:'Already have footage? Enhance your Zoom, Teams, Loom, or raw recordings into polished, engaging content.',
-     tiers:[{n:'$125 / hour',p:'',i:['Rough cut assembly','Color correction and audio cleanup','Lower thirds, titles, and basic graphics','Music sync and pacing edits','Export in any format or platform spec']}]}
-  ],
-  photo:[
-    {id:'headshots',name:'Headshots',icon:'expand',ind:['corporate','real-estate','tech'],
-     desc:"High-quality portrait photography for personal branding and professional profiles. Efficient sessions that deliver images you'll actually use.",
-     tiers:[{n:'Basic',p:'$100',i:['Up to 30-min · 5 edited images']},{n:'Standard',p:'$200',i:['Up to 1-hour · 15 edited images · Outfit changes welcome']},{n:'Advanced',p:'$350',i:['Up to 2-hour · 30 edited images · Full retouching + social kit']}]},
-    {id:'real-estate-photos',name:'Real Estate Photos',icon:'expand',ind:['real-estate'],
-     desc:'Carefully planned, composed, and retouched interior and exterior property images. Optimized for MLS, Zillow, and marketing materials.',
-     tiers:[{n:'Basic',p:'$150',i:['15 edited interior + exterior photos']},{n:'Standard',p:'$250',i:['30 edited photos · Twilight exterior · HDR blending']},{n:'Advanced',p:'$400',i:['60 edited photos · Aerial photos included · 24-hour delivery']}]},
-    {id:'drone-photos',name:'Drone Photos',icon:'expand',ind:['real-estate','corporate','events'],
-     desc:'Stunning aerial imagery of real estate, landscapes, events, and more. FAA licensed pilot. Available standalone or paired with ground photography.',
-     tiers:[{n:'Basic',p:'$100',i:['10 edited aerial photos · FAA licensed']},{n:'Standard',p:'$175',i:['20 edited aerial photos · Multiple angles']},{n:'Advanced',p:'$300',i:['60 edited aerial photos · Twilight aerials available']}]},
-    {id:'3d-virtual-tour',name:'3D Virtual Tours',icon:'expand',ind:['real-estate'],
-     desc:"Interactive 360° Matterport tours allowing buyers to explore every angle of a property anytime, anywhere.",
-     tiers:[{n:'Standard',p:'Contact for quote',i:['Full Matterport 3D scan','Hosted tour link · Floor plan included','Embedded into any website or MLS listing']}]}
-  ],
-  animation:[
-    {id:'animated-explainer',name:'Animated Explainers',icon:'play',ind:['tech','nonprofit','corporate'],
-     sample:{vimeoId:'1011466967',thumb:'/assets/images/thumb-nonprofit-explainer.jpeg',title:'Streamline Your Nonprofit',client:'NonprofitCore',tag:'Animated Explainer',desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'NonprofitCore'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}]},
-     desc:"Complex ideas made clear in under 2 minutes. High retention, high trust. Motion and narration working together to explain what words alone can't.",
-     tiers:[{n:'Basic',p:'$2,500',i:['Up to 60 seconds · Simple 2D motion graphics · 1 revision']},{n:'Standard',p:'$5,000',i:['Up to 90 seconds · Script + storyboard · Custom graphics · Master + social cut · 2 revisions']},{n:'Advanced',p:'$8,500+',i:['Up to 3 minutes · Full creative direction · Custom illustration style · Unlimited revisions']}]},
-    {id:'motion-graphics',name:'Motion Graphics',icon:null,ind:['corporate','tech','social-media'],
-     desc:'Animated graphics for ads, social content, presentations, and video overlays — motion that makes your brand impossible to ignore.',
-     tiers:[{n:'Basic',p:'$500',i:['Single animated graphic · Looping + one-shot · 1 revision']},{n:'Standard',p:'$1,200',i:['Up to 5 animated elements · Multiple format exports · 2 revisions']},{n:'Advanced',p:'$2,500+',i:['Full motion graphics package · 10+ elements · Unlimited revisions']}]},
-    {id:'logo-animation',name:'Logo Animations',icon:null,ind:['corporate','tech','nonprofit','social-media'],
-     desc:'Bring your logo to life with a custom animated intro — perfect for video openers, social profiles, and presentations.',
-     tiers:[{n:'Basic',p:'$300',i:['Simple reveal animation · MP4 + transparent version · 1 revision']},{n:'Standard',p:'$600',i:['Custom motion · Multiple versions · 2 revisions']},{n:'Advanced',p:'$1,000',i:['Full animated brand identity suite · Unlimited revisions']}]},
-    {id:'lottie-animation',name:'Website Animations / Lottie',icon:null,ind:['tech','corporate'],
-     desc:'Lightweight, scalable animations built for the web — Lottie files that integrate seamlessly into any website or app without slowing it down.',
-     tiers:[{n:'Basic',p:'$400',i:['Single Lottie animation · JSON + MP4 export · 1 revision']},{n:'Standard',p:'$900',i:['Up to 3 Lottie animations · Developer handoff included · 2 revisions']},{n:'Advanced',p:'$2,000+',i:['Full-site animation package · Scroll-triggered and interactive animations · Unlimited revisions']}]}
-  ],
-  design:[
-    {id:'graphic-design',name:'Graphic Design',icon:'expand',ind:['corporate','nonprofit','real-estate','events','social-media'],
-     desc:'Visuals for digital and print — infographics, ads, business cards, brochures, posters, and more. Consistent, polished, on-brand.',
-     tiers:[{n:'Business Card',p:'$150',i:['Front + back design · Print-ready files · 2 revisions']},{n:'Flyer / Poster',p:'$200',i:['Single or double-sided · Digital + print formats · 2 revisions']},{n:'Brochure',p:'$400+',i:['Tri-fold or multi-page · Print-ready + digital PDF · 3 revisions']}]},
-    {id:'web-design',name:'Web Design',icon:'expand',ind:['corporate','nonprofit','tech','real-estate'],
-     desc:'Custom Webflow websites — responsive, accessible, and built to convert. From simple landing pages to full multi-page sites.',
-     tiers:[{n:'Landing Page',p:'$500',i:['Single-page design + build in Webflow','Mobile responsive · CMS ready · 2 revisions']},{n:'Multi-Page Site',p:'$1,500+',i:['Up to 5 pages · Custom animations · SEO setup · 3 revisions']},{n:'Full Website',p:'$3,500+',i:['Unlimited pages · E-commerce or booking integration','Training session + ongoing support · Unlimited revisions']}]},
-    {id:'satellite-map',name:'Satellite Maps',icon:'expand',ind:['real-estate'],
-     desc:'Animated Google Earth flyovers showing property lines, nearby attractions, and custom labels. A powerful tool for real estate and land listings.',
-     tiers:[{n:'Basic',p:'$150',i:['Simple flyover · Property boundary overlay · 1 revision']},{n:'Standard',p:'$300',i:['Flyover + custom labels and callouts · 2 revisions']},{n:'Advanced',p:'$500+',i:['Full animated property tour · Multiple POIs · Unlimited revisions']}]},
-    {id:'virtual-staging',name:'Virtual Staging',icon:'expand',ind:['real-estate'],
-     desc:'Transform any empty room into a fully-furnished, beautifully designed space — without moving a single piece of furniture.',
-     tiers:[{n:'1 Image',p:'$50',i:['1 virtually staged room · 2 style options · 2 revisions']},{n:'5 Images',p:'$200',i:['5 virtually staged rooms · Consistent style · 2 revisions']},{n:'10 Images',p:'$350',i:['10 virtually staged rooms · Rush delivery available · Unlimited revisions']}]}
-  ]
-};
-
-var PORT=[
-  {tag:'Real Estate Video',vimeoId:'1011395960',title:'Someday Ranch',thumb:'/assets/images/thumb-someday-ranch.jpeg'},
-  {tag:'Real Estate Video',vimeoId:'823929975',title:'15 Spring Ridge Dr',thumb:'/assets/images/thumb-spring-ridge.jpeg'},
-  {tag:'Brand Video',vimeoId:'1011394531',title:'Powering Wildfire Intelligence',thumb:'/assets/images/thumb-ignis.jpeg'},
-  {tag:'Brand Video',vimeoId:'1011446090',title:'Painted Hills',thumb:'/assets/images/thumb-painted-hills.jpg'},
-  {tag:'Brand Video',vimeoId:'1011397220',title:'Girls On The Run',thumb:'/assets/images/thumb-girls-on-the-run.jpeg'},
-  {tag:'Testimonial',vimeoId:'1011460491',title:'Not Jumping Ship',thumb:'/assets/images/thumb-not-jumping-ship.jpeg'},
-  {tag:'Testimonial',vimeoId:'1011448652',title:'Team Testimonial',thumb:'/assets/images/thumb-team-testimonial.jpeg'},
-  {tag:'Testimonial',vimeoId:'1011455705',title:'Transforming Workflows',thumb:'/assets/images/thumb-transforming-workflows.jpeg'},
-  {tag:'Product Demo',vimeoId:'1011444538',title:'All-in-One Foundation Management',thumb:'/assets/images/thumb-foundation-mgmt.jpeg'},
-  {tag:'Product Demo',vimeoId:'1011464708',title:'Software Demo Video',thumb:'/assets/images/thumb-software-demo.jpeg'},
-  {tag:'Podcast',vimeoId:'1103018945',title:'Field Notes: Grassland Conversation',thumb:'/assets/images/thumb-field-notes.jpg'},
-  {tag:'Remote Client Story',vimeoId:'1134497582',title:"A Rancher's Take on Grassland Restoration",thumb:'/assets/images/thumb-ranchers-take.jpg'},
-  {tag:'Drone / FPV',vimeoId:'1036921693',title:'Iceland in Motion',thumb:'/assets/images/thumb-iceland.jpg'},
-  {tag:'Drone / FPV',vimeoId:'1011433865',title:'Drone Reel',thumb:'/assets/images/thumb-drone-reel.jpeg'},
-  {tag:'Animated Explainer',vimeoId:'1011466967',title:'Streamline Your Nonprofit',thumb:'/assets/images/thumb-nonprofit-explainer.jpeg'},
-  {tag:'Animated Explainer',vimeoId:'1053133749',title:'SmartSimple — Animated Explainer',thumb:'/assets/images/thumb-smartsimple.jpg'}
-];
+function animWord(w){var el=document.getElementById('hero-word');if(el.textContent===w)return;el.classList.remove('enter');el.classList.add('exit');setTimeout(function(){el.textContent=w;el.classList.remove('exit');el.classList.add('enter');},200);}
 
 var curCat='all',curInd='all';
 
+/* ── BUILD SERVICE SECTIONS FROM SHARED DATA ── */
 function buildAll(){
-  Object.keys(SVC).forEach(function(cat){
-    var grid=document.getElementById('grid-'+cat);
-    SVC[cat].forEach(function(svc){grid.appendChild(makeCard(svc,cat));});
+  var wrap=document.getElementById('services-wrap');
+  wrap.innerHTML='';
+  ['video','photo','animation','design'].forEach(function(cat){
+    var meta=SERVICE_CATEGORIES[cat];
+    var sec=document.createElement('div');sec.className='cat-section';sec.id='cat-'+cat;
+    sec.innerHTML='<div class="cat-header"><div><div class="cat-eyebrow">'+meta.label+'</div><h2 class="cat-title">'+meta.title+'</h2><p class="cat-desc">'+meta.desc+'</p></div><a href="/work?cat='+cat+'" class="see-all">View '+meta.label+' Work</a></div>';
+    var grid=document.createElement('div');grid.className='svc-grid';grid.id='grid-'+cat;grid.style.gridTemplateColumns='repeat('+meta.cols+',1fr)';
+    SERVICES[cat].forEach(function(svc){grid.appendChild(makeCard(svc,cat));});
+    sec.appendChild(grid);wrap.appendChild(sec);
+    if(cat!=='design'){var div=document.createElement('div');div.className='cat-divider';div.id='div-'+cat;wrap.appendChild(div);}
   });
+  var nr=document.createElement('div');nr.id='no-results';nr.className='no-results';nr.style.display='none';nr.textContent='No services match that combination — try adjusting the filters above.';
+  wrap.appendChild(nr);
 }
 
 function makeCard(svc,cat){
-  var isExpand=(svc.icon==='expand');
   var btnHtml='';
-  if(svc.icon==='play'&&svc.sample){
-    btnHtml='<button class="svc-preview-btn" onclick="openModal(\''+svc.id+'\')">'+PLAY+'</button>';
-  } else if(isExpand){
+  if(svc.sample){
+    btnHtml='<button class="svc-preview-btn" onclick="event.stopPropagation();openSvcModal(\''+svc.id+'\')">'+PLAY+'</button>';
+  } else if(cat==='photo'||cat==='design'){
     btnHtml='<button class="svc-preview-btn" onclick="location.href=\'/work?cat='+cat+'\'">'+EXPAND+'</button>';
   }
   var tiersHtml=svc.tiers.map(function(t){
@@ -322,17 +182,8 @@ function makeCard(svc,cat){
     var ph=t.p?'<span class="tier-price">'+t.p+'</span>':'';
     return '<div class="tier"><div class="tier-header"><span class="tier-name">'+t.n+'</span>'+ph+'</div><ul class="tier-list">'+items+'</ul></div>';
   }).join('');
-  var card=document.createElement('div');
-  card.className='svc-card';
-  card.dataset.id=svc.id;
-  card.dataset.ind=svc.ind.join(',');
-  card.innerHTML=
-    '<div class="svc-name-row"><div class="svc-name">'+svc.name+'</div>'+btnHtml+'</div>'
-    +'<p class="svc-desc">'+svc.desc+'</p>'
-    +'<div class="svc-details-wrap">'
-      +'<button class="svc-toggle" onclick="toggleTier(this)">Pricing &amp; Details '+CHEV+'</button>'
-      +'<div class="svc-details"><div class="svc-details-inner">'+tiersHtml+'</div></div>'
-    +'</div>';
+  var card=document.createElement('div');card.className='svc-card';card.dataset.id=svc.id;card.dataset.ind=svc.ind.join(',');
+  card.innerHTML='<div class="svc-name-row"><div class="svc-name">'+svc.name+'</div>'+btnHtml+'</div><p class="svc-desc">'+svc.desc+'</p><div class="svc-details-wrap"><button class="svc-toggle" onclick="toggleTier(this)">Pricing &amp; Details '+CHEV+'</button><div class="svc-details"><div class="svc-details-inner">'+tiersHtml+'</div></div></div>';
   return card;
 }
 
@@ -342,119 +193,48 @@ function applyFilters(){
     var sec=document.getElementById('cat-'+cat);
     var div=document.getElementById('div-'+cat);
     var showCat=(curCat==='all'||curCat===cat);
-    if(!showCat){sec.classList.add('hidden');div.style.display='none';return;}
-    sec.classList.remove('hidden');div.style.display='';
-    var cards=sec.querySelectorAll('.svc-card');
-    var catHasVisible=false;
-    cards.forEach(function(card){
-      var inds=card.dataset.ind.split(',');
-      var show=(curInd==='all'||inds.indexOf(curInd)>-1);
-      card.classList.toggle('hidden',!show);
-      if(show) catHasVisible=true;
-    });
-    if(!catHasVisible){sec.classList.add('hidden');div.style.display='none';}
-    else anyVisible=true;
+    if(!showCat){sec.classList.add('hidden');if(div)div.style.display='none';return;}
+    sec.classList.remove('hidden');if(div)div.style.display='';
+    var cards=sec.querySelectorAll('.svc-card');var catHasVisible=false;
+    cards.forEach(function(card){var inds=card.dataset.ind.split(',');var show=(curInd==='all'||inds.indexOf(curInd)>-1);card.classList.toggle('hidden',!show);if(show)catHasVisible=true;});
+    if(!catHasVisible){sec.classList.add('hidden');if(div)div.style.display='none';}else anyVisible=true;
   });
   document.getElementById('no-results').style.display=anyVisible?'none':'block';
   closeAll();
 }
 
-function setCat(cat){
-  curCat=cat;
-  document.querySelectorAll('#cat-row .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});
-  animWord(HW[cat]||'we do');
-  document.getElementById('hero-desc').textContent=HD[cat]||HD.all;
-  history.replaceState(null,'',cat==='all'?'/services':'/services?cat='+cat);
-  applyFilters();
-}
+function setCat(cat){curCat=cat;document.querySelectorAll('#cat-row .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.cat===cat);});animWord(HW[cat]||'we do');document.getElementById('hero-desc').textContent=HD[cat]||HD.all;history.replaceState(null,'',cat==='all'?'/services':'/services?cat='+cat);applyFilters();}
+function setInd(ind){curInd=ind;document.querySelectorAll('#ind-row .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.ind===ind);});applyFilters();}
 
-function setInd(ind){
-  curInd=ind;
-  document.querySelectorAll('#ind-row .filter-btn').forEach(function(b){b.classList.toggle('active',b.dataset.ind===ind);});
-  applyFilters();
-}
-
-function closeAll(){
-  document.querySelectorAll('.svc-details.open').forEach(function(d){d.classList.remove('open');});
-  document.querySelectorAll('.svc-toggle.open').forEach(function(b){b.classList.remove('open');});
-  document.querySelectorAll('.svc-card.dropdown-open').forEach(function(c){c.classList.remove('dropdown-open');});
-}
-function toggleTier(btn){
-  var card=btn.closest('.svc-card');
-  var det=btn.nextElementSibling;
-  var open=det.classList.contains('open');
-  closeAll();
-  if(!open){det.classList.add('open');btn.classList.add('open');card.classList.add('dropdown-open');}
-}
+function closeAll(){document.querySelectorAll('.svc-details.open').forEach(function(d){d.classList.remove('open');});document.querySelectorAll('.svc-toggle.open').forEach(function(b){b.classList.remove('open');});document.querySelectorAll('.svc-card.dropdown-open').forEach(function(c){c.classList.remove('dropdown-open');});}
+function toggleTier(btn){var card=btn.closest('.svc-card');var det=btn.nextElementSibling;var open=det.classList.contains('open');closeAll();if(!open){det.classList.add('open');btn.classList.add('open');card.classList.add('dropdown-open');}}
 document.addEventListener('click',function(e){if(!e.target.closest('.svc-card'))closeAll();});
 
-function findSvc(id){
-  var found=null;
-  Object.keys(SVC).forEach(function(cat){SVC[cat].forEach(function(s){if(s.id===id)found=s;});});
-  return found;
-}
-
-function openModal(id){
-  var svc=findSvc(id);
-  if(!svc||!svc.sample) return;
-  var s=svc.sample;
-  document.getElementById('modal-tag').textContent=s.tag;
-  document.getElementById('modal-title').textContent=s.title;
-  document.getElementById('modal-desc-r').textContent=s.desc;
-  document.getElementById('modal-specs').innerHTML=s.specs.map(function(sp){
-    return '<div class="modal-spec"><span class="modal-spec-k">'+sp.k+'</span><span class="modal-spec-v">'+sp.v+'</span></div>';
-  }).join('');
-  document.getElementById('modal-cta-tag').textContent=s.tag;
-  var ml=document.getElementById('modal-left');
-  ml.innerHTML='';
+/* ── SERVICE PREVIEW MODAL (uses shared pricing + portfolio data) ── */
+function openSvcModal(svcId){
+  var svc=findService(svcId);if(!svc||!svc.sample)return;
+  var sample=getServiceSample(svc);if(!sample)return;
+  var p=sample.project;
+  document.getElementById('modal-tag').textContent=p.typeLabel;
+  document.getElementById('modal-title').textContent=p.title;
+  document.getElementById('modal-desc-r').textContent=p.desc;
+  document.getElementById('modal-specs').innerHTML=p.specs.map(function(sp){return '<div class="modal-spec"><span class="modal-spec-k">'+sp.k+'</span><span class="modal-spec-v">'+sp.v+'</span></div>';}).join('');
+  document.getElementById('modal-cta-primary').textContent=p.cta||TYPE_CTA[p.type]||'Get a Quote →';
+  var ml=document.getElementById('modal-left');ml.innerHTML='';
   var emb=document.createElement('div');emb.className='modal-embed';
-  var ifr=document.createElement('iframe');
-  ifr.src='https://player.vimeo.com/video/'+s.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
-  ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');
-  ifr.setAttribute('allowfullscreen','');
-  emb.appendChild(ifr);ml.appendChild(emb);
-  var related=PORT.filter(function(p){return p.tag===s.tag&&p.vimeoId!==s.vimeoId;}).slice(0,3);
-  if(related.length){
-    var rel=document.createElement('div');rel.className='modal-related';
-    var lbl=document.createElement('div');lbl.className='modal-related-label';
-    lbl.textContent='More '+s.tag+'s';rel.appendChild(lbl);
-    related.forEach(function(r){
-      var d=document.createElement('div');d.className='modal-rel-item';
-      d.onclick=function(){
-        ifr.src='https://player.vimeo.com/video/'+r.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
-        document.getElementById('modal-tag').textContent=r.tag;
-        document.getElementById('modal-title').textContent=r.title;
-        document.getElementById('modal-desc-r').textContent='';
-        document.getElementById('modal-specs').innerHTML='';
-        document.getElementById('modal-cta-tag').textContent=r.tag;
-      };
-      d.innerHTML='<img src="'+r.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+r.title+'</div><div class="modal-rel-tag">'+r.tag+'</div></div>';
-      rel.appendChild(d);
-    });
-    ml.appendChild(rel);
-  }
-  document.getElementById('modal-backdrop').classList.add('open');
-  document.body.style.overflow='hidden';
+  var ifr=document.createElement('iframe');ifr.src='https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');ifr.setAttribute('allowfullscreen','');emb.appendChild(ifr);ml.appendChild(emb);
+  // related
+  var related=getRelatedProjects(p.slug,p.type,3);
+  if(related.length){var rel=document.createElement('div');rel.className='modal-related';var lbl=document.createElement('div');lbl.className='modal-related-label';lbl.textContent='More '+p.typeLabel+'s';rel.appendChild(lbl);related.forEach(function(r){var d=document.createElement('div');d.className='modal-rel-item';d.onclick=function(){ifr.src='https://player.vimeo.com/video/'+r.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';document.getElementById('modal-tag').textContent=r.typeLabel;document.getElementById('modal-title').textContent=r.title;document.getElementById('modal-desc-r').textContent=r.desc||'';document.getElementById('modal-specs').innerHTML='';};d.innerHTML='<img src="'+r.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+r.title+'</div><div class="modal-rel-tag">'+r.typeLabel+'</div></div>';rel.appendChild(d);});ml.appendChild(rel);}
+  document.getElementById('modal-backdrop').classList.add('open');document.body.style.overflow='hidden';
 }
 
-function closeModal(){
-  document.getElementById('modal-backdrop').classList.remove('open');
-  document.getElementById('modal-left').innerHTML='';
-  document.body.style.overflow='';
-}
+function closeModal(){document.getElementById('modal-backdrop').classList.remove('open');document.getElementById('modal-left').innerHTML='';document.body.style.overflow='';}
 function handleBackdropClick(e){if(e.target===document.getElementById('modal-backdrop'))closeModal();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 
 buildAll();
-(function(){
-  var p=new URLSearchParams(window.location.search);
-  var ic=p.get('cat');
-  var ii=p.get('ind');
-  setTimeout(function(){
-    if(ic&&SVC[ic]) setCat(ic);
-    if(ii&&ii!=='all') setInd(ii);
-  },0);
-})();
+(function(){var p=new URLSearchParams(window.location.search);var ic=p.get('cat');var ii=p.get('ind');setTimeout(function(){if(ic&&SERVICES[ic])setCat(ic);if(ii&&ii!=='all')setInd(ii);},0);})();
 </script>
 </body>
 </html>
