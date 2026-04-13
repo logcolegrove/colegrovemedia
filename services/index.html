@@ -7,43 +7,17 @@
 <meta name="description" content="Video, photo, animation, and design services from Colegrove Media — Bozeman, MT.">
 <meta property="og:title" content="Services — Colegrove Media">
 <meta property="og:description" content="Video, photo, animation, and design services from Colegrove Media — Bozeman, MT.">
-<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove media og image-100.jpg">
+<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove-media-og-image.jpg">
 <meta property="og:url" content="https://colegrovemedia.com/services">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/assets/images/Colegrove Media Favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/images/colegrove-media-favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/global.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-:root{
-  --bg:#161a25;--bg2:#212733;--bg3:#1c2030;
-  --teal:#00f2a6;--teal-glow:rgba(0,242,166,0.08);
-  --white:#f2f4f8;--muted:#7e8ca0;
-  --border:rgba(0,242,166,0.12);--border2:rgba(242,244,248,0.06);
-  --sans:'DM Sans',sans-serif;
-}
-body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;padding-top:68px;}
-a{text-decoration:none;color:inherit;}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1);}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
-nav.nav-hidden{transform:translateY(-100%);}
-.nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
-.nav-logo img{height:48px;width:auto;display:block;}
-.nav-links{display:flex;list-style:none;gap:8px;}
-.nav-links a{font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:6px 14px;border-radius:6px;transition:color 0.18s,background 0.18s;}
-.nav-links a:hover{color:var(--white);background:rgba(0,242,166,0.07);}
-.nav-links a.active{color:var(--teal);background:rgba(0,242,166,0.07);}
-.nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
-.nav-cta:hover{opacity:0.85;}
-
-.page-hero{padding:80px 40px 56px;border-bottom:1px solid var(--border);}
-.eyebrow{font-size:14px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
-.page-h1{font-size:clamp(44px,5.5vw,72px);font-weight:700;line-height:1.05;letter-spacing:-0.02em;margin-bottom:16px;display:flex;align-items:baseline;gap:0.22em;flex-wrap:wrap;}
+/* ── SERVICES-SPECIFIC STYLES ── */
+.page-h1{display:flex;align-items:baseline;gap:0.22em;flex-wrap:wrap;line-height:1.05;}
 .hero-static{color:var(--white);}
 .hero-word-wrap{display:inline-block;vertical-align:baseline;padding-bottom:6px;}
 .hero-word{color:var(--teal);display:inline-block;}
@@ -51,12 +25,7 @@ nav.nav-hidden{transform:translateY(-100%);}
 .hero-word.enter{animation:wEnter 0.3s ease-out forwards;}
 @keyframes wExit{0%{opacity:1;transform:translateY(0);}100%{opacity:0;transform:translateY(-12px);}}
 @keyframes wEnter{0%{opacity:0;transform:translateY(10px);}100%{opacity:1;transform:translateY(0);}}
-.page-desc{font-size:18px;color:var(--muted);max-width:560px;line-height:1.75;font-weight:300;margin-bottom:36px;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-fill{background:var(--teal);color:#0d1117;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:opacity 0.18s;display:inline-flex;align-items:center;gap:8px;}
-.btn-fill:hover{opacity:0.85;}
-.btn-ghost{background:transparent;color:var(--muted);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:color 0.18s,border-color 0.18s;display:inline-block;}
-.btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
+.page-desc{margin-bottom:36px;}
 
 .filter-bar{border-bottom:1px solid var(--border);}
 .filter-row{padding:16px 40px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
@@ -75,47 +44,10 @@ nav.nav-hidden{transform:translateY(-100%);}
 .cat-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
 .cat-title{font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1;letter-spacing:-0.01em;}
 .cat-desc{font-size:16px;color:var(--muted);max-width:480px;line-height:1.7;font-weight:300;margin-top:12px;}
-.see-all{font-size:14px;font-weight:500;color:var(--muted);letter-spacing:0.06em;display:inline-flex;align-items:center;gap:6px;transition:color 0.18s;white-space:nowrap;flex-shrink:0;}
-.see-all:hover{color:var(--teal);}
-.see-all::after{content:'→';transition:transform 0.18s;}
-.see-all:hover::after{transform:translateX(3px);}
-
-.svc-grid{display:grid;gap:2px;background:var(--border);border-radius:12px;}
-.svc-card{background:var(--bg2);padding:32px 28px;position:relative;isolation:isolate;transition:background 0.25s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s;}
-.svc-card.hidden{display:none;}
-.svc-card:hover{background:var(--bg3);transform:scale(1.015);box-shadow:0 8px 32px rgba(0,0,0,0.4);}
-.svc-card.dropdown-open{z-index:20;transform:scale(1.015);}
-.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
-.svc-card:hover::before,.svc-card.dropdown-open::before{transform:scaleX(1);}
-.svc-name-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
-.svc-name{font-size:20px;font-weight:700;color:var(--white);line-height:1.2;}
-.svc-preview-btn{width:32px;height:32px;border-radius:50%;background:rgba(0,242,166,0.1);border:1px solid rgba(0,242,166,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 0.18s;}
-.svc-preview-btn:hover{background:rgba(0,242,166,0.2);}
-.svc-desc{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:20px;}
-.svc-toggle{width:100%;background:none;border:none;border-top:1px solid var(--border);padding:14px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;font-family:var(--sans);transition:color 0.18s;}
-.svc-toggle:hover{color:var(--white);}
-.svc-toggle svg{transition:transform 0.25s;flex-shrink:0;}
-.svc-toggle.open{color:var(--white);}
-.svc-toggle.open svg{transform:rotate(180deg);}
-.svc-details-wrap{position:relative;}
-.svc-details{position:absolute;left:-1px;right:-1px;top:100%;background:var(--bg2);border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.22,1,0.36,1);pointer-events:none;z-index:30;}
-.svc-details.open{max-height:700px;box-shadow:0 20px 48px rgba(0,0,0,0.6);pointer-events:auto;}
-.svc-details-inner{padding:4px 28px 20px;}
-.tier{padding:14px 0;border-bottom:1px solid var(--border2);}
-.tier:last-child{border-bottom:none;}
-.tier-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
-.tier-name{font-size:14px;font-weight:600;color:var(--white);}
-.tier-price{font-size:14px;font-weight:700;color:var(--teal);}
-.tier-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
-.tier-list li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:7px;line-height:1.4;}
-.tier-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:5px;}
 .no-results{padding:48px;text-align:center;color:var(--muted);font-size:15px;background:var(--bg2);border-radius:12px;margin-top:64px;}
 .cat-divider{height:1px;background:var(--border);margin-top:64px;}
 
 .process-wrap{padding:64px 40px 0;}
-.section-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.section-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
-.section-title{font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1;letter-spacing:-0.01em;margin-bottom:40px;}
 .process-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .ps{padding:40px 32px;border-right:1px solid var(--border);position:relative;transition:background 0.2s;}
 .ps:last-child{border-right:none;}
@@ -126,86 +58,23 @@ nav.nav-hidden{transform:translateY(-100%);}
 .ps-name{font-size:24px;font-weight:700;margin-bottom:10px;}
 .ps-desc{font-size:14px;color:var(--muted);line-height:1.7;font-weight:300;}
 
-.cta-wrap{padding:40px 40px 80px;}
-.cta-band{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:52px 56px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;flex-wrap:wrap;position:relative;overflow:hidden;}
-.cta-band::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%);pointer-events:none;}
-.cta-band-h{font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.05;letter-spacing:-0.01em;}
-.cta-band-h span{color:var(--teal);}
-
-.modal-backdrop{position:fixed;inset:0;z-index:500;background:rgba(11,14,20,0.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.25s,visibility 0.25s;padding:24px;}
-.modal-backdrop.open{opacity:1;visibility:visible;}
-.modal{background:var(--bg2);border:1px solid var(--border);border-radius:16px;overflow:hidden;width:100%;max-width:960px;max-height:90vh;overflow-y:auto;scrollbar-width:none;-ms-overflow-style:none;transform:translateY(16px) scale(0.98);transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1);display:grid;grid-template-columns:1fr 360px;}
-.modal::-webkit-scrollbar{display:none;}
-.modal-backdrop.open .modal{transform:translateY(0) scale(1);}
-.modal-left{background:#000;display:flex;flex-direction:column;min-height:240px;}
-.modal-embed{position:relative;width:100%;aspect-ratio:16/9;flex-shrink:0;}
-.modal-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
-.modal-related{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;gap:12px;}
-.modal-related-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
-.modal-rel-item{display:flex;gap:10px;cursor:pointer;padding:6px;border-radius:8px;transition:background 0.18s;}
-.modal-rel-item:hover{background:rgba(242,244,248,0.04);}
-.modal-rel-item img{width:80px;height:48px;object-fit:cover;border-radius:5px;flex-shrink:0;}
-.modal-rel-title{font-size:12px;font-weight:500;color:var(--white);line-height:1.35;}
-.modal-rel-tag{font-size:10px;color:var(--muted);margin-top:2px;}
-.modal-right{padding:28px 24px;display:flex;flex-direction:column;gap:18px;border-left:1px solid var(--border);overflow-y:auto;}
-.modal-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;}
-.modal-close{cursor:pointer;width:32px;height:32px;border-radius:50%;flex-shrink:0;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;transition:background 0.18s;}
-.modal-close:hover{background:rgba(0,242,166,0.1);}
-.modal-vtag{display:inline-flex;background:rgba(0,242,166,0.1);border:1px solid rgba(0,242,166,0.2);border-radius:100px;padding:4px 12px;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);}
-.modal-title{font-size:20px;font-weight:700;color:var(--white);line-height:1.3;}
-.modal-desc{font-size:13px;color:var(--muted);line-height:1.72;font-weight:300;}
-.modal-divider{height:1px;background:var(--border);}
-.modal-specs{display:flex;flex-direction:column;gap:9px;}
-.modal-spec{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;gap:10px;}
-.modal-spec-k{color:var(--muted);}
-.modal-spec-v{font-weight:600;color:var(--white);text-align:right;}
-.modal-cta{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
-.modal-btn-fill{display:block;text-align:center;background:var(--teal);color:#0d1117;padding:13px;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;transition:opacity 0.18s;}
-.modal-btn-fill:hover{opacity:0.85;}
-.modal-btn-ghost{display:block;text-align:center;background:transparent;color:var(--muted);padding:12px;border-radius:8px;font-size:13px;font-weight:500;border:1px solid var(--border);transition:color 0.18s,border-color 0.18s;}
-.modal-btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.3);}
-
-footer{background:var(--bg2);border-top:1px solid var(--border);}
-.footer-main{padding:56px 40px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid var(--border);}
-.footer-logo-img{height:44px;width:auto;display:block;margin-bottom:14px;}
-.footer-tagline{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;max-width:220px;}
-.footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);margin-bottom:18px;}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-links a{font-size:14px;color:var(--muted);font-weight:300;transition:color 0.18s;}
-.footer-links a:hover{color:var(--teal);}
-.footer-bottom{padding:20px 40px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);}
-.footer-bottom a{color:var(--muted);transition:color 0.18s;}
-.footer-bottom a:hover{color:var(--teal);}
+/* Services page uses .see-all at 14px (global is 16px) */
+.cat-header .see-all{font-size:14px;}
 
 @media(max-width:960px){
-  nav{padding:0 24px;}.nav-links{display:none;}
-  .page-hero,.services-wrap,.process-wrap,.cta-wrap{padding-left:24px;padding-right:24px;}
+  .services-wrap,.process-wrap{padding-left:24px;padding-right:24px;}
   .filter-row{padding-left:24px;padding-right:24px;}
   .svc-grid{grid-template-columns:1fr 1fr!important;}
   .process-grid{grid-template-columns:1fr;}.ps{border-right:none;border-bottom:1px solid var(--border);}.ps:last-child{border-bottom:none;}
-  .cta-band{padding:36px 28px;}
-  .footer-main{grid-template-columns:1fr 1fr;padding:40px 24px 32px;}
-  .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;}
-  .modal{grid-template-columns:1fr;}
 }
 @media(max-width:580px){
   .svc-grid{grid-template-columns:1fr!important;}
-  .footer-main{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
 
-<nav id="main-nav">
-  <div class="nav-logo"><a href="/"><img src="/assets/images/logo.svg" alt="Colegrove Media"></a></div>
-  <ul class="nav-links">
-    <li><a href="/services" class="active">Services</a></li>
-    <li><a href="/work">Portfolio</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/pricing">Pricing</a></li>
-  </ul>
-  <a href="/brief" class="nav-cta">Get a Quote</a>
-</nav>
+<div id="site-nav" data-active="services"></div>
 
 <div class="page-hero">
   <div class="eyebrow reveal">Services</div>
@@ -214,90 +83,55 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
     <span class="hero-word-wrap"><span class="hero-word" id="hero-word">we do</span></span>
   </h1>
   <p class="page-desc reveal" id="hero-desc">Video, photo, animation, and design — all under one roof. Every service is built around what your audience needs to see, feel, and do.</p>
-
 </div>
 
 <div class="filter-bar">
   <div class="filter-row" id="cat-row">
     <span class="filter-label">Category</span>
-    <button class="filter-btn active" data-cat="all"       onclick="setCat('all')">All</button>
-    <button class="filter-btn"        data-cat="video"     onclick="setCat('video')">Video</button>
-    <button class="filter-btn"        data-cat="photo"     onclick="setCat('photo')">Photo</button>
-    <button class="filter-btn"        data-cat="animation" onclick="setCat('animation')">Animation</button>
-    <button class="filter-btn"        data-cat="design"    onclick="setCat('design')">Design</button>
+    <button class="filter-btn active" data-cat="all" onclick="setCat('all')">All</button>
+    <button class="filter-btn" data-cat="video" onclick="setCat('video')">Video</button>
+    <button class="filter-btn" data-cat="photo" onclick="setCat('photo')">Photo</button>
+    <button class="filter-btn" data-cat="animation" onclick="setCat('animation')">Animation</button>
+    <button class="filter-btn" data-cat="design" onclick="setCat('design')">Design</button>
   </div>
   <div class="filter-row ind-row" id="ind-row">
     <span class="filter-label">Industry</span>
-    <button class="filter-btn ind active" data-ind="all"          onclick="setInd('all')">All</button>
-    <button class="filter-btn ind"        data-ind="real-estate"  onclick="setInd('real-estate')">Real Estate</button>
-    <button class="filter-btn ind"        data-ind="corporate"    onclick="setInd('corporate')">Corporate</button>
-    <button class="filter-btn ind"        data-ind="nonprofit"    onclick="setInd('nonprofit')">Non-Profit</button>
-    <button class="filter-btn ind"        data-ind="tech"         onclick="setInd('tech')">Tech / SaaS</button>
-    <button class="filter-btn ind"        data-ind="events"       onclick="setInd('events')">Events</button>
-    <button class="filter-btn ind"        data-ind="social-media" onclick="setInd('social-media')">Social Media</button>
+    <button class="filter-btn ind active" data-ind="all" onclick="setInd('all')">All</button>
+    <button class="filter-btn ind" data-ind="real-estate" onclick="setInd('real-estate')">Real Estate</button>
+    <button class="filter-btn ind" data-ind="corporate" onclick="setInd('corporate')">Corporate</button>
+    <button class="filter-btn ind" data-ind="nonprofit" onclick="setInd('nonprofit')">Non-Profit</button>
+    <button class="filter-btn ind" data-ind="tech" onclick="setInd('tech')">Tech / SaaS</button>
+    <button class="filter-btn ind" data-ind="events" onclick="setInd('events')">Events</button>
+    <button class="filter-btn ind" data-ind="social-media" onclick="setInd('social-media')">Social Media</button>
   </div>
 </div>
 
 <div class="services-wrap">
   <div class="cat-section" id="cat-video">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow">Video</div>
-        <h2 class="cat-title">Video Services</h2>
-        <p class="cat-desc">Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.</p>
-      </div>
-      <a href="/work?cat=video" class="see-all">View Video Work</a>
-    </div>
+    <div class="cat-header"><div><div class="cat-eyebrow">Video</div><h2 class="cat-title">Video Services</h2><p class="cat-desc">Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.</p></div><a href="/work?cat=video" class="see-all">View Video Work</a></div>
     <div class="svc-grid" id="grid-video" style="grid-template-columns:repeat(3,1fr)"></div>
   </div>
   <div class="cat-divider" id="div-video"></div>
-
   <div class="cat-section" id="cat-photo">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow">Photo</div>
-        <h2 class="cat-title">Photo Services</h2>
-        <p class="cat-desc">Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.</p>
-      </div>
-      <a href="/work?cat=photo" class="see-all">View Photo Work</a>
-    </div>
+    <div class="cat-header"><div><div class="cat-eyebrow">Photo</div><h2 class="cat-title">Photo Services</h2><p class="cat-desc">Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.</p></div><a href="/work?cat=photo" class="see-all">View Photo Work</a></div>
     <div class="svc-grid" id="grid-photo" style="grid-template-columns:repeat(4,1fr)"></div>
   </div>
   <div class="cat-divider" id="div-photo"></div>
-
   <div class="cat-section" id="cat-animation">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow">Animation</div>
-        <h2 class="cat-title">Animation Services</h2>
-        <p class="cat-desc">Motion and narrative working together to explain what words alone can't — and build recognition while doing it.</p>
-      </div>
-      <a href="/work?cat=animation" class="see-all">View Animation Work</a>
-    </div>
+    <div class="cat-header"><div><div class="cat-eyebrow">Animation</div><h2 class="cat-title">Animation Services</h2><p class="cat-desc">Motion and narrative working together to explain what words alone can't — and build recognition while doing it.</p></div><a href="/work?cat=animation" class="see-all">View Animation Work</a></div>
     <div class="svc-grid" id="grid-animation" style="grid-template-columns:repeat(4,1fr)"></div>
   </div>
   <div class="cat-divider" id="div-animation"></div>
-
   <div class="cat-section" id="cat-design">
-    <div class="cat-header">
-      <div>
-        <div class="cat-eyebrow">Design</div>
-        <h2 class="cat-title">Design Services</h2>
-        <p class="cat-desc">Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.</p>
-      </div>
-      <a href="/work?cat=design" class="see-all">View Design Work</a>
-    </div>
+    <div class="cat-header"><div><div class="cat-eyebrow">Design</div><h2 class="cat-title">Design Services</h2><p class="cat-desc">Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.</p></div><a href="/work?cat=design" class="see-all">View Design Work</a></div>
     <div class="svc-grid" id="grid-design" style="grid-template-columns:repeat(4,1fr)"></div>
   </div>
-
-  <div id="no-results" class="no-results" style="display:none;">
-    No services match that combination — try adjusting the filters above.
-  </div>
+  <div id="no-results" class="no-results" style="display:none;">No services match that combination — try adjusting the filters above.</div>
 </div>
 
 <div class="process-wrap reveal">
   <div class="section-eyebrow">How It Works</div>
-  <h2 class="section-title">Simple from start to finish.</h2>
+  <h2 class="section-title" style="margin-bottom:40px;">Simple from start to finish.</h2>
   <div class="process-grid">
     <div class="ps"><div class="ps-n">01</div><div class="ps-dot"><div class="ps-dot-inner"></div></div><div class="ps-name">Discovery</div><p class="ps-desc">A 30-minute call to understand your goals, audience, and what a win looks like. No pressure, just clarity.</p></div>
     <div class="ps"><div class="ps-n">02</div><div class="ps-dot"><div class="ps-dot-inner"></div></div><div class="ps-name">Pre-Production</div><p class="ps-desc">Script, shot list, locations, and logistics locked before anything starts. No winging it.</p></div>
@@ -336,49 +170,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   </div>
 </div>
 
-<footer>
-  <div class="footer-main">
-    <div>
-      <img src="/assets/images/logo.svg" alt="Colegrove Media" class="footer-logo-img">
-      <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Pages</div>
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/work">Portfolio</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Services</div>
-      <ul class="footer-links">
-        <li><a href="/services?cat=video">Video</a></li>
-        <li><a href="/services?cat=photo">Photo</a></li>
-        <li><a href="/services?cat=animation">Animation</a></li>
-        <li><a href="/services?cat=design">Design</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a></li>
-        <li><a href="tel:4062099945">(406) 209-9945</a></li>
-        <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
-        <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="/brief">Project Brief</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span id="footer-year"></span><span>Bozeman, Montana</span>
-    <a href="/terms">Terms &amp; Conditions</a>
-  </div>
-</footer>
+<div id="site-footer"></div>
 
+<script src="/assets/js/components.js"></script>
+<script src="/assets/js/shared.js"></script>
 <script>
+/* ── SERVICES-SPECIFIC JS ── */
 var PLAY='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1.5L9 6L1 10.5V1.5Z" fill="rgba(0,242,166,0.9)"/></svg>';
 var EXPAND='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(0,242,166,0.9)" stroke-width="1.5" stroke-linecap="round"><ellipse cx="7" cy="7" rx="6" ry="4"/><circle cx="7" cy="7" r="1.8" fill="rgba(0,242,166,0.9)" stroke="none"/></svg>';
 var CHEV='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
@@ -657,16 +454,6 @@ buildAll();
     if(ic&&SVC[ic]) setCat(ic);
     if(ii&&ii!=='all') setInd(ii);
   },0);
-})();
-
-document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
-(function(){
-  var nav=document.getElementById('main-nav'),ly=window.scrollY,t=false;
-  window.addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){var y=window.scrollY;if(y<80)nav.classList.remove('nav-hidden');else if(y>ly)nav.classList.add('nav-hidden');else nav.classList.remove('nav-hidden');ly=y;t=false;});t=true;}},{passive:true});
-})();
-(function(){
-  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 })();
 </script>
 </body>

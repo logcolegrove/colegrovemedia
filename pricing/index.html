@@ -7,50 +7,17 @@
 <meta name="description" content="Transparent pricing for video, photo, animation, and design services. Retainer partnerships, popular bundles, and à la carte — Colegrove Media, Bozeman MT.">
 <meta property="og:title" content="Pricing — Colegrove Media">
 <meta property="og:description" content="Transparent pricing for video, photo, animation, and design services.">
-<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove media og image-100.jpg">
+<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove-media-og-image.jpg">
 <meta property="og:url" content="https://colegrovemedia.com/pricing">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/assets/images/Colegrove Media Favicon.svg">
+<link rel="icon" type="image/svg+xml" href="/assets/images/colegrove-media-favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/global.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-:root{
-  --bg:#161a25;--bg2:#212733;--bg3:#1c2030;
-  --teal:#00f2a6;--teal-glow:rgba(0,242,166,0.08);
-  --white:#f2f4f8;--muted:#7e8ca0;
-  --border:rgba(0,242,166,0.12);--border2:rgba(242,244,248,0.06);
-  --sans:'DM Sans',sans-serif;
-}
-body{background:var(--bg);color:var(--white);font-family:var(--sans);font-weight:400;line-height:1.6;overflow-x:hidden;padding-top:68px;}
-a{text-decoration:none;color:inherit;}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1),transform 0.65s cubic-bezier(0.22,1,0.36,1);}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(22,26,37,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:68px;transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);}
-nav.nav-hidden{transform:translateY(-100%);}
-.nav-logo{display:flex;align-items:center;flex-shrink:0;height:44px;}
-.nav-logo img{height:48px;width:auto;display:block;}
-.nav-links{display:flex;list-style:none;gap:8px;}
-.nav-links a{font-size:16px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);padding:6px 14px;border-radius:6px;transition:color 0.18s,background 0.18s;}
-.nav-links a:hover{color:var(--white);background:rgba(0,242,166,0.07);}
-.nav-links a.active{color:var(--teal);background:rgba(0,242,166,0.07);}
-.nav-cta{background:var(--teal);color:#0d1117;padding:10px 22px;border-radius:8px;font-size:15px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;transition:opacity 0.18s;display:inline-block;}
-.nav-cta:hover{opacity:0.85;}
-
-.page-hero{padding:80px 40px 56px;border-bottom:1px solid var(--border);}
-.eyebrow{font-size:14px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
-.page-h1{font-size:clamp(44px,5.5vw,72px);font-weight:700;line-height:1;letter-spacing:-0.02em;margin-bottom:16px;}
-.page-desc{font-size:18px;color:var(--muted);max-width:560px;line-height:1.75;font-weight:300;}
-
-.pricing-section{padding:72px 40px;border-bottom:1px solid var(--border);}
-.section-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.section-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
-.section-title{font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1;letter-spacing:-0.01em;margin-bottom:8px;}
-.section-sub{font-size:16px;color:var(--muted);font-weight:300;line-height:1.65;max-width:520px;margin-bottom:48px;}
+/* ── PRICING-SPECIFIC STYLES ── */
+.pricing-section{padding:72px 40px;border-bottom:1px solid var(--border);position:relative;}
 
 .retainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:visible;}
 .retainer-card{background:var(--bg2);padding:40px 32px;display:flex;flex-direction:column;gap:0;position:relative;isolation:isolate;}
@@ -87,8 +54,7 @@ nav.nav-hidden{transform:translateY(-100%);}
 .pkg-cta{margin-top:4px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--teal);letter-spacing:0.06em;text-transform:uppercase;transition:gap 0.18s;cursor:pointer;}
 .pkg-cta:hover{gap:10px;}
 
-.alc-category{margin-bottom:2px;}
-.alc-category:last-child{margin-bottom:0;}
+#alc-wrap{position:relative;z-index:50;}
 .alc-cat-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:1px solid var(--border);cursor:pointer;user-select:none;}
 .alc-cat-header:first-of-type{border-top:none;}
 .alc-cat-name{font-size:20px;font-weight:700;color:var(--white);}
@@ -98,35 +64,6 @@ nav.nav-hidden{transform:translateY(-100%);}
 .alc-cat-toggle.open{color:var(--white);}
 .alc-grid{display:none;gap:2px;background:var(--border);border-radius:12px;overflow:visible;margin-bottom:0;}
 .alc-grid.open{display:grid;margin-bottom:16px;}
-.pricing-section{position:relative;}
-#alc-wrap{position:relative;z-index:50;}
-.policies-strip{position:relative;z-index:0;}
-
-.svc-card{background:var(--bg2);padding:32px 28px;position:relative;isolation:isolate;transition:background 0.25s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s;}
-.svc-card:hover{background:var(--bg3);transform:scale(1.015);box-shadow:0 8px 32px rgba(0,0,0,0.4);}
-.svc-card.dropdown-open{z-index:20;transform:scale(1.015);}
-.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
-.svc-card:hover::before,.svc-card.dropdown-open::before{transform:scaleX(1);}
-.svc-name-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}
-.svc-name{font-size:20px;font-weight:700;color:var(--white);line-height:1.2;}
-.svc-desc{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:20px;}
-.svc-toggle{width:100%;background:none;border:none;border-top:1px solid var(--border);padding:14px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;font-family:var(--sans);transition:color 0.18s;}
-.svc-toggle:hover{color:var(--white);}
-.svc-toggle svg{transition:transform 0.25s;flex-shrink:0;}
-.svc-toggle.open{color:var(--white);}
-.svc-toggle.open svg{transform:rotate(180deg);}
-.svc-details-wrap{position:relative;}
-.svc-details{position:absolute;left:-1px;right:-1px;top:100%;background:var(--bg2);border:1px solid var(--border);border-top:none;border-radius:0 0 12px 12px;max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.22,1,0.36,1);pointer-events:none;z-index:30;}
-.svc-details.open{max-height:700px;box-shadow:0 20px 48px rgba(0,0,0,0.6);pointer-events:auto;}
-.svc-details-inner{padding:4px 28px 20px;}
-.tier{padding:14px 0;border-bottom:1px solid var(--border2);}
-.tier:last-child{border-bottom:none;}
-.tier-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
-.tier-name{font-size:14px;font-weight:600;color:var(--white);}
-.tier-price{font-size:14px;font-weight:700;color:var(--teal);}
-.tier-list{list-style:none;display:flex;flex-direction:column;gap:5px;}
-.tier-list li{font-size:12px;color:var(--muted);display:flex;align-items:flex-start;gap:7px;line-height:1.4;}
-.tier-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:5px;}
 
 .policies-strip{padding:0 40px;border-bottom:1px solid var(--border);position:relative;z-index:0;}
 .policies-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:8px;overflow:hidden;}
@@ -135,56 +72,20 @@ nav.nav-hidden{transform:translateY(-100%);}
 .policy-value{font-size:13px;font-weight:500;color:var(--muted);}
 .policy-desc{font-size:12px;color:var(--muted);font-weight:300;opacity:0.55;line-height:1.5;margin-top:2px;}
 
-.cta-wrap{padding:40px 40px 80px;}
-.cta-band{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:52px 56px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;flex-wrap:wrap;position:relative;overflow:hidden;}
-.cta-band::before{content:'';position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%);pointer-events:none;}
-.cta-band-h{font-size:clamp(28px,3.5vw,44px);font-weight:700;line-height:1.05;letter-spacing:-0.01em;}
-.cta-band-h span{color:var(--teal);}
-.btn-fill{background:var(--teal);color:#0d1117;padding:13px 28px;border-radius:8px;font-size:14px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;border:none;cursor:pointer;transition:opacity 0.18s;display:inline-flex;align-items:center;gap:8px;}
-.btn-fill:hover{opacity:0.85;}
-.btn-ghost{background:transparent;color:var(--muted);padding:12px 28px;border-radius:8px;font-size:14px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);cursor:pointer;transition:color 0.18s,border-color 0.18s;display:inline-block;}
-.btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
-
-footer{background:var(--bg2);border-top:1px solid var(--border);}
-.footer-main{padding:56px 40px 40px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;border-bottom:1px solid var(--border);}
-.footer-logo-img{height:44px;width:auto;display:block;margin-bottom:14px;}
-.footer-tagline{font-size:14px;color:var(--muted);line-height:1.65;font-weight:300;max-width:220px;}
-.footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--white);margin-bottom:18px;}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-links a{font-size:14px;color:var(--muted);font-weight:300;transition:color 0.18s;}
-.footer-links a:hover{color:var(--teal);}
-.footer-bottom{padding:20px 40px;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--muted);}
-.footer-bottom a{color:var(--muted);transition:color 0.18s;}
-.footer-bottom a:hover{color:var(--teal);}
-
 @media(max-width:960px){
-  nav{padding:0 24px;}.nav-links{display:none;}
-  .page-hero,.pricing-section,.policies-strip,.cta-wrap{padding-left:24px;padding-right:24px;}
+  .pricing-section,.policies-strip{padding-left:24px;padding-right:24px;}
   .retainer-grid{grid-template-columns:1fr;}
   .packages-grid{grid-template-columns:1fr;}
   .policies-inner{grid-template-columns:1fr 1fr;}
-  .cta-band{padding:36px 28px;}
-  .footer-main{grid-template-columns:1fr 1fr;padding:40px 24px 32px;}
-  .footer-bottom{padding:16px 24px;flex-direction:column;gap:8px;}
 }
 @media(max-width:640px){
   .alc-grid{grid-template-columns:1fr!important;}
-  .footer-main{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
 
-<nav id="main-nav">
-  <div class="nav-logo"><a href="/"><img src="/assets/images/logo.svg" alt="Colegrove Media"></a></div>
-  <ul class="nav-links">
-    <li><a href="/services">Services</a></li>
-    <li><a href="/work">Portfolio</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/pricing" class="active">Pricing</a></li>
-  </ul>
-  <a href="/brief" class="nav-cta">Get a Quote</a>
-</nav>
+<div id="site-nav" data-active="pricing"></div>
 
 <div class="page-hero">
   <div class="eyebrow reveal">Pricing</div>
@@ -250,34 +151,22 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   <p class="section-sub reveal">Common combinations of services for specific needs — priced as a bundle and coordinated as a single project. Contact for a custom quote.</p>
   <div class="packages-grid reveal">
     <div class="pkg-card">
-      <div class="pkg-header">
-        <div><div class="pkg-name">Real Estate</div><div class="pkg-desc">Everything you need to market a listing — from aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.</div></div>
-        <div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$1,200</span></div>
-      </div>
+      <div class="pkg-header"><div><div class="pkg-name">Real Estate</div><div class="pkg-desc">Everything you need to market a listing — from aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$1,200</span></div></div>
       <ul class="pkg-services"><li>Real Estate Video</li><li>Real Estate Photos</li><li>Drone Video</li><li>Satellite Map</li><li>3D Virtual Tour</li></ul>
       <a href="/brief" class="pkg-cta">Get a Quote →</a>
     </div>
     <div class="pkg-card">
-      <div class="pkg-header">
-        <div><div class="pkg-name">Corporate / Brand</div><div class="pkg-desc">A full content suite for companies that want to show up professionally — across web, social, and sales conversations.</div></div>
-        <div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$2,500</span></div>
-      </div>
+      <div class="pkg-header"><div><div class="pkg-name">Corporate / Brand</div><div class="pkg-desc">A full content suite for companies that want to show up professionally — across web, social, and sales conversations.</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$2,500</span></div></div>
       <ul class="pkg-services"><li>Brand Video</li><li>Testimonial</li><li>Animated Explainer</li><li>Product Demo Video</li><li>Team Headshots</li></ul>
       <a href="/brief" class="pkg-cta">Get a Quote →</a>
     </div>
     <div class="pkg-card">
-      <div class="pkg-header">
-        <div><div class="pkg-name">Live Event</div><div class="pkg-desc">Full event coverage — broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.</div></div>
-        <div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$3,000</span></div>
-      </div>
+      <div class="pkg-header"><div><div class="pkg-name">Live Event</div><div class="pkg-desc">Full event coverage — broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$3,000</span></div></div>
       <ul class="pkg-services"><li>Live Stream</li><li>Event Highlight Video</li><li>Testimonials on-site</li><li>Headshots for attendees / speakers</li><li>Graphic Design</li></ul>
       <a href="/brief" class="pkg-cta">Get a Quote →</a>
     </div>
     <div class="pkg-card">
-      <div class="pkg-header">
-        <div><div class="pkg-name">Social Media</div><div class="pkg-desc">A month of content in a single shoot day — video, stills, and graphics ready to post across all your channels.</div></div>
-        <div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$2,500</span></div>
-      </div>
+      <div class="pkg-header"><div><div class="pkg-name">Social Media</div><div class="pkg-desc">A month of content in a single shoot day — video, stills, and graphics ready to post across all your channels.</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$2,500</span></div></div>
       <ul class="pkg-services"><li>Social Clips / Ads</li><li>Drone Video</li><li>Headshots</li><li>Motion Graphics set</li><li>Graphic Design</li></ul>
       <a href="/brief" class="pkg-cta">Get a Quote →</a>
     </div>
@@ -294,26 +183,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
 <div class="policies-strip" style="padding-top:36px;padding-bottom:36px;">
   <div class="section-eyebrow" style="margin-bottom:16px;">Good to Know</div>
   <div class="policies-inner">
-    <div class="policy-card">
-      <div class="policy-name">Rush Fee</div>
-      <div class="policy-value">2× quoted rate</div>
-      <div class="policy-desc">For delivery significantly shorter than the standard production schedule.</div>
-    </div>
-    <div class="policy-card">
-      <div class="policy-name">Travel Fee</div>
-      <div class="policy-value">$1 / mile</div>
-      <div class="policy-desc">Beyond 15 miles from Bozeman, MT. Multi-day productions quoted individually.</div>
-    </div>
-    <div class="policy-card">
-      <div class="policy-name">Usage Rights</div>
-      <div class="policy-value">Full transfer on delivery</div>
-      <div class="policy-desc">All rights pass to you upon final delivery. No ongoing licensing fees.</div>
-    </div>
-    <div class="policy-card">
-      <div class="policy-name">Hourly / Day Rate</div>
-      <div class="policy-value">$125 / hr &nbsp;·&nbsp; $1,000 / day</div>
-      <div class="policy-desc">For consulting, maintenance, or any work billed by time.</div>
-    </div>
+    <div class="policy-card"><div class="policy-name">Rush Fee</div><div class="policy-value">2× quoted rate</div><div class="policy-desc">For delivery significantly shorter than the standard production schedule.</div></div>
+    <div class="policy-card"><div class="policy-name">Travel Fee</div><div class="policy-value">$1 / mile</div><div class="policy-desc">Beyond 15 miles from Bozeman, MT. Multi-day productions quoted individually.</div></div>
+    <div class="policy-card"><div class="policy-name">Usage Rights</div><div class="policy-value">Full transfer on delivery</div><div class="policy-desc">All rights pass to you upon final delivery. No ongoing licensing fees.</div></div>
+    <div class="policy-card"><div class="policy-name">Hourly / Day Rate</div><div class="policy-value">$125 / hr &nbsp;·&nbsp; $1,000 / day</div><div class="policy-desc">For consulting, maintenance, or any work billed by time.</div></div>
   </div>
 </div>
 
@@ -327,49 +200,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);}
   </div>
 </div>
 
-<footer>
-  <div class="footer-main">
-    <div>
-      <img src="/assets/images/logo.svg" alt="Colegrove Media" class="footer-logo-img">
-      <p class="footer-tagline">A creative partner for brands that mean business — video, photo, animation, and design from Bozeman, MT.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Pages</div>
-      <ul class="footer-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/work">Portfolio</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/pricing">Pricing</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Services</div>
-      <ul class="footer-links">
-        <li><a href="/services?cat=video">Video</a></li>
-        <li><a href="/services?cat=photo">Photo</a></li>
-        <li><a href="/services?cat=animation">Animation</a></li>
-        <li><a href="/services?cat=design">Design</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a></li>
-        <li><a href="tel:4062099945">(406) 209-9945</a></li>
-        <li><a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a></li>
-        <li><a href="https://calendar.app.google/VkHDTa5U2EankpWW6">Schedule a Call</a></li>
-        <li><a href="/brief">Project Brief</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span id="footer-year"></span><span>Bozeman, Montana</span>
-    <a href="/terms">Terms &amp; Conditions</a>
-  </div>
-</footer>
+<div id="site-footer"></div>
 
+<script src="/assets/js/components.js"></script>
+<script src="/assets/js/shared.js"></script>
 <script>
+/* ── PRICING-SPECIFIC JS ── */
 var CHEV='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
 
 var ALC=[
@@ -464,22 +300,6 @@ function toggleTier(btn){
 document.addEventListener('click',function(e){if(!e.target.closest('.svc-card'))closeAllDropdowns();});
 
 buildALC();
-document.getElementById('footer-year').textContent='© '+new Date().getFullYear()+' Colegrove Media';
-
-(function(){
-  var nav=document.getElementById('main-nav'),ly=window.scrollY,t=false;
-  window.addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){
-    var y=window.scrollY;
-    if(y<80)nav.classList.remove('nav-hidden');
-    else if(y>ly)nav.classList.add('nav-hidden');
-    else nav.classList.remove('nav-hidden');
-    ly=y;t=false;
-  });t=true;}},{passive:true});
-})();
-(function(){
-  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target);}});},{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-})();
 </script>
 </body>
 </html>
