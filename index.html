@@ -19,7 +19,6 @@
 /* ── HOMEPAGE-SPECIFIC STYLES ── */
 body{font-size:20px;}
 
-/* Loading screen */
 #loader{position:fixed;inset:0;z-index:9999;background:#161a25;display:flex;align-items:center;justify-content:center;pointer-events:none;}
 #loader.hide{animation:loaderWipe 0.9s cubic-bezier(0.76,0,0.24,1) forwards;}
 @keyframes loaderWipe{0%{clip-path:inset(0 0 0 0);opacity:1;}100%{clip-path:inset(0 0 100% 0);opacity:1;}}
@@ -27,12 +26,10 @@ body{font-size:20px;}
 @media(min-width:769px){#lottie-wrap{width:min(900px,85vw);transform:translateX(1vw);}}
 #lottie-wrap.visible{opacity:1;}
 
-/* Hero */
 .hero{position:relative;height:calc(100vh - 68px);min-height:520px;overflow:hidden;border-bottom:1px solid var(--border);}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
 .hero-scrim{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(22,26,37,0.18) 0%,rgba(22,26,37,0.08) 50%,rgba(22,26,37,0.55) 100%);cursor:pointer;}
 
-/* Services grid */
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:12px;overflow:visible;}
 .service-card{padding:36px 28px 32px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:16px;cursor:pointer;position:relative;overflow:hidden;transition:background 0.25s,transform 0.3s cubic-bezier(0.34,1.4,0.64,1),box-shadow 0.3s;border-radius:0;}
 .service-card:first-child{border-radius:12px 0 0 12px;}
@@ -51,7 +48,6 @@ body{font-size:20px;}
 .s-list li::after{content:'→';opacity:0;font-size:13px;color:var(--teal);transition:opacity 0.18s;}
 .s-list li:hover::after{opacity:1;}
 
-/* About grid */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .about-left{padding:56px 52px 56px 40px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:24px;}
 .about-h2{font-family:var(--display);font-size:clamp(28px,3vw,42px);font-weight:700;line-height:1.1;letter-spacing:-0.01em;}
@@ -64,7 +60,6 @@ body{font-size:20px;}
 .value-title{font-family:var(--display);font-size:22px;font-weight:700;color:var(--white);margin-bottom:6px;}
 .value-desc{font-size:16px;color:var(--muted);line-height:1.65;font-weight:300;}
 
-/* Process grid */
 .process-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
 .process-step{padding:44px 32px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:14px;position:relative;transition:background 0.2s;}
 .process-step:last-child{border-right:none;}
@@ -75,7 +70,6 @@ body{font-size:20px;}
 .step-link{margin-top:8px;font-size:12px;font-weight:500;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;transition:gap 0.18s;}
 .step-link:hover{gap:10px;}
 
-/* Quote carousel */
 .quote-strip{background:var(--bg2);border-bottom:1px solid var(--border);padding:72px 40px;overflow:hidden;}
 .quote-inner{max-width:960px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:20px;}
 .quote-mark{font-family:var(--display);font-size:72px;font-weight:700;color:var(--teal);opacity:0.25;line-height:0.7;}
@@ -93,7 +87,6 @@ body{font-size:20px;}
 @keyframes arrPulse{0%,100%{opacity:0.35;transform:scale(1);}50%{opacity:1;transform:scale(1.12);border-color:rgba(0,242,166,0.4);color:var(--white);}}
 @media(max-width:768px){.quote-arrow{display:none;}.quote-mobile-arrows{display:flex;gap:16px;margin-top:8px;}.quote-mobile-arr{animation:arrPulse 2.5s ease-in-out infinite;}.quote-mobile-arr:nth-child(2){animation-delay:0.15s;}}
 
-/* CTA section */
 .cta-section{padding:100px 40px;display:flex;align-items:center;justify-content:space-between;gap:60px;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
 .cta-section::before{content:'';position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,242,166,0.05) 0%,transparent 70%);pointer-events:none;}
 .cta-h2{font-family:var(--display);font-size:clamp(36px,4.5vw,58px);font-weight:700;line-height:0.98;letter-spacing:-0.015em;max-width:520px;}
@@ -183,20 +176,7 @@ body{font-size:20px;}
     </div>
     <a href="/work" class="see-all reveal reveal-delay-2">View All</a>
   </div>
-  <div class="work-grid" id="home-work-grid">
-    <div class="work-item reveal" onclick="openModal(0)"><img class="wi-thumb" src="assets/images/thumb-ignis.jpeg" alt="Ignis Technologies"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Brand Video</div><div class="wi-title">Powering Wildfire Intelligence</div><div class="wi-client">Ignis Technologies</div></div></div>
-    <div class="work-item reveal reveal-delay-1" onclick="openModal(1)"><img class="wi-thumb" src="assets/images/thumb-nonprofit-explainer.jpeg" alt="Streamline Your Nonprofit"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Animation</div><div class="wi-title">Streamline Your Nonprofit</div><div class="wi-client">NonprofitCore</div></div></div>
-    <div class="work-item reveal reveal-delay-2" onclick="openModal(2)"><img class="wi-thumb" src="assets/images/thumb-iceland.jpg" alt="Iceland in Motion"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Drone / FPV</div><div class="wi-title">Iceland in Motion</div><div class="wi-client">Personal Travel Film</div></div></div>
-    <div class="work-item reveal reveal-delay-1" onclick="openModal(3)"><img class="wi-thumb" src="assets/images/thumb-smartsimple.jpg" alt="SaaS Explainer"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Animation</div><div class="wi-title">Cloud Grants Management</div><div class="wi-client">SmartSimple</div></div></div>
-    <div class="work-item reveal reveal-delay-2" onclick="openModal(4)"><img class="wi-thumb" src="assets/images/thumb-grassland-initiative.jpg" alt="Montana Grassland Initiative"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Brand Video</div><div class="wi-title">Montana Grassland Initiative Explained</div><div class="wi-client">Pheasants Forever</div></div></div>
-    <div class="work-item reveal reveal-delay-3" onclick="openModal(5)"><img class="wi-thumb" src="assets/images/thumb-ranchers-take.jpg" alt="A Rancher's Take"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Remote Client Story</div><div class="wi-title">A Rancher's Take on Grassland Restoration</div><div class="wi-client">Pheasants Forever</div></div></div>
-    <div class="work-item reveal home-extra" style="display:none;" onclick="openModal(6)"><img class="wi-thumb" src="assets/images/thumb-drone-reel.jpeg" alt="Drone Reel"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Drone / FPV</div><div class="wi-title">Drone Reel</div><div class="wi-client">Colegrove Media</div></div></div>
-    <div class="work-item reveal reveal-delay-1 home-extra" style="display:none;" onclick="openModal(7)"><img class="wi-thumb" src="assets/images/thumb-arctic.jpeg" alt="Above the Arctic Circle"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Drone / FPV</div><div class="wi-title">Above the Arctic Circle</div><div class="wi-client">Northern Norway</div></div></div>
-    <div class="work-item reveal reveal-delay-2 home-extra" style="display:none;" onclick="openModal(8)"><img class="wi-thumb" src="assets/images/thumb-field-notes.jpg" alt="Field Notes"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Podcast</div><div class="wi-title">Field Notes: Grassland Conversation</div><div class="wi-client">Pheasants Forever</div></div></div>
-    <div class="work-item reveal reveal-delay-1 home-extra" style="display:none;" onclick="openModal(9)"><img class="wi-thumb" src="assets/images/thumb-reporting-demo.jpeg" alt="Reporting Product Demo"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Product Demo</div><div class="wi-title">Reporting — Product Demo</div><div class="wi-client">Foundant Technologies</div></div></div>
-    <div class="work-item reveal reveal-delay-2 home-extra" style="display:none;" onclick="openModal(10)"><img class="wi-thumb" src="assets/images/thumb-salt-lake-summit.jpeg" alt="Salt Lake Summit"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Testimonial</div><div class="wi-title">Salt Lake Summit</div><div class="wi-client">Foundant Technologies</div></div></div>
-    <div class="work-item reveal reveal-delay-3 home-extra" style="display:none;" onclick="openModal(11)"><img class="wi-thumb" src="assets/images/thumb-foundation-mgmt.jpeg" alt="Foundation Management"><div class="wi-gradient"></div><div class="wi-play-btn"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="rgba(0,242,166,0.95)"/></svg></div><div class="wi-content"><div class="wi-tag">Product Demo</div><div class="wi-title">All-in-One Foundation Management</div><div class="wi-client">Foundant Technologies</div></div></div>
-  </div>
+  <div class="work-grid" id="home-work-grid"></div>
   <div style="display:flex;justify-content:center;margin-top:32px;">
     <button id="home-load-btn" onclick="homeLoadMore()" style="background:transparent;border:1px solid var(--border);color:var(--muted);padding:13px 36px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;font-family:var(--sans);transition:color 0.18s,border-color 0.18s;" onmouseover="this.style.color='var(--white)';this.style.borderColor='rgba(0,242,166,0.4)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Load More</button>
   </div>
@@ -206,7 +186,7 @@ body{font-size:20px;}
   <div class="modal" id="modal">
     <div class="modal-left">
       <div class="modal-embed"><iframe id="modal-iframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>
-      <div class="modal-related" id="modal-related"><div class="modal-related-label" id="modal-related-label">More Brand Videos</div></div>
+      <div class="modal-related" id="modal-related"><div class="modal-related-label" id="modal-related-label"></div></div>
     </div>
     <div class="modal-right">
       <div class="modal-header"><span class="modal-vtag" id="modal-tag"></span><div class="modal-close" onclick="closeModal()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></div></div>
@@ -262,10 +242,7 @@ body{font-size:20px;}
     <div class="quote-row">
       <button class="quote-arrow" onclick="shiftQuote(-1)">&#8592;</button>
       <div class="quote-viewport" id="quote-viewport">
-        <div class="quote-track" id="quote-track">
-          <div class="quote-slide"><blockquote class="quote-text">The team is STOKED about the video and believes it may be the best brand video they've ever seen!</blockquote><div class="quote-attr"><strong>Meaghann Gaffney</strong> &nbsp;·&nbsp; Ignis Technologies</div></div>
-          <div class="quote-slide"><blockquote class="quote-text">Colegrove Media is like a creative swiss army knife. Truly eyebrow-raising stuff.</blockquote><div class="quote-attr"><strong>Isaac Miller</strong> &nbsp;·&nbsp; PhD</div></div>
-        </div>
+        <div class="quote-track" id="quote-track"></div>
       </div>
       <button class="quote-arrow" onclick="shiftQuote(1)">&#8594;</button>
     </div>
@@ -293,6 +270,8 @@ body{font-size:20px;}
 <div id="site-footer"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="/assets/js/portfolio-data.js"></script>
+<script src="/assets/js/quotes-data.js"></script>
 <script src="/assets/js/components.js"></script>
 <script src="/assets/js/shared.js"></script>
 <script>
@@ -308,79 +287,108 @@ body{font-size:20px;}
   anim.addEventListener('data_failed',function(){clearTimeout(safetyTimer);doWipe();});
 })();
 
-/* ── HOMEPAGE MODAL DATA ── */
-var library=[
-  {slug:'powering-wildfire-intelligence',title:'Powering Wildfire Intelligence',thumb:'assets/images/thumb-ignis.jpeg',cats:['brand-video'],vimeoId:'1011394531'},
-  {slug:'streamline-your-nonprofit',title:'Streamline Your Nonprofit — Animated Explainer',thumb:'assets/images/thumb-nonprofit-explainer.jpeg',cats:['animated-explainer'],vimeoId:'1011466967'},
-  {slug:'above-the-arctic-circle',title:'Above the Arctic Circle — Cinematic 4K Drone Film',thumb:'assets/images/thumb-arctic.jpeg',cats:['drone-video-fpv'],vimeoId:'1012197311'},
-  {slug:'all-in-one-foundation-management',title:'All-in-One Foundation Management Solution',thumb:'assets/images/thumb-foundation-mgmt.jpeg',cats:['product-video','animated-explainer'],vimeoId:'1011444538'},
-  {slug:'painted-hills-gvlt',title:'Painted Hills — GVLT Brand Video',thumb:'assets/images/thumb-painted-hills.jpg',cats:['brand-video'],vimeoId:'1011446090'},
-  {slug:'not-jumping-ship',title:'Not Jumping Ship — Testimonial Video',thumb:'assets/images/thumb-not-jumping-ship.jpeg',cats:['testimonial'],vimeoId:'1011460491'},
-  {slug:'enhancing-habitats',title:'Enhancing Habitats through Mesic Restoration',thumb:'assets/images/thumb-enhancing-habitats.jpeg',cats:['brand-video'],vimeoId:'1009737494'},
-  {slug:'foundant-brand-overview',title:'Foundant Brand Overview',thumb:'assets/images/thumb-foundant-brand.jpeg',cats:['brand-video'],vimeoId:'1011467483'},
-  {slug:'girls-on-the-run',title:'Girls On The Run — Thrive Charity Video',thumb:'assets/images/thumb-girls-on-the-run.jpeg',cats:['brand-video'],vimeoId:'1011397220'},
-  {slug:'montana-grassland-initiative',title:'Montana Grassland Initiative Explained',thumb:'assets/images/thumb-grassland-initiative.jpg',cats:['brand-video'],vimeoId:'1072711800'},
-  {slug:'drone-reel',title:'Drone Reel',thumb:'assets/images/thumb-drone-reel.jpeg',cats:['drone-video-fpv'],vimeoId:'1011433865'},
-  {slug:'iceland-in-motion',title:'Iceland in Motion',thumb:'assets/images/thumb-iceland.jpg',cats:['drone-video-fpv'],vimeoId:'1036921693'},
-  {slug:'someday-ranch',title:'Someday Ranch — Real Estate Video',thumb:'assets/images/thumb-someday-ranch.jpeg',cats:['real-estate-video','drone-video-fpv'],vimeoId:'1011395960'},
-  {slug:'15-spring-ridge',title:'15 Spring Ridge Dr — Real Estate Video',thumb:'assets/images/thumb-spring-ridge.jpeg',cats:['real-estate-video'],vimeoId:'823929975'},
-  {slug:'smartsimple-animated-explainer',title:'SmartSimple — Animated Explainer',thumb:'assets/images/thumb-smartsimple.jpg',cats:['animated-explainer'],vimeoId:'1053133749'},
-  {slug:'online-portal-animated-explainer',title:'Online Portal — Animated Explainer',thumb:'assets/images/thumb-online-portal.jpeg',cats:['animated-explainer'],vimeoId:'1011465254'},
-  {slug:'third-party-animated-explainer',title:'Third Party — Animated Explainer',thumb:'assets/images/thumb-third-party.jpeg',cats:['animated-explainer'],vimeoId:'1011464669'},
-  {slug:'software-demo-video',title:'Software Demo Video',thumb:'assets/images/thumb-software-demo.jpeg',cats:['animated-explainer','product-video'],vimeoId:'1011464708'},
-  {slug:'accounting-product-demo',title:'Accounting — Product Demo',thumb:'assets/images/thumb-accounting-demo.jpeg',cats:['product-video'],vimeoId:'1011466308'},
-  {slug:'fundraising-product-demo',title:'Fundraising — Product Demo',thumb:'assets/images/thumb-fundraising-demo.jpeg',cats:['product-video'],vimeoId:'1011466737'},
-  {slug:'reporting-product-demo',title:'Reporting — Product Demo',thumb:'assets/images/thumb-reporting-demo.jpeg',cats:['product-video'],vimeoId:'1011466134'},
-  {slug:'constituent-relationship-management',title:'Constituent Relationship Management — Product Demo',thumb:'assets/images/thumb-crm-demo.jpeg',cats:['product-video'],vimeoId:'1011466519'},
-  {slug:'client-service-testimonial',title:'Client Service Testimonial',thumb:'assets/images/thumb-client-service.jpeg',cats:['testimonial'],vimeoId:'1012194769'},
-  {slug:'team-testimonial',title:'Team Testimonial',thumb:'assets/images/thumb-team-testimonial.jpeg',cats:['testimonial'],vimeoId:'1011448652'},
-  {slug:'transforming-workflows',title:'Transforming Workflows — Testimonial Video',thumb:'assets/images/thumb-transforming-workflows.jpeg',cats:['testimonial'],vimeoId:'1011455705'},
-  {slug:'salt-lake-summit',title:'Salt Lake Summit — Event Promo Video',thumb:'assets/images/thumb-salt-lake-summit.jpeg',cats:['testimonial'],vimeoId:'1011467103'},
-  {slug:'doing-so-much-more',title:'Doing So Much More — Testimonial',thumb:'assets/images/thumb-doing-so-much-more.jpeg',cats:['testimonial'],vimeoId:'1011448080'},
-  {slug:'conversation-from-the-combine',title:'Conversation from the Combine — Matthew Klindworth',thumb:'assets/images/thumb-combine-conversation.jpg',cats:['remote-client-story'],vimeoId:'1134656254'},
-  {slug:'from-farmland-to-grassland',title:'From Farmland to Grassland: Sterling\'s Story',thumb:'assets/images/thumb-sterling.jpg',cats:['remote-client-story'],vimeoId:'1104993187'},
-  {slug:'remote-testimonial',title:'Remote Testimonial',thumb:'assets/images/thumb-remote-testimonial.jpeg',cats:['remote-client-story'],vimeoId:'1011464238'}
-];
+/* ── BUILD HOMEPAGE PORTFOLIO GRID FROM SHARED DATA ── */
+var INITIAL_SHOW = 6;
+var homeProjects = getFeatured();
+var homeExpanded = false;
 
-var projects=[
-  {slug:'powering-wildfire-intelligence',tag:'Brand Video',cats:['brand-video'],cta:'Get Your Brand Video Made →',title:'Powering Wildfire Intelligence',client:'Ignis Technologies',desc:'A cinematic brand video for Ignis Technologies, a wildfire intelligence platform. Shot on location to capture the urgency and innovation behind their mission-critical software — built to help firefighters and land managers stay ahead of fast-moving fires.',specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Ignis Technologies'},{k:'Production',v:'Strategy session, script, storyboard, 1 day shoot'},{k:'Deliverables',v:'Hero video + social cuts'},{k:'Turnaround',v:'2 months'}],vimeoId:'1011394531'},
-  {slug:'streamline-your-nonprofit',tag:'Animation',cats:['animated-explainer'],cta:'Get Your Animation Made →',title:'Streamline Your Nonprofit — Animated Explainer',client:'NonprofitCore',desc:'A clean, engaging animated explainer designed to walk nonprofit administrators through a complex software product in under two minutes. Motion graphics and clear narration replace a wall of features with a compelling story.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'NonprofitCore'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 weeks'}],vimeoId:'1011466967'},
-  {slug:'iceland-in-motion',tag:'Drone / FPV',cats:['drone-video-fpv'],cta:'Get Your Drone Film Made →',title:'Iceland in Motion',client:'Personal Travel Film',desc:'Hyperlapses, drone footage, and 8K cinematics shot across Iceland. A personal cinematic project capturing the raw, otherworldly landscape — glaciers, volcanic fields, and endless light.',specs:[{k:'Type',v:'Cinematic Travel Film'},{k:'Client',v:'Personal Project'},{k:'Location',v:'Iceland'},{k:'Turnaround',v:'4 weeks'}],vimeoId:'1036921693'},
-  {slug:'smartsimple-animated-explainer',tag:'Animation',cats:['animated-explainer'],cta:'Get Your Animation Made →',title:'Cloud Grants Management',client:'SmartSimple',desc:'A clean animated explainer built to communicate the value of a complex SaaS platform to a non-technical audience. Motion graphics and clear narration make the product feel approachable and worth exploring.',specs:[{k:'Type',v:'Animated Explainer'},{k:'Client',v:'SmartSimple'},{k:'Style',v:'2D Motion Graphics'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'3 months'}],vimeoId:'1053133749'},
-  {slug:'montana-grassland-initiative',tag:'Brand Video',cats:['brand-video'],cta:'Get Your Brand Video Made →',title:'Montana Grassland Initiative Explained',client:'Pheasants Forever',desc:'A brand video explaining the Montana Grassland Initiative and its conservation impact across the state.',specs:[{k:'Type',v:'Brand Video'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'4K Cinematic'}],vimeoId:'1072711800'},
-  {slug:'a-ranchers-take',tag:'Remote Client Story',cats:['remote-client-story'],cta:'Get Your Client Story Made →',title:'A Rancher\'s Take on Grassland Restoration',client:'Pheasants Forever',desc:'Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family\'s farm north of Glasgow — and how partnering with Pheasants Forever made the process simple, fast, and affordable.',specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}],vimeoId:'1134497582'},
-  {slug:'drone-reel',tag:'Drone / FPV',cats:['drone-video-fpv'],cta:'Get Your Drone Film Made →',title:'Drone Reel',client:'Colegrove Media',desc:'A showreel of cinematic aerial footage — orbits, top-downs, FPV flythroughs, and wide landscapes.',specs:[{k:'Type',v:'Showreel'},{k:'Equipment',v:'DJI + FPV'},{k:'Format',v:'4K'}],vimeoId:'1011433865'},
-  {slug:'above-the-arctic-circle',tag:'Drone / FPV',cats:['drone-video-fpv'],cta:'Get Your Drone Film Made →',title:'Above the Arctic Circle',client:'Northern Norway',desc:'A personal cinematic project above the Arctic Circle. Sweeping 4K drone footage of fjords, snowfields, and endless sky.',specs:[{k:'Type',v:'Cinematic Drone Film'},{k:'Location',v:'Northern Norway'}],vimeoId:'1012197311'},
-  {slug:'field-notes-grassland',tag:'Podcast',cats:['podcast'],cta:'Get a Quote →',title:'Field Notes: Grassland Conversation',client:'Pheasants Forever',desc:'A roundtable conversation with Montana ranchers about grassland conservation — authentic voices captured and produced as a polished podcast episode.',specs:[{k:'Type',v:'Podcast'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Multi-guest'}],vimeoId:'1103018945'},
-  {slug:'reporting-product-demo',tag:'Product Demo',cats:['product-video'],cta:'Get Your Product Demo Made →',title:'Reporting — Product Demo',client:'Foundant Technologies',desc:'A product demo focused on reporting features with clean screen recordings and clear voiceover.',specs:[{k:'Type',v:'Product Demo'},{k:'Client',v:'Foundant Technologies'}],vimeoId:'1011466134'},
-  {slug:'salt-lake-summit',tag:'Testimonial',cats:['testimonial'],cta:'Get a Quote →',title:'Salt Lake Summit',client:'Foundant Technologies',desc:'An event promo capturing the energy and key moments from the Salt Lake Summit.',specs:[{k:'Type',v:'Event Promo'},{k:'Client',v:'Foundant Technologies'}],vimeoId:'1011467103'},
-  {slug:'all-in-one-foundation-management',tag:'Product Demo',cats:['product-video','animated-explainer'],cta:'Get Your Product Demo Made →',title:'All-in-One Foundation Management',client:'Foundant Technologies',desc:'A software overview video built to help a foundation management platform communicate complex functionality to a non-technical audience. Screen recordings, motion graphics, and clear voiceover work together to make the product feel approachable and powerful.',specs:[{k:'Type',v:'Software Overview'},{k:'Client',v:'Foundant Technologies'},{k:'Style',v:'Screen capture + MoGraph'},{k:'Deliverables',v:'Master + demo loop'},{k:'Turnaround',v:'3–4 weeks'}],vimeoId:'1011444538'}
-];
-
-var catLabels={'brand-video':'Brand Videos','animated-explainer':'Animated Explainers','drone-video-fpv':'Drone & FPV Films','product-video':'Product Demos','real-estate-video':'Real Estate Videos','testimonial':'Testimonials','remote-client-story':'Client Stories'};
-
-function getRelated(slug,cats){return library.filter(function(item){if(item.slug===slug)return false;return item.cats.some(function(c){return cats.indexOf(c)>-1;});});}
-
-function openModal(idx){
-  var p=projects[idx];
-  document.getElementById('modal-tag').textContent=p.tag;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-desc').textContent=p.desc;
-  document.getElementById('modal-specs').innerHTML=p.specs.map(function(s){return '<div class="modal-spec"><span class="modal-spec-k">'+s.k+'</span><span class="modal-spec-v">'+s.v+'</span></div>';}).join('');
-  document.getElementById('modal-iframe').src='https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
-  document.getElementById('modal-cta-primary').textContent=p.cta||'Get a Quote →';
-  var related=getRelated(p.slug,p.cats).slice(0,3);var labelText='More '+(catLabels[p.cats[0]]||'Work');var relatedEl=document.getElementById('modal-related');
-  if(related.length===0){relatedEl.style.display='none';}else{relatedEl.style.display='';relatedEl.innerHTML='';var label=document.createElement('div');label.className='modal-related-label';label.textContent=labelText;relatedEl.appendChild(label);related.forEach(function(item){var d=document.createElement('div');d.className='modal-rel-item';d.setAttribute('onclick','openModalBySlug(\''+item.slug+'\')');d.innerHTML='<img src="'+item.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+item.title+'</div><div class="modal-rel-tag">'+(catLabels[item.cats[0]]||item.cats[0])+'</div></div>';relatedEl.appendChild(d);});}
-  document.getElementById('modal-backdrop').classList.add('open');document.body.style.overflow='hidden';
+function buildHomeGrid(){
+  var grid = document.getElementById('home-work-grid');
+  grid.innerHTML = '';
+  var show = homeExpanded ? homeProjects.length : Math.min(INITIAL_SHOW, homeProjects.length);
+  for(var i=0; i<homeProjects.length; i++){
+    var p = homeProjects[i];
+    var el = document.createElement('div');
+    el.className = 'work-item reveal' + (i>0 ? ' reveal-delay-'+(((i%3))+1) : '');
+    if(i >= show) el.style.display = 'none';
+    el.setAttribute('data-idx', i);
+    el.innerHTML = '<img class="wi-thumb" src="'+p.thumb+'" alt="'+p.title+'" loading="lazy">'
+      +'<div class="wi-gradient"></div>'
+      +'<div class="wi-play-btn"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg></div>'
+      +'<div class="wi-content"><div class="wi-tag">'+p.typeLabel+'</div>'
+      +'<div class="wi-title">'+p.title+'</div>'
+      +'<div class="wi-client">'+p.client+'</div></div>';
+    (function(proj){ el.onclick = function(){ openHomeModal(proj.slug); }; })(p);
+    grid.appendChild(el);
+  }
+  // trigger reveal observer for new items
+  var io = new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
+  grid.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  // update button
+  var btn = document.getElementById('home-load-btn');
+  if(homeProjects.length <= INITIAL_SHOW) btn.style.display = 'none';
 }
 
-function openModalBySlug(slug){for(var i=0;i<projects.length;i++){if(projects[i].slug===slug){openModal(i);return;}}var item=null;for(var j=0;j<library.length;j++){if(library[j].slug===slug){item=library[j];break;}}if(!item)return;var p={slug:item.slug,tag:catLabels[item.cats[0]]||item.cats[0],cats:item.cats,title:item.title,client:'',desc:'',specs:[{k:'Type',v:catLabels[item.cats[0]]||item.cats[0]}],vimeoId:item.vimeoId};projects.push(p);openModal(projects.length-1);projects.pop();}
+function homeLoadMore(){
+  if(!homeExpanded){
+    homeExpanded = true;
+    var items = document.querySelectorAll('#home-work-grid .work-item');
+    items.forEach(function(el){ el.style.display = ''; });
+    var btn = document.getElementById('home-load-btn');
+    btn.textContent = 'See All Projects';
+    btn.onclick = function(){ location.href = '/work'; };
+    // re-observe for reveal
+    var io = new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.1});
+    document.querySelectorAll('#home-work-grid .work-item').forEach(function(el){if(!el.classList.contains('visible'))io.observe(el);});
+  } else {
+    location.href = '/work';
+  }
+}
+
+buildHomeGrid();
+
+/* ── HOMEPAGE MODAL (uses shared portfolio data) ── */
+function openHomeModal(slug){
+  var p = findProject(slug);
+  if(!p) return;
+  document.getElementById('modal-tag').textContent = p.typeLabel;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('modal-desc').textContent = p.desc;
+  document.getElementById('modal-specs').innerHTML = p.specs.map(function(s){
+    return '<div class="modal-spec"><span class="modal-spec-k">'+s.k+'</span><span class="modal-spec-v">'+s.v+'</span></div>';
+  }).join('');
+  document.getElementById('modal-iframe').src = 'https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
+  document.getElementById('modal-cta-primary').textContent = p.cta || TYPE_CTA[p.type] || 'Get a Quote →';
+  // related
+  var related = getRelatedProjects(p.slug, p.type, 3);
+  var relatedEl = document.getElementById('modal-related');
+  if(!related.length){ relatedEl.style.display='none'; }
+  else{
+    relatedEl.style.display='';relatedEl.innerHTML='';
+    var label=document.createElement('div');label.className='modal-related-label';
+    label.textContent='More '+(CAT_LABELS[p.type]||'Work');relatedEl.appendChild(label);
+    related.forEach(function(item){
+      var d=document.createElement('div');d.className='modal-rel-item';
+      d.onclick=function(){openHomeModal(item.slug);};
+      d.innerHTML='<img src="'+item.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+item.title+'</div><div class="modal-rel-tag">'+(CAT_LABELS[item.type]||item.typeLabel)+'</div></div>';
+      relatedEl.appendChild(d);
+    });
+  }
+  document.getElementById('modal-backdrop').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
 function closeModal(){document.getElementById('modal-backdrop').classList.remove('open');document.getElementById('modal-iframe').src='';document.body.style.overflow='';}
 function handleBackdropClick(e){if(e.target===document.getElementById('modal-backdrop'))closeModal();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 
-function homeLoadMore(){var extras=document.querySelectorAll('.home-extra');extras.forEach(function(el){el.style.display='';});var btn=document.getElementById('home-load-btn');btn.textContent='See All Projects';btn.onclick=function(){location.href='/work';};}
-
-/* ── QUOTE CAROUSEL ── */
-(function(){var track=document.getElementById('quote-track');var vp=document.getElementById('quote-viewport');var slides=Array.prototype.slice.call(track.querySelectorAll('.quote-slide'));var count=slides.length;var cur=0;var animating=false;function goTo(n,animate){cur=((n%count)+count)%count;track.style.transition=animate===false?'none':'transform 0.45s cubic-bezier(0.22,1,0.36,1)';track.style.transform='translateX(-'+(cur*100)+'%)';;if(animate!==false){animating=true;setTimeout(function(){animating=false;},500);}}window.shiftQuote=function(dir){if(animating)return;goTo(cur+dir,true);};var startX=0;vp.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;},{passive:true});vp.addEventListener('touchend',function(e){var diff=startX-e.changedTouches[0].clientX;if(Math.abs(diff)>40)shiftQuote(diff>0?1:-1);},{passive:true});})();
+/* ── BUILD QUOTE CAROUSEL FROM SHARED DATA ── */
+(function(){
+  var track = document.getElementById('quote-track');
+  QUOTES.forEach(function(q){
+    var slide = document.createElement('div');
+    slide.className = 'quote-slide';
+    slide.innerHTML = '<blockquote class="quote-text">'+q.text+'</blockquote>'
+      +'<div class="quote-attr"><strong>'+q.name+'</strong> &nbsp;·&nbsp; '+q.company+'</div>';
+    track.appendChild(slide);
+  });
+  var count=QUOTES.length, cur=0, animating=false;
+  function goTo(n,animate){cur=((n%count)+count)%count;track.style.transition=animate===false?'none':'transform 0.45s cubic-bezier(0.22,1,0.36,1)';track.style.transform='translateX(-'+(cur*100)+'%)';if(animate!==false){animating=true;setTimeout(function(){animating=false;},500);}}
+  window.shiftQuote=function(dir){if(animating)return;goTo(cur+dir,true);};
+  var vp=document.getElementById('quote-viewport'),startX=0;
+  vp.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;},{passive:true});
+  vp.addEventListener('touchend',function(e){var diff=startX-e.changedTouches[0].clientX;if(Math.abs(diff)>40)shiftQuote(diff>0?1:-1);},{passive:true});
+})();
 </script>
 </body>
 </html>
