@@ -17,5 +17,10 @@ var QUOTES = [
     text: 'Colegrove Media is like a creative swiss army knife. Truly eyebrow-raising stuff.',
     name: 'Isaac Miller',
     company: 'PhD'
+  },
+  {
+    text: 'Working with Colegrove Media has greatly elevated our story telling and marketing efforts. The videos and content are extremely high quality and working with Logan has been wonderful!',
+    name: 'Hunter VanDonsel',
+    company: 'Pheasants Forever'
   }
 ];
