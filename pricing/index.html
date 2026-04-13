@@ -16,9 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/global.css">
 <style>
-/* ── PRICING-SPECIFIC STYLES ── */
 .pricing-section{padding:72px 40px;border-bottom:1px solid var(--border);position:relative;}
-
 .retainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:visible;}
 .retainer-card{background:var(--bg2);padding:40px 32px;display:flex;flex-direction:column;gap:0;position:relative;isolation:isolate;}
 .retainer-card.featured{background:var(--bg3);}
@@ -39,7 +37,6 @@
 .r-btn-outline{background:transparent;color:var(--muted);border:1px solid var(--border);}
 .r-btn-outline:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 .retainer-note{margin-top:20px;font-size:13px;color:var(--muted);text-align:center;font-weight:300;}
-
 .packages-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
 .pkg-card{background:var(--bg2);padding:36px 32px;display:flex;flex-direction:column;gap:20px;}
 .pkg-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
@@ -53,7 +50,6 @@
 .pkg-services li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.7;flex-shrink:0;}
 .pkg-cta{margin-top:4px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--teal);letter-spacing:0.06em;text-transform:uppercase;transition:gap 0.18s;cursor:pointer;}
 .pkg-cta:hover{gap:10px;}
-
 #alc-wrap{position:relative;z-index:50;}
 .alc-cat-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:1px solid var(--border);cursor:pointer;user-select:none;}
 .alc-cat-header:first-of-type{border-top:none;}
@@ -64,7 +60,6 @@
 .alc-cat-toggle.open{color:var(--white);}
 .alc-grid{display:none;gap:2px;background:var(--border);border-radius:12px;overflow:visible;margin-bottom:0;}
 .alc-grid.open{display:grid;margin-bottom:16px;}
-
 .policies-strip{padding:0 40px;border-bottom:1px solid var(--border);position:relative;z-index:0;}
 .policies-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:8px;overflow:hidden;}
 .policy-card{padding:18px 20px;background:var(--bg);display:flex;flex-direction:column;gap:4px;}
@@ -72,15 +67,8 @@
 .policy-value{font-size:13px;font-weight:500;color:var(--muted);}
 .policy-desc{font-size:12px;color:var(--muted);font-weight:300;opacity:0.55;line-height:1.5;margin-top:2px;}
 
-@media(max-width:960px){
-  .pricing-section,.policies-strip{padding-left:24px;padding-right:24px;}
-  .retainer-grid{grid-template-columns:1fr;}
-  .packages-grid{grid-template-columns:1fr;}
-  .policies-inner{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:640px){
-  .alc-grid{grid-template-columns:1fr!important;}
-}
+@media(max-width:960px){.pricing-section,.policies-strip{padding-left:24px;padding-right:24px;}.retainer-grid{grid-template-columns:1fr;}.packages-grid{grid-template-columns:1fr;}.policies-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.alc-grid{grid-template-columns:1fr!important;}}
 </style>
 </head>
 <body>
@@ -94,104 +82,34 @@
 </div>
 
 <div class="pricing-section">
-  <div class="section-eyebrow reveal">01 — Partnership</div>
-  <h2 class="section-title reveal">Monthly Retainer Plans</h2>
-  <p class="section-sub reveal">The most cost-effective way to work together. A consistent monthly commitment means priority scheduling, a creative partner who actually knows your brand, and content that compounds over time.</p>
-  <div class="retainer-grid reveal">
-    <div class="retainer-card">
-      <div class="r-name">Essentials</div>
-      <div class="r-price">$2,000<span>/mo</span></div>
-      <div class="r-period">3-month minimum · billed monthly</div>
-      <div class="r-divider"></div>
-      <ul class="r-features">
-        <li>1 Basic-tier hero deliverable per month</li>
-        <li>1 social cut or repurposed asset</li>
-        <li>Priority scheduling</li>
-        <li>Monthly planning call</li>
-      </ul>
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="r-btn r-btn-outline">Book a Call →</a>
-    </div>
-    <div class="retainer-card featured">
-      <div class="r-name">Capacity Building</div>
-      <div class="r-price">$3,500<span>/mo</span></div>
-      <div class="r-period">3-month minimum · billed monthly</div>
-      <div class="r-divider"></div>
-      <ul class="r-features">
-        <li>1–2 Standard-tier hero deliverables per month</li>
-        <li>2–3 social cuts or repurposed assets</li>
-        <li>Priority scheduling + same-week availability</li>
-        <li>End-to-end support — we handle publishing to your channels</li>
-        <li>Bi-weekly planning calls</li>
-        <li>Dedicated chat</li>
-      </ul>
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="r-btn r-btn-fill">Book a Call →</a>
-    </div>
-    <div class="retainer-card">
-      <div class="r-name">Partner</div>
-      <div class="r-price">$6,500<span>/mo</span></div>
-      <div class="r-period">3-month minimum · billed monthly</div>
-      <div class="r-divider"></div>
-      <ul class="r-features">
-        <li>2–4 Advanced-tier hero deliverables per month</li>
-        <li>4–6 social cuts or repurposed assets</li>
-        <li>On-call availability — always first in queue</li>
-        <li>End-to-end publishing + monthly performance reporting</li>
-        <li>Weekly strategy sessions</li>
-        <li>Dedicated chat</li>
-      </ul>
-      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="r-btn r-btn-outline">Book a Call →</a>
-    </div>
-  </div>
-  <p class="retainer-note reveal">Not sure which plan fits? <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" style="color:var(--teal);">Let's talk</a> — retainers can be customized around your content calendar.</p>
+  <div class="section-eyebrow">01 — Partnership</div>
+  <h2 class="section-title">Monthly Retainer Plans</h2>
+  <p class="section-sub">The most cost-effective way to work together. A consistent monthly commitment means priority scheduling, a creative partner who actually knows your brand, and content that compounds over time.</p>
+  <div class="retainer-grid" id="retainer-grid"></div>
+  <p class="retainer-note">Not sure which plan fits? <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" style="color:var(--teal);">Let's talk</a> — retainers can be customized around your content calendar.</p>
 </div>
 
 <div class="pricing-section">
-  <div class="section-eyebrow reveal">02 — Bundles</div>
-  <h2 class="section-title reveal">Popular Packages</h2>
-  <p class="section-sub reveal">Common combinations of services for specific needs — priced as a bundle and coordinated as a single project. Contact for a custom quote.</p>
-  <div class="packages-grid reveal">
-    <div class="pkg-card">
-      <div class="pkg-header"><div><div class="pkg-name">Real Estate</div><div class="pkg-desc">Everything you need to market a listing — from aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$1,200</span></div></div>
-      <ul class="pkg-services"><li>Real Estate Video</li><li>Real Estate Photos</li><li>Drone Video</li><li>Satellite Map</li><li>3D Virtual Tour</li></ul>
-      <a href="/brief" class="pkg-cta">Get a Quote →</a>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-header"><div><div class="pkg-name">Corporate / Brand</div><div class="pkg-desc">A full content suite for companies that want to show up professionally — across web, social, and sales conversations.</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$2,500</span></div></div>
-      <ul class="pkg-services"><li>Brand Video</li><li>Testimonial</li><li>Animated Explainer</li><li>Product Demo Video</li><li>Team Headshots</li></ul>
-      <a href="/brief" class="pkg-cta">Get a Quote →</a>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-header"><div><div class="pkg-name">Live Event</div><div class="pkg-desc">Full event coverage — broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$3,000</span></div></div>
-      <ul class="pkg-services"><li>Live Stream</li><li>Event Highlight Video</li><li>Testimonials on-site</li><li>Headshots for attendees / speakers</li><li>Graphic Design</li></ul>
-      <a href="/brief" class="pkg-cta">Get a Quote →</a>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-header"><div><div class="pkg-name">Social Media</div><div class="pkg-desc">A month of content in a single shoot day — video, stills, and graphics ready to post across all your channels.</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">$2,500</span></div></div>
-      <ul class="pkg-services"><li>Social Clips / Ads</li><li>Drone Video</li><li>Headshots</li><li>Motion Graphics set</li><li>Graphic Design</li></ul>
-      <a href="/brief" class="pkg-cta">Get a Quote →</a>
-    </div>
-  </div>
+  <div class="section-eyebrow">02 — Bundles</div>
+  <h2 class="section-title">Popular Packages</h2>
+  <p class="section-sub">Common combinations of services for specific needs — priced as a bundle and coordinated as a single project. Contact for a custom quote.</p>
+  <div class="packages-grid" id="packages-grid"></div>
 </div>
 
 <div class="pricing-section">
-  <div class="section-eyebrow reveal">03 — À La Carte</div>
-  <h2 class="section-title reveal">Individual Services</h2>
-  <p class="section-sub reveal">Know exactly what you need? Every service is available individually. Click any category to see full pricing tiers.</p>
-  <div id="alc-wrap" class="reveal"></div>
+  <div class="section-eyebrow">03 — À La Carte</div>
+  <h2 class="section-title">Individual Services</h2>
+  <p class="section-sub">Know exactly what you need? Every service is available individually. Click any category to see full pricing tiers.</p>
+  <div id="alc-wrap"></div>
 </div>
 
 <div class="policies-strip" style="padding-top:36px;padding-bottom:36px;">
   <div class="section-eyebrow" style="margin-bottom:16px;">Good to Know</div>
-  <div class="policies-inner">
-    <div class="policy-card"><div class="policy-name">Rush Fee</div><div class="policy-value">2× quoted rate</div><div class="policy-desc">For delivery significantly shorter than the standard production schedule.</div></div>
-    <div class="policy-card"><div class="policy-name">Travel Fee</div><div class="policy-value">$1 / mile</div><div class="policy-desc">Beyond 15 miles from Bozeman, MT. Multi-day productions quoted individually.</div></div>
-    <div class="policy-card"><div class="policy-name">Usage Rights</div><div class="policy-value">Full transfer on delivery</div><div class="policy-desc">All rights pass to you upon final delivery. No ongoing licensing fees.</div></div>
-    <div class="policy-card"><div class="policy-name">Hourly / Day Rate</div><div class="policy-value">$125 / hr &nbsp;·&nbsp; $1,000 / day</div><div class="policy-desc">For consulting, maintenance, or any work billed by time.</div></div>
-  </div>
+  <div class="policies-inner" id="policies-inner"></div>
 </div>
 
 <div class="cta-wrap">
-  <div class="cta-band reveal">
+  <div class="cta-band">
     <div class="cta-band-h">Ready to get <span>started?</span></div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
@@ -200,63 +118,73 @@
   </div>
 </div>
 
+<div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
+  <div class="modal">
+    <div class="modal-left" id="modal-left"></div>
+    <div class="modal-right">
+      <div class="modal-header"><span class="modal-vtag" id="modal-tag"></span><div class="modal-close" onclick="closeModal()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></div></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-divider"></div>
+      <div class="modal-specs" id="modal-specs"></div>
+      <div class="modal-divider"></div>
+      <div class="modal-cta">
+        <a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a>
+        <a href="/brief" class="modal-btn-ghost">Start a Project Brief</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div id="site-footer"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="/assets/js/portfolio-data.js"></script>
+<script src="/assets/js/pricing-data.js"></script>
 <script src="/assets/js/components.js"></script>
 <script src="/assets/js/shared.js"></script>
 <script>
-/* ── PRICING-SPECIFIC JS ── */
 var CHEV='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
+var PLAY_ICON='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1.5L9 6L1 10.5V1.5Z" fill="rgba(0,242,166,0.9)"/></svg>';
+var EYE_ICON='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(0,242,166,0.9)" stroke-width="1.5" stroke-linecap="round"><ellipse cx="7" cy="7" rx="6" ry="4"/><circle cx="7" cy="7" r="1.8" fill="rgba(0,242,166,0.9)" stroke="none"/></svg>';
 
-var ALC=[
-  {cat:'Video',cols:3,services:[
-    {name:'Real Estate Video',desc:'Showcase any property with cinematic drone and ground-level video. Built to sell.',tiers:[{n:'Basic',p:'$500',i:['Up to 30 seconds · Drone + ground footage','Professional edit · 1 revision']},{n:'Standard',p:'$900',i:['Up to 90 seconds · Drone + interior walkthrough','Color grade · Music · 2 revisions']},{n:'Advanced',p:'$1,500+',i:['Up to 3 minutes · Full property storytelling','Voiceover option · Social cuts included · Unlimited revisions']}]},
-    {name:'Brand Videos',desc:'Communicate your mission and offering with a cinematic brand film that makes an impact.',tiers:[{n:'Basic',p:'$3,500',i:['1 shooting location','1 voiceover or interview','Professional lighting, audio, and branding','1 revision · 1 final edit']},{n:'Standard',p:'$6,500',i:['Script + storyboard','Up to 2 shooting locations','B-roll, motion graphics, and thumbnail design','2 revisions · Full video + social cut']},{n:'Advanced',p:'$9,500+',i:['Multi-day, multi-location production','End-to-end strategy and publishing support','Unlimited revisions · 3 final files + image asset kit']}]},
-    {name:'Testimonials',desc:'Let your satisfied customers do the talking. Authentic content that builds trust faster than any copy.',tiers:[{n:'Basic',p:'$900',i:['Client-provided recording (editing only)','Speaker overlay, background music, thumbnail','1 revision']},{n:'Standard',p:'$2,000',i:['On-site interview · Single participant','Professional lighting and audio · 2 cameras','2 revisions']},{n:'Advanced',p:'$2,400',i:['On-site interview · Up to 4 participants','Extended filming for custom B-roll','2 video edits · 3 revisions']}]},
-    {name:'Podcasts',desc:'Recording, editing, and audio engineering. Whether you need an editor or a full producer.',tiers:[{n:'Basic Editing',p:'$700',i:['Up to 1-hour episode (editing only)','Audio mixing & mastering · 1 revision']},{n:'Standard',p:'$1,200',i:['Up to 1-hour (recording + editing)','1 camera angle · Mics provided · 2 revisions']},{n:'Advanced',p:'$2,000',i:['Up to 4-hour episodes · 3 camera angles','Transcript, show notes, artwork · Unlimited revisions']}]},
-    {name:'Product Videos',desc:'Educate and excite viewers on your product or software — from a 30-second cut to a full walkthrough.',tiers:[{n:'Basic',p:'$600',i:['30 seconds · Product shots · 1 revision']},{n:'Standard',p:'$1,100',i:['Up to 2 minutes (4K) · Professional lighting and audio · 2 revisions']},{n:'Advanced',p:'$2,000',i:['Up to 5 minutes (4K) · B-roll · Informative graphics · Unlimited revisions']}]},
-    {name:'Live Streams',desc:'Professionally broadcast your conference, meeting, or event. Public or private link available.',tiers:[{n:'Basic',p:'$1,500',i:['1-hour 1080p stream · 1 static camera','1 streaming technician · PowerPoint integration']},{n:'Standard',p:'$1,900',i:['2-hour 1080p stream · 2 cameras + live switching']},{n:'Advanced',p:'$2,500',i:['4-hour stream · 1 camera operator + 2 static angles','Overlay graphics · Help with registration & embedding']}]},
-    {name:'Remote Client Stories',desc:'Transform virtual interviews into polished short-form stories.',tiers:[{n:'Basic',p:'$1,100',i:['Editing only · Royalty-free music · 1 revision']},{n:'Standard',p:'$2,100',i:['1 interview recorded at high fidelity · Animations, B-roll · 2 revisions']},{n:'Advanced',p:'$3,400+',i:['Multiple interviews · Multiple edits + social cuts · Unlimited revisions']}]},
-    {name:'Drone / FPV',desc:'Cinematic aerials or dynamic FPV flythroughs. FAA licensed pilot.',tiers:[{n:'Regular',p:'$300',i:['Stable DJI 4K footage · 1–2 minute edit · 1 revision']},{n:'FPV',p:'$500',i:['First-person view 4K · 3–5 minute edit · 2 revisions']},{n:'Regular + FPV',p:'$700',i:['Up to 10-minute edit · 3 social clips · Unlimited revisions']}]},
-    {name:'Social Clips / Ads',desc:'Short-form content cut for attention and optimized for wherever your audience lives.',tiers:[{n:'Basic',p:'$1,500',i:['Single-platform ad cut · Existing footage · 1 revision']},{n:'Standard',p:'$2,500',i:['Fresh shoot + edit · 2 platform-optimized cuts · 2 revisions']},{n:'Advanced',p:'$4,000',i:['Full commercial production · Multiple platforms · Unlimited revisions']}]},
-    {name:'Video Editing',desc:'Already have footage? Enhance Zoom, Loom, or raw recordings into polished content.',tiers:[{n:'$125 / hour',p:'',i:['Rough cut assembly','Color correction and audio cleanup','Lower thirds, titles, and basic graphics','Music sync and pacing edits','Export in any format or platform spec']}]}
-  ]},
-  {cat:'Photo',cols:4,services:[
-    {name:'Headshots',desc:'High-quality portraits for personal branding and professional profiles.',tiers:[{n:'Basic',p:'$100',i:['Up to 30-min · 5 edited images']},{n:'Standard',p:'$200',i:['Up to 1-hour · 15 edited images · Outfit changes welcome']},{n:'Advanced',p:'$350',i:['Up to 2-hour · 30 edited images · Full retouching + social kit']}]},
-    {name:'Real Estate Photos',desc:'Interior and exterior property images optimized for MLS, Zillow, and marketing.',tiers:[{n:'Basic',p:'$150',i:['15 edited interior + exterior photos']},{n:'Standard',p:'$250',i:['30 edited photos · Twilight exterior · HDR blending']},{n:'Advanced',p:'$400',i:['60 edited photos · Aerial photos included · 24-hour delivery']}]},
-    {name:'Drone Photos',desc:'Stunning aerial imagery of real estate, landscapes, and events. FAA licensed.',tiers:[{n:'10 Photos',p:'$100',i:['10 edited aerial photos · FAA licensed pilot']},{n:'20 Photos',p:'$150',i:['20 edited aerial photos · Multiple angles']},{n:'60 Photos',p:'$300',i:['60 edited aerial photos · Twilight aerials available']}]},
-    {name:'3D Virtual Tours',desc:'Interactive 360° Matterport tours allowing buyers to explore any property online.',tiers:[{n:'Standard',p:'Contact for quote',i:['Full Matterport 3D scan','Hosted tour link · Floor plan included','Embedded into any website or MLS listing']}]}
-  ]},
-  {cat:'Animation',cols:4,services:[
-    {name:'Animated Explainers',desc:'Complex ideas made clear in under 2 minutes. High retention, high trust.',tiers:[{n:'Basic',p:'$2,500',i:['Up to 60 seconds · Simple 2D motion graphics · 1 revision']},{n:'Standard',p:'$5,000',i:['Up to 90 seconds · Script + storyboard · Custom graphics · Master + social cut · 2 revisions']},{n:'Advanced',p:'$8,500+',i:['Up to 3 minutes · Full creative direction · Custom illustration style · Unlimited revisions']}]},
-    {name:'Motion Graphics',desc:'Animated graphics for ads, social content, presentations, and video overlays.',tiers:[{n:'Basic',p:'$500',i:['Single animated graphic · Looping + one-shot · 1 revision']},{n:'Standard',p:'$1,200',i:['Up to 5 animated elements · Multiple format exports · 2 revisions']},{n:'Advanced',p:'$2,500+',i:['Full motion graphics package · 10+ elements · Unlimited revisions']}]},
-    {name:'Logo Animations',desc:'Bring your logo to life — perfect for video openers, social profiles, and presentations.',tiers:[{n:'Basic',p:'$300',i:['Simple reveal animation · MP4 + transparent version · 1 revision']},{n:'Standard',p:'$600',i:['Custom motion · Multiple versions · 2 revisions']},{n:'Advanced',p:'$1,000',i:['Full animated brand identity suite · Unlimited revisions']}]},
-    {name:'Website Animations / Lottie',desc:'Lightweight Lottie files that integrate seamlessly into any website or app.',tiers:[{n:'Basic',p:'$400',i:['Single Lottie animation · JSON + MP4 export · 1 revision']},{n:'Standard',p:'$900',i:['Up to 3 Lottie animations · Developer handoff included · 2 revisions']},{n:'Advanced',p:'$2,000+',i:['Full-site animation package · Scroll-triggered and interactive · Unlimited revisions']}]}
-  ]},
-  {cat:'Design',cols:4,services:[
-    {name:'Graphic Design',desc:'Visuals for digital and print — ads, business cards, brochures, posters, and more.',tiers:[{n:'Business Card',p:'$150',i:['Front + back design · Print-ready files · 2 revisions']},{n:'Flyer / Poster',p:'$200',i:['Single or double-sided · Digital + print formats · 2 revisions']},{n:'Brochure',p:'$400+',i:['Tri-fold or multi-page · Print-ready + digital PDF · 3 revisions']}]},
-    {name:'Web Design',desc:'Custom Webflow websites — responsive, accessible, and built to convert.',tiers:[{n:'Landing Page',p:'$500',i:['Single-page design + build in Webflow','Mobile responsive · CMS ready · 2 revisions']},{n:'Multi-Page Site',p:'$1,500+',i:['Up to 5 pages · Custom animations · SEO setup · 3 revisions']},{n:'Full Website',p:'$3,500+',i:['Unlimited pages · E-commerce or booking integration','Training session + ongoing support · Unlimited revisions']}]},
-    {name:'Satellite Maps',desc:'Animated Google Earth flyovers showing property lines, labels, and nearby attractions.',tiers:[{n:'Basic',p:'$150',i:['Simple flyover · Property boundary overlay · 1 revision']},{n:'Standard',p:'$300',i:['Flyover + custom labels and callouts · 2 revisions']},{n:'Advanced',p:'$500+',i:['Full animated property tour · Multiple POIs · Unlimited revisions']}]},
-    {name:'Virtual Staging',desc:'Transform any empty room into a fully-furnished, beautifully designed space.',tiers:[{n:'1 Image',p:'$50',i:['1 virtually staged room · 2 style options · 2 revisions']},{n:'5 Images',p:'$200',i:['5 virtually staged rooms · Consistent style · 2 revisions']},{n:'10 Images',p:'$350',i:['10 virtually staged rooms · Rush delivery available · Unlimited revisions']}]}
-  ]}
-];
+/* ── RETAINERS ── */
+(function(){
+  var grid=document.getElementById('retainer-grid');
+  RETAINERS.forEach(function(r){
+    var card=document.createElement('div');card.className='retainer-card'+(r.featured?' featured':'');
+    var feats=r.features.map(function(f){return '<li>'+f+'</li>';}).join('');
+    var btnClass=r.featured?'r-btn r-btn-fill':'r-btn r-btn-outline';
+    card.innerHTML='<div class="r-name">'+r.name+'</div><div class="r-price">'+r.price+'<span>'+r.period+'</span></div><div class="r-period">'+r.note+'</div><div class="r-divider"></div><ul class="r-features">'+feats+'</ul><a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="'+btnClass+'">Book a Call →</a>';
+    grid.appendChild(card);
+  });
+})();
 
-function buildALC(){
+/* ── PACKAGES ── */
+(function(){
+  var grid=document.getElementById('packages-grid');
+  PACKAGES.forEach(function(pkg){
+    var svcs=pkg.services.map(function(s){return '<li>'+s+'</li>';}).join('');
+    var card=document.createElement('div');card.className='pkg-card';
+    card.innerHTML='<div class="pkg-header"><div><div class="pkg-name">'+pkg.name+'</div><div class="pkg-desc">'+pkg.desc+'</div></div><div class="pkg-price-badge"><span class="pkg-price-from">From</span><span class="pkg-price-val">'+pkg.price+'</span></div></div><ul class="pkg-services">'+svcs+'</ul><a href="/brief" class="pkg-cta">Get a Quote →</a>';
+    grid.appendChild(card);
+  });
+})();
+
+/* ── À LA CARTE ── */
+(function(){
   var wrap=document.getElementById('alc-wrap');
-  ALC.forEach(function(cat,ci){
-    var hdr=document.createElement('div');
-    hdr.className='alc-cat-header';
-    hdr.innerHTML='<div class="alc-cat-name">'+cat.cat+'</div><div class="alc-cat-toggle" id="alc-tog-'+ci+'">Expand '+CHEV+'</div>';
+  ['video','photo','animation','design'].forEach(function(cat,ci){
+    var meta=SERVICE_CATEGORIES[cat];
+    var hdr=document.createElement('div');hdr.className='alc-cat-header';
+    hdr.innerHTML='<div class="alc-cat-name">'+meta.label+'</div><div class="alc-cat-toggle" id="alc-tog-'+ci+'">Expand '+CHEV+'</div>';
     hdr.onclick=function(){toggleALC(ci);};
     wrap.appendChild(hdr);
-    var grid=document.createElement('div');
-    grid.className='alc-grid';
-    grid.id='alc-grid-'+ci;
-    grid.style.gridTemplateColumns='repeat('+Math.min(cat.cols,cat.services.length)+',1fr)';
-    cat.services.forEach(function(svc){grid.appendChild(makeALCCard(svc));});
+    var grid=document.createElement('div');grid.className='alc-grid';grid.id='alc-grid-'+ci;grid.style.gridTemplateColumns='repeat('+Math.min(meta.cols,SERVICES[cat].length)+',1fr)';
+    SERVICES[cat].forEach(function(svc){grid.appendChild(makeALCCard(svc));});
     wrap.appendChild(grid);
   });
-}
+})();
 
 function makeALCCard(svc){
   var tiersHtml=svc.tiers.map(function(t){
@@ -264,42 +192,94 @@ function makeALCCard(svc){
     var ph=t.p?'<span class="tier-price">'+t.p+'</span>':'';
     return '<div class="tier"><div class="tier-header"><span class="tier-name">'+t.n+'</span>'+ph+'</div><ul class="tier-list">'+items+'</ul></div>';
   }).join('');
-  var card=document.createElement('div');
-  card.className='svc-card';
-  card.innerHTML=
-    '<div class="svc-name-row"><div class="svc-name">'+svc.name+'</div></div>'
-    +'<p class="svc-desc">'+svc.desc+'</p>'
-    +'<div class="svc-details-wrap">'
-      +'<button class="svc-toggle" onclick="toggleTier(this)">Pricing &amp; Details '+CHEV+'</button>'
-      +'<div class="svc-details"><div class="svc-details-inner">'+tiersHtml+'</div></div>'
-    +'</div>';
+  var btnHtml='';
+  if(svc.sample){
+    var icon=(svc.sample.type==='gallery')?EYE_ICON:PLAY_ICON;
+    btnHtml='<button class="svc-preview-btn" onclick="event.stopPropagation();openPreview(\''+svc.id+'\')">'+icon+'</button>';
+  }
+  var card=document.createElement('div');card.className='svc-card';
+  card.innerHTML='<div class="svc-name-row"><div class="svc-name">'+svc.name+'</div>'+btnHtml+'</div><p class="svc-desc">'+svc.desc+'</p><div class="svc-details-wrap"><button class="svc-toggle" onclick="toggleTier(this)">Pricing &amp; Details '+CHEV+'</button><div class="svc-details"><div class="svc-details-inner">'+tiersHtml+'</div></div></div>';
   return card;
 }
 
-function toggleALC(ci){
-  var grid=document.getElementById('alc-grid-'+ci);
-  var tog=document.getElementById('alc-tog-'+ci);
-  var open=grid.classList.contains('open');
-  grid.classList.toggle('open',!open);
-  tog.classList.toggle('open',!open);
-  tog.innerHTML=(open?'Expand ':'Collapse ')+CHEV;
-}
+function toggleALC(ci){var grid=document.getElementById('alc-grid-'+ci);var tog=document.getElementById('alc-tog-'+ci);var open=grid.classList.contains('open');grid.classList.toggle('open',!open);tog.classList.toggle('open',!open);tog.innerHTML=(open?'Expand ':'Collapse ')+CHEV;}
 
-function closeAllDropdowns(){
-  document.querySelectorAll('.svc-details.open').forEach(function(d){d.classList.remove('open');});
-  document.querySelectorAll('.svc-toggle.open').forEach(function(b){b.classList.remove('open');});
-  document.querySelectorAll('.svc-card.dropdown-open').forEach(function(c){c.classList.remove('dropdown-open');});
-}
-function toggleTier(btn){
-  var card=btn.closest('.svc-card');
-  var det=btn.nextElementSibling;
-  var open=det.classList.contains('open');
-  closeAllDropdowns();
-  if(!open){det.classList.add('open');btn.classList.add('open');card.classList.add('dropdown-open');}
-}
+/* ── POLICIES ── */
+(function(){
+  var inner=document.getElementById('policies-inner');
+  POLICIES.forEach(function(p){
+    var card=document.createElement('div');card.className='policy-card';
+    card.innerHTML='<div class="policy-name">'+p.name+'</div><div class="policy-value">'+p.value+'</div><div class="policy-desc">'+p.desc+'</div>';
+    inner.appendChild(card);
+  });
+})();
+
+/* ── DROPDOWNS ── */
+function closeAllDropdowns(){document.querySelectorAll('.svc-details.open').forEach(function(d){d.classList.remove('open');});document.querySelectorAll('.svc-toggle.open').forEach(function(b){b.classList.remove('open');});document.querySelectorAll('.svc-card.dropdown-open').forEach(function(c){c.classList.remove('dropdown-open');});}
+function toggleTier(btn){var card=btn.closest('.svc-card');var det=btn.nextElementSibling;var open=det.classList.contains('open');closeAllDropdowns();if(!open){det.classList.add('open');btn.classList.add('open');card.classList.add('dropdown-open');}}
 document.addEventListener('click',function(e){if(!e.target.closest('.svc-card'))closeAllDropdowns();});
 
-buildALC();
+/* ── PREVIEW MODAL — routes to correct modal type ── */
+var galleryIdx=0;
+var _lottieAnim=null;var _lottieLooping=true;var _lottieScrubbing=false;var _lottieThumbAnims=[];
+
+function openPreview(svcId){
+  var svc=findService(svcId);if(!svc||!svc.sample)return;
+  var sample=getServiceSample(svc);if(!sample)return;
+  var p=sample.project;
+  document.getElementById('modal-tag').textContent=p.typeLabel;
+  document.getElementById('modal-title').textContent=p.title;
+  document.getElementById('modal-desc').textContent=p.desc;
+  document.getElementById('modal-specs').innerHTML=p.specs.map(function(sp){return '<div class="modal-spec"><span class="modal-spec-k">'+sp.k+'</span><span class="modal-spec-v">'+sp.v+'</span></div>';}).join('');
+  var dividers=document.querySelectorAll('.modal-divider');if(dividers[1])dividers[1].style.display=p.specs.length?'':'none';
+  document.getElementById('modal-cta-primary').textContent=p.cta||TYPE_CTA[p.type]||'Get a Quote →';
+  var ml=document.getElementById('modal-left');ml.innerHTML='';
+  if(sample.type==='gallery') buildGalleryModal(p,ml);
+  else if(sample.type==='lottie') buildLottieModal(p,ml);
+  else buildVideoModal(p,ml);
+  document.getElementById('modal-backdrop').classList.add('open');document.body.style.overflow='hidden';
+}
+
+function buildVideoModal(p,ml){
+  var emb=document.createElement('div');emb.className='modal-embed';var ifr=document.createElement('iframe');ifr.src='https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');ifr.setAttribute('allowfullscreen','');emb.appendChild(ifr);ml.appendChild(emb);
+  var related=getRelatedProjects(p.slug,p.type,3);if(related.length){var rel=document.createElement('div');rel.className='modal-related';var lbl=document.createElement('div');lbl.className='modal-related-label';lbl.textContent='More '+p.typeLabel+'s';rel.appendChild(lbl);related.forEach(function(r){var d=document.createElement('div');d.className='modal-rel-item';d.onclick=function(){ifr.src='https://player.vimeo.com/video/'+r.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';document.getElementById('modal-tag').textContent=r.typeLabel;document.getElementById('modal-title').textContent=r.title;document.getElementById('modal-desc').textContent=r.desc||'';document.getElementById('modal-specs').innerHTML='';};d.innerHTML='<img src="'+r.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+r.title+'</div><div class="modal-rel-tag">'+r.typeLabel+'</div></div>';rel.appendChild(d);});ml.appendChild(rel);}
+}
+
+function buildGalleryModal(p,ml){
+  var preview=document.createElement('div');preview.className='modal-preview';var mainDiv=document.createElement('div');mainDiv.className='modal-preview-main';
+  if(p.images&&p.images.length){galleryIdx=0;var img=document.createElement('img');img.src=p.images[0];img.alt=p.title;var probe=new Image();probe.onload=function(){mainDiv.style.aspectRatio=probe.naturalWidth>probe.naturalHeight?'16/9':'3/4';};probe.src=p.images[0];mainDiv.appendChild(img);var counter=document.createElement('div');counter.className='gallery-counter';counter.id='gallery-counter';counter.textContent='1 / '+p.images.length;mainDiv.appendChild(counter);if(p.images.length>1){var prev=document.createElement('div');prev.className='gallery-arrow prev';prev.innerHTML='&#8249;';prev.onclick=function(){shiftGallery(-1);};var next=document.createElement('div');next.className='gallery-arrow next';next.innerHTML='&#8250;';next.onclick=function(){shiftGallery(1);};mainDiv.appendChild(prev);mainDiv.appendChild(next);}preview.appendChild(mainDiv);if(p.images.length>1){var strip=document.createElement('div');strip.className='modal-gallery-strip';p.images.forEach(function(src,i){var t=document.createElement('img');t.className='gthumb'+(i===0?' active':'');t.src=src;t.alt='';t.onclick=(function(idx){return function(){setGalleryImg(idx);};})(i);strip.appendChild(t);});preview.appendChild(strip);}}else{mainDiv.innerHTML=placeholderSVG(p.type);preview.appendChild(mainDiv);}
+  ml.appendChild(preview);
+}
+
+function buildLottieModal(p,ml){
+  if(_lottieAnim){_lottieAnim.destroy();_lottieAnim=null;}_lottieThumbAnims.forEach(function(a){try{a.destroy();}catch(e){}});_lottieThumbAnims=[];
+  var files=p.lottieFiles||[{url:p.lottieUrl}];var curFile=0;var wrap=document.createElement('div');wrap.className='modal-lottie';
+  var playerDiv=document.createElement('div');playerDiv.className='modal-lottie-player';var animContainer=document.createElement('div');animContainer.id='lottie-anim-container';playerDiv.appendChild(animContainer);wrap.appendChild(playerDiv);
+  if(files.length>1){var strip=document.createElement('div');strip.className='lottie-thumb-strip';files.forEach(function(f,i){var thumb=document.createElement('div');thumb.className='lottie-thumb'+(i===0?' active':'');thumb.id='lottie-tw-'+i;var inner=document.createElement('div');inner.id='lottie-t-'+i;thumb.appendChild(inner);thumb.onclick=(function(idx){return function(){switchLottie(idx);};})(i);strip.appendChild(thumb);});wrap.appendChild(strip);}
+  var playing=true;var PLAY_I='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1L9 6L1 11V1Z" fill="rgba(0,242,166,0.9)"/></svg>';var PAUSE_I='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><rect x="1" y="1" width="3" height="10" fill="rgba(0,242,166,0.9)"/><rect x="6" y="1" width="3" height="10" fill="rgba(0,242,166,0.9)"/></svg>';
+  var controls=document.createElement('div');controls.className='lottie-controls';
+  function makeNav(html,dir){var b=document.createElement('div');b.className='lottie-nav-btn';b.innerHTML=html;b.onclick=function(){switchLottie(((curFile+dir)+files.length)%files.length);};return b;}
+  var playBtn=document.createElement('div');playBtn.className='lottie-play-btn';playBtn.innerHTML=PLAY_I;
+  var scrubber=document.createElement('input');scrubber.type='range';scrubber.className='lottie-scrubber';scrubber.min=0;scrubber.max=1000;scrubber.value=0;
+  var loopBtn=document.createElement('button');loopBtn.className='lottie-loop-btn active';loopBtn.textContent='Loop';
+  if(files.length>1)controls.appendChild(makeNav('&#8249;',-1));controls.appendChild(playBtn);controls.appendChild(scrubber);controls.appendChild(loopBtn);if(files.length>1)controls.appendChild(makeNav('&#8250;',1));
+  wrap.appendChild(controls);ml.appendChild(wrap);
+  function loadMain(idx){if(_lottieAnim){_lottieAnim.destroy();_lottieAnim=null;}var c=document.getElementById('lottie-anim-container');if(!c)return;c.innerHTML='';playing=true;playBtn.innerHTML=PLAY_I;scrubber.value=0;files.forEach(function(_,i){var tw=document.getElementById('lottie-tw-'+i);if(tw)tw.classList.toggle('active',i===idx);});_lottieAnim=lottie.loadAnimation({container:c,renderer:'svg',loop:_lottieLooping,autoplay:true,path:files[idx].url});_lottieAnim.addEventListener('enterFrame',function(){if(_lottieScrubbing)return;scrubber.value=Math.round((_lottieAnim.currentFrame/(_lottieAnim.totalFrames||1))*1000);});}
+  function switchLottie(idx){curFile=idx;loadMain(idx);}window.shiftLottie=function(dir){switchLottie(((curFile+dir)+files.length)%files.length);};
+  playBtn.onclick=function(){if(!_lottieAnim)return;if(playing){_lottieAnim.pause();playing=false;playBtn.innerHTML=PAUSE_I;}else{_lottieAnim.play();playing=true;playBtn.innerHTML=PLAY_I;}};
+  scrubber.addEventListener('mousedown',function(){_lottieScrubbing=true;if(_lottieAnim){_lottieAnim.pause();playing=false;playBtn.innerHTML=PAUSE_I;}});
+  scrubber.addEventListener('input',function(){if(_lottieAnim)_lottieAnim.goToAndStop(Math.round((scrubber.value/1000)*(_lottieAnim.totalFrames||1)),true);});
+  scrubber.addEventListener('mouseup',function(){_lottieScrubbing=false;});scrubber.addEventListener('touchend',function(){_lottieScrubbing=false;});
+  loopBtn.onclick=function(){_lottieLooping=!_lottieLooping;if(_lottieAnim)_lottieAnim.loop=_lottieLooping;loopBtn.classList.toggle('active',_lottieLooping);};
+  setTimeout(function(){loadMain(0);files.forEach(function(f,i){var tc=document.getElementById('lottie-t-'+i);if(!tc)return;var a=lottie.loadAnimation({container:tc,renderer:'svg',loop:false,autoplay:false,path:f.url});a.addEventListener('DOMLoaded',function(){a.goToAndStop(Math.round(a.totalFrames*0.85),true);});_lottieThumbAnims.push(a);});},50);
+}
+
+function setGalleryImg(i){galleryIdx=i;var mainImg=document.querySelector('.modal-preview-main img');var mainDiv=document.querySelector('.modal-preview-main');var thumbs=document.querySelectorAll('.gthumb');var counter=document.getElementById('gallery-counter');if(mainImg&&thumbs[i]){mainImg.classList.add('fading');var newSrc=thumbs[i].src;var probe=new Image();probe.onload=function(){if(mainDiv)mainDiv.style.aspectRatio=probe.naturalWidth>probe.naturalHeight?'16/9':'3/4';mainImg.src=newSrc;mainImg.classList.remove('fading');};probe.src=newSrc;}thumbs.forEach(function(t,j){t.classList.toggle('active',j===i);});if(thumbs[i])thumbs[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});if(counter)counter.textContent=(i+1)+' / '+thumbs.length;}
+function shiftGallery(dir){var thumbs=document.querySelectorAll('.gthumb');if(!thumbs.length)return;setGalleryImg((galleryIdx+dir+thumbs.length)%thumbs.length);}
+
+function closeModal(){document.getElementById('modal-backdrop').classList.remove('open');document.getElementById('modal-left').innerHTML='';if(_lottieAnim){_lottieAnim.destroy();_lottieAnim=null;}_lottieThumbAnims.forEach(function(a){try{a.destroy();}catch(e){}});_lottieThumbAnims=[];document.body.style.overflow='';}
+function handleBackdropClick(e){if(e.target===document.getElementById('modal-backdrop'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
 </script>
 </body>
 </html>
