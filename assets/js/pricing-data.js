@@ -66,9 +66,9 @@ var SERVICES = {
       sample:{ type:'video', projectSlug:'field-notes-grassland' },
       desc:'Recording, editing, and audio engineering to humanize your brand. Whether you need an editor or a full producer, solutions are tailored to your needs.',
       tiers:[
-        {n:'Basic Editing',p:'$700',i:['Up to 1-hour episode (editing only)','Audio mixing & mastering · 1 revision']},
-        {n:'Standard',p:'$1,200',i:['Up to 1-hour (recording + editing)','1 camera angle · Mics provided · 2 revisions']},
-        {n:'Advanced',p:'$2,000',i:['Up to 4-hour episodes · 3 camera angles','Transcript, show notes, artwork · Unlimited revisions']}
+        {n:'Editing Only',p:'$700',i:['You provide the recording','Audio mixing, mastering, and cleanup','1 revision']},
+        {n:'Single Camera',p:'$1,200',i:['We record + edit','1 camera · Professional audio','2 revisions']},
+        {n:'Multi-Camera',p:'$2,000',i:['Full production · Multiple episodes available','3 cameras · Professional lighting + audio','Transcript, show notes, artwork · Unlimited revisions']}
       ]
     },
     {
@@ -234,22 +234,18 @@ var SERVICES = {
       id:'graphic-design', name:'Graphic Design',
       ind:['corporate','nonprofit','real-estate','events','social-media'],
       sample:null,
-      desc:'Visuals for digital and print — infographics, ads, business cards, brochures, posters, and more. Consistent, polished, on-brand.',
+      desc:'Custom visuals for digital and print — brand assets, social graphics, pitch decks, ads, signage, packaging, and more. Every project starts with a quick scope call so you know exactly what to expect.',
       tiers:[
-        {n:'Business Card',p:'$150',i:['Front + back design · Print-ready files · 2 revisions']},
-        {n:'Flyer / Poster',p:'$200',i:['Single or double-sided · Digital + print formats · 2 revisions']},
-        {n:'Brochure',p:'$400+',i:['Tri-fold or multi-page · Print-ready + digital PDF · 3 revisions']}
+        {n:'Graphic Design',p:'$125/hr',i:['Brand assets, print materials, social graphics, ads, and more','Scope call + quote provided before work begins','Source files included with final delivery','2 revision rounds included per project']}
       ]
     },
     {
       id:'web-design', name:'Web Design',
       ind:['corporate','nonprofit','tech','real-estate'],
       sample:null,
-      desc:'Custom Webflow websites — responsive, accessible, and built to convert. From simple landing pages to full multi-page sites.',
+      desc:'Custom websites — responsive, fast, and built to convert. Every build includes mobile optimization, SEO fundamentals, and a training session so you can manage it yourself.',
       tiers:[
-        {n:'Landing Page',p:'$500',i:['Single-page design + build in Webflow','Mobile responsive · CMS ready · 2 revisions']},
-        {n:'Multi-Page Site',p:'$1,500+',i:['Up to 5 pages · Custom animations · SEO setup · 3 revisions']},
-        {n:'Full Website',p:'$3,500+',i:['Unlimited pages · E-commerce or booking integration','Training session + ongoing support · Unlimited revisions']}
+        {n:'Custom Website',p:'$1,500+',i:['Scope and quote based on your goals','Mobile responsive · SEO fundamentals','Training session included','Ongoing updates available at $125/hr']}
       ]
     },
     {
