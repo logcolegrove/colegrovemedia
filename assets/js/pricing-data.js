@@ -332,7 +332,7 @@ var PACKAGES = [
     context:'Scope and price depend on property size and location. Most residential listings fall in the $1,200-$1,800 range. Ranches and commercial properties start higher.'
   },
   {
-    name:'Social Media Content Day',
+    name:'Social Media',
     range:'$2,500 – $4,000',
     desc:'A full shoot day that produces a month (or more) of content. Video, stills, and graphics ready to post across all your channels.',
     services:['2-4 short-form video clips (Reels, TikTok, YouTube Shorts)','Drone footage','Headshots or lifestyle photos','Motion graphics set','Social templates (graphic design)'],
