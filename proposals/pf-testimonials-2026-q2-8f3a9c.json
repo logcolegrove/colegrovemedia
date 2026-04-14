@@ -1,0 +1,138 @@
+{
+  "id": "pf-testimonials-2026-q2-8f3a9c",
+  "status": "pending",
+  "acceptedDate": "",
+
+  "title": "PF Testimonials Quote",
+  "client": "Pheasants Forever",
+  "contact": "Hunter VanDonsel",
+  "contactEmail": "hvandonsel@pheasantsforever.org",
+  "date": "April 15, 2026",
+  "validFor": "30 days",
+
+  "tallyFormId": "YOUR_TALLY_FORM_ID",
+
+  "deliverables": [
+    {
+      "title": "Short-Form Landowner Testimonial (In-Person: Big Timber, Montana)",
+      "total": 1850,
+      "description": "I'll produce a short professionally edited talking-head style testimonial.",
+      "lineItems": [
+        {
+          "service": "Recording + Editing",
+          "details": "45-minute on-site landowner interview, 2 camera angles. This also includes time spent planning and expectation setting with interviewee.",
+          "price": 1100,
+          "amount": 1,
+          "total": 1100
+        },
+        {
+          "service": "Professional Lighting and Audio Package",
+          "details": "Includes an extra hour for setup and teardown and the following lights: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        },
+        {
+          "service": "Titles and Graphics",
+          "details": "Simple intro/outro title slides with Pheasants Forever logo and a lower thirds graphic with interviewee name.",
+          "price": 100,
+          "amount": 1,
+          "total": 100
+        },
+        {
+          "service": "Social Optimized Edit",
+          "details": "Edited vertical version optimized for social media.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Background Music",
+          "details": "Find, license and add royalty free background music that's on brand.",
+          "price": 75,
+          "amount": 1,
+          "total": 75
+        },
+        {
+          "service": "Travel Cost",
+          "details": "Flat rate of $1.25 per mile covering gas, driving time, gear hauling, and vehicle depreciation.",
+          "price": 1.25,
+          "amount": 180,
+          "total": 225
+        }
+      ],
+      "deliverablesList": [
+        "90-240 second talking head style testimonial video",
+        "30-60 second vertical social edit"
+      ],
+      "timeline": "Completed by September",
+      "milestones": [
+        { "date": "Week 1", "milestone": "Pre-production and scheduling", "responsible": "Colegrove Media" },
+        { "date": "Week 2", "milestone": "On-site filming", "responsible": "Colegrove Media" },
+        { "date": "Week 3-4", "milestone": "Editing and first draft", "responsible": "Colegrove Media" },
+        { "date": "Week 4", "milestone": "Review and feedback", "responsible": "Pheasants Forever" },
+        { "date": "Week 5", "milestone": "Revisions and final delivery", "responsible": "Colegrove Media" }
+      ]
+    },
+    {
+      "title": "Animated Landowner Testimonial + Static Visuals (Virtual: Opheim, Montana)",
+      "total": 1625,
+      "description": "I'll produce a short, professionally edited virtual testimonial featuring custom animations, with key visuals repurposed as standalone for reuse on web and print.",
+      "lineItems": [
+        {
+          "service": "Recording + Editing",
+          "details": "45-minute virtual landowner interview recording, editing, audio enhancement, masking and video cleanup.",
+          "price": 350,
+          "amount": 1,
+          "total": 350
+        },
+        {
+          "service": "Animation + B Roll",
+          "details": "Custom animations and B Roll to enhance and visually support key points and data shared in the testimonial.",
+          "price": 800,
+          "amount": 1,
+          "total": 800
+        },
+        {
+          "service": "Titles and Graphics",
+          "details": "Simple intro/outro title slides with Pheasants Forever logo and a lower thirds graphic with interviewee name.",
+          "price": 100,
+          "amount": 1,
+          "total": 100
+        },
+        {
+          "service": "Social Optimized Edit",
+          "details": "Edited vertical version optimized for social media.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Static Designs for Webpage",
+          "details": "I'll reformat key imagery from the animations to be used as static artwork to be embedded on web and print materials.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Background Music",
+          "details": "Find, license and add royalty free background music that's on brand.",
+          "price": 75,
+          "amount": 1,
+          "total": 75
+        }
+      ],
+      "deliverablesList": [
+        "90-240 second animated testimonial video",
+        "30-60 second vertical social edit"
+      ],
+      "timeline": "Completed by September",
+      "milestones": []
+    }
+  ],
+
+  "references": [
+    { "label": "Example testimonial video", "url": "https://vimeo.com/1134497582" },
+    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+  ]
+}
