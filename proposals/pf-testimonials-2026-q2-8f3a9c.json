@@ -1,17 +1,14 @@
 {
   "id": "pf-testimonials-2026-q2-8f3a9c",
-  "status": "pending",
-  "acceptedDate": "",
-
+  "status": "accepted",
+  "acceptedDate": "4/14/2026",
   "title": "PF Testimonials Quote",
   "client": "Pheasants Forever",
   "contact": "Hunter VanDonsel",
   "contactEmail": "hvandonsel@pheasantsforever.org",
   "date": "April 15, 2026",
   "validFor": "15 days",
-
   "tallyFormId": "wMERpY",
-
   "deliverables": [
     {
       "title": "Short-Form Landowner Testimonial (In-Person: Big Timber, Montana)",
@@ -67,11 +64,31 @@
       ],
       "timeline": "Completed by September",
       "milestones": [
-        { "date": "Week 1", "milestone": "Pre-production and scheduling", "responsible": "Colegrove Media" },
-        { "date": "Week 2", "milestone": "On-site filming", "responsible": "Colegrove Media" },
-        { "date": "Week 3-4", "milestone": "Editing and first draft", "responsible": "Colegrove Media" },
-        { "date": "Week 4", "milestone": "Review and feedback", "responsible": "Pheasants Forever" },
-        { "date": "Week 5", "milestone": "Revisions and final delivery", "responsible": "Colegrove Media" }
+        {
+          "date": "Week 1",
+          "milestone": "Pre-production and scheduling",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 2",
+          "milestone": "On-site filming",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 3-4",
+          "milestone": "Editing and first draft",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 4",
+          "milestone": "Review and feedback",
+          "responsible": "Pheasants Forever"
+        },
+        {
+          "date": "Week 5",
+          "milestone": "Revisions and final delivery",
+          "responsible": "Colegrove Media"
+        }
       ]
     },
     {
@@ -130,9 +147,14 @@
       "milestones": []
     }
   ],
-
   "references": [
-    { "label": "Example testimonial video", "url": "https://vimeo.com/1134497582" },
-    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+    {
+      "label": "Example testimonial video",
+      "url": "https://vimeo.com/1134497582"
+    },
+    {
+      "label": "Full portfolio",
+      "url": "https://vimeo.com/colegrovemedia"
+    }
   ]
 }
