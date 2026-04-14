@@ -285,9 +285,10 @@ var RETAINERS = [
     featured:false,
     features:[
       '1 Basic-tier hero deliverable per month',
-      '1 social cut or repurposed asset',
+      '2 social cuts or repurposed assets',
       'Priority scheduling',
-      'Monthly planning call'
+      'Monthly planning call',
+      'Dedicated chat'
     ]
   },
   {
@@ -308,7 +309,7 @@ var RETAINERS = [
     note:'3-month minimum · billed monthly',
     featured:false,
     features:[
-      '2-4 Advanced-tier hero deliverables per month',
+      '2-3 Standard or Advanced-tier hero deliverables per month',
       '4-6 social cuts or repurposed assets',
       'On-call availability, always first in queue',
       'End-to-end publishing + monthly performance reporting',
