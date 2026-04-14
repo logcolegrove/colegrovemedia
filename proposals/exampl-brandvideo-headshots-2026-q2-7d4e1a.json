@@ -1,0 +1,118 @@
+{
+  "_notes": "FLAG: Client name and email appear to have typos. Confirm spelling: 'Guy Peterson' and 'guy.peterson@example.com' (or similar). Also: no specifics provided on brand video scope (subject, intended use, who's on camera) or headshot count. Defaults used: standard brand video scope language and full advanced headshot session. Travel calculated as one round trip to Billings (~140mi one way = 280mi).",
+  "id": "exampl-brandvideo-headshots-2026-q2-7d4e1a",
+  "status": "pending",
+  "acceptedDate": "",
+  "title": "Brand Video + Headshots",
+  "client": "Exampl",
+  "contact": "Guy Peterson",
+  "contactEmail": "guy.peterson@exampl.com",
+  "date": "April 14, 2026",
+  "validFor": "15 days",
+  "tallyFormId": "wMERpY",
+  "deliverables": [
+    {
+      "title": "Brand Video (Billings, MT)",
+      "total": 6500,
+      "description": "A polished brand video that tells your company's story. I'll handle everything from pre-production planning through final delivery, including on-location filming in Billings with professional lighting and audio.",
+      "lineItems": [
+        {
+          "service": "Recording + Editing",
+          "details": "Full day on-location shoot in Billings with 2-3 camera angles, interviews, and B-roll. Includes pre-production planning, expectation setting, and full post-production edit.",
+          "price": 5600,
+          "amount": 1,
+          "total": 5600
+        },
+        {
+          "service": "Professional Lighting and Audio Package",
+          "details": "Includes an extra hour for setup and teardown and the following lights: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        },
+        {
+          "service": "Titles and Graphics",
+          "details": "Simple intro/outro title slides with Exampl logo and lower thirds graphics for anyone on camera.",
+          "price": 100,
+          "amount": 1,
+          "total": 100
+        },
+        {
+          "service": "Social Optimized Edit",
+          "details": "Edited vertical version optimized for social media.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Background Music",
+          "details": "Find, license and add royalty free background music that's on brand.",
+          "price": 75,
+          "amount": 1,
+          "total": 75
+        },
+        {
+          "service": "B Roll",
+          "details": "Capture B-Roll of your team, workspace, and day-to-day operations to visually support the brand story.",
+          "price": 375,
+          "amount": 1,
+          "total": 375
+        }
+      ],
+      "deliverablesList": [
+        "90-180 second brand video, fully edited and color graded",
+        "30-60 second vertical social edit"
+      ],
+      "timeline": "",
+      "milestones": [
+        { "date": "Week 1", "milestone": "Pre-production planning and shot list", "responsible": "Colegrove Media" },
+        { "date": "Week 1-2", "milestone": "Review shot list and confirm logistics", "responsible": "Exampl" },
+        { "date": "Week 3", "milestone": "On-location shoot day in Billings", "responsible": "Colegrove Media" },
+        { "date": "Week 4-5", "milestone": "Post-production and first draft delivery", "responsible": "Colegrove Media" },
+        { "date": "Week 5-6", "milestone": "Review and feedback", "responsible": "Exampl" },
+        { "date": "Week 6-7", "milestone": "Final revisions and delivery", "responsible": "Colegrove Media" }
+      ]
+    },
+    {
+      "title": "Professional Headshots (Billings, MT)",
+      "total": 350,
+      "description": "Full advanced headshot session on location in Billings with professional lighting. Multiple looks and backgrounds.",
+      "lineItems": [
+        {
+          "service": "Headshots, Advanced",
+          "details": "Full headshot session with multiple looks, backgrounds, and professional lighting. Includes retouching and final delivery of high-resolution images.",
+          "price": 350,
+          "amount": 1,
+          "total": 350
+        }
+      ],
+      "deliverablesList": [
+        "Professionally retouched headshot images, multiple looks",
+        "High-resolution files for web and print"
+      ],
+      "timeline": "Shot same day as brand video. Delivered within 1 week.",
+      "milestones": []
+    },
+    {
+      "title": "Travel (Bozeman to Billings, MT)",
+      "total": 350,
+      "description": "Round trip travel from Bozeman to Billings. Approximately 280 miles.",
+      "lineItems": [
+        {
+          "service": "Travel Cost",
+          "details": "Flat rate of $1.25 per mile covering gas, driving time, gear hauling, and vehicle depreciation. Bozeman to Billings round trip, approximately 280 miles.",
+          "price": 1.25,
+          "amount": 280,
+          "total": 350
+        }
+      ],
+      "deliverablesList": [],
+      "timeline": "",
+      "milestones": []
+    }
+  ],
+  "references": [
+    { "label": "Brand video example (Ignis)", "url": "https://vimeo.com/1011394531" },
+    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+  ]
+}
