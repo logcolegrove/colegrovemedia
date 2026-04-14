@@ -236,7 +236,7 @@ var SERVICES = {
       sample:null,
       desc:'Custom visuals for digital and print — brand assets, social graphics, pitch decks, ads, signage, packaging, and more. Every project starts with a quick scope call so you know exactly what to expect.',
       tiers:[
-        {n:'Graphic Design',p:'$125/hr',i:['Brand assets, print materials, social graphics, ads, and more','Scope call + quote provided before work begins','Source files included with final delivery','2 revision rounds included per project']}
+        {n:'Graphic Design',p:'$125/hr',i:['Brand assets, print materials, social graphics, ads, and more','Quote provided before work begins']}
       ]
     },
     {
