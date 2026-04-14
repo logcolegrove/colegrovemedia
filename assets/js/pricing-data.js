@@ -320,29 +320,37 @@ var RETAINERS = [
 
 
 // ═══════════════════════════════════════════════════════════════
-// PACKAGES (bundles)
+// PACKAGES (bundles) — range-based pricing with industry context
 // ═══════════════════════════════════════════════════════════════
 
 var PACKAGES = [
   {
-    name:'Real Estate', price:'$1,200',
-    desc:'Everything you need to market a listing — from aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.',
-    services:['Real Estate Video','Real Estate Photos','Drone Video','Satellite Map','3D Virtual Tour']
+    name:'Real Estate',
+    range:'$1,200 – $2,500',
+    desc:'Everything a listing agent needs to market a property — aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.',
+    services:['Property video (30 sec–3 min depending on listing)','15–60 edited photos (interior + exterior + twilight)','Drone aerials (photo and/or video)','Satellite map with property boundaries','3D virtual tour (Matterport)'],
+    context:'Scope and price depend on property size and location. Most residential listings fall in the $1,200–$1,800 range. Ranches and commercial properties start higher.'
   },
   {
-    name:'Corporate / Brand', price:'$2,500',
-    desc:'A full content suite for companies that want to show up professionally — across web, social, and sales conversations.',
-    services:['Brand Video','Testimonial','Animated Explainer','Product Demo Video','Team Headshots']
+    name:'Corporate / Brand',
+    range:'$8,000 – $18,000',
+    desc:'A full content suite for companies that want to show up professionally — across web, social, and sales conversations. Coordinated as one project so everything looks and feels cohesive.',
+    services:['Brand video (your flagship piece)','1–2 testimonials','Animated explainer or product demo','Team headshots','Social cuts from all video content'],
+    context:'A brand suite like this becomes your primary marketing asset for 1–3 years. The range depends on how many locations, interview subjects, and how polished the animation needs to be.'
   },
   {
-    name:'Live Event', price:'$3,000',
+    name:'Live Event',
+    range:'$3,500 – $6,000',
     desc:'Full event coverage — broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.',
-    services:['Live Stream','Event Highlight Video','Testimonials on-site','Headshots for attendees / speakers','Graphic Design']
+    services:['Live stream (1–4 hours, multi-camera)','Event highlight video','On-site testimonials (1–2 interviews)','Attendee / speaker headshots','Event graphics and signage'],
+    context:'Price depends on event length, number of cameras, and how many interviews you want. Multi-day events quoted separately.'
   },
   {
-    name:'Social Media', price:'$2,500',
-    desc:'A month of content in a single shoot day — video, stills, and graphics ready to post across all your channels.',
-    services:['Social Clips / Ads','Drone Video','Headshots','Motion Graphics set','Graphic Design']
+    name:'Social Media Content Day',
+    range:'$2,500 – $4,500',
+    desc:'A full shoot day that produces a month (or more) of content — video, stills, and graphics ready to post across all your channels.',
+    services:['2–4 short-form video clips (Reels, TikTok, YouTube Shorts)','Drone footage','Headshots or lifestyle photos','Motion graphics set','Social templates (graphic design)'],
+    context:'One day of shooting. We plan the content calendar together beforehand so every shot has a purpose. Most clients get 4–6 weeks of content from a single shoot day.'
   }
 ];
 
