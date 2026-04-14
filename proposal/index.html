@@ -322,7 +322,7 @@ function renderProposal(d){
 
     // Listen for Tally form submission via postMessage
     window.addEventListener('message', function(e){
-      if(e.data && e.data.event === 'Tally.FormSubmitted'){
+      if(typeof e.data === 'string' && e.data.indexOf('Tally.FormSubmitted') > -1){
         // Hide the Tally form
         var tallyEl = document.getElementById('tallyWrap');
         if(tallyEl) tallyEl.style.display = 'none';
