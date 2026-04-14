@@ -162,6 +162,7 @@ function openModal(slug){
   var ml=document.getElementById('modal-left');ml.innerHTML='';
   var isLottie=!!w.lottieUrl;var isStatic=(w.cat==='photo'||w.cat==='design');
   if(isLottie)buildLottieModal(w,ml);else if(isStatic)buildStaticModal(w,ml);else buildVideoModal(w,ml);
+  document.getElementById('modal').classList.toggle('modal-vertical', !!w.vertical);
   document.getElementById('modal-backdrop').classList.add('open');document.body.style.overflow='hidden';
 }
 
