@@ -1,421 +1,287 @@
-/* ═══════════════════════════════════════════════════════════════
-   COLEGROVE MEDIA — PRICING DATA
-   Single source of truth for all service definitions and pricing.
-   
-   Used by: services page, pricing page, and future service pages.
-   
-   To update a price:
-     1. Find the service in SERVICES below
-     2. Edit the tier price
-     3. That's it — both services page and pricing page update
-   
-   To add a preview sample to a service:
-     1. Find the service
-     2. Add a sample object (see existing examples)
-     3. Play button appears on both pages automatically
-   
-   sample types:
-     { type:'video', projectSlug:'slug-from-portfolio-data' }
-     { type:'gallery', projectSlug:'slug-from-portfolio-data' }
-     { type:'lottie', projectSlug:'slug-from-portfolio-data' }
-     null = no preview button
-   ═══════════════════════════════════════════════════════════════ */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Colegrove Media</title>
+<meta name="description" content="Transparent pricing for video, photo, animation, and design services. Retainer partnerships, popular bundles, and à la carte — Colegrove Media, Bozeman MT.">
+<meta property="og:title" content="Pricing — Colegrove Media">
+<meta property="og:description" content="Transparent pricing for video, photo, animation, and design services.">
+<meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove-media-og-image.jpg">
+<meta property="og:url" content="https://colegrovemedia.com/pricing">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/images/colegrove-media-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/global.css">
+<style>
+.pricing-section{padding:72px 40px;border-bottom:1px solid var(--border);position:relative;}
+.retainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:visible;}
+.retainer-card{background:var(--bg2);padding:40px 32px;display:flex;flex-direction:column;gap:0;position:relative;isolation:isolate;}
+.retainer-card.featured{background:var(--bg3);}
+.retainer-card.featured::before{content:'Most Popular';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--teal);color:#0d1117;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 14px;border-radius:0 0 8px 8px;}
+.retainer-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--border);transition:background 0.3s;}
+.retainer-card.featured::after{background:var(--teal);}
+.r-name{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
+.r-price{font-size:clamp(36px,4vw,52px);font-weight:700;color:var(--white);line-height:1;margin-bottom:4px;}
+.r-price span{font-size:16px;font-weight:400;color:var(--muted);}
+.r-period{font-size:13px;color:var(--muted);margin-bottom:28px;}
+.r-divider{height:1px;background:var(--border);margin-bottom:24px;}
+.r-features{list-style:none;display:flex;flex-direction:column;gap:11px;flex:1;margin-bottom:28px;}
+.r-features li{font-size:14px;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
+.r-features li::before{content:'';width:16px;height:16px;border-radius:50%;background:rgba(0,242,166,0.1);border:1px solid rgba(0,242,166,0.3);flex-shrink:0;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3L3 5L7 1' stroke='%2300f2a6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;}
+.r-btn{display:block;text-align:center;padding:13px;border-radius:8px;font-size:13px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;transition:opacity 0.18s,color 0.18s,border-color 0.18s;cursor:pointer;}
+.r-btn-fill{background:var(--teal);color:#0d1117;border:1px solid var(--teal);}
+.r-btn-fill:hover{opacity:0.85;}
+.r-btn-outline{background:transparent;color:var(--muted);border:1px solid var(--border);}
+.r-btn-outline:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
+.retainer-note{margin-top:20px;font-size:13px;color:var(--muted);text-align:center;font-weight:300;}
+.packages-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
+.pkg-card{background:var(--bg2);padding:36px 32px;display:flex;flex-direction:column;gap:20px;}
+.pkg-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;}
+.pkg-name{font-size:22px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:6px;}
+.pkg-desc{font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;}
+.pkg-price-badge{background:rgba(0,242,166,0.1);border:1px solid rgba(0,242,166,0.25);border-radius:8px;padding:8px 14px;text-align:center;flex-shrink:0;}
+.pkg-price-from{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:2px;}
+.pkg-price-val{font-size:18px;font-weight:700;color:var(--white);white-space:nowrap;}
+.pkg-services{list-style:none;border-top:1px solid var(--border);padding-top:20px;display:flex;flex-direction:column;gap:8px;}
+.pkg-services li{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:10px;}
+.pkg-services li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.7;flex-shrink:0;}
+.pkg-context{font-size:13px;color:var(--muted);font-weight:300;font-style:italic;line-height:1.6;opacity:0.7;border-top:1px solid var(--border);padding-top:16px;margin-top:4px;}
+.pkg-cta{margin-top:4px;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--teal);letter-spacing:0.06em;text-transform:uppercase;transition:gap 0.18s;cursor:pointer;}
+.pkg-cta:hover{gap:10px;}
+#alc-wrap{position:relative;z-index:50;}
+.alc-cat-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:1px solid var(--border);cursor:pointer;user-select:none;}
+.alc-cat-header:first-of-type{border-top:none;}
+.alc-cat-name{font-size:20px;font-weight:700;color:var(--white);}
+.alc-cat-toggle{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+.alc-cat-toggle svg{transition:transform 0.25s;}
+.alc-cat-toggle.open svg{transform:rotate(180deg);}
+.alc-cat-toggle.open{color:var(--white);}
+.alc-grid{display:none;gap:2px;background:var(--border);border-radius:12px;overflow:visible;margin-bottom:0;}
+.alc-grid.open{display:grid;margin-bottom:16px;}
+.policies-strip{padding:0 40px;border-bottom:1px solid var(--border);position:relative;z-index:0;}
+.policies-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:8px;overflow:hidden;}
+.policy-card{padding:18px 20px;background:var(--bg);display:flex;flex-direction:column;gap:4px;}
+.policy-name{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);opacity:0.6;}
+.policy-value{font-size:13px;font-weight:500;color:var(--muted);}
+.policy-desc{font-size:12px;color:var(--muted);font-weight:300;opacity:0.55;line-height:1.5;margin-top:2px;}
 
-// ═══════════════════════════════════════════════════════════════
-// SERVICES — organized by category
-// ═══════════════════════════════════════════════════════════════
+@media(max-width:960px){.pricing-section,.policies-strip{padding-left:24px;padding-right:24px;}.retainer-grid{grid-template-columns:1fr;}.packages-grid{grid-template-columns:1fr;}.policies-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){.alc-grid{grid-template-columns:1fr!important;}}
+</style>
+</head>
+<body>
 
-var SERVICES = {
-  video: [
-    {
-      id:'real-estate-video', name:'Real Estate Video',
-      ind:['real-estate'],
-      sample:{ type:'video', projectSlug:'someday-ranch' },
-      desc:'Showcase any property with cinematic drone and ground-level video — ranch listings, residential homes, commercial spaces, and land. Built to sell.',
-      tiers:[
-        {n:'Basic',p:'$500',i:['Drone + ground footage up to 30 seconds','Professional edit · Music · 1 revision']},
-        {n:'Standard',p:'$900',i:['Up to 90 seconds · Drone + interior walkthrough','Color grade · Music · 2 revisions']},
-        {n:'Advanced',p:'$1,500+',i:['Up to 3 minutes · Full property storytelling','Voiceover option · Social cuts included · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'brand-video', name:'Brand Videos',
-      ind:['corporate','nonprofit','tech','social-media'],
-      sample:{ type:'video', projectSlug:'powering-wildfire-intelligence' },
-      desc:'Communicate your mission, values, and offering with a cinematic brand film — content that makes an impact and drives real results.',
-      tiers:[
-        {n:'Basic',p:'$3,500',i:['1 shooting location','1 voiceover or interview','Professional lighting, audio, and branding','1 revision · 1 final edit']},
-        {n:'Standard',p:'$6,500',i:['Script + storyboard','Up to 2 shooting locations','B-roll, motion graphics, and thumbnail design','2 revisions · Full video + social cut']},
-        {n:'Advanced',p:'$9,500+',i:['Multi-day, multi-location production','End-to-end strategy and publishing support','Unlimited revisions · 3 final files + image asset kit']}
-      ]
-    },
-    {
-      id:'testimonial', name:'Testimonials',
-      ind:['corporate','nonprofit','tech','real-estate'],
-      sample:{ type:'video', projectSlug:'not-jumping-ship' },
-      desc:'Let your satisfied customers do the talking. Committed to making interviewees feel comfortable while capturing high-impact, authentic content.',
-      tiers:[
-        {n:'Basic',p:'$2,000',i:['1 participant · 1 location','Professional lighting, audio, 2-camera setup','Polished final cut · 2 revisions']},
-        {n:'Standard',p:'$3,200',i:['1 participant · Extended shoot for custom B-roll','Workspace, product, and environment shots','Final cut + 1 social clip · 3 revisions']},
-        {n:'Advanced',p:'$4,200+',i:['2+ participants · Full shoot day','Custom B-roll across multiple setups','Multiple edits + social cuts · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'podcast', name:'Podcasts',
-      ind:['corporate','nonprofit','social-media'],
-      sample:{ type:'video', projectSlug:'field-notes-grassland' },
-      desc:'Recording, editing, and audio engineering to humanize your brand. Whether you need an editor or a full producer, solutions are tailored to your needs.',
-      tiers:[
-        {n:'Editing Only',p:'$700',i:['You provide the recording','Audio mixing, mastering, and cleanup','1 revision']},
-        {n:'Single Camera',p:'$1,200',i:['We record + edit','1 camera · Professional audio','2 revisions']},
-        {n:'Multi-Camera',p:'$2,000',i:['Full production · Multiple episodes available','3 cameras · Professional lighting + audio','Transcript, show notes, artwork · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'product-video', name:'Product Videos',
-      ind:['tech','corporate'],
-      sample:{ type:'video', projectSlug:'all-in-one-foundation' },
-      desc:'Educate and excite viewers on your physical product or software — from a 30-second cut to a full-featured walkthrough with graphics and B-roll.',
-      tiers:[
-        {n:'Basic',p:'$600',i:['30 seconds · Product shots · 1 revision']},
-        {n:'Standard',p:'$1,100',i:['Up to 2 minutes (4K) · Professional lighting and audio · 2 revisions']},
-        {n:'Advanced',p:'$2,000',i:['Up to 5 minutes (4K) · B-roll · Informative graphics · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'live-stream', name:'Live Streams',
-      ind:['corporate','nonprofit','events'],
-      sample:null,
-      desc:'Professionally broadcast your conference, meeting, or special occasion. Public or private link via Zoom, YouTube, social media, and more.',
-      tiers:[
-        {n:'Basic',p:'$1,500',i:['1-hour 1080p stream · 1 static camera','1 streaming technician · PowerPoint integration']},
-        {n:'Standard',p:'$1,900',i:['2-hour 1080p stream · 2 cameras + live switching']},
-        {n:'Advanced',p:'$2,500',i:['4-hour stream · 1 camera operator + 2 static angles','Overlay graphics · Help with registration & embedding']}
-      ]
-    },
-    {
-      id:'remote-client-story', name:'Remote Client Stories',
-      ind:['corporate','nonprofit','tech'],
-      sample:{ type:'video', projectSlug:'a-ranchers-take' },
-      desc:'Transform virtual interviews into polished short-form stories. We guide you from interview planning to on-camera direction — or lead it ourselves.',
-      tiers:[
-        {n:'Basic',p:'$1,100',i:['Editing only · Royalty-free music · 1 revision']},
-        {n:'Standard',p:'$2,100',i:['1 interview recorded at high fidelity · Animations, B-roll · 2 revisions']},
-        {n:'Advanced',p:'$3,400+',i:['Multiple interviews · Multiple edits + social cuts · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'drone-video-fpv', name:'Drone / FPV',
-      ind:['real-estate','corporate','social-media','events'],
-      sample:{ type:'video', projectSlug:'iceland-in-motion' },
-      desc:'Cinematic aerials or dynamic FPV flythroughs that add the wow-factor. FAA licensed pilot. Available standalone or as part of a larger production.',
-      tiers:[
-        {n:'Regular',p:'$300',i:['Stable DJI 4K footage · 1–2 minute edit · 1 revision']},
-        {n:'FPV',p:'$500',i:['First-person view 4K · 3–5 minute edit · 2 revisions']},
-        {n:'Regular + FPV',p:'$700',i:['Up to 10-minute edit · 3 social clips · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'social-clips', name:'Social Clips / Ads',
-      ind:['corporate','real-estate','nonprofit','tech','social-media'],
-      sample:{ type:'video', projectSlug:'sharp-tails-and-grasslands' },
-      desc:'Market your products and services on social media or YouTube. Short-form content cut for attention and optimized for wherever your audience lives.',
-      tiers:[
-        {n:'Basic',p:'$1,500',i:['Single-platform ad cut · Existing footage · 1 revision']},
-        {n:'Standard',p:'$2,500',i:['Fresh shoot + edit · 2 platform-optimized cuts · 2 revisions']},
-        {n:'Advanced',p:'$4,000',i:['Full commercial production · Multiple platforms · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'video-editing', name:'Video Editing',
-      ind:['corporate','nonprofit','tech','social-media','events'],
-      sample:null,
-      desc:'Already have footage? Enhance your Zoom, Teams, Loom, or raw recordings into polished, engaging content.',
-      tiers:[
-        {n:'$125 / hour',p:'',i:['Rough cut assembly','Color correction and audio cleanup','Lower thirds, titles, and basic graphics','Music sync and pacing edits','Export in any format or platform spec']}
-      ]
-    }
-  ],
+<div id="site-nav" data-active="pricing"></div>
 
-  photo: [
-    {
-      id:'headshots', name:'Headshots',
-      ind:['corporate','real-estate','tech'],
-      sample:{ type:'gallery', projectSlug:'headshots' },
-      desc:'High-quality portrait photography for personal branding and professional profiles. Efficient sessions that deliver images you\'ll actually use.',
-      tiers:[
-        {n:'Basic',p:'$100',i:['Up to 30-min · 5 edited images']},
-        {n:'Standard',p:'$200',i:['Up to 1-hour · 15 edited images · Outfit changes welcome']},
-        {n:'Advanced',p:'$350',i:['Up to 2-hour · 30 edited images · Full retouching + social kit']}
-      ]
-    },
-    {
-      id:'real-estate-photos', name:'Real Estate Photos',
-      ind:['real-estate'],
-      sample:null,
-      desc:'Carefully planned, composed, and retouched interior and exterior property images. Optimized for MLS, Zillow, and marketing materials.',
-      tiers:[
-        {n:'Basic',p:'$150',i:['15 edited interior + exterior photos']},
-        {n:'Standard',p:'$250',i:['30 edited photos · Twilight exterior · HDR blending']},
-        {n:'Advanced',p:'$400',i:['60 edited photos · Aerial photos included · 24-hour delivery']}
-      ]
-    },
-    {
-      id:'drone-photos', name:'Drone Photos',
-      ind:['real-estate','corporate','events'],
-      sample:null,
-      desc:'Stunning aerial imagery of real estate, landscapes, events, and more. FAA licensed pilot. Available standalone or paired with ground photography.',
-      tiers:[
-        {n:'Basic',p:'$100',i:['10 edited aerial photos · FAA licensed']},
-        {n:'Standard',p:'$175',i:['20 edited aerial photos · Multiple angles']},
-        {n:'Advanced',p:'$300',i:['60 edited aerial photos · Twilight aerials available']}
-      ]
-    },
-    {
-      id:'3d-virtual-tour', name:'3D Virtual Tours',
-      ind:['real-estate'],
-      sample:null,
-      desc:'Interactive 360° Matterport tours allowing buyers to explore every angle of a property anytime, anywhere.',
-      tiers:[
-        {n:'Standard',p:'Contact for quote',i:['Full Matterport 3D scan','Hosted tour link · Floor plan included','Embedded into any website or MLS listing']}
-      ]
-    }
-  ],
+<div class="page-hero">
+  <div class="eyebrow reveal">Pricing</div>
+  <h1 class="page-h1 reveal">Transparent pricing.<br>No surprises.</h1>
+  <p class="page-desc reveal">Every project is quoted clearly upfront. Whether you need one deliverable or an ongoing creative partner, there's a structure that fits.</p>
+</div>
 
-  animation: [
-    {
-      id:'animated-explainer', name:'Animated Explainers',
-      ind:['tech','nonprofit','corporate'],
-      sample:{ type:'video', projectSlug:'streamline-your-nonprofit' },
-      desc:'Complex ideas made clear in under 2 minutes. High retention, high trust. Motion and narration working together to explain what words alone can\'t.',
-      tiers:[
-        {n:'Basic',p:'$2,500',i:['Up to 60 seconds · Simple 2D motion graphics · 1 revision']},
-        {n:'Standard',p:'$5,000',i:['Up to 90 seconds · Script + storyboard · Custom graphics · Master + social cut · 2 revisions']},
-        {n:'Advanced',p:'$8,500+',i:['Up to 3 minutes · Full creative direction · Custom illustration style · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'motion-graphics', name:'Motion Graphics',
-      ind:['corporate','tech','social-media'],
-      sample:null,
-      desc:'Animated graphics for ads, social content, presentations, and video overlays — motion that makes your brand impossible to ignore.',
-      tiers:[
-        {n:'Basic',p:'$500',i:['Single animated graphic · Looping + one-shot · 1 revision']},
-        {n:'Standard',p:'$1,200',i:['Up to 5 animated elements · Multiple format exports · 2 revisions']},
-        {n:'Advanced',p:'$2,500+',i:['Full motion graphics package · 10+ elements · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'logo-animation', name:'Logo Animations',
-      ind:['corporate','tech','nonprofit','social-media'],
-      sample:{ type:'lottie', projectSlug:'logo-animations' },
-      desc:'Bring your logo to life with a custom animated intro — perfect for video openers, social profiles, and presentations.',
-      tiers:[
-        {n:'Basic',p:'$300',i:['Simple reveal animation · MP4 + transparent version · 1 revision']},
-        {n:'Standard',p:'$600',i:['Custom motion · Multiple versions · 2 revisions']},
-        {n:'Advanced',p:'$1,000',i:['Full animated brand identity suite · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'lottie-animation', name:'Website Animations / Lottie',
-      ind:['tech','corporate'],
-      sample:{ type:'lottie', projectSlug:'lottie-collaboration' },
-      desc:'Lightweight, scalable animations built for the web — Lottie files that integrate seamlessly into any website or app without slowing it down.',
-      tiers:[
-        {n:'Basic',p:'$400',i:['Single Lottie animation · JSON + MP4 export · 1 revision']},
-        {n:'Standard',p:'$900',i:['Up to 3 Lottie animations · Developer handoff included · 2 revisions']},
-        {n:'Advanced',p:'$2,000+',i:['Full-site animation package · Scroll-triggered and interactive animations · Unlimited revisions']}
-      ]
-    }
-  ],
+<div class="pricing-section">
+  <div class="section-eyebrow">01 — Partnership</div>
+  <h2 class="section-title">Monthly Retainer Plans</h2>
+  <p class="section-sub">The most cost-effective way to work together. A consistent monthly commitment means priority scheduling, a creative partner who actually knows your brand, and content that compounds over time.</p>
+  <div class="retainer-grid" id="retainer-grid"></div>
+  <p class="retainer-note">Not sure which plan fits? <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" style="color:var(--teal);">Let's talk</a> — retainers can be customized around your content calendar.</p>
+</div>
 
-  design: [
-    {
-      id:'graphic-design', name:'Graphic Design',
-      ind:['corporate','nonprofit','real-estate','events','social-media'],
-      sample:null,
-      desc:'Custom visuals for digital and print — brand assets, social graphics, pitch decks, ads, signage, packaging, and more. Every project starts with a quick scope call so you know exactly what to expect.',
-      tiers:[
-        {n:'Graphic Design',p:'$125/hr',i:['Brand assets, print materials, social graphics, ads, and more','Quote provided before work begins']}
-      ]
-    },
-    {
-      id:'web-design', name:'Web Design',
-      ind:['corporate','nonprofit','tech','real-estate'],
-      sample:null,
-      desc:'Custom websites — responsive, fast, and built to convert. Every build includes mobile optimization, SEO fundamentals, and a training session so you can manage it yourself.',
-      tiers:[
-        {n:'Custom Website',p:'$1,500+',i:['Scope and quote based on your goals','Mobile responsive · SEO fundamentals','Training session included','Ongoing updates available at $125/hr']}
-      ]
-    },
-    {
-      id:'satellite-map', name:'Satellite Maps',
-      ind:['real-estate'],
-      sample:null,
-      desc:'Animated Google Earth flyovers showing property lines, nearby attractions, and custom labels. A powerful tool for real estate and land listings.',
-      tiers:[
-        {n:'Basic',p:'$150',i:['Simple flyover · Property boundary overlay · 1 revision']},
-        {n:'Standard',p:'$300',i:['Flyover + custom labels and callouts · 2 revisions']},
-        {n:'Advanced',p:'$500+',i:['Full animated property tour · Multiple POIs · Unlimited revisions']}
-      ]
-    },
-    {
-      id:'virtual-staging', name:'Virtual Staging',
-      ind:['real-estate'],
-      sample:null,
-      desc:'Transform any empty room into a fully-furnished, beautifully designed space — without moving a single piece of furniture.',
-      tiers:[
-        {n:'1 Image',p:'$50',i:['1 virtually staged room · 2 style options · 2 revisions']},
-        {n:'5 Images',p:'$200',i:['5 virtually staged rooms · Consistent style · 2 revisions']},
-        {n:'10 Images',p:'$350',i:['10 virtually staged rooms · Rush delivery available · Unlimited revisions']}
-      ]
-    }
-  ]
-};
+<div class="pricing-section">
+  <div class="section-eyebrow">02 — For Your Industry</div>
+  <h2 class="section-title">Common Combinations</h2>
+  <p class="section-sub">Every business is different, but these are the content suites we build most often. Each is scoped and quoted as a single coordinated project — so you get a better result and a better price than buying everything separately.</p>
+  <div class="packages-grid" id="packages-grid"></div>
+</div>
 
+<div class="pricing-section">
+  <div class="section-eyebrow">03 — À La Carte</div>
+  <h2 class="section-title">Individual Services</h2>
+  <p class="section-sub">Know exactly what you need? Every service is available individually. Click any category to see full pricing tiers.</p>
+  <div id="alc-wrap"></div>
+</div>
 
-// ═══════════════════════════════════════════════════════════════
-// RETAINER PLANS
-// ═══════════════════════════════════════════════════════════════
+<div class="policies-strip" style="padding-top:36px;padding-bottom:36px;">
+  <div class="section-eyebrow" style="margin-bottom:16px;">Good to Know</div>
+  <div class="policies-inner" id="policies-inner"></div>
+</div>
 
-var RETAINERS = [
-  {
-    name:'Essentials', price:'$2,000', period:'/mo',
-    note:'3-month minimum · billed monthly',
-    featured:false,
-    features:[
-      '1 Basic-tier hero deliverable per month',
-      '1 social cut or repurposed asset',
-      'Priority scheduling',
-      'Monthly planning call'
-    ]
-  },
-  {
-    name:'Capacity Building', price:'$3,500', period:'/mo',
-    note:'3-month minimum · billed monthly',
-    featured:true,
-    features:[
-      '1–2 Standard-tier hero deliverables per month',
-      '2–3 social cuts or repurposed assets',
-      'Priority scheduling + same-week availability',
-      'End-to-end support — we handle publishing to your channels',
-      'Bi-weekly planning calls',
-      'Dedicated chat'
-    ]
-  },
-  {
-    name:'Partner', price:'$6,500', period:'/mo',
-    note:'3-month minimum · billed monthly',
-    featured:false,
-    features:[
-      '2–4 Advanced-tier hero deliverables per month',
-      '4–6 social cuts or repurposed assets',
-      'On-call availability — always first in queue',
-      'End-to-end publishing + monthly performance reporting',
-      'Weekly strategy sessions',
-      'Dedicated chat'
-    ]
-  }
-];
+<div class="cta-wrap">
+  <div class="cta-band">
+    <div class="cta-band-h">Ready to get <span>started?</span></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-fill">Book a Call →</a>
+      <a href="/brief" class="btn-ghost">Start a Project Brief</a>
+    </div>
+  </div>
+</div>
 
+<div class="modal-backdrop" id="modal-backdrop" onclick="handleBackdropClick(event)">
+  <div class="modal" id="modal">
+    <div class="modal-left" id="modal-left"></div>
+    <div class="modal-right">
+      <div class="modal-header"><span class="modal-vtag" id="modal-tag"></span><div class="modal-close" onclick="closeModal()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></div></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-desc" id="modal-desc"></div>
+      <div class="modal-divider"></div>
+      <div class="modal-specs" id="modal-specs"></div>
+      <div class="modal-divider"></div>
+      <div class="modal-cta">
+        <a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a>
+        <a href="/brief" class="modal-btn-ghost">Start a Project Brief</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-// ═══════════════════════════════════════════════════════════════
-// PACKAGES (bundles) — range-based pricing with industry context
-// ═══════════════════════════════════════════════════════════════
+<div id="site-footer"></div>
 
-var PACKAGES = [
-  {
-    name:'Real Estate',
-    range:'$1,200 – $2,500',
-    desc:'Everything a listing agent needs to market a property — aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.',
-    services:['Property video (30 sec–3 min depending on listing)','15–60 edited photos (interior + exterior + twilight)','Drone aerials (photo and/or video)','Satellite map with property boundaries','3D virtual tour (Matterport)'],
-    context:'Scope and price depend on property size and location. Most residential listings fall in the $1,200–$1,800 range. Ranches and commercial properties start higher.'
-  },
-  {
-    name:'Corporate / Brand',
-    range:'$8,000 – $18,000',
-    desc:'A full content suite for companies that want to show up professionally — across web, social, and sales conversations. Coordinated as one project so everything looks and feels cohesive.',
-    services:['Brand video (your flagship piece)','1–2 testimonials','Animated explainer or product demo','Team headshots','Social cuts from all video content'],
-    context:'A brand suite like this becomes your primary marketing asset for 1–3 years. The range depends on how many locations, interview subjects, and how polished the animation needs to be.'
-  },
-  {
-    name:'Live Event',
-    range:'$3,500 – $6,000',
-    desc:'Full event coverage — broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.',
-    services:['Live stream (1–4 hours, multi-camera)','Event highlight video','On-site testimonials (1–2 interviews)','Attendee / speaker headshots','Event graphics and signage'],
-    context:'Price depends on event length, number of cameras, and how many interviews you want. Multi-day events quoted separately.'
-  },
-  {
-    name:'Social Media Content Day',
-    range:'$2,500 – $4,500',
-    desc:'A full shoot day that produces a month (or more) of content — video, stills, and graphics ready to post across all your channels.',
-    services:['2–4 short-form video clips (Reels, TikTok, YouTube Shorts)','Drone footage','Headshots or lifestyle photos','Motion graphics set','Social templates (graphic design)'],
-    context:'One day of shooting. We plan the content calendar together beforehand so every shot has a purpose. Most clients get 4–6 weeks of content from a single shoot day.'
-  }
-];
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="/assets/js/portfolio-data.js"></script>
+<script src="/assets/js/pricing-data.js"></script>
+<script src="/assets/js/components.js"></script>
+<script src="/assets/js/shared.js"></script>
+<script>
+var CHEV='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
+var PLAY_ICON='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1.5L9 6L1 10.5V1.5Z" fill="rgba(0,242,166,0.9)"/></svg>';
+var EYE_ICON='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(0,242,166,0.9)" stroke-width="1.5" stroke-linecap="round"><ellipse cx="7" cy="7" rx="6" ry="4"/><circle cx="7" cy="7" r="1.8" fill="rgba(0,242,166,0.9)" stroke="none"/></svg>';
 
-
-// ═══════════════════════════════════════════════════════════════
-// POLICIES
-// ═══════════════════════════════════════════════════════════════
-
-var POLICIES = [
-  { name:'Rush Fee', value:'2× quoted rate', desc:'For delivery significantly shorter than the standard production schedule.' },
-  { name:'Travel Fee', value:'$1.25 / mile', desc:'Beyond 15 miles from Bozeman, MT. Multi-day productions quoted individually.' },
-  { name:'Usage Rights', value:'Full transfer on delivery', desc:'All rights pass to you upon final delivery. No ongoing licensing fees.' },
-  { name:'Hourly / Day Rate', value:'$125 / hr \u00a0·\u00a0 $1,000 / day', desc:'For consulting, maintenance, or any work billed by time.' }
-];
-
-
-// ═══════════════════════════════════════════════════════════════
-// CATEGORY METADATA — for services page sections
-// ═══════════════════════════════════════════════════════════════
-
-var SERVICE_CATEGORIES = {
-  video: {
-    label:'Video',
-    title:'Video Services',
-    desc:'Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.',
-    cols:3
-  },
-  photo: {
-    label:'Photo',
-    title:'Photo Services',
-    desc:'Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.',
-    cols:4
-  },
-  animation: {
-    label:'Animation',
-    title:'Animation Services',
-    desc:'Motion and narrative working together to explain what words alone can\'t — and build recognition while doing it.',
-    cols:4
-  },
-  design: {
-    label:'Design',
-    title:'Design Services',
-    desc:'Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.',
-    cols:4
-  }
-};
-
-
-// ═══════════════════════════════════════════════════════════════
-// HELPER FUNCTIONS
-// ═══════════════════════════════════════════════════════════════
-
-/** Find a service by ID across all categories */
-function findService(id) {
-  var found = null;
-  Object.keys(SERVICES).forEach(function(cat){
-    SERVICES[cat].forEach(function(s){ if(s.id === id) found = s; });
+/* ── RETAINERS ── */
+(function(){
+  var grid=document.getElementById('retainer-grid');
+  RETAINERS.forEach(function(r){
+    var card=document.createElement('div');card.className='retainer-card'+(r.featured?' featured':'');
+    var feats=r.features.map(function(f){return '<li>'+f+'</li>';}).join('');
+    var btnClass=r.featured?'r-btn r-btn-fill':'r-btn r-btn-outline';
+    card.innerHTML='<div class="r-name">'+r.name+'</div><div class="r-price">'+r.price+'<span>'+r.period+'</span></div><div class="r-period">'+r.note+'</div><div class="r-divider"></div><ul class="r-features">'+feats+'</ul><a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="'+btnClass+'">Book a Call →</a>';
+    grid.appendChild(card);
   });
-  return found;
+})();
+
+/* ── PACKAGES (redesigned: range-based with context) ── */
+(function(){
+  var grid=document.getElementById('packages-grid');
+  PACKAGES.forEach(function(pkg){
+    var svcs=pkg.services.map(function(s){return '<li>'+s+'</li>';}).join('');
+    var ctxHtml=pkg.context?'<p class="pkg-context">'+pkg.context+'</p>':'';
+    var card=document.createElement('div');card.className='pkg-card';
+    card.innerHTML='<div class="pkg-header"><div><div class="pkg-name">'+pkg.name+'</div><div class="pkg-desc">'+pkg.desc+'</div></div><div class="pkg-price-badge"><span class="pkg-price-from">Typical</span><span class="pkg-price-val">'+pkg.range+'</span></div></div><ul class="pkg-services">'+svcs+'</ul>'+ctxHtml+'<a href="/brief" class="pkg-cta">Get a Quote →</a>';
+    grid.appendChild(card);
+  });
+})();
+
+/* ── À LA CARTE ── */
+(function(){
+  var wrap=document.getElementById('alc-wrap');
+  ['video','photo','animation','design'].forEach(function(cat,ci){
+    var meta=SERVICE_CATEGORIES[cat];
+    var hdr=document.createElement('div');hdr.className='alc-cat-header';
+    hdr.innerHTML='<div class="alc-cat-name">'+meta.label+'</div><div class="alc-cat-toggle" id="alc-tog-'+ci+'">Expand '+CHEV+'</div>';
+    hdr.onclick=function(){toggleALC(ci);};
+    wrap.appendChild(hdr);
+    var grid=document.createElement('div');grid.className='alc-grid';grid.id='alc-grid-'+ci;grid.style.gridTemplateColumns='repeat('+Math.min(meta.cols,SERVICES[cat].length)+',1fr)';
+    SERVICES[cat].forEach(function(svc){grid.appendChild(makeALCCard(svc));});
+    wrap.appendChild(grid);
+  });
+})();
+
+function makeALCCard(svc){
+  var tiersHtml=svc.tiers.map(function(t){
+    var items=t.i.map(function(li){return '<li>'+li+'</li>';}).join('');
+    var ph=t.p?'<span class="tier-price">'+t.p+'</span>':'';
+    return '<div class="tier"><div class="tier-header"><span class="tier-name">'+t.n+'</span>'+ph+'</div><ul class="tier-list">'+items+'</ul></div>';
+  }).join('');
+  var btnHtml='';
+  if(svc.sample){
+    var icon=(svc.sample.type==='gallery')?EYE_ICON:PLAY_ICON;
+    btnHtml='<button class="svc-preview-btn" onclick="event.stopPropagation();openPreview(\''+svc.id+'\')">'+icon+'</button>';
+  }
+  var card=document.createElement('div');card.className='svc-card';
+  card.innerHTML='<div class="svc-name-row"><div class="svc-name">'+svc.name+'</div>'+btnHtml+'</div><p class="svc-desc">'+svc.desc+'</p><div class="svc-details-wrap"><button class="svc-toggle" onclick="toggleTier(this)">Pricing &amp; Details '+CHEV+'</button><div class="svc-details"><div class="svc-details-inner">'+tiersHtml+'</div></div></div>';
+  return card;
 }
 
-/** Get the sample project for a service (resolves projectSlug to full project data) */
-function getServiceSample(service) {
-  if (!service.sample || !service.sample.projectSlug) return null;
-  var project = findProject(service.sample.projectSlug);
-  if (!project) return null;
-  return { type: service.sample.type, project: project };
+function toggleALC(ci){var grid=document.getElementById('alc-grid-'+ci);var tog=document.getElementById('alc-tog-'+ci);var open=grid.classList.contains('open');grid.classList.toggle('open',!open);tog.classList.toggle('open',!open);tog.innerHTML=(open?'Expand ':'Collapse ')+CHEV;}
+
+/* ── POLICIES ── */
+(function(){
+  var inner=document.getElementById('policies-inner');
+  POLICIES.forEach(function(p){
+    var card=document.createElement('div');card.className='policy-card';
+    card.innerHTML='<div class="policy-name">'+p.name+'</div><div class="policy-value">'+p.value+'</div><div class="policy-desc">'+p.desc+'</div>';
+    inner.appendChild(card);
+  });
+})();
+
+/* ── DROPDOWNS ── */
+function closeAllDropdowns(){document.querySelectorAll('.svc-details.open').forEach(function(d){d.classList.remove('open');});document.querySelectorAll('.svc-toggle.open').forEach(function(b){b.classList.remove('open');});document.querySelectorAll('.svc-card.dropdown-open').forEach(function(c){c.classList.remove('dropdown-open');});}
+function toggleTier(btn){var card=btn.closest('.svc-card');var det=btn.nextElementSibling;var open=det.classList.contains('open');closeAllDropdowns();if(!open){det.classList.add('open');btn.classList.add('open');card.classList.add('dropdown-open');}}
+document.addEventListener('click',function(e){if(!e.target.closest('.svc-card'))closeAllDropdowns();});
+
+/* ── PREVIEW MODAL — routes to correct modal type ── */
+var galleryIdx=0;
+var _lottieAnim=null;var _lottieLooping=true;var _lottieScrubbing=false;var _lottieThumbAnims=[];
+
+function openPreview(svcId){
+  var svc=findService(svcId);if(!svc||!svc.sample)return;
+  var sample=getServiceSample(svc);if(!sample)return;
+  var p=sample.project;
+  document.getElementById('modal-tag').textContent=p.typeLabel;
+  document.getElementById('modal-title').textContent=p.title;
+  document.getElementById('modal-desc').textContent=p.desc;
+  document.getElementById('modal-specs').innerHTML=p.specs.map(function(sp){return '<div class="modal-spec"><span class="modal-spec-k">'+sp.k+'</span><span class="modal-spec-v">'+sp.v+'</span></div>';}).join('');
+  var dividers=document.querySelectorAll('.modal-divider');if(dividers[1])dividers[1].style.display=p.specs.length?'':'none';
+  document.getElementById('modal-cta-primary').textContent=p.cta||TYPE_CTA[p.type]||'Get a Quote →';
+  var ml=document.getElementById('modal-left');ml.innerHTML='';
+  if(sample.type==='gallery') buildGalleryModal(p,ml);
+  else if(sample.type==='lottie') buildLottieModal(p,ml);
+  else buildVideoModal(p,ml);
+  document.getElementById('modal').classList.toggle('modal-vertical', !!(p.vertical));document.getElementById('modal-backdrop').classList.add('open');document.body.style.overflow='hidden';
 }
+
+function buildVideoModal(p,ml){
+  var emb=document.createElement('div');emb.className='modal-embed';var ifr=document.createElement('iframe');ifr.src='https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture');ifr.setAttribute('allowfullscreen','');emb.appendChild(ifr);ml.appendChild(emb);
+  var related=getRelatedProjects(p.slug,p.type,3);if(related.length){var rel=document.createElement('div');rel.className='modal-related';var lbl=document.createElement('div');lbl.className='modal-related-label';lbl.textContent='More '+p.typeLabel+'s';rel.appendChild(lbl);related.forEach(function(r){var d=document.createElement('div');d.className='modal-rel-item';d.onclick=function(){ifr.src='https://player.vimeo.com/video/'+r.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';document.getElementById('modal-tag').textContent=r.typeLabel;document.getElementById('modal-title').textContent=r.title;document.getElementById('modal-desc').textContent=r.desc||'';document.getElementById('modal-specs').innerHTML='';};d.innerHTML='<img src="'+r.thumb+'" alt="" loading="lazy"><div><div class="modal-rel-title">'+r.title+'</div><div class="modal-rel-tag">'+r.typeLabel+'</div></div>';rel.appendChild(d);});ml.appendChild(rel);}
+}
+
+function buildGalleryModal(p,ml){
+  var preview=document.createElement('div');preview.className='modal-preview';var mainDiv=document.createElement('div');mainDiv.className='modal-preview-main';
+  if(p.images&&p.images.length){galleryIdx=0;var img=document.createElement('img');img.src=p.images[0];img.alt=p.title;var probe=new Image();probe.onload=function(){mainDiv.style.aspectRatio=probe.naturalWidth>probe.naturalHeight?'16/9':'3/4';};probe.src=p.images[0];mainDiv.appendChild(img);var counter=document.createElement('div');counter.className='gallery-counter';counter.id='gallery-counter';counter.textContent='1 / '+p.images.length;mainDiv.appendChild(counter);if(p.images.length>1){var prev=document.createElement('div');prev.className='gallery-arrow prev';prev.innerHTML='&#8249;';prev.onclick=function(){shiftGallery(-1);};var next=document.createElement('div');next.className='gallery-arrow next';next.innerHTML='&#8250;';next.onclick=function(){shiftGallery(1);};mainDiv.appendChild(prev);mainDiv.appendChild(next);}preview.appendChild(mainDiv);if(p.images.length>1){var strip=document.createElement('div');strip.className='modal-gallery-strip';p.images.forEach(function(src,i){var t=document.createElement('img');t.className='gthumb'+(i===0?' active':'');t.src=src;t.alt='';t.onclick=(function(idx){return function(){setGalleryImg(idx);};})(i);strip.appendChild(t);});preview.appendChild(strip);}}else{mainDiv.innerHTML=placeholderSVG(p.type);preview.appendChild(mainDiv);}
+  ml.appendChild(preview);
+}
+
+function buildLottieModal(p,ml){
+  if(_lottieAnim){_lottieAnim.destroy();_lottieAnim=null;}_lottieThumbAnims.forEach(function(a){try{a.destroy();}catch(e){}});_lottieThumbAnims=[];
+  var files=p.lottieFiles||[{url:p.lottieUrl}];var curFile=0;var wrap=document.createElement('div');wrap.className='modal-lottie';
+  var playerDiv=document.createElement('div');playerDiv.className='modal-lottie-player';var animContainer=document.createElement('div');animContainer.id='lottie-anim-container';playerDiv.appendChild(animContainer);wrap.appendChild(playerDiv);
+  if(files.length>1){var strip=document.createElement('div');strip.className='lottie-thumb-strip';files.forEach(function(f,i){var thumb=document.createElement('div');thumb.className='lottie-thumb'+(i===0?' active':'');thumb.id='lottie-tw-'+i;var inner=document.createElement('div');inner.id='lottie-t-'+i;thumb.appendChild(inner);thumb.onclick=(function(idx){return function(){switchLottie(idx);};})(i);strip.appendChild(thumb);});wrap.appendChild(strip);}
+  var playing=true;var PLAY_I='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1L9 6L1 11V1Z" fill="rgba(0,242,166,0.9)"/></svg>';var PAUSE_I='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><rect x="1" y="1" width="3" height="10" fill="rgba(0,242,166,0.9)"/><rect x="6" y="1" width="3" height="10" fill="rgba(0,242,166,0.9)"/></svg>';
+  var controls=document.createElement('div');controls.className='lottie-controls';
+  function makeNav(html,dir){var b=document.createElement('div');b.className='lottie-nav-btn';b.innerHTML=html;b.onclick=function(){switchLottie(((curFile+dir)+files.length)%files.length);};return b;}
+  var playBtn=document.createElement('div');playBtn.className='lottie-play-btn';playBtn.innerHTML=PLAY_I;
+  var scrubber=document.createElement('input');scrubber.type='range';scrubber.className='lottie-scrubber';scrubber.min=0;scrubber.max=1000;scrubber.value=0;
+  var loopBtn=document.createElement('button');loopBtn.className='lottie-loop-btn active';loopBtn.textContent='Loop';
+  if(files.length>1)controls.appendChild(makeNav('&#8249;',-1));controls.appendChild(playBtn);controls.appendChild(scrubber);controls.appendChild(loopBtn);if(files.length>1)controls.appendChild(makeNav('&#8250;',1));
+  wrap.appendChild(controls);ml.appendChild(wrap);
+  function loadMain(idx){if(_lottieAnim){_lottieAnim.destroy();_lottieAnim=null;}var c=document.getElementById('lottie-anim-container');if(!c)return;c.innerHTML='';playing=true;playBtn.innerHTML=PLAY_I;scrubber.value=0;files.forEach(function(_,i){var tw=document.getElementById('lottie-tw-'+i);if(tw)tw.classList.toggle('active',i===idx);});_lottieAnim=lottie.loadAnimation({container:c,renderer:'svg',loop:_lottieLooping,autoplay:true,path:files[idx].url});_lottieAnim.addEventListener('enterFrame',function(){if(_lottieScrubbing)return;scrubber.value=Math.round((_lottieAnim.currentFrame/(_lottieAnim.totalFrames||1))*1000);});}
+  function switchLottie(idx){curFile=idx;loadMain(idx);}window.shiftLottie=function(dir){switchLottie(((curFile+dir)+files.length)%files.length);};
+  playBtn.onclick=function(){if(!_lottieAnim)return;if(playing){_lottieAnim.pause();playing=false;playBtn.innerHTML=PAUSE_I;}else{_lottieAnim.play();playing=true;playBtn.innerHTML=PLAY_I;}};
+  scrubber.addEventListener('mousedown',function(){_lottieScrubbing=true;if(_lottieAnim){_lottieAnim.pause();playing=false;playBtn.innerHTML=PAUSE_I;}});
+  scrubber.addEventListener('input',function(){if(_lottieAnim)_lottieAnim.goToAndStop(Math.round((scrubber.value/1000)*(_lottieAnim.totalFrames||1)),true);});
+  scrubber.addEventListener('mouseup',function(){_lottieScrubbing=false;});scrubber.addEventListener('touchend',function(){_lottieScrubbing=false;});
+  loopBtn.onclick=function(){_lottieLooping=!_lottieLooping;if(_lottieAnim)_lottieAnim.loop=_lottieLooping;loopBtn.classList.toggle('active',_lottieLooping);};
+  setTimeout(function(){loadMain(0);files.forEach(function(f,i){var tc=document.getElementById('lottie-t-'+i);if(!tc)return;var a=lottie.loadAnimation({container:tc,renderer:'svg',loop:false,autoplay:false,path:f.url});a.addEventListener('DOMLoaded',function(){a.goToAndStop(Math.round(a.totalFrames*0.85),true);});_lottieThumbAnims.push(a);});},50);
+}
+
+function setGalleryImg(i){galleryIdx=i;var mainImg=document.querySelector('.modal-preview-main img');var mainDiv=document.querySelector('.modal-preview-main');var thumbs=document.querySelectorAll('.gthumb');var counter=document.getElementById('gallery-counter');if(mainImg&&thumbs[i]){mainImg.classList.add('fading');var newSrc=thumbs[i].src;var probe=new Image();probe.onload=function(){if(mainDiv)mainDiv.style.aspectRatio=probe.naturalWidth>probe.naturalHeight?'16/9':'3/4';mainImg.src=newSrc;mainImg.classList.remove('fading');};probe.src=newSrc;}thumbs.forEach(function(t,j){t.classList.toggle('active',j===i);});if(thumbs[i])thumbs[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});if(counter)counter.textContent=(i+1)+' / '+thumbs.length;}
+function shiftGallery(dir){var thumbs=document.querySelectorAll('.gthumb');if(!thumbs.length)return;setGalleryImg((galleryIdx+dir+thumbs.length)%thumbs.length);}
+
+function closeModal(){document.getElementById('modal-backdrop').classList.remove('open');document.getElementById('modal-left').innerHTML='';if(_lottieAnim){_lottieAnim.destroy();_lottieAnim=null;}_lottieThumbAnims.forEach(function(a){try{a.destroy();}catch(e){}});_lottieThumbAnims=[];document.body.style.overflow='';}
+function handleBackdropClick(e){if(e.target===document.getElementById('modal-backdrop'))closeModal();}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>
