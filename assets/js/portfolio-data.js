@@ -421,6 +421,46 @@ var PORTFOLIO = [
   },
 
   // ═══════════════════════════════════════════════════════════
+  // VIDEO — SOCIAL CLIPS
+  // ═══════════════════════════════════════════════════════════
+  {
+    slug:'sharp-tails-and-grasslands',
+    title:'Sharp-tails and Grasslands',
+    client:'Pheasants Forever',
+    cat:'video', type:'social-clips', typeLabel:'Social Clip',
+    thumb:'/assets/images/Social Clip Sharptail Thumbnail PF.jpg',
+    vimeoId:'1146601342',
+    desc:'A short-form social clip highlighting the connection between sharp-tailed grouse and healthy prairie habitat — built to educate and drive conservation awareness.',
+    specs:[{k:'Type',v:'Social Clip'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Short-Form Social'}],
+    featured:false,
+    servicePages:['social-clips']
+  },
+  {
+    slug:'conifer-expansion',
+    title:'Conifer Expansion',
+    client:'Pheasants Forever',
+    cat:'video', type:'social-clips', typeLabel:'Social Clip',
+    thumb:'/assets/images/Conifer Expansion Social Clip Thumbnail PF.jpg',
+    vimeoId:'1148657915',
+    desc:'A short-form social clip showing how conifer invasion threatens open grasslands — drying soils, increasing fire risk, and displacing the wildlife and ranchers that depend on healthy prairies.',
+    specs:[{k:'Type',v:'Social Clip'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Short-Form Social'}],
+    featured:false,
+    servicePages:['social-clips']
+  },
+  {
+    slug:'rate-of-grassland-loss',
+    title:'Rate of Grassland Loss',
+    client:'Pheasants Forever',
+    cat:'video', type:'social-clips', typeLabel:'Social Clip',
+    thumb:'/assets/images/Rate of Grassland Loss Social Clip Thumbnail PF.jpg',
+    vimeoId:'1146105722',
+    desc:'A short-form social clip spotlighting the rapid loss of grassland in Eastern Montana — nearly a third of historic prairie gone and thousands of acres disappearing every year.',
+    specs:[{k:'Type',v:'Social Clip'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Short-Form Social'}],
+    featured:false,
+    servicePages:['social-clips']
+  },
+
+  // ═══════════════════════════════════════════════════════════
   // ANIMATION — ANIMATED EXPLAINER
   // ═══════════════════════════════════════════════════════════
   {
@@ -588,6 +628,7 @@ var CAT_LABELS = {
   'testimonial':'Testimonials',
   'remote-client-story':'Client Stories',
   'podcast':'Podcasts',
+  'social-clips':'Social Clips',
   'motion-graphics':'Motion Graphics',
   'logo-animation':'Logo Animations',
   'lottie-animation':'Website / Lottie',
@@ -631,7 +672,8 @@ var SUBTYPES = {
     {type:'drone-video-fpv',label:'Drone / FPV'},
     {type:'real-estate-video',label:'Real Estate'},
     {type:'remote-client-story',label:'Remote Client Story'},
-    {type:'podcast',label:'Podcast'}
+    {type:'podcast',label:'Podcast'},
+    {type:'social-clips',label:'Social Clips'}
   ],
   animation:[
     {type:'animated-explainer',label:'Animated Explainer'},
