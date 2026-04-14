@@ -424,7 +424,7 @@ var PORTFOLIO = [
   // VIDEO — SOCIAL CLIPS
   // ═══════════════════════════════════════════════════════════
   {
-    slug:'sharp-tails-and-grasslands',
+    slug:'sharp-tails-and-grasslands', vertical:true,
     title:'Sharp-tails and Grasslands',
     client:'Pheasants Forever',
     cat:'video', type:'social-clips', typeLabel:'Social Clip',
@@ -436,7 +436,7 @@ var PORTFOLIO = [
     servicePages:['social-clips']
   },
   {
-    slug:'conifer-expansion',
+    slug:'conifer-expansion', vertical:true,
     title:'Conifer Expansion',
     client:'Pheasants Forever',
     cat:'video', type:'social-clips', typeLabel:'Social Clip',
@@ -448,7 +448,7 @@ var PORTFOLIO = [
     servicePages:['social-clips']
   },
   {
-    slug:'rate-of-grassland-loss',
+    slug:'rate-of-grassland-loss', vertical:true,
     title:'Rate of Grassland Loss',
     client:'Pheasants Forever',
     cat:'video', type:'social-clips', typeLabel:'Social Clip',
