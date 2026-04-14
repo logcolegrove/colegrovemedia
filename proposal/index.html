@@ -296,7 +296,7 @@ function renderProposal(d){
     html += '<div class="tally-wrap" id="tallyWrap">'
       +'<h3>Approve This Proposal</h3>'
       +'<p>By signing below, you agree to the scope, pricing, and <a href="https://colegrovemedia.com/terms" target="_blank">terms and conditions</a>.</p>'
-      +'<iframe data-tally-src="https://tally.so/embed/'+d.tallyFormId+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Approve Proposal"></iframe>'
+      +'<iframe data-tally-src="https://tally.so/embed/'+d.tallyFormId+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&proposal_id='+encodeURIComponent(d.id)+'" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Approve Proposal"></iframe>'
       +'</div>';
 
     // Load Tally embed script
