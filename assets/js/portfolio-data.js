@@ -219,6 +219,18 @@ var PORTFOLIO = [
     featured:true, featuredOrder:11,
     servicePages:['testimonial']
   },
+  {
+    slug:'anything-for-the-grasslands',
+    title:'"Anything for the Grasslands" — Headwaters Chapter Banquet',
+    client:'Pheasants Forever',
+    cat:'video', type:'testimonial', typeLabel:'Testimonial',
+    thumb:'/assets/images/Anything For The Graslands Thumbnail PF.jpg',
+    vimeoId:'1175290749',
+    desc:'At the Pheasants Forever Headwaters Chapter Annual Banquet in Helena, Montana, members, partners, landowners, and supporters share why they show up for grasslands. In nine years, the Montana Pheasants Forever team has impacted over a million acres — one local chapter, one project, one banquet at a time.',
+    specs:[{k:'Type',v:'Testimonial'},{k:'Client',v:'Pheasants Forever'},{k:'Event',v:'Headwaters Chapter Annual Banquet'},{k:'Location',v:'Helena, Montana'}],
+    featured:true, featuredOrder:6,
+    servicePages:['testimonial']
+  },
 
   // ═══════════════════════════════════════════════════════════
   // VIDEO — PRODUCT DEMO
@@ -376,7 +388,7 @@ var PORTFOLIO = [
     vimeoId:'1134497582',
     desc:'Fourth generation Montana rancher Jeff Sather shares his experience restoring grassland on his family\'s farm north of Glasgow — and how partnering with Pheasants Forever made the process simple, fast, and affordable.',
     specs:[{k:'Type',v:'Remote Client Story'},{k:'Client',v:'Pheasants Forever'},{k:'Format',v:'Remote Interview'},{k:'Deliverables',v:'Master + social cuts'},{k:'Turnaround',v:'2 weeks'}],
-    featured:true, featuredOrder:6,
+    featured:false,
     servicePages:['remote-client-story']
   },
   {
