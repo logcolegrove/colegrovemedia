@@ -364,6 +364,7 @@ function openHomeModal(slug){
       relatedEl.appendChild(d);
     });
   }
+  document.getElementById('modal').classList.toggle('modal-vertical', !!p.vertical);
   document.getElementById('modal-backdrop').classList.add('open');
   document.body.style.overflow='hidden';
 }
