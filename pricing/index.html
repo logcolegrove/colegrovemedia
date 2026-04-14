@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — Colegrove Media</title>
-<meta name="description" content="Transparent pricing for video, photo, animation, and design services. Retainer partnerships, popular bundles, and à la carte — Colegrove Media, Bozeman MT.">
-<meta property="og:title" content="Pricing — Colegrove Media">
+<title>Pricing - Colegrove Media</title>
+<meta name="description" content="Transparent pricing for video, photo, animation, and design services. Retainer partnerships, popular bundles, and a la carte - Colegrove Media, Bozeman MT.">
+<meta property="og:title" content="Pricing - Colegrove Media">
 <meta property="og:description" content="Transparent pricing for video, photo, animation, and design services.">
 <meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove-media-og-image.jpg">
 <meta property="og:url" content="https://colegrovemedia.com/pricing">
@@ -83,22 +83,22 @@
 </div>
 
 <div class="pricing-section">
-  <div class="section-eyebrow">01 — Partnership</div>
+  <div class="section-eyebrow">01 - Partnership</div>
   <h2 class="section-title">Monthly Retainer Plans</h2>
   <p class="section-sub">The most cost-effective way to work together. A consistent monthly commitment means priority scheduling, a creative partner who actually knows your brand, and content that compounds over time.</p>
   <div class="retainer-grid" id="retainer-grid"></div>
-  <p class="retainer-note">Not sure which plan fits? <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" style="color:var(--teal);">Let's talk</a> — retainers can be customized around your content calendar.</p>
+  <p class="retainer-note">Not sure which plan fits? <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" style="color:var(--teal);">Let's talk</a> - retainers can be customized around your content calendar.</p>
 </div>
 
 <div class="pricing-section">
-  <div class="section-eyebrow">02 — For Your Industry</div>
-  <h2 class="section-title">Common Combinations</h2>
-  <p class="section-sub">Every business is different, but these are the content suites we build most often. Each is scoped and quoted as a single coordinated project — so you get a better result and a better price than buying everything separately.</p>
+  <div class="section-eyebrow">02 - Bundles</div>
+  <h2 class="section-title">Popular Packages</h2>
+  <p class="section-sub">Not every project fits neatly into one service. These are the combinations we put together most often, scoped and quoted as a single coordinated project.</p>
   <div class="packages-grid" id="packages-grid"></div>
 </div>
 
 <div class="pricing-section">
-  <div class="section-eyebrow">03 — À La Carte</div>
+  <div class="section-eyebrow">03 - A La Carte</div>
   <h2 class="section-title">Individual Services</h2>
   <p class="section-sub">Know exactly what you need? Every service is available individually. Click any category to see full pricing tiers.</p>
   <div id="alc-wrap"></div>
@@ -149,7 +149,7 @@ var CHEV='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="cu
 var PLAY_ICON='<svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M1 1.5L9 6L1 10.5V1.5Z" fill="rgba(0,242,166,0.9)"/></svg>';
 var EYE_ICON='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="rgba(0,242,166,0.9)" stroke-width="1.5" stroke-linecap="round"><ellipse cx="7" cy="7" rx="6" ry="4"/><circle cx="7" cy="7" r="1.8" fill="rgba(0,242,166,0.9)" stroke="none"/></svg>';
 
-/* ── RETAINERS ── */
+/* -- RETAINERS -- */
 (function(){
   var grid=document.getElementById('retainer-grid');
   RETAINERS.forEach(function(r){
@@ -161,7 +161,7 @@ var EYE_ICON='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke
   });
 })();
 
-/* ── PACKAGES (redesigned: range-based with context) ── */
+/* -- PACKAGES -- */
 (function(){
   var grid=document.getElementById('packages-grid');
   PACKAGES.forEach(function(pkg){
@@ -173,7 +173,7 @@ var EYE_ICON='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke
   });
 })();
 
-/* ── À LA CARTE ── */
+/* -- A LA CARTE -- */
 (function(){
   var wrap=document.getElementById('alc-wrap');
   ['video','photo','animation','design'].forEach(function(cat,ci){
@@ -206,7 +206,7 @@ function makeALCCard(svc){
 
 function toggleALC(ci){var grid=document.getElementById('alc-grid-'+ci);var tog=document.getElementById('alc-tog-'+ci);var open=grid.classList.contains('open');grid.classList.toggle('open',!open);tog.classList.toggle('open',!open);tog.innerHTML=(open?'Expand ':'Collapse ')+CHEV;}
 
-/* ── POLICIES ── */
+/* -- POLICIES -- */
 (function(){
   var inner=document.getElementById('policies-inner');
   POLICIES.forEach(function(p){
@@ -216,12 +216,12 @@ function toggleALC(ci){var grid=document.getElementById('alc-grid-'+ci);var tog=
   });
 })();
 
-/* ── DROPDOWNS ── */
+/* -- DROPDOWNS -- */
 function closeAllDropdowns(){document.querySelectorAll('.svc-details.open').forEach(function(d){d.classList.remove('open');});document.querySelectorAll('.svc-toggle.open').forEach(function(b){b.classList.remove('open');});document.querySelectorAll('.svc-card.dropdown-open').forEach(function(c){c.classList.remove('dropdown-open');});}
 function toggleTier(btn){var card=btn.closest('.svc-card');var det=btn.nextElementSibling;var open=det.classList.contains('open');closeAllDropdowns();if(!open){det.classList.add('open');btn.classList.add('open');card.classList.add('dropdown-open');}}
 document.addEventListener('click',function(e){if(!e.target.closest('.svc-card'))closeAllDropdowns();});
 
-/* ── PREVIEW MODAL — routes to correct modal type ── */
+/* -- PREVIEW MODAL -- */
 var galleryIdx=0;
 var _lottieAnim=null;var _lottieLooping=true;var _lottieScrubbing=false;var _lottieThumbAnims=[];
 
