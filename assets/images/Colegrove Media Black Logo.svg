@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" width="1856.05" height="443.61" viewBox="0 0 1856.05 443.61">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: .08em;
+      }
+
+      .cls-2 {
+        letter-spacing: .26em;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        fill: #1e1e1e;
+      }
+
+      .cls-6 {
+        letter-spacing: .09em;
+      }
+
+      .cls-7 {
+        letter-spacing: .28em;
+      }
+
+      .cls-8 {
+        letter-spacing: .1em;
+      }
+
+      .cls-4 {
+        font-family: SofiaPro-Regular, 'Sofia Pro';
+        font-size: 187.54px;
+      }
+
+      .cls-9 {
+        letter-spacing: .09em;
+      }
+
+      .cls-10 {
+        fill: #00f2a7;
+      }
+
+      .cls-5 {
+        font-family: SofiaPro-ExtraLight, 'Sofia Pro';
+        font-size: 132.66px;
+        font-weight: 200;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-4" transform="translate(621.09 194.15)"><tspan class="cls-9" x="0" y="0">C</tspan><tspan class="cls-8" x="146.1" y="0">OL</tspan><tspan class="cls-1" x="424.59" y="0">E</tspan><tspan class="cls-8" x="545.74" y="0">GR</tspan><tspan class="cls-6" x="841.12" y="0">O</tspan><tspan class="cls-8" x="1006.54" y="0">VE</tspan></text>
+      <text class="cls-5" transform="translate(620.76 373.23)"><tspan class="cls-7" x="0" y="0">MEDI</tspan><tspan class="cls-2" x="479.44" y="0">A</tspan></text>
+    </g>
+    <polygon class="cls-10" points="470.3 145.63 470.3 292.19 370.93 251.46 370.93 186.36 470.3 145.63"/>
+    <path class="cls-10" d="M286.62,305.68c-45.48,4.62-89.9,4.62-135.38,0-19.28-2.17-37.84-20.38-39.44-39.28-2.38-29.68-2.38-59.5,0-89.18,1.6-18.9,20.16-37.11,39.44-39.28,45.48-4.62,89.9-4.62,135.38,0,19.28,2.17,37.84,20.38,39.44,39.28,2.38,29.68,2.38,59.5,0,89.18-1.6,18.9-20.16,37.11-39.44,39.28Z"/>
+    <path class="cls-3" d="M315.84,386.08c-28.49,16.34-61,24.97-94.03,24.97-25.54,0-50.33-5.01-73.66-14.87-22.54-9.53-42.77-23.17-60.15-40.55-17.38-17.38-31.02-37.61-40.55-60.15-9.87-23.34-14.88-48.12-14.88-73.67s5.01-50.33,14.88-73.66c9.53-22.54,23.17-42.77,40.55-60.15,17.38-17.38,37.62-31.02,60.15-40.56,23.34-9.87,48.12-14.87,73.66-14.87,33.03,0,65.54,8.63,94.03,24.97,25.55,14.66,47.47,35.22,63.75,59.74l30.65-12.56C369.86,39.89,298.52,0,221.81,0,99.51,0,0,99.5,0,221.81s99.51,221.81,221.81,221.81c76.72,0,148.05-39.89,188.42-104.72l-30.65-12.55c-16.28,24.52-38.2,45.08-63.75,59.73Z"/>
+  </g>
+</svg>
