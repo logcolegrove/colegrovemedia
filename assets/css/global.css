@@ -118,6 +118,12 @@ nav.nav-hidden{transform:translateY(-100%);}
 .modal-btn-ghost{display:block;text-align:center;background:transparent;color:var(--muted);padding:11px;border-radius:8px;font-size:13px;font-weight:500;border:1px solid var(--border);transition:color 0.18s,border-color 0.18s;}
 .modal-btn-ghost:hover{color:var(--white);border-color:rgba(0,242,166,0.3);}
 
+/* ── VERTICAL VIDEO MODAL (for 9:16 social clips) ── */
+.modal.modal-vertical{grid-template-columns:1fr;max-width:580px;}
+.modal.modal-vertical .modal-left{min-height:auto;}
+.modal.modal-vertical .modal-embed{aspect-ratio:9/16;max-height:65vh;}
+.modal.modal-vertical .modal-right{border-left:none;border-top:1px solid var(--border);}
+
 /* ── MODAL — PHOTO GALLERY ── */
 .modal-preview{display:flex;flex-direction:column;flex:1;background:#0a0c12;}
 .modal-preview-main{position:relative;width:100%;aspect-ratio:3/4;background:#0a0c12;overflow:hidden;flex-shrink:0;cursor:zoom-in;}
