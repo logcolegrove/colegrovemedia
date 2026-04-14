@@ -94,11 +94,8 @@ a:hover{text-decoration:underline;}
 .resp-cm{background:#f0f0f0;color:var(--text2);}
 .resp-client{background:var(--teal-light);color:#1a7a5a;}
 
-/* PROJECT SUMMARY */
-.summary-table{width:100%;border-collapse:collapse;margin:24px 0 48px;}
-.summary-table td{font-size:15px;padding:12px 0;border-bottom:1px solid var(--border2);color:var(--text2);}
-.summary-table td:last-child{text-align:right;font-weight:600;color:var(--text);}
-.summary-table tr.total-row td{border-top:2px solid var(--text);border-bottom:none;font-size:18px;font-weight:700;color:var(--text);padding-top:16px;}
+/* PROJECT TOTAL */
+.project-total{display:flex;justify-content:space-between;align-items:baseline;margin:32px 0 48px;padding-top:20px;border-top:2px solid var(--text);font-size:20px;font-weight:700;color:var(--text);}
 
 /* REFERENCES */
 .references{margin:32px 0;}
@@ -267,14 +264,9 @@ function renderProposal(d){
     html += '</div></div>';
   });
 
-  // PROJECT SUMMARY (if multiple deliverables)
+  // PROJECT TOTAL (only shown for multiple deliverables)
   if(d.deliverables.length > 1){
-    html += '<table class="summary-table">';
-    d.deliverables.forEach(function(del){
-      html += '<tr><td>'+del.title+'</td><td>$'+formatNum(del.total)+'</td></tr>';
-    });
-    html += '<tr class="total-row"><td>Project Total</td><td>$'+formatNum(totalSum)+'</td></tr>';
-    html += '</table>';
+    html += '<div class="project-total"><span>Project Total</span><span>$'+formatNum(totalSum)+'</span></div>';
   }
 
   // REFERENCES
