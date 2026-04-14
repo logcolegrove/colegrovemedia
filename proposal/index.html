@@ -146,7 +146,13 @@ a:hover{text-decoration:underline;}
   .deliverable-title{font-size:16px;}
   .deliverable-price{font-size:16px;}
   .price-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .price-table thead, .price-table tbody{min-width:600px;display:table;width:100%;}
+  .price-table thead, .price-table tbody{min-width:600px;display:table;width:100%;table-layout:fixed;}
+  .price-table colgroup{display:table-column-group;}
+  .price-table td.svc, .price-table th:nth-child(1){width:150px;}
+  .price-table td.details, .price-table th:nth-child(2){width:200px;}
+  .price-table td.num:nth-child(3), .price-table th:nth-child(3){width:90px;}
+  .price-table td.num:nth-child(4), .price-table th:nth-child(4){width:60px;}
+  .price-table td.num:nth-child(5), .price-table th:nth-child(5){width:100px;}
   .project-total{font-size:18px;}
   .timeline-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .timeline-table thead, .timeline-table tbody{min-width:500px;display:table;width:100%;}
