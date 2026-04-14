@@ -1,419 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Proposal - Colegrove Media</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="icon" type="image/svg+xml" href="/assets/images/colegrove-media-favicon.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --sans:'DM Sans',sans-serif;
-  --bg:#ffffff;
-  --bg2:#f8f9fa;
-  --bg3:#f1f3f5;
-  --text:#1a1a1a;
-  --text2:#5a5a5a;
-  --text3:#888;
-  --border:#e8e8e8;
-  --border2:#f0f0f0;
-  --teal:#00d693;
-  --teal-light:#e6faf3;
-  --teal-border:#b3edda;
-}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;}
-a{color:var(--teal);text-decoration:none;}
-a:hover{text-decoration:underline;}
+{
+  "id": "pf-testimonials-2026-q2-8f3a9c",
+  "status": "pending",
+  "acceptedDate": "",
 
-/* LAYOUT */
-.proposal-page{max-width:900px;margin:0 auto;padding:48px 40px 80px;}
+  "title": "PF Testimonials Quote",
+  "client": "Pheasants Forever",
+  "contact": "Hunter VanDonsel",
+  "contactEmail": "hvandonsel@pheasantsforever.org",
+  "date": "April 15, 2026",
+  "validFor": "15 days",
 
-/* HEADER */
-.proposal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding-bottom:32px;border-bottom:2px solid var(--text);margin-bottom:40px;}
-.header-left{display:flex;align-items:center;gap:16px;}
-.header-favicon{width:72px;height:72px;flex-shrink:0;border-radius:50%;overflow:hidden;}
-.header-info{font-size:15px;color:var(--text2);line-height:1.55;}
-.header-info strong{color:var(--text);font-weight:600;display:block;font-size:17px;}
-.header-right{text-align:right;}
-.header-title{font-size:28px;font-weight:700;color:var(--text);line-height:1.15;margin-bottom:8px;letter-spacing:-0.01em;}
-.header-meta{font-size:14px;color:var(--text2);line-height:1.7;}
+  "tallyFormId": "wMERpY",
 
-/* CLIENT INFO */
-.client-block{margin:32px 0 48px;padding:24px 28px;background:var(--bg2);border-radius:8px;border:1px solid var(--border2);}
-.client-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
-.client-name{font-size:18px;font-weight:600;color:var(--text);}
-.client-detail{font-size:16px;color:var(--text2);margin-top:2px;}
-
-/* SECTION HEADERS */
-.section-h{font-size:28px;font-weight:700;color:var(--text);margin:48px 0 24px;padding-top:12px;}
-.section-h:first-of-type{margin-top:0;}
-
-/* DELIVERABLE TOGGLE */
-.deliverable{margin-bottom:4px;}
-.deliverable-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:1px solid var(--border);cursor:pointer;user-select:none;gap:16px;}
-.deliverable:first-child .deliverable-header{border-top:none;}
-.deliverable-title{font-size:18px;font-weight:600;color:var(--text);flex:1;}
-.deliverable-price{font-size:18px;font-weight:700;color:var(--text);white-space:nowrap;}
-.deliverable-chevron{width:20px;height:20px;color:var(--text3);transition:transform 0.25s;flex-shrink:0;}
-.deliverable.open .deliverable-chevron{transform:rotate(180deg);}
-.deliverable-body{display:none;padding:0 0 28px;}
-.deliverable.open .deliverable-body{display:block;}
-.deliverable-desc{font-size:16px;color:var(--text2);line-height:1.65;margin-bottom:28px;font-weight:300;}
-
-/* PRICING TABLE */
-.price-table{width:100%;border-collapse:collapse;margin-bottom:28px;}
-.price-table th{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);}
-.price-table th.num{text-align:right;}
-.price-table td{font-size:15px;padding:16px 14px;border-bottom:1px solid var(--border2);vertical-align:top;color:var(--text2);}
-.price-table td.svc{font-weight:500;color:var(--text);min-width:180px;}
-.price-table td.details{font-size:14px;color:var(--text2);line-height:1.6;font-weight:300;max-width:340px;}
-.price-table td.num{text-align:right;white-space:nowrap;font-weight:500;color:var(--text);}
-.price-table tr.sum-row td{border-bottom:none;border-top:2px solid var(--border);font-weight:700;color:var(--text);padding-top:14px;}
-
-/* DELIVERABLES LIST */
-.del-list-label{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;}
-.del-list{list-style:none;margin-bottom:28px;}
-.del-list li{font-size:16px;color:var(--text2);padding:5px 0;padding-left:22px;position:relative;font-weight:300;}
-.del-list li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--teal);}
-
-/* TIMELINE */
-.timeline-simple{font-size:16px;color:var(--text2);font-weight:500;margin-bottom:10px;}
-.timeline-table{width:100%;border-collapse:collapse;margin-bottom:10px;}
-.timeline-table th{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);}
-.timeline-table td{font-size:15px;padding:12px 14px;border-bottom:1px solid var(--border2);color:var(--text2);}
-.timeline-table td:first-child{font-weight:500;color:var(--text);white-space:nowrap;}
-.timeline-table .responsible{font-size:13px;font-weight:500;padding:3px 12px;border-radius:4px;display:inline-block;}
-.resp-cm{background:#f0f0f0;color:var(--text2);}
-.resp-client{background:var(--teal-light);color:#1a7a5a;}
-
-/* PROJECT TOTAL */
-.project-total{display:flex;justify-content:space-between;align-items:baseline;margin:32px 0 48px;padding-top:20px;border-top:2px solid var(--text);font-size:22px;font-weight:700;color:var(--text);}
-
-/* REFERENCES */
-.references{margin:32px 0;}
-.references-label{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;}
-.references ol{padding-left:22px;}
-.references li{font-size:16px;color:var(--text2);padding:4px 0;font-weight:300;}
-
-/* NEXT STEPS */
-.next-steps{margin:48px 0 32px;padding-top:32px;border-top:1px solid var(--border);}
-.next-steps h2{font-size:28px;font-weight:700;color:var(--text);margin-bottom:14px;}
-.next-steps p{font-size:16px;color:var(--text2);line-height:1.7;font-weight:300;}
-
-/* TALLY EMBED WRAPPER */
-.tally-wrap{margin:32px 0;padding:36px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;}
-.tally-wrap h3{font-size:18px;font-weight:600;color:var(--text);margin-bottom:6px;}
-.tally-wrap p{font-size:15px;color:var(--text3);margin-bottom:24px;font-weight:300;}
-
-/* ACCEPTED STATE */
-.accepted-banner{display:none;margin:32px 0;padding:28px 32px;background:var(--teal-light);border:1px solid var(--teal-border);border-radius:12px;}
-.accepted-banner.visible{display:flex;align-items:center;gap:16px;}
-.accepted-check{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.accepted-text{font-size:18px;font-weight:600;color:#1a7a5a;}
-.accepted-date{font-size:15px;color:#5aaa8a;font-weight:400;margin-top:2px;}
-
-/* FOOTER */
-.proposal-footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
-.footer-logo{height:40px;width:auto;opacity:0.8;}
-.footer-contact{text-align:right;font-size:15px;color:var(--text3);line-height:1.7;}
-.footer-contact a{color:var(--text3);}
-.footer-contact a:hover{color:var(--teal);}
-
-/* CONFETTI */
-#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999;}
-
-/* LOADING */
-.proposal-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;}
-.proposal-loading p{font-size:16px;color:var(--text3);}
-
-/* ERROR */
-.proposal-error{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;text-align:center;}
-.proposal-error h2{font-size:28px;font-weight:700;color:var(--text);}
-.proposal-error p{font-size:16px;color:var(--text2);max-width:400px;}
-
-/* RESPONSIVE */
-@media(max-width:640px){
-  .proposal-page{padding:32px 20px 60px;}
-  .proposal-header{flex-direction:column;gap:16px;}
-  .header-left{display:none;}
-  .header-right{text-align:left;}
-  .header-title{font-size:22px;}
-  .section-h{font-size:22px;}
-  .deliverable-title{font-size:16px;}
-  .deliverable-price{font-size:16px;}
-  /* Stack pricing table as cards on mobile */
-  .price-table thead{display:none;}
-  .price-table, .price-table tbody, .price-table tr, .price-table td{display:block;width:100%;}
-  .price-table tr{padding:16px 0;border-bottom:1px solid var(--border2);}
-  .price-table td{padding:2px 0;border:none;}
-  .price-table td.svc{font-size:16px;font-weight:600;margin-bottom:4px;}
-  .price-table td.details{font-size:14px;max-width:100%;margin-bottom:8px;}
-  .price-table td.num{text-align:left;font-size:15px;}
-  .price-table td.num::before{color:var(--text3);font-size:12px;font-weight:400;margin-right:6px;}
-  .price-table tr.sum-row{border-top:2px solid var(--border);margin-top:8px;padding-top:16px;}
-  .price-table tr.sum-row td{text-align:right;font-size:18px;}
-  .price-table tr.sum-row td[colspan]{display:none;}
-  .project-total{font-size:18px;}
-  .proposal-footer{flex-direction:column;gap:16px;align-items:flex-start;}
-  .footer-contact{text-align:left;}
-}
-</style>
-</head>
-<body>
-
-<div class="proposal-page" id="proposalPage">
-  <div class="proposal-loading" id="loadingState">
-    <p>Loading proposal...</p>
-  </div>
-</div>
-
-<script>
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  var proposalId = params.get('id');
-  if(!proposalId){
-    showError('No proposal specified.','Check the link you were sent and try again.');
-    return;
-  }
-
-  fetch('/proposals/'+proposalId+'.json?v='+Date.now())
-    .then(function(r){
-      if(!r.ok) throw new Error('not found');
-      return r.json();
-    })
-    .then(function(data){ renderProposal(data); })
-    .catch(function(){ showError('Proposal not found.','This link may be incorrect or expired. Contact logan@colegrovemedia.com if you need help.'); });
-})();
-
-function showError(title, msg){
-  document.getElementById('proposalPage').innerHTML=
-    '<div class="proposal-error"><h2>'+title+'</h2><p>'+msg+'</p><a href="https://colegrovemedia.com">Back to Colegrove Media</a></div>';
-}
-
-function renderProposal(d){
-  var page = document.getElementById('proposalPage');
-  var isAccepted = d.status === 'accepted';
-  var totalSum = d.deliverables.reduce(function(s,del){return s+del.total;},0);
-
-  document.title = d.title + ' - Colegrove Media';
-
-  var html = '';
-
-  // HEADER: favicon logo left, title right
-  html += '<div class="proposal-header">'
-    +'<div class="header-left">'
-    +'<img src="/assets/images/colegrove-media-favicon.svg" alt="Colegrove Media" class="header-favicon">'
-    +'<div class="header-info"><strong>Colegrove Media</strong>logan@colegrovemedia.com<br>(406) 209-9945<br>Bozeman, Montana</div>'
-    +'</div>'
-    +'<div class="header-right">'
-    +'<div class="header-title">'+d.title+'</div>'
-    +'<div class="header-meta">Date: '+d.date+'<br>Valid for: '+d.validFor+'</div>'
-    +'</div>'
-    +'</div>';
-
-  // CLIENT
-  html += '<div class="client-block">'
-    +'<div class="client-label">Prepared For</div>'
-    +'<div class="client-name">'+d.contact+'</div>'
-    +'<div class="client-detail">'+d.client+'</div>'
-    +(d.contactEmail?'<div class="client-detail">'+d.contactEmail+'</div>':'')
-    +'</div>';
-
-  // SCOPE HEADER
-  html += '<h2 class="section-h">Scope of Work & Price</h2>';
-
-  // DELIVERABLES
-  d.deliverables.forEach(function(del, i){
-    html += '<div class="deliverable'+(d.deliverables.length===1?' open':'')+'" id="del-'+i+'">'
-      +'<div class="deliverable-header" onclick="toggleDel('+i+')">'
-      +'<div class="deliverable-title">'+del.title+'</div>'
-      +'<div class="deliverable-price">$'+formatNum(del.total)+'</div>'
-      +'<svg class="deliverable-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>'
-      +'</div>'
-      +'<div class="deliverable-body">';
-
-    if(del.description) html += '<div class="deliverable-desc">'+del.description+'</div>';
-
-    // PRICING TABLE
-    html += '<table class="price-table"><thead><tr>'
-      +'<th>Service</th><th>Details</th><th class="num">Price</th><th class="num">Qty</th><th class="num">Total</th>'
-      +'</tr></thead><tbody>';
-    del.lineItems.forEach(function(li){
-      html += '<tr>'
-        +'<td class="svc">'+li.service+'</td>'
-        +'<td class="details">'+li.details+'</td>'
-        +'<td class="num">$'+formatPrice(li.price)+'</td>'
-        +'<td class="num">'+li.amount+'</td>'
-        +'<td class="num">$'+formatNum(li.total)+'</td>'
-        +'</tr>';
-    });
-    html += '<tr class="sum-row"><td colspan="4" style="text-align:right;">Total</td><td class="num">$'+formatNum(del.total)+'</td></tr>';
-    html += '</tbody></table>';
-
-    // DELIVERABLES LIST
-    if(del.deliverablesList && del.deliverablesList.length){
-      html += '<div class="del-list-label">Deliverables:</div><ol class="del-list">';
-      del.deliverablesList.forEach(function(item,j){
-        html += '<li>'+item+'</li>';
-      });
-      html += '</ol>';
-    }
-
-    // TIMELINE
-    if(del.milestones && del.milestones.length){
-      if(del.timeline) html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
-      html += '<table class="timeline-table"><thead><tr><th>Date</th><th>Milestone</th><th>Responsible</th></tr></thead><tbody>';
-      del.milestones.forEach(function(m){
-        var respClass = m.responsible === 'Colegrove Media' ? 'resp-cm' : 'resp-client';
-        html += '<tr><td>'+m.date+'</td><td>'+m.milestone+'</td><td><span class="responsible '+respClass+'">'+m.responsible+'</span></td></tr>';
-      });
-      html += '</tbody></table>';
-    } else if(del.timeline){
-      html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
-    }
-
-    html += '</div></div>';
-  });
-
-  // PROJECT TOTAL (only shown for multiple deliverables)
-  if(d.deliverables.length > 1){
-    html += '<div class="project-total"><span>Project Total</span><span>$'+formatNum(totalSum)+'</span></div>';
-  }
-
-  // REFERENCES
-  if(d.references && d.references.length){
-    html += '<div class="references"><div class="references-label">References:</div><ol>';
-    d.references.forEach(function(ref){
-      html += '<li><a href="'+ref.url+'" target="_blank" rel="noopener">'+ref.label+'</a></li>';
-    });
-    html += '</ol></div>';
-  }
-
-  // NEXT STEPS + APPROVAL
-  html += '<div class="next-steps">'
-    +'<h2>Next Steps</h2>'
-    +'<p>If you\'d like to proceed, approve this proposal below and the project will commence. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
-    +'</div>';
-
-  // ACCEPTED STATE (always rendered, shown when status is accepted)
-  html += '<div class="accepted-banner'+(isAccepted?' visible':'')+'" id="acceptedBanner">'
-    +'<div class="accepted-check"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
-    +'<div><div class="accepted-text">Proposal Accepted</div>'
-    +'<div class="accepted-date">'+(d.acceptedDate||'')+'</div>'
-    +'</div></div>';
-
-  // TALLY FORM (hidden when accepted)
-  if(!isAccepted && d.tallyFormId){
-    html += '<div class="tally-wrap" id="tallyWrap">'
-      +'<h3>Approve This Proposal</h3>'
-      +'<p>By signing below, you agree to the scope, pricing, and <a href="https://colegrovemedia.com/terms" target="_blank">terms and conditions</a>.</p>'
-      +'<iframe data-tally-src="https://tally.so/embed/'+d.tallyFormId+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&proposal_id='+encodeURIComponent(d.id)+'" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Approve Proposal"></iframe>'
-      +'</div>';
-
-    // Load Tally embed script + listen for submission
-    var tallyScript = document.createElement('script');
-    tallyScript.src = 'https://tally.so/widgets/embed.js';
-    tallyScript.onload = function(){
-      if(typeof Tally !== 'undefined') Tally.loadEmbeds();
-    };
-    document.body.appendChild(tallyScript);
-
-    // Listen for Tally form submission via postMessage
-    window.addEventListener('message', function(e){
-      if(e.data && e.data.event === 'Tally.FormSubmitted'){
-        // Hide the Tally form
-        var tallyEl = document.getElementById('tallyWrap');
-        if(tallyEl) tallyEl.style.display = 'none';
-        // Show accepted banner
-        var banner = document.getElementById('acceptedBanner');
-        if(banner){
-          var today = new Date();
-          var dateStr = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
-          banner.querySelector('.accepted-date').textContent = dateStr;
-          banner.classList.add('visible');
+  "deliverables": [
+    {
+      "title": "Short-Form Landowner Testimonial (In-Person: Big Timber, Montana)",
+      "total": 1850,
+      "description": "I'll produce a short professionally edited talking-head style testimonial.",
+      "lineItems": [
+        {
+          "service": "Recording + Editing",
+          "details": "45-minute on-site landowner interview, 2 camera angles. This also includes time spent planning and expectation setting with interviewee.",
+          "price": 1100,
+          "amount": 1,
+          "total": 1100
+        },
+        {
+          "service": "Professional Lighting and Audio Package",
+          "details": "Includes an extra hour for setup and teardown and the following lights: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        },
+        {
+          "service": "Titles and Graphics",
+          "details": "Simple intro/outro title slides with Pheasants Forever logo and a lower thirds graphic with interviewee name.",
+          "price": 100,
+          "amount": 1,
+          "total": 100
+        },
+        {
+          "service": "Social Optimized Edit",
+          "details": "Edited vertical version optimized for social media.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Background Music",
+          "details": "Find, license and add royalty free background music that's on brand.",
+          "price": 75,
+          "amount": 1,
+          "total": 75
+        },
+        {
+          "service": "Travel Cost",
+          "details": "Flat rate of $1.25 per mile covering gas, driving time, gear hauling, and vehicle depreciation.",
+          "price": 1.25,
+          "amount": 180,
+          "total": 225
         }
-        // Fire confetti
-        setTimeout(launchConfetti, 200);
-      }
-    });
-  }
+      ],
+      "deliverablesList": [
+        "90-240 second talking head style testimonial video",
+        "30-60 second vertical social edit"
+      ],
+      "timeline": "Completed by September",
+      "milestones": [
+        { "date": "Week 1", "milestone": "Pre-production and scheduling", "responsible": "Colegrove Media" },
+        { "date": "Week 2", "milestone": "On-site filming", "responsible": "Colegrove Media" },
+        { "date": "Week 3-4", "milestone": "Editing and first draft", "responsible": "Colegrove Media" },
+        { "date": "Week 4", "milestone": "Review and feedback", "responsible": "Pheasants Forever" },
+        { "date": "Week 5", "milestone": "Revisions and final delivery", "responsible": "Colegrove Media" }
+      ]
+    },
+    {
+      "title": "Animated Landowner Testimonial + Static Visuals (Virtual: Opheim, Montana)",
+      "total": 1625,
+      "description": "I'll produce a short, professionally edited virtual testimonial featuring custom animations, with key visuals repurposed as standalone for reuse on web and print.",
+      "lineItems": [
+        {
+          "service": "Recording + Editing",
+          "details": "45-minute virtual landowner interview recording, editing, audio enhancement, masking and video cleanup.",
+          "price": 350,
+          "amount": 1,
+          "total": 350
+        },
+        {
+          "service": "Animation + B Roll",
+          "details": "Custom animations and B Roll to enhance and visually support key points and data shared in the testimonial.",
+          "price": 800,
+          "amount": 1,
+          "total": 800
+        },
+        {
+          "service": "Titles and Graphics",
+          "details": "Simple intro/outro title slides with Pheasants Forever logo and a lower thirds graphic with interviewee name.",
+          "price": 100,
+          "amount": 1,
+          "total": 100
+        },
+        {
+          "service": "Social Optimized Edit",
+          "details": "Edited vertical version optimized for social media.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Static Designs for Webpage",
+          "details": "I'll reformat key imagery from the animations to be used as static artwork to be embedded on web and print materials.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Background Music",
+          "details": "Find, license and add royalty free background music that's on brand.",
+          "price": 75,
+          "amount": 1,
+          "total": 75
+        }
+      ],
+      "deliverablesList": [
+        "90-240 second animated testimonial video",
+        "30-60 second vertical social edit"
+      ],
+      "timeline": "Completed by September",
+      "milestones": []
+    }
+  ],
 
-  // FOOTER: black logo left, contact right
-  html += '<div class="proposal-footer">'
-    +'<img src="/assets/images/Colegrove Media Black Logo.svg" alt="Colegrove Media" class="footer-logo" onerror="this.style.display=\'none\'">'
-    +'<div class="footer-contact"><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a><br><a href="tel:4062099945">(406) 209-9945</a></div>'
-    +'</div>';
-
-  page.innerHTML = html;
-
-  // If just accepted (first time seeing accepted state), fire confetti
-  var confettiKey = 'confetti-'+d.id;
-  if(isAccepted && !sessionStorage.getItem(confettiKey)){
-    sessionStorage.setItem(confettiKey, '1');
-    setTimeout(launchConfetti, 300);
-  }
+  "references": [
+    { "label": "Example testimonial video", "url": "https://vimeo.com/1134497582" },
+    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+  ]
 }
-
-function toggleDel(i){
-  var el = document.getElementById('del-'+i);
-  if(el) el.classList.toggle('open');
-}
-
-function formatNum(n){
-  return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-function formatPrice(n){
-  if(n % 1 !== 0) return n.toFixed(2);
-  return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-function launchConfetti(){
-  var canvas = document.createElement('canvas');
-  canvas.id = 'confetti-canvas';
-  document.body.appendChild(canvas);
-  var ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  var colors = ['#00d693','#1a1a1a','#00b87a','#5aaa8a','#e6faf3','#00d693'];
-  var pieces = [];
-  for(var i=0;i<140;i++){
-    pieces.push({
-      x:Math.random()*canvas.width,
-      y:-20-Math.random()*canvas.height*0.5,
-      w:5+Math.random()*7,
-      h:8+Math.random()*12,
-      r:Math.random()*Math.PI*2,
-      vx:(Math.random()-0.5)*3.5,
-      vy:2+Math.random()*3.5,
-      vr:(Math.random()-0.5)*0.12,
-      color:colors[Math.floor(Math.random()*colors.length)],
-      opacity:1,
-      shape:Math.random()>0.5?'rect':'circle'
-    });
-  }
-  var start=null,duration=3500;
-  function draw(ts){
-    if(!start) start=ts;
-    var elapsed=ts-start;
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    pieces.forEach(function(p){
-      p.x+=p.vx;p.y+=p.vy;p.vy+=0.05;p.r+=p.vr;
-      p.opacity=Math.max(0,1-(elapsed-2000)/1500);
-      ctx.save();ctx.globalAlpha=p.opacity;ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.color;
-      if(p.shape==='circle'){ctx.beginPath();ctx.arc(0,0,p.w/2,0,Math.PI*2);ctx.fill();}
-      else{ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);}
-      ctx.restore();
-    });
-    if(elapsed<duration) requestAnimationFrame(draw);
-    else canvas.remove();
-  }
-  requestAnimationFrame(draw);
-}
-</script>
-</body>
-</html>
