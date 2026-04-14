@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   COLEGROVE MEDIA — PRICING DATA
+   COLEGROVE MEDIA - PRICING DATA
    Single source of truth for all service definitions and pricing.
    
    Used by: services page, pricing page, and future service pages.
@@ -7,7 +7,7 @@
    To update a price:
      1. Find the service in SERVICES below
      2. Edit the tier price
-     3. That's it — both services page and pricing page update
+     3. That's it - both services page and pricing page update
    
    To add a preview sample to a service:
      1. Find the service
@@ -22,7 +22,7 @@
    ═══════════════════════════════════════════════════════════════ */
 
 // ═══════════════════════════════════════════════════════════════
-// SERVICES — organized by category
+// SERVICES - organized by category
 // ═══════════════════════════════════════════════════════════════
 
 var SERVICES = {
@@ -31,7 +31,7 @@ var SERVICES = {
       id:'real-estate-video', name:'Real Estate Video',
       ind:['real-estate'],
       sample:{ type:'video', projectSlug:'someday-ranch' },
-      desc:'Showcase any property with cinematic drone and ground-level video — ranch listings, residential homes, commercial spaces, and land. Built to sell.',
+      desc:'Showcase any property with cinematic drone and ground-level video. Ranch listings, residential homes, commercial spaces, and land. Built to sell.',
       tiers:[
         {n:'Basic',p:'$500',i:['Drone + ground footage up to 30 seconds','Professional edit · Music · 1 revision']},
         {n:'Standard',p:'$900',i:['Up to 90 seconds · Drone + interior walkthrough','Color grade · Music · 2 revisions']},
@@ -42,7 +42,7 @@ var SERVICES = {
       id:'brand-video', name:'Brand Videos',
       ind:['corporate','nonprofit','tech','social-media'],
       sample:{ type:'video', projectSlug:'powering-wildfire-intelligence' },
-      desc:'Communicate your mission, values, and offering with a cinematic brand film — content that makes an impact and drives real results.',
+      desc:'Communicate your mission, values, and offering with a cinematic brand film. Content that makes an impact and drives real results.',
       tiers:[
         {n:'Basic',p:'$3,500',i:['1 shooting location','1 voiceover or interview','Professional lighting, audio, and branding','1 revision · 1 final edit']},
         {n:'Standard',p:'$6,500',i:['Script + storyboard','Up to 2 shooting locations','B-roll, motion graphics, and thumbnail design','2 revisions · Full video + social cut']},
@@ -75,7 +75,7 @@ var SERVICES = {
       id:'product-video', name:'Product Videos',
       ind:['tech','corporate'],
       sample:{ type:'video', projectSlug:'all-in-one-foundation' },
-      desc:'Educate and excite viewers on your physical product or software — from a 30-second cut to a full-featured walkthrough with graphics and B-roll.',
+      desc:'Educate and excite viewers on your physical product or software. From a 30-second cut to a full-featured walkthrough with graphics and B-roll.',
       tiers:[
         {n:'Basic',p:'$600',i:['30 seconds · Product shots · 1 revision']},
         {n:'Standard',p:'$1,100',i:['Up to 2 minutes (4K) · Professional lighting and audio · 2 revisions']},
@@ -97,7 +97,7 @@ var SERVICES = {
       id:'remote-client-story', name:'Remote Client Stories',
       ind:['corporate','nonprofit','tech'],
       sample:{ type:'video', projectSlug:'a-ranchers-take' },
-      desc:'Transform virtual interviews into polished short-form stories. We guide you from interview planning to on-camera direction — or lead it ourselves.',
+      desc:'Transform virtual interviews into polished short-form stories. We guide you from interview planning to on-camera direction, or lead it ourselves.',
       tiers:[
         {n:'Basic',p:'$1,100',i:['Editing only · Royalty-free music · 1 revision']},
         {n:'Standard',p:'$2,100',i:['1 interview recorded at high fidelity · Animations, B-roll · 2 revisions']},
@@ -110,8 +110,8 @@ var SERVICES = {
       sample:{ type:'video', projectSlug:'iceland-in-motion' },
       desc:'Cinematic aerials or dynamic FPV flythroughs that add the wow-factor. FAA licensed pilot. Available standalone or as part of a larger production.',
       tiers:[
-        {n:'Regular',p:'$300',i:['Stable DJI 4K footage · 1–2 minute edit · 1 revision']},
-        {n:'FPV',p:'$500',i:['First-person view 4K · 3–5 minute edit · 2 revisions']},
+        {n:'Regular',p:'$300',i:['Stable DJI 4K footage · 1-2 minute edit · 1 revision']},
+        {n:'FPV',p:'$500',i:['First-person view 4K · 3-5 minute edit · 2 revisions']},
         {n:'Regular + FPV',p:'$700',i:['Up to 10-minute edit · 3 social clips · Unlimited revisions']}
       ]
     },
@@ -198,7 +198,7 @@ var SERVICES = {
       id:'motion-graphics', name:'Motion Graphics',
       ind:['corporate','tech','social-media'],
       sample:null,
-      desc:'Animated graphics for ads, social content, presentations, and video overlays — motion that makes your brand impossible to ignore.',
+      desc:'Animated graphics for ads, social content, presentations, and video overlays. Motion that makes your brand impossible to ignore.',
       tiers:[
         {n:'Basic',p:'$500',i:['Single animated graphic · Looping + one-shot · 1 revision']},
         {n:'Standard',p:'$1,200',i:['Up to 5 animated elements · Multiple format exports · 2 revisions']},
@@ -209,7 +209,7 @@ var SERVICES = {
       id:'logo-animation', name:'Logo Animations',
       ind:['corporate','tech','nonprofit','social-media'],
       sample:{ type:'lottie', projectSlug:'logo-animations' },
-      desc:'Bring your logo to life with a custom animated intro — perfect for video openers, social profiles, and presentations.',
+      desc:'Bring your logo to life with a custom animated intro. Perfect for video openers, social profiles, and presentations.',
       tiers:[
         {n:'Basic',p:'$300',i:['Simple reveal animation · MP4 + transparent version · 1 revision']},
         {n:'Standard',p:'$600',i:['Custom motion · Multiple versions · 2 revisions']},
@@ -220,7 +220,7 @@ var SERVICES = {
       id:'lottie-animation', name:'Website Animations / Lottie',
       ind:['tech','corporate'],
       sample:{ type:'lottie', projectSlug:'lottie-collaboration' },
-      desc:'Lightweight, scalable animations built for the web — Lottie files that integrate seamlessly into any website or app without slowing it down.',
+      desc:'Lightweight, scalable animations built for the web. Lottie files that integrate seamlessly into any website or app without slowing it down.',
       tiers:[
         {n:'Basic',p:'$400',i:['Single Lottie animation · JSON + MP4 export · 1 revision']},
         {n:'Standard',p:'$900',i:['Up to 3 Lottie animations · Developer handoff included · 2 revisions']},
@@ -234,7 +234,7 @@ var SERVICES = {
       id:'graphic-design', name:'Graphic Design',
       ind:['corporate','nonprofit','real-estate','events','social-media'],
       sample:null,
-      desc:'Custom visuals for digital and print — brand assets, social graphics, pitch decks, ads, signage, packaging, and more. Every project starts with a quick scope call so you know exactly what to expect.',
+      desc:'Custom visuals for digital and print: brand assets, social graphics, pitch decks, ads, signage, packaging, and more. Every project starts with a quick scope call so you know exactly what to expect.',
       tiers:[
         {n:'Graphic Design',p:'$125/hr',i:['Brand assets, print materials, social graphics, ads, and more','Quote provided before work begins']}
       ]
@@ -243,7 +243,7 @@ var SERVICES = {
       id:'web-design', name:'Web Design',
       ind:['corporate','nonprofit','tech','real-estate'],
       sample:null,
-      desc:'Custom websites — responsive, fast, and built to convert. Every build includes mobile optimization, SEO fundamentals, and a training session so you can manage it yourself.',
+      desc:'Custom websites that are responsive, fast, and built to convert. Every build includes mobile optimization, SEO fundamentals, and a training session so you can manage it yourself.',
       tiers:[
         {n:'Custom Website',p:'$1,500+',i:['Scope and quote based on your goals','Mobile responsive · SEO fundamentals','Training session included','Ongoing updates available at $125/hr']}
       ]
@@ -263,7 +263,7 @@ var SERVICES = {
       id:'virtual-staging', name:'Virtual Staging',
       ind:['real-estate'],
       sample:null,
-      desc:'Transform any empty room into a fully-furnished, beautifully designed space — without moving a single piece of furniture.',
+      desc:'Transform any empty room into a fully-furnished, beautifully designed space without moving a single piece of furniture.',
       tiers:[
         {n:'1 Image',p:'$50',i:['1 virtually staged room · 2 style options · 2 revisions']},
         {n:'5 Images',p:'$200',i:['5 virtually staged rooms · Consistent style · 2 revisions']},
@@ -295,10 +295,10 @@ var RETAINERS = [
     note:'3-month minimum · billed monthly',
     featured:true,
     features:[
-      '1–2 Standard-tier hero deliverables per month',
-      '2–3 social cuts or repurposed assets',
+      '1-2 Standard-tier hero deliverables per month',
+      '2-3 social cuts or repurposed assets',
       'Priority scheduling + same-week availability',
-      'End-to-end support — we handle publishing to your channels',
+      'End-to-end support: we handle publishing to your channels',
       'Bi-weekly planning calls',
       'Dedicated chat'
     ]
@@ -308,9 +308,9 @@ var RETAINERS = [
     note:'3-month minimum · billed monthly',
     featured:false,
     features:[
-      '2–4 Advanced-tier hero deliverables per month',
-      '4–6 social cuts or repurposed assets',
-      'On-call availability — always first in queue',
+      '2-4 Advanced-tier hero deliverables per month',
+      '4-6 social cuts or repurposed assets',
+      'On-call availability, always first in queue',
       'End-to-end publishing + monthly performance reporting',
       'Weekly strategy sessions',
       'Dedicated chat'
@@ -320,37 +320,37 @@ var RETAINERS = [
 
 
 // ═══════════════════════════════════════════════════════════════
-// PACKAGES (bundles) — range-based pricing with industry context
+// PACKAGES (bundles) - ordered least to most expensive
 // ═══════════════════════════════════════════════════════════════
 
 var PACKAGES = [
   {
     name:'Real Estate',
     range:'$1,200 – $2,500',
-    desc:'Everything a listing agent needs to market a property — aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.',
-    services:['Property video (30 sec–3 min depending on listing)','15–60 edited photos (interior + exterior + twilight)','Drone aerials (photo and/or video)','Satellite map with property boundaries','3D virtual tour (Matterport)'],
-    context:'Scope and price depend on property size and location. Most residential listings fall in the $1,200–$1,800 range. Ranches and commercial properties start higher.'
+    desc:'Everything a listing agent needs to market a property, from aerial to interior, static to virtual. Delivered fast, optimized for MLS and social.',
+    services:['Property video (30 sec to 3 min depending on listing)','15-60 edited photos (interior + exterior + twilight)','Drone aerials (photo and/or video)','Satellite map with property boundaries','3D virtual tour (Matterport)'],
+    context:'Scope and price depend on property size and location. Most residential listings fall in the $1,200-$1,800 range. Ranches and commercial properties start higher.'
   },
   {
-    name:'Corporate / Brand',
-    range:'$8,000 – $18,000',
-    desc:'A full content suite for companies that want to show up professionally — across web, social, and sales conversations. Coordinated as one project so everything looks and feels cohesive.',
-    services:['Brand video (your flagship piece)','1–2 testimonials','Animated explainer or product demo','Team headshots','Social cuts from all video content'],
-    context:'A brand suite like this becomes your primary marketing asset for 1–3 years. The range depends on how many locations, interview subjects, and how polished the animation needs to be.'
+    name:'Social Media Content Day',
+    range:'$2,500 – $4,000',
+    desc:'A full shoot day that produces a month (or more) of content. Video, stills, and graphics ready to post across all your channels.',
+    services:['2-4 short-form video clips (Reels, TikTok, YouTube Shorts)','Drone footage','Headshots or lifestyle photos','Motion graphics set','Social templates (graphic design)'],
+    context:'One day of shooting. We plan the content calendar together beforehand so every shot has a purpose. Most clients get 4-6 weeks of content from a single shoot day.'
   },
   {
     name:'Live Event',
     range:'$3,500 – $6,000',
-    desc:'Full event coverage — broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.',
-    services:['Live stream (1–4 hours, multi-camera)','Event highlight video','On-site testimonials (1–2 interviews)','Attendee / speaker headshots','Event graphics and signage'],
+    desc:'Full event coverage: broadcast it live, capture it on camera, and walk away with assets that extend its reach for months.',
+    services:['Live stream (1-4 hours, multi-camera)','Event highlight video','On-site testimonials (1-2 interviews)','Attendee and speaker headshots','Event graphics and signage'],
     context:'Price depends on event length, number of cameras, and how many interviews you want. Multi-day events quoted separately.'
   },
   {
-    name:'Social Media Content Day',
-    range:'$2,500 – $4,500',
-    desc:'A full shoot day that produces a month (or more) of content — video, stills, and graphics ready to post across all your channels.',
-    services:['2–4 short-form video clips (Reels, TikTok, YouTube Shorts)','Drone footage','Headshots or lifestyle photos','Motion graphics set','Social templates (graphic design)'],
-    context:'One day of shooting. We plan the content calendar together beforehand so every shot has a purpose. Most clients get 4–6 weeks of content from a single shoot day.'
+    name:'Corporate / Brand',
+    range:'$8,500 – $15,000',
+    desc:'A full content suite for companies that want to show up professionally across web, social, and sales conversations. Coordinated as one project so everything looks and feels cohesive.',
+    services:['Brand video (your flagship piece)','1-2 testimonials','Animated explainer or product demo','Social cuts from all video content'],
+    context:'A brand suite like this becomes your primary marketing asset for 1-3 years. The range depends on how many locations, interview subjects, and how polished the animation needs to be.'
   }
 ];
 
@@ -360,40 +360,40 @@ var PACKAGES = [
 // ═══════════════════════════════════════════════════════════════
 
 var POLICIES = [
-  { name:'Rush Fee', value:'2× quoted rate', desc:'For delivery significantly shorter than the standard production schedule.' },
+  { name:'Rush Fee', value:'2x quoted rate', desc:'For delivery significantly shorter than the standard production schedule.' },
   { name:'Travel Fee', value:'$1.25 / mile', desc:'Beyond 15 miles from Bozeman, MT. Multi-day productions quoted individually.' },
   { name:'Usage Rights', value:'Full transfer on delivery', desc:'All rights pass to you upon final delivery. No ongoing licensing fees.' },
-  { name:'Hourly / Day Rate', value:'$125 / hr \u00a0·\u00a0 $1,000 / day', desc:'For consulting, maintenance, or any work billed by time.' }
+  { name:'Hourly / Day Rate', value:'$125/hr · $1,000/day', desc:'For consulting, maintenance, or any work billed by time.' }
 ];
 
 
 // ═══════════════════════════════════════════════════════════════
-// CATEGORY METADATA — for services page sections
+// CATEGORY METADATA - for services page sections
 // ═══════════════════════════════════════════════════════════════
 
 var SERVICE_CATEGORIES = {
   video: {
     label:'Video',
     title:'Video Services',
-    desc:'Cinematic storytelling that connects emotionally and drives people to act — from a 15-second social cut to a full brand film.',
+    desc:'Cinematic storytelling that connects emotionally and drives people to act, from a 15-second social cut to a full brand film.',
     cols:3
   },
   photo: {
     label:'Photo',
     title:'Photo Services',
-    desc:'Stills that do more than document — composition, light, and timing making your property, team, or space look exactly as good as it is.',
+    desc:'Stills that do more than document. Composition, light, and timing making your property, team, or space look exactly as good as it is.',
     cols:4
   },
   animation: {
     label:'Animation',
     title:'Animation Services',
-    desc:'Motion and narrative working together to explain what words alone can\'t — and build recognition while doing it.',
+    desc:'Motion and narrative working together to explain what words alone can\'t, and build recognition while doing it.',
     cols:4
   },
   design: {
     label:'Design',
     title:'Design Services',
-    desc:'Visual identity from the first impression to the final touchpoint — design that reflects who you are and gives people a reason to trust you.',
+    desc:'Visual identity from the first impression to the final touchpoint. Design that reflects who you are and gives people a reason to trust you.',
     cols:4
   }
 };
