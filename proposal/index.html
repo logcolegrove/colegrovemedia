@@ -139,9 +139,25 @@ a:hover{text-decoration:underline;}
 @media(max-width:640px){
   .proposal-page{padding:32px 20px 60px;}
   .proposal-header{flex-direction:column;gap:16px;}
+  .header-left{display:none;}
   .header-right{text-align:left;}
   .header-title{font-size:22px;}
-  .price-table td.details{max-width:200px;}
+  .section-h{font-size:22px;}
+  .deliverable-title{font-size:16px;}
+  .deliverable-price{font-size:16px;}
+  /* Stack pricing table as cards on mobile */
+  .price-table thead{display:none;}
+  .price-table, .price-table tbody, .price-table tr, .price-table td{display:block;width:100%;}
+  .price-table tr{padding:16px 0;border-bottom:1px solid var(--border2);}
+  .price-table td{padding:2px 0;border:none;}
+  .price-table td.svc{font-size:16px;font-weight:600;margin-bottom:4px;}
+  .price-table td.details{font-size:14px;max-width:100%;margin-bottom:8px;}
+  .price-table td.num{text-align:left;font-size:15px;}
+  .price-table td.num::before{color:var(--text3);font-size:12px;font-weight:400;margin-right:6px;}
+  .price-table tr.sum-row{border-top:2px solid var(--border);margin-top:8px;padding-top:16px;}
+  .price-table tr.sum-row td{text-align:right;font-size:18px;}
+  .price-table tr.sum-row td[colspan]{display:none;}
+  .project-total{font-size:18px;}
   .proposal-footer{flex-direction:column;gap:16px;align-items:flex-start;}
   .footer-contact{text-align:left;}
 }
