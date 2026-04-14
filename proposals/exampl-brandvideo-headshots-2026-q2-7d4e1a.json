@@ -1,8 +1,8 @@
 {
   "_notes": "FLAG: Client name and email appear to have typos. Confirm spelling: 'Guy Peterson' and 'guy.peterson@example.com' (or similar). Also: no specifics provided on brand video scope (subject, intended use, who's on camera) or headshot count. Defaults used: standard brand video scope language and full advanced headshot session. Travel calculated as one round trip to Billings (~140mi one way = 280mi).",
   "id": "exampl-brandvideo-headshots-2026-q2-7d4e1a",
-  "status": "pending",
-  "acceptedDate": "",
+  "status": "accepted",
+  "acceptedDate": "4/14/2026",
   "title": "Brand Video + Headshots",
   "client": "Exampl",
   "contact": "Guy Peterson",
@@ -65,12 +65,36 @@
       ],
       "timeline": "",
       "milestones": [
-        { "date": "Week 1", "milestone": "Pre-production planning and shot list", "responsible": "Colegrove Media" },
-        { "date": "Week 1-2", "milestone": "Review shot list and confirm logistics", "responsible": "Exampl" },
-        { "date": "Week 3", "milestone": "On-location shoot day in Billings", "responsible": "Colegrove Media" },
-        { "date": "Week 4-5", "milestone": "Post-production and first draft delivery", "responsible": "Colegrove Media" },
-        { "date": "Week 5-6", "milestone": "Review and feedback", "responsible": "Exampl" },
-        { "date": "Week 6-7", "milestone": "Final revisions and delivery", "responsible": "Colegrove Media" }
+        {
+          "date": "Week 1",
+          "milestone": "Pre-production planning and shot list",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 1-2",
+          "milestone": "Review shot list and confirm logistics",
+          "responsible": "Exampl"
+        },
+        {
+          "date": "Week 3",
+          "milestone": "On-location shoot day in Billings",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 4-5",
+          "milestone": "Post-production and first draft delivery",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 5-6",
+          "milestone": "Review and feedback",
+          "responsible": "Exampl"
+        },
+        {
+          "date": "Week 6-7",
+          "milestone": "Final revisions and delivery",
+          "responsible": "Colegrove Media"
+        }
       ]
     },
     {
@@ -112,7 +136,13 @@
     }
   ],
   "references": [
-    { "label": "Brand video example (Ignis)", "url": "https://vimeo.com/1011394531" },
-    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+    {
+      "label": "Brand video example (Ignis)",
+      "url": "https://vimeo.com/1011394531"
+    },
+    {
+      "label": "Full portfolio",
+      "url": "https://vimeo.com/colegrovemedia"
+    }
   ]
 }
