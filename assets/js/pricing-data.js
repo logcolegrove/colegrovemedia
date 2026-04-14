@@ -118,7 +118,7 @@ var SERVICES = {
     {
       id:'social-clips', name:'Social Clips / Ads',
       ind:['corporate','real-estate','nonprofit','tech','social-media'],
-      sample:null,
+      sample:{ type:'video', projectSlug:'sharp-tails-and-grasslands' },
       desc:'Market your products and services on social media or YouTube. Short-form content cut for attention and optimized for wherever your audience lives.',
       tiers:[
         {n:'Basic',p:'$1,500',i:['Single-platform ad cut · Existing footage · 1 revision']},
