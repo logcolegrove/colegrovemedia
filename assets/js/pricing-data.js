@@ -55,9 +55,9 @@ var SERVICES = {
       sample:{ type:'video', projectSlug:'not-jumping-ship' },
       desc:'Let your satisfied customers do the talking. Committed to making interviewees feel comfortable while capturing high-impact, authentic content.',
       tiers:[
-        {n:'Basic',p:'$900',i:['Client-provided recording (editing only)','Speaker overlay, background music, thumbnail','1 revision']},
-        {n:'Standard',p:'$2,000',i:['On-site interview · Single participant','Professional lighting and audio · 2 cameras','2 revisions']},
-        {n:'Advanced',p:'$2,400',i:['On-site interview · Up to 4 participants','Extended filming for custom B-roll','2 video edits · 3 revisions']}
+        {n:'Basic',p:'$2,000',i:['1 participant · 1 location','Professional lighting, audio, 2-camera setup','Polished final cut · 2 revisions']},
+        {n:'Standard',p:'$3,200',i:['1 participant · Extended shoot for custom B-roll','Workspace, product, and environment shots','Final cut + 1 social clip · 3 revisions']},
+        {n:'Advanced',p:'$4,200+',i:['2+ participants · Full shoot day','Custom B-roll across multiple setups','Multiple edits + social cuts · Unlimited revisions']}
       ]
     },
     {
