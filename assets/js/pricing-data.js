@@ -353,7 +353,7 @@ var PACKAGES = [
 
 var POLICIES = [
   { name:'Rush Fee', value:'2× quoted rate', desc:'For delivery significantly shorter than the standard production schedule.' },
-  { name:'Travel Fee', value:'$1 / mile', desc:'Beyond 15 miles from Bozeman, MT. Multi-day productions quoted individually.' },
+  { name:'Travel Fee', value:'$1.25 / mile', desc:'Beyond 15 miles from Bozeman, MT. Multi-day productions quoted individually.' },
   { name:'Usage Rights', value:'Full transfer on delivery', desc:'All rights pass to you upon final delivery. No ongoing licensing fees.' },
   { name:'Hourly / Day Rate', value:'$125 / hr \u00a0·\u00a0 $1,000 / day', desc:'For consulting, maintenance, or any work billed by time.' }
 ];
