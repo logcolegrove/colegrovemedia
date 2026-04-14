@@ -223,7 +223,7 @@ function openSvcModal(svcId){
   if(sample.type==='gallery') buildGalleryModal(p,ml);
   else if(sample.type==='lottie') buildLottieModal(p,ml);
   else buildVideoModal(p,ml);
-  document.getElementById('modal').classList.toggle('modal-vertical', !!(sample.project.vertical));document.getElementById('modal-backdrop').classList.add('open');document.body.style.overflow='hidden';
+  document.getElementById('modal').classList.toggle('modal-vertical', !!(p.vertical));document.getElementById('modal-backdrop').classList.add('open');document.body.style.overflow='hidden';
 }
 
 function buildVideoModal(p,ml){
