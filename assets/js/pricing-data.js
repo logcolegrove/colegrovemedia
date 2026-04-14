@@ -101,7 +101,7 @@ var SERVICES = {
       tiers:[
         {n:'Basic',p:'$1,100',i:['Editing only · Royalty-free music · 1 revision']},
         {n:'Standard',p:'$2,100',i:['1 interview recorded at high fidelity · Animations, B-roll · 2 revisions']},
-        {n:'Advanced',p:'$3,400+',i:['Multiple interviews · Multiple edits + social cuts · Unlimited revisions']}
+        {n:'Advanced',p:'$4,000+',i:['Multiple interviews · Multiple edits + social cuts · Unlimited revisions']}
       ]
     },
     {
@@ -111,8 +111,8 @@ var SERVICES = {
       desc:'Cinematic aerials or dynamic FPV flythroughs that add the wow-factor. FAA licensed pilot. Available standalone or as part of a larger production.',
       tiers:[
         {n:'Regular',p:'$300',i:['Stable DJI 4K footage · 1-2 minute edit · 1 revision']},
-        {n:'FPV',p:'$500',i:['First-person view 4K · 3-5 minute edit · 2 revisions']},
-        {n:'Regular + FPV',p:'$700',i:['Up to 10-minute edit · 3 social clips · Unlimited revisions']}
+        {n:'FPV',p:'$700',i:['First-person view 4K · 3-5 minute edit · 2 revisions']},
+        {n:'Regular + FPV',p:'$900',i:['Up to 10-minute edit · 3 social clips · Unlimited revisions']}
       ]
     },
     {
