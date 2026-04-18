@@ -178,12 +178,29 @@ a:hover{text-decoration:underline;}
     return;
   }
 
+  // Check if this proposal was locally accepted (bridges the gap before Worker updates JSON)
+  var localAcceptKey = 'proposal-accepted-'+proposalId;
+  var localAcceptData = null;
+  try { localAcceptData = JSON.parse(localStorage.getItem(localAcceptKey)); } catch(e){}
+
   fetch('/proposals/'+proposalId+'.json?v='+Date.now())
     .then(function(r){
       if(!r.ok) throw new Error('not found');
       return r.json();
     })
-    .then(function(data){ renderProposal(data); })
+    .then(function(data){
+      // If JSON still says pending but we know it was locally accepted, override
+      if(data.status !== 'accepted' && localAcceptData){
+        data.status = 'accepted';
+        data.acceptedDate = localAcceptData.date;
+        data._localAccept = true;
+      }
+      // If JSON confirms accepted, clean up localStorage (no longer needed)
+      if(data.status === 'accepted' && !data._localAccept){
+        try { localStorage.removeItem(localAcceptKey); } catch(e){}
+      }
+      renderProposal(data);
+    })
     .catch(function(){ showError('Proposal not found.','This link may be incorrect or expired. Contact logan@colegrovemedia.com if you need help.'); });
 })();
 
@@ -309,7 +326,7 @@ function renderProposal(d){
     html += '<div class="tally-wrap" id="tallyWrap">'
       +'<h3>Approve This Proposal</h3>'
       +'<p>By signing below, you agree to the scope, pricing, and <a href="https://colegrovemedia.com/terms" target="_blank">terms and conditions</a>.</p>'
-      +'<iframe data-tally-src="https://tally.so/embed/'+d.tallyFormId+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&proposal_id='+encodeURIComponent(d.id)+'" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Approve Proposal"></iframe>'
+      +'<iframe data-tally-src="https://tally.so/embed/'+d.tallyFormId+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&proposal_id='+encodeURIComponent(d.id)+'" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Approve Proposal" autocomplete="off"></iframe>'
       +'</div>';
 
     // Load Tally embed script + listen for submission
@@ -323,14 +340,18 @@ function renderProposal(d){
     // Listen for Tally form submission via postMessage
     window.addEventListener('message', function(e){
       if(typeof e.data === 'string' && e.data.indexOf('Tally.FormSubmitted') > -1){
+        // Save accepted state locally so refreshes during Worker delay still show accepted
+        var now = new Date();
+        var dateStr = (now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
+        try {
+          localStorage.setItem('proposal-accepted-'+d.id, JSON.stringify({date: dateStr, ts: now.toISOString()}));
+        } catch(ex){}
         // Hide the Tally form
         var tallyEl = document.getElementById('tallyWrap');
         if(tallyEl) tallyEl.style.display = 'none';
         // Show accepted banner
         var banner = document.getElementById('acceptedBanner');
         if(banner){
-          var today = new Date();
-          var dateStr = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
           banner.querySelector('.accepted-date').textContent = dateStr;
           banner.classList.add('visible');
         }
@@ -348,11 +369,27 @@ function renderProposal(d){
 
   page.innerHTML = html;
 
-  // Only fire confetti if accepted within the last 5 minutes
-  if(isAccepted && d.acceptedDate){
-    var accepted = new Date(d.acceptedDate);
-    var now = new Date();
-    if(!isNaN(accepted.getTime()) && (now - accepted) < 300000){
+  // Only fire confetti on page load if accepted within the last 5 minutes
+  if(isAccepted){
+    var shouldConfetti = false;
+    // Check against acceptedDate from JSON
+    if(d.acceptedDate){
+      var accepted = new Date(d.acceptedDate);
+      if(!isNaN(accepted.getTime()) && (new Date() - accepted) < 300000){
+        shouldConfetti = true;
+      }
+    }
+    // Also check localStorage timestamp for locally accepted proposals (Worker hasn't updated yet)
+    if(!shouldConfetti && d._localAccept){
+      try {
+        var localData = JSON.parse(localStorage.getItem('proposal-accepted-'+d.id));
+        if(localData && localData.ts){
+          var localTime = new Date(localData.ts);
+          if((new Date() - localTime) < 300000) shouldConfetti = true;
+        }
+      } catch(e){}
+    }
+    if(shouldConfetti){
       setTimeout(launchConfetti, 300);
     }
   }
