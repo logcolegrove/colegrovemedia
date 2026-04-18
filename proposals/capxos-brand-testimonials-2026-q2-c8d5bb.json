@@ -1,0 +1,214 @@
+{
+  "id": "capxos-brand-testimonials-2026-q2-c8d5bb",
+  "status": "pending",
+  "acceptedDate": "",
+  "title": "Brand Video + Customer Testimonials",
+  "client": "CapXOS",
+  "contact": "Mark Barmey",
+  "contactEmail": "Mark.barmey@gmail.com",
+  "date": "April 18, 2026",
+  "validFor": "15 days",
+  "tallyFormId": "wMERpY",
+  "deliverables": [
+    {
+      "title": "Brand Video (Standard)",
+      "total": 6500,
+      "description": "A polished brand overview video for your website that communicates who CapXOS is, what you do, and why it matters. I'll handle planning, direction, filming, and post-production.",
+      "lineItems": [
+        {
+          "service": "Recording + Editing",
+          "details": "Full-day shoot with multi-camera setup. Includes pre-production planning, shot list development, on-site direction, and full post-production edit of a 2-4 minute brand video.",
+          "price": 5975,
+          "amount": 1,
+          "total": 5975
+        },
+        {
+          "service": "Professional Lighting and Audio Package",
+          "details": "Includes an extra hour for setup and teardown and the following lights: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        },
+        {
+          "service": "Titles and Graphics",
+          "details": "Intro/outro title slides with CapXOS logo and branded lower thirds for any on-screen speakers.",
+          "price": 100,
+          "amount": 1,
+          "total": 100
+        },
+        {
+          "service": "Background Music",
+          "details": "Find, license and add royalty free background music that's on brand.",
+          "price": 75,
+          "amount": 1,
+          "total": 75
+        },
+        {
+          "service": "Social Optimized Edit",
+          "details": "Edited vertical version of the brand video optimized for social media.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        }
+      ],
+      "deliverablesList": [
+        "2-4 minute brand overview video (horizontal)",
+        "30-60 second vertical social edit"
+      ],
+      "timeline": "Completed by June 2026",
+      "milestones": [
+        { "date": "Week 1", "milestone": "Pre-production: planning call, shot list, script outline", "responsible": "Colegrove Media" },
+        { "date": "Week 1-2", "milestone": "Review shot list and provide internal talking points", "responsible": "CapXOS" },
+        { "date": "Week 3", "milestone": "Shoot day", "responsible": "Colegrove Media" },
+        { "date": "Week 4-5", "milestone": "Post-production and first draft delivery", "responsible": "Colegrove Media" },
+        { "date": "Week 5-6", "milestone": "Review and feedback", "responsible": "CapXOS" },
+        { "date": "Week 6-7", "milestone": "Final delivery", "responsible": "Colegrove Media" }
+      ]
+    },
+    {
+      "title": "Customer Testimonial 1 (Standard)",
+      "total": 3200,
+      "description": "A customer testimonial video capturing a real story from one of your customers. Includes on-site filming, custom animations to reinforce key points, and social cuts.",
+      "lineItems": [
+        {
+          "service": "Recording + Editing",
+          "details": "In-person interview with 1 participant, 3 camera angles. Includes pre-interview planning, on-site direction, and full post-production edit of a 90-240 second testimonial.",
+          "price": 1250,
+          "amount": 1,
+          "total": 1250
+        },
+        {
+          "service": "Professional Lighting and Audio Package",
+          "details": "Includes an extra hour for setup and teardown and the following lights: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        },
+        {
+          "service": "Animation + B Roll",
+          "details": "Custom animations and B Roll to visually support key points, data, and claims shared in the testimonial.",
+          "price": 825,
+          "amount": 1,
+          "total": 825
+        },
+        {
+          "service": "Titles and Graphics",
+          "details": "Intro/outro title slides with CapXOS logo and a lower thirds graphic with interviewee name.",
+          "price": 100,
+          "amount": 1,
+          "total": 100
+        },
+        {
+          "service": "Background Music",
+          "details": "Find, license and add royalty free background music that's on brand.",
+          "price": 75,
+          "amount": 1,
+          "total": 75
+        },
+        {
+          "service": "Social Optimized Edit",
+          "details": "Edited vertical version optimized for social media.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Social Snippets",
+          "details": "Shorter soundbites pulled from the testimonial, edited and optimized for social media (vertical aspect ratio).",
+          "price": 150,
+          "amount": 4,
+          "total": 600
+        }
+      ],
+      "deliverablesList": [
+        "90-240 second testimonial video (horizontal)",
+        "30-60 second vertical social edit",
+        "4 vertical social snippets"
+      ],
+      "timeline": "Completed by July 2026",
+      "milestones": [
+        { "date": "Week 1", "milestone": "Pre-production: identify customer, coordinate scheduling, prep interview questions", "responsible": "Colegrove Media" },
+        { "date": "Week 1-2", "milestone": "Confirm customer participant and availability", "responsible": "CapXOS" },
+        { "date": "Week 3", "milestone": "Shoot day", "responsible": "Colegrove Media" },
+        { "date": "Week 4-5", "milestone": "Post-production, animation, and first draft delivery", "responsible": "Colegrove Media" },
+        { "date": "Week 5-6", "milestone": "Review and feedback", "responsible": "CapXOS" },
+        { "date": "Week 6-7", "milestone": "Final delivery of testimonial + social cuts", "responsible": "Colegrove Media" }
+      ]
+    },
+    {
+      "title": "Customer Testimonial 2 (Standard)",
+      "total": 3200,
+      "description": "A second customer testimonial video with the same scope and deliverables. Can be scheduled back-to-back with Testimonial 1 or on a separate day.",
+      "lineItems": [
+        {
+          "service": "Recording + Editing",
+          "details": "In-person interview with 1 participant, 3 camera angles. Includes pre-interview planning, on-site direction, and full post-production edit of a 90-240 second testimonial.",
+          "price": 1250,
+          "amount": 1,
+          "total": 1250
+        },
+        {
+          "service": "Professional Lighting and Audio Package",
+          "details": "Includes an extra hour for setup and teardown and the following lights: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        },
+        {
+          "service": "Animation + B Roll",
+          "details": "Custom animations and B Roll to visually support key points, data, and claims shared in the testimonial.",
+          "price": 825,
+          "amount": 1,
+          "total": 825
+        },
+        {
+          "service": "Titles and Graphics",
+          "details": "Intro/outro title slides with CapXOS logo and a lower thirds graphic with interviewee name.",
+          "price": 100,
+          "amount": 1,
+          "total": 100
+        },
+        {
+          "service": "Background Music",
+          "details": "Find, license and add royalty free background music that's on brand.",
+          "price": 75,
+          "amount": 1,
+          "total": 75
+        },
+        {
+          "service": "Social Optimized Edit",
+          "details": "Edited vertical version optimized for social media.",
+          "price": 150,
+          "amount": 1,
+          "total": 150
+        },
+        {
+          "service": "Social Snippets",
+          "details": "Shorter soundbites pulled from the testimonial, edited and optimized for social media (vertical aspect ratio).",
+          "price": 150,
+          "amount": 4,
+          "total": 600
+        }
+      ],
+      "deliverablesList": [
+        "90-240 second testimonial video (horizontal)",
+        "30-60 second vertical social edit",
+        "4 vertical social snippets"
+      ],
+      "timeline": "Completed by July 2026",
+      "milestones": [
+        { "date": "Week 1", "milestone": "Pre-production: identify customer, coordinate scheduling, prep interview questions", "responsible": "Colegrove Media" },
+        { "date": "Week 1-2", "milestone": "Confirm customer participant and availability", "responsible": "CapXOS" },
+        { "date": "Week 3", "milestone": "Shoot day", "responsible": "Colegrove Media" },
+        { "date": "Week 4-5", "milestone": "Post-production, animation, and first draft delivery", "responsible": "Colegrove Media" },
+        { "date": "Week 5-6", "milestone": "Review and feedback", "responsible": "CapXOS" },
+        { "date": "Week 6-7", "milestone": "Final delivery of testimonial + social cuts", "responsible": "Colegrove Media" }
+      ]
+    }
+  ],
+  "references": [
+    { "label": "Brand video example (Ignis)", "url": "https://vimeo.com/1011394531" },
+    { "label": "Testimonial example (Not Jumping Ship)", "url": "https://vimeo.com/1011460491" },
+    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+  ]
+}
