@@ -348,11 +348,13 @@ function renderProposal(d){
 
   page.innerHTML = html;
 
-  // If just accepted (first time seeing accepted state), fire confetti
-  var confettiKey = 'confetti-'+d.id;
-  if(isAccepted && !sessionStorage.getItem(confettiKey)){
-    sessionStorage.setItem(confettiKey, '1');
-    setTimeout(launchConfetti, 300);
+  // Only fire confetti if accepted within the last 5 minutes
+  if(isAccepted && d.acceptedDate){
+    var accepted = new Date(d.acceptedDate);
+    var now = new Date();
+    if(!isNaN(accepted.getTime()) && (now - accepted) < 300000){
+      setTimeout(launchConfetti, 300);
+    }
   }
 }
 
