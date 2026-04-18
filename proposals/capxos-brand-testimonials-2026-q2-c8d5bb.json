@@ -1,7 +1,7 @@
 {
   "id": "capxos-brand-testimonials-2026-q2-c8d5bb",
-  "status": "pending",
-  "acceptedDate": "",
+  "status": "accepted",
+  "acceptedDate": "4/18/2026",
   "title": "Brand Video + Customer Testimonials",
   "client": "CapXOS",
   "contact": "Mark Barmey",
@@ -57,12 +57,36 @@
       ],
       "timeline": "Completed by June 2026",
       "milestones": [
-        { "date": "Week 1", "milestone": "Pre-production: planning call, shot list, script outline", "responsible": "Colegrove Media" },
-        { "date": "Week 1-2", "milestone": "Review shot list and provide internal talking points", "responsible": "CapXOS" },
-        { "date": "Week 3", "milestone": "Shoot day", "responsible": "Colegrove Media" },
-        { "date": "Week 4-5", "milestone": "Post-production and first draft delivery", "responsible": "Colegrove Media" },
-        { "date": "Week 5-6", "milestone": "Review and feedback", "responsible": "CapXOS" },
-        { "date": "Week 6-7", "milestone": "Final delivery", "responsible": "Colegrove Media" }
+        {
+          "date": "Week 1",
+          "milestone": "Pre-production: planning call, shot list, script outline",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 1-2",
+          "milestone": "Review shot list and provide internal talking points",
+          "responsible": "CapXOS"
+        },
+        {
+          "date": "Week 3",
+          "milestone": "Shoot day",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 4-5",
+          "milestone": "Post-production and first draft delivery",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 5-6",
+          "milestone": "Review and feedback",
+          "responsible": "CapXOS"
+        },
+        {
+          "date": "Week 6-7",
+          "milestone": "Final delivery",
+          "responsible": "Colegrove Media"
+        }
       ]
     },
     {
@@ -127,12 +151,36 @@
       ],
       "timeline": "Completed by July 2026",
       "milestones": [
-        { "date": "Week 1", "milestone": "Pre-production: identify customer, coordinate scheduling, prep interview questions", "responsible": "Colegrove Media" },
-        { "date": "Week 1-2", "milestone": "Confirm customer participant and availability", "responsible": "CapXOS" },
-        { "date": "Week 3", "milestone": "Shoot day", "responsible": "Colegrove Media" },
-        { "date": "Week 4-5", "milestone": "Post-production, animation, and first draft delivery", "responsible": "Colegrove Media" },
-        { "date": "Week 5-6", "milestone": "Review and feedback", "responsible": "CapXOS" },
-        { "date": "Week 6-7", "milestone": "Final delivery of testimonial + social cuts", "responsible": "Colegrove Media" }
+        {
+          "date": "Week 1",
+          "milestone": "Pre-production: identify customer, coordinate scheduling, prep interview questions",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 1-2",
+          "milestone": "Confirm customer participant and availability",
+          "responsible": "CapXOS"
+        },
+        {
+          "date": "Week 3",
+          "milestone": "Shoot day",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 4-5",
+          "milestone": "Post-production, animation, and first draft delivery",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 5-6",
+          "milestone": "Review and feedback",
+          "responsible": "CapXOS"
+        },
+        {
+          "date": "Week 6-7",
+          "milestone": "Final delivery of testimonial + social cuts",
+          "responsible": "Colegrove Media"
+        }
       ]
     },
     {
@@ -197,18 +245,51 @@
       ],
       "timeline": "Completed by July 2026",
       "milestones": [
-        { "date": "Week 1", "milestone": "Pre-production: identify customer, coordinate scheduling, prep interview questions", "responsible": "Colegrove Media" },
-        { "date": "Week 1-2", "milestone": "Confirm customer participant and availability", "responsible": "CapXOS" },
-        { "date": "Week 3", "milestone": "Shoot day", "responsible": "Colegrove Media" },
-        { "date": "Week 4-5", "milestone": "Post-production, animation, and first draft delivery", "responsible": "Colegrove Media" },
-        { "date": "Week 5-6", "milestone": "Review and feedback", "responsible": "CapXOS" },
-        { "date": "Week 6-7", "milestone": "Final delivery of testimonial + social cuts", "responsible": "Colegrove Media" }
+        {
+          "date": "Week 1",
+          "milestone": "Pre-production: identify customer, coordinate scheduling, prep interview questions",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 1-2",
+          "milestone": "Confirm customer participant and availability",
+          "responsible": "CapXOS"
+        },
+        {
+          "date": "Week 3",
+          "milestone": "Shoot day",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 4-5",
+          "milestone": "Post-production, animation, and first draft delivery",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 5-6",
+          "milestone": "Review and feedback",
+          "responsible": "CapXOS"
+        },
+        {
+          "date": "Week 6-7",
+          "milestone": "Final delivery of testimonial + social cuts",
+          "responsible": "Colegrove Media"
+        }
       ]
     }
   ],
   "references": [
-    { "label": "Brand video example (Ignis)", "url": "https://vimeo.com/1011394531" },
-    { "label": "Testimonial example (Not Jumping Ship)", "url": "https://vimeo.com/1011460491" },
-    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+    {
+      "label": "Brand video example (Ignis)",
+      "url": "https://vimeo.com/1011394531"
+    },
+    {
+      "label": "Testimonial example (Not Jumping Ship)",
+      "url": "https://vimeo.com/1011460491"
+    },
+    {
+      "label": "Full portfolio",
+      "url": "https://vimeo.com/colegrovemedia"
+    }
   ]
 }
