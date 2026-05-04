@@ -16,18 +16,23 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/global.css">
 <style>
-/* HEADSHOTS PAGE STYLES */
 .hs-section{padding:72px 40px;border-bottom:1px solid var(--border);}
 
-/* TEAM PACKAGES GRID */
+/* HERO GALLERY */
+.hero-gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:4px;border-radius:12px;overflow:hidden;margin-bottom:0;max-height:520px;}
+.hero-gallery .gi{position:relative;overflow:hidden;}
+.hero-gallery .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;filter:brightness(0.9);}
+.hero-gallery .gi:hover img{transform:scale(1.03);filter:brightness(1);}
+.hero-gallery .gi-tall{grid-row:span 2;}
+
+/* TEAM PACKAGES */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:visible;}
 .team-card{background:var(--bg2);padding:40px 32px;display:flex;flex-direction:column;gap:0;position:relative;isolation:isolate;}
 .team-card.featured{background:var(--bg3);}
 .team-card.featured::before{content:'Best Value';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--teal);color:#0d1117;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 14px;border-radius:0 0 8px 8px;}
 .team-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--border);transition:background 0.3s;}
 .team-card.featured::after{background:var(--teal);}
-.t-name{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
-.t-bestfor{font-size:14px;color:var(--muted);font-weight:300;font-style:italic;margin-bottom:20px;line-height:1.5;}
+.t-name{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;}
 .t-price{font-size:clamp(32px,3.5vw,44px);font-weight:700;color:var(--white);line-height:1;margin-bottom:4px;}
 .t-price-sub{font-size:14px;color:var(--muted);font-weight:300;margin-bottom:4px;}
 .t-extra{font-size:14px;color:var(--teal);font-weight:500;margin-bottom:24px;}
@@ -41,30 +46,27 @@
 .t-btn-outline{background:transparent;color:var(--muted);border:1px solid var(--border);}
 .t-btn-outline:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 
-/* DELIVERABLES SECTION */
-.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
-.del-card{background:var(--bg2);padding:32px 28px;}
-.del-tier{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
-.del-title{font-size:18px;font-weight:700;color:var(--white);margin-bottom:12px;}
-.del-list{list-style:none;display:flex;flex-direction:column;gap:6px;}
-.del-list li{font-size:14px;color:var(--muted);font-weight:300;display:flex;align-items:flex-start;gap:8px;line-height:1.45;}
-.del-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0.6;flex-shrink:0;margin-top:7px;}
+/* RETOUCHING NOTE */
+.retouch-note{margin-top:32px;padding:24px 28px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;}
+.retouch-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.retouch-text{font-size:14px;color:var(--muted);font-weight:300;line-height:1.65;}
 
-/* VOLUME TABLE */
-.volume-table{width:100%;border-collapse:collapse;margin-top:24px;margin-bottom:8px;}
-.volume-table th{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-align:left;padding:12px 16px;border-bottom:1px solid var(--border);}
-.volume-table td{font-size:15px;padding:14px 16px;border-bottom:1px solid rgba(242,244,248,0.04);color:var(--muted);}
-.volume-table td:first-child{color:var(--white);font-weight:500;}
-.volume-table tbody tr:hover{background:rgba(0,242,166,0.03);}
+/* PROCESS */
+.process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
+.proc-step{background:var(--bg2);padding:32px 24px;position:relative;}
+.proc-n{font-size:48px;font-weight:700;color:rgba(0,242,166,0.06);position:absolute;top:16px;right:16px;line-height:1;}
+.proc-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:8px;}
+.proc-desc{font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;}
 
-/* ADD-ONS */
-.addon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
-.addon-item{background:var(--bg2);padding:20px 24px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;}
-.addon-name{font-size:15px;color:var(--white);font-weight:400;}
-.addon-price{font-size:15px;color:var(--teal);font-weight:600;white-space:nowrap;}
-
-/* INDIVIDUAL SECTION */
-.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
+/* INDIVIDUAL A LA CARTE ACCORDION */
+.ind-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;user-select:none;}
+.ind-title{font-size:20px;font-weight:700;color:var(--white);}
+.ind-toggle{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+.ind-toggle svg{transition:transform 0.25s;}
+.ind-toggle.open svg{transform:rotate(180deg);}
+.ind-toggle.open{color:var(--white);}
+.ind-grid{display:none;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;margin-bottom:16px;}
+.ind-grid.open{display:grid;}
 .ind-card{background:var(--bg2);padding:32px 28px;display:flex;flex-direction:column;gap:16px;}
 .ind-name{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
 .ind-price{font-size:clamp(28px,3vw,36px);font-weight:700;color:var(--white);line-height:1;}
@@ -74,27 +76,23 @@
 .ind-btn{display:block;text-align:center;padding:12px;border-radius:8px;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--border);transition:color 0.18s,border-color 0.18s;cursor:pointer;}
 .ind-btn:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 
-/* RETOUCHING NOTE */
-.retouch-note{margin-top:32px;padding:24px 28px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;}
-.retouch-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
-.retouch-text{font-size:14px;color:var(--muted);font-weight:300;line-height:1.65;}
-
-/* PROCESS STEPS */
-.process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:hidden;}
-.proc-step{background:var(--bg2);padding:32px 24px;position:relative;}
-.proc-n{font-size:48px;font-weight:700;color:rgba(0,242,166,0.06);position:absolute;top:16px;right:16px;line-height:1;}
-.proc-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:8px;}
-.proc-desc{font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;}
+/* BG REMOVAL NOTE */
+.addon-note{margin-top:20px;font-size:14px;color:var(--muted);font-weight:300;}
+.addon-note strong{color:var(--white);font-weight:500;}
 
 @media(max-width:960px){
   .hs-section{padding:56px 24px;}
-  .team-grid,.del-grid,.ind-grid{grid-template-columns:1fr;}
-  .addon-grid{grid-template-columns:1fr;}
+  .hero-gallery{grid-template-columns:repeat(2,1fr);grid-template-rows:auto;max-height:none;}
+  .hero-gallery .gi-tall{grid-row:span 1;}
+  .hero-gallery .gi:nth-child(n+6){display:none;}
+  .team-grid,.ind-grid{grid-template-columns:1fr;}
   .process-row{grid-template-columns:1fr 1fr;}
-  .volume-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
 }
 @media(max-width:580px){
+  .hero-gallery{grid-template-columns:1fr 1fr;}
+  .hero-gallery .gi:nth-child(n+5){display:none;}
   .process-row{grid-template-columns:1fr;}
+  .ind-grid{grid-template-columns:1fr!important;}
 }
 </style>
 </head>
@@ -103,10 +101,24 @@
 <div id="site-nav" data-active="services"></div>
 
 <!-- HERO -->
-<div class="page-hero">
+<div class="page-hero" style="padding-bottom:32px;">
   <div class="eyebrow reveal">Photo</div>
   <h1 class="page-h1 reveal">Professional Headshots</h1>
   <p class="page-desc reveal">Polished, consistent headshots for your team or yourself. Mobile lighting setup at your office, fast turnaround, and images that actually get used.</p>
+</div>
+
+<!-- GALLERY -->
+<div class="hs-section" style="padding-top:0;border-top:none;">
+  <div class="hero-gallery reveal">
+    <div class="gi gi-tall"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c134434654e76e7cb7274_example%204.jpg" alt="Professional headshot" style="object-position:center 30%"></div>
+    <div class="gi"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/663179c1f5a90335108d93b8_da.jpg" alt="Professional headshot"></div>
+    <div class="gi"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/Image%20(71).jpg" alt="Professional headshot"></div>
+    <div class="gi gi-tall"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c13434caa97fd4c1224de_example%202.jpg" alt="Professional headshot"></div>
+    <div class="gi"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c13433914007fc72b25d2_RCropped.jpg" alt="Professional headshot"></div>
+    <div class="gi"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c13433a76d3c494e761a0_code.jpg" alt="Professional headshot"></div>
+    <div class="gi"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c1343e8508c0e32155bdd_dr%20tim%20medium.jpg" alt="Professional headshot"></div>
+    <div class="gi"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c134394751dfdf861b934_doggy.jpg" alt="Professional headshot"></div>
+  </div>
 </div>
 
 <!-- TEAM PACKAGES -->
@@ -118,7 +130,6 @@
   <div class="team-grid reveal">
     <div class="team-card">
       <div class="t-name">Basic</div>
-      <div class="t-bestfor">Clean and efficient. Everyone gets one great headshot.</div>
       <div class="t-price">$1,250</div>
       <div class="t-price-sub">Includes up to 6 people</div>
       <div class="t-extra">$150/person after 6</div>
@@ -129,14 +140,13 @@
         <li>5-7 minutes per person</li>
         <li>Light posing direction</li>
         <li>1 retouched final image per person</li>
-        <li>1 crop (web/social-ready JPG)</li>
+        <li>1 web/social-ready crop per person</li>
       </ul>
       <a href="/brief" class="t-btn t-btn-outline">Get a Quote</a>
     </div>
 
     <div class="team-card featured">
       <div class="t-name">Standard</div>
-      <div class="t-bestfor">The sweet spot. Polished headshots plus a group photo, with enough variety for LinkedIn, bios, and your website.</div>
       <div class="t-price">$1,750</div>
       <div class="t-price-sub">Includes up to 8 people</div>
       <div class="t-extra">$195/person after 8</div>
@@ -146,9 +156,9 @@
         <li>One consistent headshot setup</li>
         <li>8-10 minutes per person</li>
         <li>Posing and expression coaching</li>
-        <li>Employee proof selection</li>
+        <li>Real-time image preview and selection</li>
         <li>1 retouched final image per person</li>
-        <li>2 crop versions per person (full-res + square)</li>
+        <li>2 crops per person (full-res + square)</li>
         <li>1 group photo</li>
         <li>Full-res JPG + web/social JPG</li>
       </ul>
@@ -157,7 +167,6 @@
 
     <div class="team-card">
       <div class="t-name">Advanced</div>
-      <div class="t-bestfor">More of a mini brand shoot than a headshot session. Two looks, multiple crops, and a gallery of team culture candids.</div>
       <div class="t-price">$2,800</div>
       <div class="t-price-sub">Includes up to 10 people</div>
       <div class="t-extra">$250/person after 10</div>
@@ -167,9 +176,9 @@
         <li>Two looks or two backgrounds</li>
         <li>12-15 minutes per person</li>
         <li>In-depth posing and coaching</li>
-        <li>Employee proof selection</li>
+        <li>Real-time image preview and selection</li>
         <li>2 retouched final images per person</li>
-        <li>3 crop versions per selected image</li>
+        <li>3 crops per selected image (full-res, square, horizontal)</li>
         <li>2 group photos</li>
         <li>15-25 light-edited team/culture candids</li>
         <li>Full-res + web + square crops</li>
@@ -177,90 +186,16 @@
       <a href="/brief" class="t-btn t-btn-outline">Get a Quote</a>
     </div>
   </div>
-</div>
-
-<!-- WHAT YOU GET -->
-<div class="hs-section">
-  <div class="section-eyebrow reveal">What You Get</div>
-  <h2 class="section-title reveal">Deliverables by Tier</h2>
-  <p class="section-sub reveal">Every tier includes retouching, consistent lighting, and web-ready files. Here's how the crops break down.</p>
-
-  <div class="del-grid reveal">
-    <div class="del-card">
-      <div class="del-tier">Basic</div>
-      <div class="del-title">Per Employee</div>
-      <ul class="del-list">
-        <li>1 retouched headshot</li>
-        <li>Web/social-ready JPG (1 crop)</li>
-      </ul>
-    </div>
-    <div class="del-card">
-      <div class="del-tier">Standard</div>
-      <div class="del-title">Per Employee</div>
-      <ul class="del-list">
-        <li>1 retouched headshot</li>
-        <li>Full-res vertical/headshot crop</li>
-        <li>Square web/social crop</li>
-      </ul>
-    </div>
-    <div class="del-card">
-      <div class="del-tier">Advanced</div>
-      <div class="del-title">Per Selected Image</div>
-      <ul class="del-list">
-        <li>2 retouched headshots</li>
-        <li>Full-res original crop</li>
-        <li>Square LinkedIn/social crop</li>
-        <li>Horizontal website/banner crop</li>
-      </ul>
-    </div>
-  </div>
 
   <div class="retouch-note reveal">
     <div class="retouch-label">What "Light Retouching" Includes</div>
-    <div class="retouch-text">Natural skin cleanup, temporary blemish removal, under-eye softening, minor flyaway hair cleanup, color correction, exposure adjustments, and light background cleanup. Advanced retouching (body reshaping, major hair fixes, clothing reconstruction, object removal, or background replacement) is quoted separately.</div>
-  </div>
-</div>
-
-<!-- VOLUME PRICING -->
-<div class="hs-section">
-  <div class="section-eyebrow reveal">Larger Teams</div>
-  <h2 class="section-title reveal">Volume Pricing</h2>
-  <p class="section-sub reveal">For bigger teams, the per-person rate drops. The setup, lighting, and coordination are the same whether it's 6 people or 25.</p>
-
-  <table class="volume-table reveal">
-    <thead>
-      <tr><th>Team Size</th><th>Basic</th><th>Standard</th><th>Advanced</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>1-6 people</td><td>$1,250 minimum</td><td>$1,750 minimum</td><td>$2,800 minimum</td></tr>
-      <tr><td>7-10 people</td><td>$150/person</td><td>$195/person</td><td>$250/person</td></tr>
-      <tr><td>11-25 people</td><td>$135/person</td><td>$175/person</td><td>$225/person</td></tr>
-      <tr><td>26+ people</td><td colspan="3" style="color:var(--teal);font-weight:500;">Custom half-day or full-day rate. <a href="/brief" style="color:var(--teal);">Get in touch.</a></td></tr>
-    </tbody>
-  </table>
-</div>
-
-<!-- ADD-ONS -->
-<div class="hs-section">
-  <div class="section-eyebrow reveal">Extras</div>
-  <h2 class="section-title reveal">Add-Ons</h2>
-  <p class="section-sub reveal">Keep your package simple and add only what you need.</p>
-
-  <div class="addon-grid reveal">
-    <div class="addon-item"><span class="addon-name">Additional retouched headshot</span><span class="addon-price">$65/image</span></div>
-    <div class="addon-item"><span class="addon-name">Additional group photo setup</span><span class="addon-price">$200</span></div>
-    <div class="addon-item"><span class="addon-name">Background removal / transparent PNG</span><span class="addon-price">$30/image</span></div>
-    <div class="addon-item"><span class="addon-name">Additional crop formatting</span><span class="addon-price">$15/image</span></div>
-    <div class="addon-item"><span class="addon-name">Rush delivery (3 business days or less)</span><span class="addon-price">+25%</span></div>
-    <div class="addon-item"><span class="addon-name">Additional location/setup</span><span class="addon-price">$400</span></div>
-    <div class="addon-item"><span class="addon-name">Makeup day (missed employee)</span><span class="addon-price">$250 + $125/person</span></div>
-    <div class="addon-item"><span class="addon-name">Travel outside Gallatin Valley</span><span class="addon-price">$1.25/mile</span></div>
+    <div class="retouch-text">Natural skin cleanup, temporary blemish removal, under-eye softening, minor flyaway hair cleanup, color correction, exposure adjustments, and light background cleanup. Advanced retouching (body reshaping, major hair fixes, clothing reconstruction, object removal, or background replacement) is quoted separately. Background removal / transparent PNG available at $30/image.</div>
   </div>
 </div>
 
 <!-- PROCESS -->
 <div class="hs-section">
-  <div class="section-eyebrow reveal">How It Works</div>
+  <div class="section-eyebrow reveal">02 - How It Works</div>
   <h2 class="section-title reveal">Simple from Start to Finish</h2>
 
   <div class="process-row reveal">
@@ -277,7 +212,7 @@
     <div class="proc-step">
       <div class="proc-n">03</div>
       <div class="proc-title">Select</div>
-      <div class="proc-desc">Standard and Advanced tiers include proof selection so each person picks their best shot.</div>
+      <div class="proc-desc">Real-time image preview and selection so each person picks their best shot on the spot.</div>
     </div>
     <div class="proc-step">
       <div class="proc-n">04</div>
@@ -287,13 +222,17 @@
   </div>
 </div>
 
-<!-- INDIVIDUAL -->
+<!-- INDIVIDUAL (A La Carte style accordion) -->
 <div class="hs-section">
-  <div class="section-eyebrow reveal">Individual</div>
+  <div class="section-eyebrow reveal">03 - Individual</div>
   <h2 class="section-title reveal">Need Just One Headshot?</h2>
   <p class="section-sub reveal">Not part of a team session? Individual headshots are available for personal branding, LinkedIn, or professional profiles.</p>
 
-  <div class="ind-grid reveal">
+  <div class="ind-header" id="ind-header" onclick="toggleInd()">
+    <div class="ind-title">Individual Headshot Pricing</div>
+    <div class="ind-toggle" id="ind-toggle">Expand <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg></div>
+  </div>
+  <div class="ind-grid" id="ind-grid">
     <div class="ind-card">
       <div class="ind-name">Basic</div>
       <div class="ind-price">$150</div>
@@ -344,5 +283,15 @@
 
 <script src="/assets/js/components.js"></script>
 <script src="/assets/js/shared.js"></script>
+<script>
+function toggleInd(){
+  var grid=document.getElementById('ind-grid');
+  var tog=document.getElementById('ind-toggle');
+  var open=grid.classList.contains('open');
+  grid.classList.toggle('open',!open);
+  tog.classList.toggle('open',!open);
+  tog.innerHTML=(open?'Expand ':'Collapse ')+'<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg>';
+}
+</script>
 </body>
 </html>
