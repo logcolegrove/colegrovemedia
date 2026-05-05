@@ -139,14 +139,15 @@ var SERVICES = {
 
   photo: [
     {
-      id:'headshots', name:'Headshots',
+      id:'headshots', name:'Team Headshots',
       ind:['corporate','real-estate','tech'],
       sample:{ type:'gallery', projectSlug:'headshots' },
-      desc:'High-quality portrait photography for personal branding and professional profiles. Efficient sessions that deliver images you\'ll actually use.',
+      link:'/headshots',
+      desc:'On-site team headshots for companies and organizations. I bring a full mobile lighting setup to your office so everyone gets a consistent, professional look without leaving the building.',
       tiers:[
-        {n:'Basic',p:'$100',i:['Up to 30-min · 5 edited images']},
-        {n:'Standard',p:'$200',i:['Up to 1-hour · 15 edited images · Outfit changes welcome']},
-        {n:'Advanced',p:'$350',i:['Up to 2-hour · 30 edited images · Full retouching + social kit']}
+        {n:'Basic',p:'$1,250+',i:['Up to 6 people · $150/person after','One backdrop · 5-7 min/person','1 retouched image + crop per person']},
+        {n:'Standard',p:'$1,750+',i:['Up to 8 people · $195/person after','Real-time preview · 8-10 min/person','1 retouched image + 2 crops · 1 group photo']},
+        {n:'Advanced',p:'$2,800+',i:['Up to 10 people · $250/person after','Two looks · 12-15 min/person','2 retouched images, 3 crops · 2 group photos · candids']}
       ]
     },
     {
