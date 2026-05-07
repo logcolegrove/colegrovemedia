@@ -54,7 +54,7 @@
       "title": "Cropped Versions (Square + Circle)",
       "isOptional": true,
       "addonId": "crops",
-      "selected": false,
+      "selected": true,
       "total": 200,
       "description": "Pre-cropped square and circular versions of every final image, ready to drop into LinkedIn, the website, Slack, or anywhere else without needing to re-crop.",
       "lineItems": [
