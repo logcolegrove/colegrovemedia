@@ -1,6 +1,6 @@
 {
   "id": "xypn-headshots-2026-q3-7b2e4f",
-  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for avg 10-12 min slots. Timeline: noon-3:30pm window allows ~10 min/person across 20 team members with buffer. This is ~45% below 406 Headshot's comparable Quantity Headshots package ($2,420 for the same scope). Travel: none, XYPN office is downtown Bozeman.",
+  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for avg 10-12 min slots. Travel: none, XYPN office is downtown Bozeman.",
   "status": "pending",
   "acceptedDate": "",
   "title": "XYPN Team Headshots",
@@ -30,8 +30,10 @@
       "timeline": "Tuesday July 28 or Wednesday July 29. Noon start, 3.5 hours on site. Final images delivered within 1 week of the shoot."
     },
     {
-      "title": "Optional Add-On: Additional Selects (+3 per person)",
+      "title": "Additional Selects (+3 per person)",
       "isOptional": true,
+      "addonId": "selects",
+      "selected": false,
       "total": 600,
       "description": "Instead of one final image per person, deliver four. Each person gets three additional fully-edited options to choose from with slightly different expressions, angles, and crops.",
       "lineItems": [
@@ -49,8 +51,10 @@
       "timeline": "Delivered alongside the base headshots."
     },
     {
-      "title": "Optional Add-On: Cropped Versions (Square + Circle)",
+      "title": "Cropped Versions (Square + Circle)",
       "isOptional": true,
+      "addonId": "crops",
+      "selected": false,
       "total": 200,
       "description": "Pre-cropped square and circular versions of every final image, ready to drop into LinkedIn, the website, Slack, or anywhere else without needing to re-crop.",
       "lineItems": [
