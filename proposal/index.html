@@ -67,7 +67,7 @@ a:hover{text-decoration:underline;}
 .deliverable.open .deliverable-body{display:block;}
 .deliverable-desc{font-size:17px;color:var(--text2);line-height:1.65;margin-bottom:28px;font-weight:400;}
 
-/* PULSE EFFECT (when card is just added) */
+/* PULSE EFFECT */
 .deliverable.pulse-source{animation:pulseTeal 0.8s ease-out;}
 @keyframes pulseTeal{
   0%{background:transparent;}
@@ -81,7 +81,7 @@ a:hover{text-decoration:underline;}
 .optional-section .deliverable.optional-deliverable .deliverable-price{color:var(--text2);font-weight:600;}
 .optional-section .deliverable.optional-deliverable.is-selected .deliverable-price{color:var(--teal-dark);}
 
-/* ADD/REMOVE BUTTON (in source card header, far left) */
+/* ADD/REMOVE BUTTON */
 .addon-toggle{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-dark);font-family:inherit;font-size:13px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;flex-shrink:0;white-space:nowrap;}
 .addon-toggle:hover{background:var(--teal-light);}
 .addon-toggle.added{background:var(--teal);border-color:var(--teal);color:#fff;}
@@ -93,7 +93,7 @@ a:hover{text-decoration:underline;}
 .addon-toggle:disabled{opacity:0.5;cursor:not-allowed;}
 .addon-toggle.is-animating{pointer-events:none;}
 
-/* ADD ALL BUTTON (in section header) */
+/* ADD ALL BUTTON */
 .add-all-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-dark);font-family:inherit;font-size:14px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;}
 .add-all-btn:hover{background:var(--teal-light);}
 .add-all-btn.all-added{background:var(--teal);border-color:var(--teal);color:#fff;}
@@ -104,16 +104,14 @@ a:hover{text-decoration:underline;}
 .add-all-btn .plus-icon{width:12px;height:12px;display:inline-block;}
 .add-all-btn.all-added .plus-icon{display:none;}
 
-/* SCOPE CLONE CONTAINER (where added add-ons land) */
+/* SCOPE CLONE CONTAINER */
 .scope-clones{}
 .scope-clone-slot{display:none;}
 .scope-clone-slot.active{display:block;}
 .scope-clone-slot .deliverable-header{border-top:1px solid var(--border);}
 
-/* ADDED BADGE (post-acceptance) */
+/* BADGES */
 .added-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--teal-dark);background:var(--teal-light);padding:3px 10px;border-radius:4px;flex-shrink:0;}
-
-/* DECLINED BADGE (post-acceptance) */
 .declined-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--text3);background:var(--border2);padding:3px 10px;border-radius:4px;flex-shrink:0;}
 
 /* PRICING TABLE */
@@ -124,7 +122,6 @@ a:hover{text-decoration:underline;}
 .price-table td.svc{font-weight:500;color:var(--text);min-width:180px;}
 .price-table td.details{font-size:15px;color:var(--text2);line-height:1.6;font-weight:400;max-width:340px;}
 .price-table td.num{text-align:right;white-space:nowrap;font-weight:500;color:var(--text);}
-.price-table tr.sum-row td{border-bottom:none;border-top:2px solid var(--border);font-weight:700;color:var(--text);padding-top:14px;}
 
 /* DELIVERABLES LIST */
 .del-list-label{font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px;}
@@ -147,7 +144,7 @@ a:hover{text-decoration:underline;}
 .project-total-amount{transition:color 0.3s;}
 .project-total-amount.flash{color:var(--teal-dark);}
 
-/* FLYING CLONE (animated element) */
+/* FLYING CLONE */
 .flying-clone{position:fixed;z-index:9000;pointer-events:none;background:var(--bg);box-shadow:0 12px 40px rgba(0,0,0,0.18);border-radius:8px;padding:20px 16px;transition:transform 380ms cubic-bezier(0.34,1.2,0.64,1),opacity 380ms ease;}
 .flying-clone.shrink{transform:scale(0.94);opacity:0.95;}
 
@@ -237,7 +234,7 @@ var WORKER_URL = 'https://proposal-accept.logcolegrove.workers.dev';
 var selectedAddons = {};
 var proposalData = null;
 var saveTimeout = null;
-var animatingAddons = {}; // addonId -> true while animating
+var animatingAddons = {};
 
 (function(){
   var params = new URLSearchParams(window.location.search);
@@ -298,7 +295,6 @@ function renderProposal(d){
 
   var html = '';
 
-  // HEADER
   html += '<div class="proposal-header">'
     +'<div class="header-left">'
     +'<img src="/assets/images/colegrove-media-favicon.svg" alt="Colegrove Media" class="header-favicon">'
@@ -310,7 +306,6 @@ function renderProposal(d){
     +'</div>'
     +'</div>';
 
-  // CLIENT
   html += '<div class="client-block">'
     +'<div class="client-label">Prepared For</div>'
     +'<div class="client-name">'+d.contact+'</div>'
@@ -318,14 +313,12 @@ function renderProposal(d){
     +(d.contactEmail?'<div class="client-detail">'+d.contactEmail+'</div>':'')
     +'</div>';
 
-  // SCOPE
   html += '<h2 class="section-h"><span>Scope of Work & Price</span></h2>';
 
   baseDeliverables.forEach(function(del, i){
-    html += renderDeliverable(del, 'base-'+i, baseDeliverables.length === 1, false, isAccepted, false);
+    html += renderDeliverable(del, 'base-'+i, false, false, isAccepted, false);
   });
 
-  // SCOPE CLONES (one slot per optional add-on, hidden until selected)
   html += '<div class="scope-clones" id="scopeClones">';
   optionalDeliverables.forEach(function(del, i){
     var isSelected = !!selectedAddons[del.addonId];
@@ -335,10 +328,8 @@ function renderProposal(d){
   });
   html += '</div>';
 
-  // PROJECT TOTAL
   html += '<div class="project-total"><span>Project Total</span><span class="project-total-amount" id="projectTotalAmount">$'+formatNum(calculateTotal())+'</span></div>';
 
-  // OPTIONAL ADD-ONS SECTION
   if(anyOptional){
     var subText, addAllLabel;
     if(isAccepted){
@@ -368,7 +359,6 @@ function renderProposal(d){
     html += '</div>';
   }
 
-  // REFERENCES
   if(d.references && d.references.length){
     html += '<div class="references"><div class="references-label">References:</div><ol>';
     d.references.forEach(function(ref){
@@ -377,20 +367,17 @@ function renderProposal(d){
     html += '</ol></div>';
   }
 
-  // NEXT STEPS
   html += '<div class="next-steps">'
     +'<h2>Next Steps</h2>'
     +'<p>If you\'d like to proceed, approve this proposal below and the project will commence. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
     +'</div>';
 
-  // ACCEPTED BANNER
   html += '<div class="accepted-banner'+(isAccepted?' visible':'')+'" id="acceptedBanner">'
     +'<div class="accepted-check"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
     +'<div><div class="accepted-text">Proposal Accepted</div>'
     +'<div class="accepted-date">'+(d.acceptedDate||'')+'</div>'
     +'</div></div>';
 
-  // TALLY FORM
   if(!isAccepted && d.tallyFormId){
     html += '<div class="tally-wrap" id="tallyWrap">'
       +'<h3>Approve This Proposal</h3>'
@@ -426,7 +413,6 @@ function renderProposal(d){
     });
   }
 
-  // FOOTER
   html += '<div class="proposal-footer">'
     +'<img src="/assets/images/Colegrove Media Black Logo.svg" alt="Colegrove Media" class="footer-logo" onerror="this.style.display=\'none\'">'
     +'<div class="footer-contact"><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a><br><a href="tel:4062099945">(406) 209-9945</a></div>'
@@ -472,7 +458,6 @@ function renderDeliverable(del, id, autoOpen, isOptional, isAccepted, isScopeClo
     }
   }
 
-  // Add/Remove button on source card (left of title), pre-acceptance only
   var toggleBtn = '';
   if(isOptional && !isAccepted && del.addonId){
     toggleBtn = '<button type="button" class="addon-toggle'+(isSelected?' added':'')+'" onclick="toggleAddon(event, \''+del.addonId+'\')" data-addon-id="'+del.addonId+'">'
@@ -512,7 +497,6 @@ function renderDeliverable(del, id, autoOpen, isOptional, isAccepted, isScopeClo
       +'<td class="num">$'+formatNum(li.total)+'</td>'
       +'</tr>';
   });
-  html += '<tr class="sum-row"><td colspan="4" style="text-align:right;">Total</td><td class="num">$'+formatNum(del.total)+'</td></tr>';
   html += '</tbody></table>';
 
   if(del.deliverablesList && del.deliverablesList.length){
@@ -544,10 +528,9 @@ function toggleDel(id){
   if(el) el.classList.toggle('open');
 }
 
-// Toggle a single add-on with animation
 function toggleAddon(event, addonId){
   event.stopPropagation();
-  if(animatingAddons[addonId]) return; // prevent double-clicks during animation
+  if(animatingAddons[addonId]) return;
 
   var newState = !selectedAddons[addonId];
   selectedAddons[addonId] = newState;
@@ -563,7 +546,6 @@ function toggleAddon(event, addonId){
     });
   }
 
-  // Update buttons immediately (button state lags behind anim slightly is OK)
   updateToggleButton(addonId);
   updateAddAllButton();
   updateProjectTotal();
@@ -571,7 +553,6 @@ function toggleAddon(event, addonId){
   scheduleSelectionSave();
 }
 
-// Animate adding a card: fly source clone up to scope slot, reveal scope slot
 function animateAdd(addonId, onComplete){
   var sourceCard = document.querySelector('.optional-section .deliverable[data-addon-id="'+addonId+'"]');
   var scopeSlot = document.getElementById('scopeSlot-'+addonId);
@@ -580,30 +561,23 @@ function animateAdd(addonId, onComplete){
     return;
   }
 
-  // Pulse the source card
-  sourceCard.classList.remove('pulse-source'); // reset if mid-animation
-  void sourceCard.offsetWidth; // force reflow
+  sourceCard.classList.remove('pulse-source');
+  void sourceCard.offsetWidth;
   sourceCard.classList.add('pulse-source');
 
-  // Get source position
   var srcRect = sourceCard.getBoundingClientRect();
 
-  // Reveal scope slot momentarily invisible to measure target position
   scopeSlot.style.visibility = 'hidden';
   scopeSlot.classList.add('active');
   var targetRect = scopeSlot.getBoundingClientRect();
   scopeSlot.classList.remove('active');
   scopeSlot.style.visibility = '';
 
-  // Create flying clone
   var clone = sourceCard.cloneNode(true);
   clone.classList.add('flying-clone');
-  // Strip interactive elements from the clone
   var cloneToggle = clone.querySelector('.addon-toggle');
   if(cloneToggle) cloneToggle.remove();
-  // Force collapsed state on clone for visual cleanliness
   clone.classList.remove('open');
-  // Position the clone at source location
   clone.style.left = srcRect.left + 'px';
   clone.style.top = srcRect.top + 'px';
   clone.style.width = srcRect.width + 'px';
@@ -611,10 +585,8 @@ function animateAdd(addonId, onComplete){
   clone.style.opacity = '1';
   document.body.appendChild(clone);
 
-  // Force reflow before animating
   void clone.offsetWidth;
 
-  // Animate to target position
   var dx = targetRect.left - srcRect.left;
   var dy = targetRect.top - srcRect.top;
   clone.style.transform = 'translate('+dx+'px, '+dy+'px) scale(0.96)';
@@ -625,19 +597,15 @@ function animateAdd(addonId, onComplete){
     if(cleanedUp) return;
     cleanedUp = true;
     if(clone.parentNode) clone.parentNode.removeChild(clone);
-    // Reveal scope slot
     scopeSlot.classList.add('active');
-    // Apply selected styling to source
     sourceCard.classList.add('is-selected');
     if(onComplete) onComplete();
   }
 
   clone.addEventListener('transitionend', cleanup, { once: true });
-  // Fallback in case transitionend doesn't fire
   setTimeout(cleanup, 500);
 }
 
-// Animate removing a card: fly scope clone down to source, hide scope slot
 function animateRemove(addonId, onComplete){
   var sourceCard = document.querySelector('.optional-section .deliverable[data-addon-id="'+addonId+'"]');
   var scopeSlot = document.getElementById('scopeSlot-'+addonId);
@@ -654,18 +622,14 @@ function animateRemove(addonId, onComplete){
     return;
   }
 
-  // Get current scope card position (this is where animation starts)
   var startRect = scopeCard.getBoundingClientRect();
-  // Source card is where it ends
   var endRect = sourceCard.getBoundingClientRect();
 
-  // Hide the scope slot first so animation appears to "lift" the card
   scopeSlot.classList.remove('active');
 
-  // Create flying clone
   var clone = scopeCard.cloneNode(true);
   clone.classList.add('flying-clone');
-  clone.classList.remove('open'); // ensure collapsed
+  clone.classList.remove('open');
   clone.style.left = startRect.left + 'px';
   clone.style.top = startRect.top + 'px';
   clone.style.width = startRect.width + 'px';
@@ -693,7 +657,6 @@ function animateRemove(addonId, onComplete){
   setTimeout(cleanup, 500);
 }
 
-// Toggle all add-ons at once
 function toggleAddAll(event){
   event.stopPropagation();
   if(!proposalData) return;
@@ -701,21 +664,17 @@ function toggleAddAll(event){
   var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
   var allCurrentlySelected = optionalDels.every(function(del){ return !!selectedAddons[del.addonId]; });
 
-  // If all selected, remove all. Otherwise, add any not selected.
   var idsToToggle = [];
   optionalDels.forEach(function(del){
     if(allCurrentlySelected){
-      // Remove all
       idsToToggle.push({ addonId: del.addonId, newState: false });
     } else {
-      // Add only the unselected
       if(!selectedAddons[del.addonId]){
         idsToToggle.push({ addonId: del.addonId, newState: true });
       }
     }
   });
 
-  // Stagger animations by 100ms each
   idsToToggle.forEach(function(item, idx){
     setTimeout(function(){
       if(animatingAddons[item.addonId]) return;
@@ -731,7 +690,6 @@ function toggleAddAll(event){
     }, idx * 100);
   });
 
-  // Update add-all button + subtext + save once at the end
   setTimeout(function(){
     updateAddAllButton();
     updateOptionalSubText();
