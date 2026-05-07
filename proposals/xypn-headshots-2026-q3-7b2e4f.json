@@ -54,7 +54,7 @@
       "title": "Cropped Versions (Square + Circle)",
       "isOptional": true,
       "addonId": "crops",
-      "selected": true,
+      "selected": false,
       "total": 200,
       "description": "Square and circular crop exports of all delivered final images. $200 if Additional Selects are not added, $300 if they are (the larger image set requires more cropping and export work).",
       "lineItems": [
