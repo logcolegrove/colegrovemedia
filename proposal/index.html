@@ -64,7 +64,6 @@ a:hover{text-decoration:underline;}
 .deliverable.open .deliverable-body{display:block;}
 .deliverable-desc{font-size:17px;color:var(--text2);line-height:1.65;margin-bottom:28px;font-weight:400;}
 
-/* COLLAPSE/EXPAND animations for source removal */
 .deliverable.collapsing{overflow:hidden;}
 .deliverable.fade-out{opacity:0;}
 
@@ -77,25 +76,21 @@ a:hover{text-decoration:underline;}
 .scope-clone-slot.active{display:block;}
 .scope-clone-slot .deliverable-header{border-top:1px solid var(--border);}
 
-/* ADD button (in Optional Add-Ons cards) */
 .addon-toggle{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-dark);font-family:inherit;font-size:13px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;flex-shrink:0;white-space:nowrap;}
 .addon-toggle:hover{background:var(--teal-light);}
 .addon-toggle:disabled{opacity:0.5;cursor:not-allowed;}
 .addon-toggle .plus-icon{width:11px;height:11px;}
 
-/* REMOVE button (in scope cards for optional add-ons) */
 .scope-remove-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:1.5px solid var(--border);color:var(--text2);font-family:inherit;font-size:13px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;flex-shrink:0;white-space:nowrap;}
 .scope-remove-btn:hover{background:var(--remove-light);border-color:var(--remove);color:var(--remove);}
 .scope-remove-btn:disabled{opacity:0.5;cursor:not-allowed;}
 .scope-remove-btn .x-icon{width:11px;height:11px;}
 
-/* ADD ALL BUTTON */
 .add-all-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-dark);font-family:inherit;font-size:14px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;}
 .add-all-btn:hover{background:var(--teal-light);}
 .add-all-btn:disabled{opacity:0.5;cursor:not-allowed;}
 .add-all-btn .plus-icon{width:12px;height:12px;}
 
-/* BADGES (post-acceptance) */
 .added-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--teal-dark);background:var(--teal-light);padding:3px 10px;border-radius:4px;flex-shrink:0;}
 .declined-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--text3);background:var(--border2);padding:3px 10px;border-radius:4px;flex-shrink:0;}
 
@@ -292,7 +287,6 @@ function renderProposal(d){
     html += renderDeliverable(del, 'base-'+i, false, false, isAccepted, false);
   });
 
-  // Scope clone slots (one per optional add-on, only visible when selected)
   html += '<div class="scope-clones" id="scopeClones">';
   optionalDeliverables.forEach(function(del, i){
     var isSelected = !!selectedAddons[del.addonId];
@@ -304,7 +298,6 @@ function renderProposal(d){
 
   html += '<div class="project-total"><span>Project Total</span><span class="project-total-amount" id="projectTotalAmount">$'+formatNum(calculateTotal())+'</span></div>';
 
-  // Optional Add-Ons section: only visible when there are unselected optional add-ons (or post-accepted with declined ones)
   if(anyOptional){
     var sectionVisible = isAccepted ? optionalDeliverables.some(function(del){ return !selectedAddons[del.addonId]; }) : !allSelected;
     var subText = getOptionalSubText(noneSelected, allSelected, isAccepted);
@@ -335,10 +328,13 @@ function renderProposal(d){
     html += '</ol></div>';
   }
 
-  html += '<div class="next-steps">'
-    +'<h2>Next Steps</h2>'
-    +'<p>If you\'d like to proceed, approve this proposal below and the project will commence. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
-    +'</div>';
+  // Next Steps section: only show pre-acceptance
+  if(!isAccepted){
+    html += '<div class="next-steps">'
+      +'<h2>Next Steps</h2>'
+      +'<p>If you\'d like to proceed, approve this proposal below and the project will commence. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
+      +'</div>';
+  }
 
   html += '<div class="accepted-banner'+(isAccepted?' visible':'')+'" id="acceptedBanner">'
     +'<div class="accepted-check"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
@@ -369,6 +365,8 @@ function renderProposal(d){
         } catch(ex){}
         var tallyEl = document.getElementById('tallyWrap');
         if(tallyEl) tallyEl.style.display = 'none';
+        var nextStepsEl = document.querySelector('.next-steps');
+        if(nextStepsEl) nextStepsEl.style.display = 'none';
         var banner = document.getElementById('acceptedBanner');
         if(banner){
           banner.querySelector('.accepted-date').textContent = dateStr;
@@ -388,7 +386,6 @@ function renderProposal(d){
 
   page.innerHTML = html;
 
-  // Hide source cards that start as already-selected
   optionalDeliverables.forEach(function(del){
     if(selectedAddons[del.addonId]){
       var sourceCard = document.querySelector('.optional-section .deliverable[data-addon-id="'+del.addonId+'"]');
@@ -450,13 +447,11 @@ function renderDeliverable(del, id, autoOpen, isOptional, isAccepted, isScopeClo
   var actionBtn = '';
   if(!isAccepted && del.isOptional && del.addonId){
     if(isScopeClone){
-      // Scope clone gets the Remove button
       actionBtn = '<button type="button" class="scope-remove-btn" onclick="toggleAddon(event, \''+del.addonId+'\')" data-addon-id="'+del.addonId+'">'
         +'<svg class="x-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg>'
         +'<span>Remove</span>'
         +'</button>';
     } else {
-      // Source card gets the Add button
       actionBtn = '<button type="button" class="addon-toggle" onclick="toggleAddon(event, \''+del.addonId+'\')" data-addon-id="'+del.addonId+'">'
         +'<svg class="plus-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>'
         +'<span>Add</span>'
@@ -566,7 +561,6 @@ function animateAdd(addonId, onComplete){
   scopeSlot.classList.remove('active');
   scopeSlot.style.visibility = '';
 
-  // Create flying clone
   var clone = sourceCard.cloneNode(true);
   clone.classList.add('flying-clone');
   var cloneToggle = clone.querySelector('.addon-toggle, .scope-remove-btn');
@@ -579,7 +573,6 @@ function animateAdd(addonId, onComplete){
   clone.style.opacity = '1';
   document.body.appendChild(clone);
 
-  // Hide source card immediately so the section reflows
   var srcHeight = sourceCard.offsetHeight;
   sourceCard.style.maxHeight = srcHeight + 'px';
   sourceCard.classList.add('collapsing');
@@ -625,7 +618,6 @@ function animateRemove(addonId, onComplete){
     return;
   }
 
-  // Make the source card visible/measurable for end position
   sourceCard.style.display = '';
   sourceCard.style.maxHeight = '';
   sourceCard.style.opacity = '0';
@@ -657,7 +649,6 @@ function animateRemove(addonId, onComplete){
   clone.style.transform = 'translate('+dx+'px, '+dy+'px) scale(0.96)';
   clone.style.opacity = '0.85';
 
-  // Fade source card in as clone arrives
   setTimeout(function(){
     sourceCard.style.transition = 'opacity 250ms ease';
     sourceCard.style.opacity = '1';
@@ -683,7 +674,6 @@ function toggleAddAll(event){
 
   var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
 
-  // Add all only adds the unselected ones (no toggle-off in this redesign)
   var idsToToggle = [];
   optionalDels.forEach(function(del){
     if(!selectedAddons[del.addonId]){
@@ -716,7 +706,6 @@ function updateAddAllButton(){
   if(!btn || !proposalData) return;
   var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
   var unselectedCount = optionalDels.filter(function(del){ return !selectedAddons[del.addonId]; }).length;
-  // Hide Add all button when 1 or 0 unselected remain
   if(unselectedCount < 2){
     btn.style.display = 'none';
   } else {
