@@ -1,9 +1,9 @@
 {
   "id": "xypn-headshots-2026-q3-7b2e4f",
-  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for 10-12 min slots per person. This is ~45% below 406 Headshot's comparable Quantity Headshots package ($2,420 for the same scope). Travel: none, XYPN office is downtown Bozeman.",
+  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for avg 10-12 min slots. Timeline: noon-3:30pm window allows ~10 min/person across 20 team members with buffer. This is ~45% below 406 Headshot's comparable Quantity Headshots package ($2,420 for the same scope). Travel: none, XYPN office is downtown Bozeman.",
   "status": "pending",
   "acceptedDate": "",
-  "title": "XY Planning Network Team Headshots",
+  "title": "XYPN Team Headshots",
   "client": "XY Planning Network",
   "contact": "Jade Deliso",
   "contactEmail": "",
@@ -25,10 +25,9 @@
         }
       ],
       "deliverablesList": [
-        "20 final headshots, one per team member",
-        "Full-resolution JPEGs delivered via shared link"
+        "20 final headshots delivered as full-resolution JPEGs via shared link"
       ],
-      "timeline": "Tuesday July 28 or Wednesday July 29, noon to 2pm. Final images delivered within 2 weeks of the shoot."
+      "timeline": "Tuesday July 28 or Wednesday July 29. Noon start, 3.5 hours on site. Final images delivered within 1 week of the shoot."
     },
     {
       "title": "Optional Add-On: Additional Selects (+3 per person)",
@@ -44,8 +43,7 @@
         }
       ],
       "deliverablesList": [
-        "Three additional final headshots per person (4 total per team member)",
-        "Variation in expression, angle, and framing"
+        "Three additional final headshots per person (4 total per team member), delivered as full-resolution JPEGs via shared link"
       ],
       "timeline": "Delivered alongside the base headshots."
     },
@@ -63,8 +61,7 @@
         }
       ],
       "deliverablesList": [
-        "Square crop export of each final image",
-        "Circular crop export of each final image"
+        "Square and circular crop exports of every final image, delivered as web-optimized JPEGs"
       ],
       "timeline": "Delivered alongside the final images."
     }
