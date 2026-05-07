@@ -10,7 +10,6 @@
   "date": "May 7, 2026",
   "validFor": "15 days",
   "tallyFormId": "wMERpY",
-  "approvalCopy": "If you'd like to proceed, approve this proposal below and the project will be locked in.",
   "deliverables": [
     {
       "title": "Team Headshots (20 People, Downtown Bozeman)",
@@ -44,4 +43,28 @@
         }
       ],
       "deliverablesList": [
-        "Three additional final headshots per person (4 total per team me
+        "Three additional final headshots per person (4 total per team member), delivered as full-resolution JPEGs via shared link"
+      ],
+      "timeline": "Delivered alongside the base headshots."
+    },
+    {
+      "title": "Optional Add-On: Cropped Versions (Square + Circle)",
+      "total": 200,
+      "description": "Pre-cropped square and circular versions of every final image, ready to drop into LinkedIn, the website, Slack, or anywhere else without needing to re-crop.",
+      "lineItems": [
+        {
+          "service": "Multi-Format Crops",
+          "details": "Square (1:1) and circular crop exports of every delivered final image. Sized for web and social use.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        }
+      ],
+      "deliverablesList": [
+        "Square and circular crop exports of every final image, delivered as web-optimized JPEGs"
+      ],
+      "timeline": "Delivered alongside the final images."
+    }
+  ],
+  "references": []
+}
