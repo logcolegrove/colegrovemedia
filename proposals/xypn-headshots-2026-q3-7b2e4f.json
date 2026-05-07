@@ -1,0 +1,78 @@
+{
+  "id": "xypn-headshots-2026-q3-7b2e4f",
+  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for 10-12 min slots per person. This is ~45% below 406 Headshot's comparable Quantity Headshots package ($2,420 for the same scope). Logan, contact email is missing from transcript. Travel: none, XYPN office is downtown Bozeman.",
+  "status": "pending",
+  "acceptedDate": "",
+  "title": "XY Planning Network Team Headshots",
+  "client": "XY Planning Network",
+  "contact": "Jade",
+  "contactEmail": "",
+  "date": "May 7, 2026",
+  "validFor": "15 days",
+  "tallyFormId": "wMERpY",
+  "deliverables": [
+    {
+      "title": "Team Headshots (20 People, Downtown Bozeman)",
+      "total": 1300,
+      "description": "Outdoor headshot session for 20 team members at the XYPN office downtown. Natural light with light modifiers as needed, average 10-12 minutes per person, live iPad review during the session.",
+      "lineItems": [
+        {
+          "service": "Headshot Session + Editing",
+          "details": "On-location shoot at the XYPN downtown office, average 10-12 minutes per person across 20 team members. Natural light with reflectors and diffusion as conditions require. Live iPad review during the session. One final headshot per person delivered as a full-resolution JPEG with light retouching (teeth whitening, blemish cleanup, color correction).",
+          "price": 1300,
+          "amount": 1,
+          "total": 1300
+        }
+      ],
+      "deliverablesList": [
+        "20 final headshots, one per team member",
+        "Light retouching and color correction on each final image",
+        "Full-resolution JPEGs delivered via shared link",
+        "Live on-site review and selection"
+      ],
+      "timeline": "Scheduled for July 28-29, 2026. Final images delivered within 2 weeks of the shoot."
+    },
+    {
+      "title": "Optional Add-On: Additional Selects (+3 per person)",
+      "total": 600,
+      "description": "Instead of one final image per person, deliver four. Adds three additional fully-edited selects per team member so people have options to choose from for different platforms and uses.",
+      "lineItems": [
+        {
+          "service": "Additional Selects",
+          "details": "Three additional fully-retouched and color-corrected headshots per person, on top of the base deliverable. 60 additional final images total across the team.",
+          "price": 30,
+          "amount": 20,
+          "total": 600
+        }
+      ],
+      "deliverablesList": [
+        "Three additional final headshots per person (4 total per team member)",
+        "Same retouching and color correction as the base deliverable"
+      ],
+      "timeline": "Delivered alongside the base headshots."
+    },
+    {
+      "title": "Optional Add-On: Cropped Versions (Square + Circle)",
+      "total": 200,
+      "description": "Pre-cropped square and circular versions of every final image, ready to drop into LinkedIn, the website, Slack, or anywhere else without needing to re-crop.",
+      "lineItems": [
+        {
+          "service": "Multi-Format Crops",
+          "details": "Square (1:1) and circular crop exports of every delivered final image. Sized for web and social use.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        }
+      ],
+      "deliverablesList": [
+        "Square crop export of each final image",
+        "Circular crop export of each final image",
+        "Web-optimized file sizes"
+      ],
+      "timeline": "Delivered alongside the final images."
+    }
+  ],
+  "references": [
+    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+  ]
+}
