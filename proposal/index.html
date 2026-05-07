@@ -118,4 +118,556 @@ a:hover{text-decoration:underline;}
 .resp-client{background:var(--teal-light);color:#1a7a5a;}
 
 /* PROJECT TOTAL */
-.project-total{display:flex;justify-content:space-between;align-items:baseline;margin:32px 0 48px;padding-top:20px;border-top:2px solid var
+.project-total{display:flex;justify-content:space-between;align-items:baseline;margin:32px 0 48px;padding-top:20px;border-top:2px solid var(--text);font-size:22px;font-weight:700;color:var(--text);}
+.project-total-amount{transition:color 0.2s;}
+.project-total-amount.flash{color:var(--teal-dark);}
+
+/* REFERENCES */
+.references{margin:32px 0;}
+.references-label{font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px;}
+.references ol{padding-left:22px;}
+.references li{font-size:17px;color:var(--text2);padding:4px 0;font-weight:400;}
+
+/* NEXT STEPS */
+.next-steps{margin:48px 0 32px;padding-top:32px;border-top:1px solid var(--border);}
+.next-steps h2{font-size:28px;font-weight:700;color:var(--text);margin-bottom:14px;}
+.next-steps p{font-size:17px;color:var(--text2);line-height:1.7;font-weight:400;}
+
+/* TALLY EMBED WRAPPER */
+.tally-wrap{margin:32px 0;padding:36px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;}
+.tally-wrap h3{font-size:19px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.tally-wrap p{font-size:16px;color:var(--text3);margin-bottom:24px;font-weight:400;}
+
+/* ACCEPTED STATE */
+.accepted-banner{display:none;margin:32px 0;padding:28px 32px;background:var(--teal-light);border:1px solid var(--teal-border);border-radius:12px;}
+.accepted-banner.visible{display:flex;align-items:center;gap:16px;}
+.accepted-check{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.accepted-text{font-size:19px;font-weight:600;color:#1a7a5a;}
+.accepted-date{font-size:16px;color:#5aaa8a;font-weight:400;margin-top:2px;}
+
+/* SAVE INDICATOR (subtle, near add-ons) */
+.save-indicator{display:none;font-size:13px;color:var(--text3);margin-left:12px;font-weight:400;}
+.save-indicator.visible{display:inline;}
+.save-indicator.error{color:#c44;}
+
+/* FOOTER */
+.proposal-footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.footer-logo{height:40px;width:auto;opacity:0.8;}
+.footer-contact{text-align:right;font-size:16px;color:var(--text3);line-height:1.7;}
+.footer-contact a{color:var(--text3);}
+.footer-contact a:hover{color:var(--teal);}
+
+/* CONFETTI */
+#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999;}
+
+/* LOADING */
+.proposal-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;}
+.proposal-loading p{font-size:17px;color:var(--text3);}
+
+/* ERROR */
+.proposal-error{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;text-align:center;}
+.proposal-error h2{font-size:28px;font-weight:700;color:var(--text);}
+.proposal-error p{font-size:17px;color:var(--text2);max-width:400px;}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .proposal-page{padding:32px 20px 60px;}
+  .proposal-header{flex-direction:column;gap:16px;}
+  .header-left{display:none;}
+  .header-right{text-align:left;}
+  .header-title{font-size:22px;}
+  .section-h{font-size:22px;}
+  .deliverable-title{font-size:17px;}
+  .deliverable-price{font-size:17px;}
+  .price-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .price-table thead, .price-table tbody{min-width:600px;display:table;width:100%;table-layout:fixed;}
+  .price-table colgroup{display:table-column-group;}
+  .price-table td.svc, .price-table th:nth-child(1){width:150px;}
+  .price-table td.details, .price-table th:nth-child(2){width:200px;}
+  .price-table td.num:nth-child(3), .price-table th:nth-child(3){width:90px;}
+  .price-table td.num:nth-child(4), .price-table th:nth-child(4){width:60px;}
+  .price-table td.num:nth-child(5), .price-table th:nth-child(5){width:100px;}
+  .project-total{font-size:18px;}
+  .timeline-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .timeline-table thead, .timeline-table tbody{min-width:500px;display:table;width:100%;}
+  .proposal-footer{flex-direction:column;gap:16px;align-items:flex-start;}
+  .footer-contact{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<div class="proposal-page" id="proposalPage">
+  <div class="proposal-loading" id="loadingState">
+    <p>Loading proposal...</p>
+  </div>
+</div>
+
+<script>
+// CLOUDFLARE WORKER ENDPOINT
+var WORKER_URL = 'https://proposal-accept.logcolegrove.workers.dev';
+
+// State for selected add-on IDs (used during pending state)
+var selectedAddons = {};
+var proposalData = null;
+var saveTimeout = null;
+
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var proposalId = params.get('id');
+  if(!proposalId){
+    showError('No proposal specified.','Check the link you were sent and try again.');
+    return;
+  }
+
+  var localAcceptKey = 'proposal-accepted-'+proposalId;
+  var localAcceptData = null;
+  try { localAcceptData = JSON.parse(localStorage.getItem(localAcceptKey)); } catch(e){}
+
+  fetch('/proposals/'+proposalId+'.json?v='+Date.now())
+    .then(function(r){
+      if(!r.ok) throw new Error('not found');
+      return r.json();
+    })
+    .then(function(data){
+      if(data.status !== 'accepted' && localAcceptData){
+        data.status = 'accepted';
+        data.acceptedDate = localAcceptData.date;
+        data._localAccept = true;
+      }
+      if(data.status === 'accepted' && !data._localAccept){
+        try { localStorage.removeItem(localAcceptKey); } catch(e){}
+      }
+
+      // Initialize selectedAddons state from JSON
+      if(data.deliverables){
+        data.deliverables.forEach(function(del){
+          if(del.isOptional && del.addonId){
+            selectedAddons[del.addonId] = !!del.selected;
+          }
+        });
+      }
+
+      proposalData = data;
+      renderProposal(data);
+    })
+    .catch(function(){ showError('Proposal not found.','This link may be incorrect or expired. Contact logan@colegrovemedia.com if you need help.'); });
+})();
+
+function showError(title, msg){
+  document.getElementById('proposalPage').innerHTML=
+    '<div class="proposal-error"><h2>'+title+'</h2><p>'+msg+'</p><a href="https://colegrovemedia.com">Back to Colegrove Media</a></div>';
+}
+
+function renderProposal(d){
+  var page = document.getElementById('proposalPage');
+  var isAccepted = d.status === 'accepted';
+
+  // Split deliverables into base and optional
+  var baseDeliverables = d.deliverables.filter(function(del){ return !del.isOptional; });
+  var optionalDeliverables = d.deliverables.filter(function(del){ return del.isOptional; });
+
+  document.title = d.title + ' - Colegrove Media';
+
+  var html = '';
+
+  // HEADER
+  html += '<div class="proposal-header">'
+    +'<div class="header-left">'
+    +'<img src="/assets/images/colegrove-media-favicon.svg" alt="Colegrove Media" class="header-favicon">'
+    +'<div class="header-info"><strong>Colegrove Media</strong>logan@colegrovemedia.com<br>(406) 209-9945<br>Bozeman, Montana</div>'
+    +'</div>'
+    +'<div class="header-right">'
+    +'<div class="header-title">'+d.title+'</div>'
+    +'<div class="header-meta">Date: '+d.date+'<br>Valid for: '+d.validFor+'</div>'
+    +'</div>'
+    +'</div>';
+
+  // CLIENT
+  html += '<div class="client-block">'
+    +'<div class="client-label">Prepared For</div>'
+    +'<div class="client-name">'+d.contact+'</div>'
+    +'<div class="client-detail">'+d.client+'</div>'
+    +(d.contactEmail?'<div class="client-detail">'+d.contactEmail+'</div>':'')
+    +'</div>';
+
+  // SCOPE HEADER
+  html += '<h2 class="section-h">Scope of Work & Price</h2>';
+
+  // BASE DELIVERABLES
+  baseDeliverables.forEach(function(del, i){
+    html += renderDeliverable(del, 'base-'+i, baseDeliverables.length === 1, false, isAccepted);
+  });
+
+  // PROJECT TOTAL (live, includes selected add-ons)
+  html += '<div class="project-total"><span>Project Total</span><span class="project-total-amount" id="projectTotalAmount">$'+formatNum(calculateTotal())+'</span></div>';
+
+  // OPTIONAL ADD-ONS SECTION
+  if(optionalDeliverables.length > 0){
+    var subText = isAccepted
+      ? 'Selections are locked in below.'
+      : 'Click "Add" on any upgrade you\'d like included. Your selection saves automatically.';
+
+    html += '<div class="optional-section">'
+      +'<h2 class="section-h">Optional Add-Ons <span class="save-indicator" id="saveIndicator"></span></h2>'
+      +'<p class="section-h-sub">'+subText+'</p>';
+
+    optionalDeliverables.forEach(function(del, i){
+      html += renderDeliverable(del, 'opt-'+i, false, true, isAccepted);
+    });
+
+    html += '</div>';
+  }
+
+  // REFERENCES
+  if(d.references && d.references.length){
+    html += '<div class="references"><div class="references-label">References:</div><ol>';
+    d.references.forEach(function(ref){
+      html += '<li><a href="'+ref.url+'" target="_blank" rel="noopener">'+ref.label+'</a></li>';
+    });
+    html += '</ol></div>';
+  }
+
+  // NEXT STEPS
+  html += '<div class="next-steps">'
+    +'<h2>Next Steps</h2>'
+    +'<p>If you\'d like to proceed, approve this proposal below and the project will commence. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
+    +'</div>';
+
+  // ACCEPTED BANNER
+  html += '<div class="accepted-banner'+(isAccepted?' visible':'')+'" id="acceptedBanner">'
+    +'<div class="accepted-check"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
+    +'<div><div class="accepted-text">Proposal Accepted</div>'
+    +'<div class="accepted-date">'+(d.acceptedDate||'')+'</div>'
+    +'</div></div>';
+
+  // TALLY FORM
+  if(!isAccepted && d.tallyFormId){
+    html += '<div class="tally-wrap" id="tallyWrap">'
+      +'<h3>Approve This Proposal</h3>'
+      +'<p>By signing below, you agree to the scope, pricing, and <a href="https://colegrovemedia.com/terms" target="_blank">terms and conditions</a>.</p>'
+      +'<iframe data-tally-src="https://tally.so/embed/'+d.tallyFormId+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&proposal_id='+encodeURIComponent(d.id)+'" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Approve Proposal" autocomplete="off"></iframe>'
+      +'</div>';
+
+    var tallyScript = document.createElement('script');
+    tallyScript.src = 'https://tally.so/widgets/embed.js';
+    tallyScript.onload = function(){
+      if(typeof Tally !== 'undefined') Tally.loadEmbeds();
+    };
+    document.body.appendChild(tallyScript);
+
+    window.addEventListener('message', function(e){
+      if(typeof e.data === 'string' && e.data.indexOf('Tally.FormSubmitted') > -1){
+        var now = new Date();
+        var dateStr = (now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
+        try {
+          localStorage.setItem('proposal-accepted-'+d.id, JSON.stringify({date: dateStr, ts: now.toISOString()}));
+        } catch(ex){}
+        var tallyEl = document.getElementById('tallyWrap');
+        if(tallyEl) tallyEl.style.display = 'none';
+        var banner = document.getElementById('acceptedBanner');
+        if(banner){
+          banner.querySelector('.accepted-date').textContent = dateStr;
+          banner.classList.add('visible');
+        }
+        // Disable all add-on toggles after acceptance
+        var toggles = document.querySelectorAll('.addon-toggle');
+        toggles.forEach(function(t){ t.disabled = true; });
+        setTimeout(launchConfetti, 200);
+      }
+    });
+  }
+
+  // FOOTER
+  html += '<div class="proposal-footer">'
+    +'<img src="/assets/images/Colegrove Media Black Logo.svg" alt="Colegrove Media" class="footer-logo" onerror="this.style.display=\'none\'">'
+    +'<div class="footer-contact"><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a><br><a href="tel:4062099945">(406) 209-9945</a></div>'
+    +'</div>';
+
+  page.innerHTML = html;
+
+  // Confetti on load if recently accepted
+  if(isAccepted){
+    var shouldConfetti = false;
+    if(d.acceptedDate){
+      var accepted = new Date(d.acceptedDate);
+      if(!isNaN(accepted.getTime()) && (new Date() - accepted) < 300000){
+        shouldConfetti = true;
+      }
+    }
+    if(!shouldConfetti && d._localAccept){
+      try {
+        var localData = JSON.parse(localStorage.getItem('proposal-accepted-'+d.id));
+        if(localData && localData.ts){
+          var localTime = new Date(localData.ts);
+          if((new Date() - localTime) < 300000) shouldConfetti = true;
+        }
+      } catch(e){}
+    }
+    if(shouldConfetti){
+      setTimeout(launchConfetti, 300);
+    }
+  }
+}
+
+function renderDeliverable(del, id, autoOpen, isOptional, isAccepted){
+  var isSelected = false;
+  if(isOptional && del.addonId){
+    isSelected = !!selectedAddons[del.addonId];
+  }
+
+  // Post-acceptance: show selected/declined badges
+  var statusBadge = '';
+  if(isAccepted && isOptional){
+    if(isSelected){
+      statusBadge = '<span class="added-badge">✓ Added</span>';
+    } else {
+      statusBadge = '<span class="declined-badge">Not selected</span>';
+    }
+  } else if(!isAccepted && isOptional && isSelected){
+    statusBadge = '<span class="added-badge">✓ Added</span>';
+  }
+
+  var classes = 'deliverable';
+  if(autoOpen) classes += ' open';
+  if(isOptional) classes += ' optional-deliverable';
+  if(isOptional && isSelected) classes += ' is-selected';
+
+  var html = '<div class="'+classes+'" id="del-'+id+'" data-addon-id="'+(del.addonId||'')+'">'
+    +'<div class="deliverable-header" onclick="toggleDel(\''+id+'\')">'
+    +'<div class="deliverable-title">'+statusBadge+del.title+'</div>'
+    +'<div class="deliverable-price">$'+formatNum(del.total)+'</div>'
+    +'<svg class="deliverable-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>'
+    +'</div>'
+    +'<div class="deliverable-body">';
+
+  // Add/Remove toggle (only for optional add-ons before acceptance)
+  if(isOptional && !isAccepted && del.addonId){
+    html += '<div class="addon-toggle-row">'
+      +'<button type="button" class="addon-toggle'+(isSelected?' added':'')+'" onclick="toggleAddon(event, \''+del.addonId+'\')" data-addon-id="'+del.addonId+'">'
+      +'<svg class="plus-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>'
+      +'<svg class="check-icon" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+      +'<span class="addon-toggle-label">'+(isSelected?'Added':'Add to scope')+'</span>'
+      +'</button></div>';
+  }
+
+  if(del.description) html += '<div class="deliverable-desc">'+del.description+'</div>';
+
+  // Pricing table
+  html += '<table class="price-table"><thead><tr>'
+    +'<th>Service</th><th>Details</th><th class="num">Price</th><th class="num">Qty</th><th class="num">Total</th>'
+    +'</tr></thead><tbody>';
+  del.lineItems.forEach(function(li){
+    html += '<tr>'
+      +'<td class="svc">'+li.service+'</td>'
+      +'<td class="details">'+li.details+'</td>'
+      +'<td class="num">$'+formatPrice(li.price)+'</td>'
+      +'<td class="num">'+li.amount+'</td>'
+      +'<td class="num">$'+formatNum(li.total)+'</td>'
+      +'</tr>';
+  });
+  html += '<tr class="sum-row"><td colspan="4" style="text-align:right;">Total</td><td class="num">$'+formatNum(del.total)+'</td></tr>';
+  html += '</tbody></table>';
+
+  // Deliverables list
+  if(del.deliverablesList && del.deliverablesList.length){
+    html += '<div class="del-list-label">Deliverables:</div><ol class="del-list">';
+    del.deliverablesList.forEach(function(item,j){
+      html += '<li>'+item+'</li>';
+    });
+    html += '</ol>';
+  }
+
+  // Timeline
+  if(del.milestones && del.milestones.length){
+    if(del.timeline) html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
+    html += '<table class="timeline-table"><thead><tr><th>Date</th><th>Milestone</th><th>Responsible</th></tr></thead><tbody>';
+    del.milestones.forEach(function(m){
+      var respClass = m.responsible === 'Colegrove Media' ? 'resp-cm' : 'resp-client';
+      html += '<tr><td>'+m.date+'</td><td>'+m.milestone+'</td><td><span class="responsible '+respClass+'">'+m.responsible+'</span></td></tr>';
+    });
+    html += '</tbody></table>';
+  } else if(del.timeline){
+    html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
+  }
+
+  html += '</div></div>';
+  return html;
+}
+
+function toggleDel(id){
+  var el = document.getElementById('del-'+id);
+  if(el) el.classList.toggle('open');
+}
+
+// Toggle add-on selection state
+function toggleAddon(event, addonId){
+  event.stopPropagation(); // don't trigger the deliverable header toggle
+
+  var newState = !selectedAddons[addonId];
+  selectedAddons[addonId] = newState;
+
+  // Update the deliverable card's visual state
+  var deliverable = document.querySelector('[data-addon-id="'+addonId+'"].deliverable');
+  if(deliverable){
+    if(newState) deliverable.classList.add('is-selected');
+    else deliverable.classList.remove('is-selected');
+
+    // Update or add the badge in the title
+    var titleEl = deliverable.querySelector('.deliverable-title');
+    if(titleEl){
+      var existingBadge = titleEl.querySelector('.added-badge');
+      if(newState && !existingBadge){
+        var titleText = titleEl.textContent;
+        titleEl.innerHTML = '<span class="added-badge">✓ Added</span>'+titleText;
+      } else if(!newState && existingBadge){
+        existingBadge.remove();
+      }
+    }
+  }
+
+  // Update the toggle button itself
+  var btn = document.querySelector('.addon-toggle[data-addon-id="'+addonId+'"]');
+  if(btn){
+    var label = btn.querySelector('.addon-toggle-label');
+    if(newState){
+      btn.classList.add('added');
+      if(label) label.textContent = 'Added';
+    } else {
+      btn.classList.remove('added');
+      if(label) label.textContent = 'Add to scope';
+    }
+  }
+
+  // Update project total with flash animation
+  var totalEl = document.getElementById('projectTotalAmount');
+  if(totalEl){
+    totalEl.textContent = '$'+formatNum(calculateTotal());
+    totalEl.classList.add('flash');
+    setTimeout(function(){ totalEl.classList.remove('flash'); }, 400);
+  }
+
+  // Debounced save to worker
+  scheduleSelectionSave();
+}
+
+// Calculate total: base deliverables + selected optional ones
+function calculateTotal(){
+  if(!proposalData || !proposalData.deliverables) return 0;
+  var total = 0;
+  proposalData.deliverables.forEach(function(del){
+    if(!del.isOptional){
+      total += del.total;
+    } else if(del.addonId && selectedAddons[del.addonId]){
+      total += del.total;
+    }
+  });
+  return total;
+}
+
+// Debounced save (waits 600ms after last click before sending)
+function scheduleSelectionSave(){
+  if(saveTimeout) clearTimeout(saveTimeout);
+  showSaveIndicator('Saving...');
+  saveTimeout = setTimeout(saveSelectionsToWorker, 600);
+}
+
+function saveSelectionsToWorker(){
+  if(!proposalData) return;
+
+  var selectedIds = [];
+  Object.keys(selectedAddons).forEach(function(id){
+    if(selectedAddons[id]) selectedIds.push(id);
+  });
+
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: 'updateSelections',
+      proposalId: proposalData.id,
+      selectedAddonIds: selectedIds
+    })
+  })
+  .then(function(r){
+    if(!r.ok) throw new Error('Save failed: '+r.status);
+    return r.json();
+  })
+  .then(function(){
+    showSaveIndicator('Saved');
+    setTimeout(function(){ hideSaveIndicator(); }, 1500);
+  })
+  .catch(function(err){
+    console.error('Failed to save selections:', err);
+    showSaveIndicator('Save failed', true);
+  });
+}
+
+function showSaveIndicator(text, isError){
+  var el = document.getElementById('saveIndicator');
+  if(!el) return;
+  el.textContent = text;
+  el.classList.add('visible');
+  if(isError) el.classList.add('error');
+  else el.classList.remove('error');
+}
+
+function hideSaveIndicator(){
+  var el = document.getElementById('saveIndicator');
+  if(el) el.classList.remove('visible');
+}
+
+function formatNum(n){
+  return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function formatPrice(n){
+  if(n % 1 !== 0) return n.toFixed(2);
+  return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function launchConfetti(){
+  var canvas = document.createElement('canvas');
+  canvas.id = 'confetti-canvas';
+  document.body.appendChild(canvas);
+  var ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var colors = ['#00d693','#1a1a1a','#00b87a','#5aaa8a','#e6faf3','#00d693'];
+  var pieces = [];
+  for(var i=0;i<140;i++){
+    pieces.push({
+      x:Math.random()*canvas.width,
+      y:-20-Math.random()*canvas.height*0.5,
+      w:5+Math.random()*7,
+      h:8+Math.random()*12,
+      r:Math.random()*Math.PI*2,
+      vx:(Math.random()-0.5)*3.5,
+      vy:2+Math.random()*3.5,
+      vr:(Math.random()-0.5)*0.12,
+      color:colors[Math.floor(Math.random()*colors.length)],
+      opacity:1,
+      shape:Math.random()>0.5?'rect':'circle'
+    });
+  }
+  var start=null,duration=3500;
+  function draw(ts){
+    if(!start) start=ts;
+    var elapsed=ts-start;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pieces.forEach(function(p){
+      p.x+=p.vx;p.y+=p.vy;p.vy+=0.05;p.r+=p.vr;
+      p.opacity=Math.max(0,1-(elapsed-2000)/1500);
+      ctx.save();ctx.globalAlpha=p.opacity;ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.color;
+      if(p.shape==='circle'){ctx.beginPath();ctx.arc(0,0,p.w/2,0,Math.PI*2);ctx.fill();}
+      else{ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);}
+      ctx.restore();
+    });
+    if(elapsed<duration) requestAnimationFrame(draw);
+    else canvas.remove();
+  }
+  requestAnimationFrame(draw);
+}
+</script>
+</body>
+</html>
