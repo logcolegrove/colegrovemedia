@@ -30,10 +30,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:
 a{color:var(--teal);text-decoration:none;}
 a:hover{text-decoration:underline;}
 
-/* LAYOUT */
 .proposal-page{max-width:900px;margin:0 auto;padding:48px 40px 80px;}
 
-/* HEADER */
 .proposal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding-bottom:32px;border-bottom:2px solid var(--text);margin-bottom:40px;}
 .header-left{display:flex;align-items:center;gap:16px;}
 .header-favicon{width:72px;height:72px;flex-shrink:0;border-radius:50%;overflow:hidden;}
@@ -43,18 +41,15 @@ a:hover{text-decoration:underline;}
 .header-title{font-size:28px;font-weight:700;color:var(--text);line-height:1.15;margin-bottom:8px;letter-spacing:-0.01em;}
 .header-meta{font-size:15px;color:var(--text2);line-height:1.7;}
 
-/* CLIENT INFO */
 .client-block{margin:32px 0 48px;padding:24px 28px;background:var(--bg2);border-radius:8px;border:1px solid var(--border2);}
 .client-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
 .client-name{font-size:19px;font-weight:600;color:var(--text);}
 .client-detail{font-size:17px;color:var(--text2);margin-top:2px;}
 
-/* SECTION HEADERS */
 .section-h{font-size:28px;font-weight:700;color:var(--text);margin:48px 0 24px;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .section-h:first-of-type{margin-top:0;}
 .section-h-sub{font-size:15px;color:var(--text2);font-weight:400;margin:-16px 0 24px;line-height:1.6;}
 
-/* DELIVERABLE */
 .deliverable{margin-bottom:4px;}
 .deliverable-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:1px solid var(--border);cursor:pointer;user-select:none;gap:16px;}
 .deliverable:first-child .deliverable-header{border-top:none;}
@@ -67,7 +62,6 @@ a:hover{text-decoration:underline;}
 .deliverable.open .deliverable-body{display:block;}
 .deliverable-desc{font-size:17px;color:var(--text2);line-height:1.65;margin-bottom:28px;font-weight:400;}
 
-/* PULSE EFFECT */
 .deliverable.pulse-source{animation:pulseTeal 0.8s ease-out;}
 @keyframes pulseTeal{
   0%{background:transparent;}
@@ -75,13 +69,11 @@ a:hover{text-decoration:underline;}
   100%{background:transparent;}
 }
 
-/* OPTIONAL ADD-ONS SECTION */
 .optional-section{margin:48px 0 32px;}
 .optional-section .deliverable:first-child .deliverable-header{border-top:1px solid var(--border);}
 .optional-section .deliverable.optional-deliverable .deliverable-price{color:var(--text2);font-weight:600;}
 .optional-section .deliverable.optional-deliverable.is-selected .deliverable-price{color:var(--teal-dark);}
 
-/* ADD/REMOVE BUTTON */
 .addon-toggle{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-dark);font-family:inherit;font-size:13px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;flex-shrink:0;white-space:nowrap;}
 .addon-toggle:hover{background:var(--teal-light);}
 .addon-toggle.added{background:var(--teal);border-color:var(--teal);color:#fff;}
@@ -93,7 +85,6 @@ a:hover{text-decoration:underline;}
 .addon-toggle:disabled{opacity:0.5;cursor:not-allowed;}
 .addon-toggle.is-animating{pointer-events:none;}
 
-/* ADD ALL BUTTON */
 .add-all-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-dark);font-family:inherit;font-size:14px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;}
 .add-all-btn:hover{background:var(--teal-light);}
 .add-all-btn.all-added{background:var(--teal);border-color:var(--teal);color:#fff;}
@@ -104,17 +95,14 @@ a:hover{text-decoration:underline;}
 .add-all-btn .plus-icon{width:12px;height:12px;display:inline-block;}
 .add-all-btn.all-added .plus-icon{display:none;}
 
-/* SCOPE CLONE CONTAINER */
 .scope-clones{}
 .scope-clone-slot{display:none;}
 .scope-clone-slot.active{display:block;}
 .scope-clone-slot .deliverable-header{border-top:1px solid var(--border);}
 
-/* BADGES */
 .added-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--teal-dark);background:var(--teal-light);padding:3px 10px;border-radius:4px;flex-shrink:0;}
 .declined-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--text3);background:var(--border2);padding:3px 10px;border-radius:4px;flex-shrink:0;}
 
-/* PRICING TABLE */
 .price-table{width:100%;border-collapse:collapse;margin-bottom:28px;}
 .price-table th{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);}
 .price-table th.num{text-align:right;}
@@ -123,13 +111,11 @@ a:hover{text-decoration:underline;}
 .price-table td.details{font-size:15px;color:var(--text2);line-height:1.6;font-weight:400;max-width:340px;}
 .price-table td.num{text-align:right;white-space:nowrap;font-weight:500;color:var(--text);}
 
-/* DELIVERABLES LIST */
 .del-list-label{font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px;}
 .del-list{list-style:none;margin-bottom:28px;}
 .del-list li{font-size:17px;color:var(--text2);padding:5px 0;padding-left:22px;position:relative;font-weight:400;}
 .del-list li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--teal);}
 
-/* TIMELINE */
 .timeline-simple{font-size:17px;color:var(--text2);font-weight:500;margin-bottom:10px;}
 .timeline-table{width:100%;border-collapse:collapse;margin-bottom:10px;}
 .timeline-table th{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);}
@@ -139,728 +125,35 @@ a:hover{text-decoration:underline;}
 .resp-cm{background:#f0f0f0;color:var(--text2);}
 .resp-client{background:var(--teal-light);color:#1a7a5a;}
 
-/* PROJECT TOTAL */
 .project-total{display:flex;justify-content:space-between;align-items:baseline;margin:32px 0 48px;padding-top:20px;border-top:2px solid var(--text);font-size:22px;font-weight:700;color:var(--text);}
 .project-total-amount{transition:color 0.3s;}
 .project-total-amount.flash{color:var(--teal-dark);}
 
-/* FLYING CLONE */
 .flying-clone{position:fixed;z-index:9000;pointer-events:none;background:var(--bg);box-shadow:0 12px 40px rgba(0,0,0,0.18);border-radius:8px;padding:20px 16px;transition:transform 380ms cubic-bezier(0.34,1.2,0.64,1),opacity 380ms ease;}
 .flying-clone.shrink{transform:scale(0.94);opacity:0.95;}
 
-/* REFERENCES */
 .references{margin:32px 0;}
 .references-label{font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px;}
 .references ol{padding-left:22px;}
 .references li{font-size:17px;color:var(--text2);padding:4px 0;font-weight:400;}
 
-/* NEXT STEPS */
 .next-steps{margin:48px 0 32px;padding-top:32px;border-top:1px solid var(--border);}
 .next-steps h2{font-size:28px;font-weight:700;color:var(--text);margin-bottom:14px;}
 .next-steps p{font-size:17px;color:var(--text2);line-height:1.7;font-weight:400;}
 
-/* TALLY EMBED */
 .tally-wrap{margin:32px 0;padding:36px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;}
 .tally-wrap h3{font-size:19px;font-weight:600;color:var(--text);margin-bottom:6px;}
 .tally-wrap p{font-size:16px;color:var(--text3);margin-bottom:24px;font-weight:400;}
 
-/* ACCEPTED STATE */
 .accepted-banner{display:none;margin:32px 0;padding:28px 32px;background:var(--teal-light);border:1px solid var(--teal-border);border-radius:12px;}
 .accepted-banner.visible{display:flex;align-items:center;gap:16px;}
 .accepted-check{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .accepted-text{font-size:19px;font-weight:600;color:#1a7a5a;}
 .accepted-date{font-size:16px;color:#5aaa8a;font-weight:400;margin-top:2px;}
 
-/* SAVE INDICATOR */
 .save-indicator{display:none;font-size:13px;color:var(--text3);margin-left:12px;font-weight:400;}
 .save-indicator.visible{display:inline;}
 .save-indicator.error{color:#c44;}
 
-/* FOOTER */
 .proposal-footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
-.footer-logo{height:40px;width:auto;opacity:0.8;}
-.footer-contact{text-align:right;font-size:16px;color:var(--text3);line-height:1.7;}
-.footer-contact a{color:var(--text3);}
-.footer-contact a:hover{color:var(--teal);}
-
-/* CONFETTI */
-#confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999;}
-
-/* LOADING */
-.proposal-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;}
-.proposal-loading p{font-size:17px;color:var(--text3);}
-
-/* ERROR */
-.proposal-error{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;text-align:center;}
-.proposal-error h2{font-size:28px;font-weight:700;color:var(--text);}
-.proposal-error p{font-size:17px;color:var(--text2);max-width:400px;}
-
-/* RESPONSIVE */
-@media(max-width:640px){
-  .proposal-page{padding:32px 20px 60px;}
-  .proposal-header{flex-direction:column;gap:16px;}
-  .header-left{display:none;}
-  .header-right{text-align:left;}
-  .header-title{font-size:22px;}
-  .section-h{font-size:22px;}
-  .deliverable-title{font-size:17px;}
-  .deliverable-price{font-size:17px;}
-  .price-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .price-table thead, .price-table tbody{min-width:600px;display:table;width:100%;table-layout:fixed;}
-  .price-table colgroup{display:table-column-group;}
-  .price-table td.svc, .price-table th:nth-child(1){width:150px;}
-  .price-table td.details, .price-table th:nth-child(2){width:200px;}
-  .price-table td.num:nth-child(3), .price-table th:nth-child(3){width:90px;}
-  .price-table td.num:nth-child(4), .price-table th:nth-child(4){width:60px;}
-  .price-table td.num:nth-child(5), .price-table th:nth-child(5){width:100px;}
-  .project-total{font-size:18px;}
-  .timeline-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .timeline-table thead, .timeline-table tbody{min-width:500px;display:table;width:100%;}
-  .proposal-footer{flex-direction:column;gap:16px;align-items:flex-start;}
-  .footer-contact{text-align:left;}
-}
-</style>
-</head>
-<body>
-
-<div class="proposal-page" id="proposalPage">
-  <div class="proposal-loading" id="loadingState">
-    <p>Loading proposal...</p>
-  </div>
-</div>
-
-<script>
-var WORKER_URL = 'https://proposal-accept.logcolegrove.workers.dev';
-var selectedAddons = {};
-var proposalData = null;
-var saveTimeout = null;
-var animatingAddons = {};
-
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  var proposalId = params.get('id');
-  if(!proposalId){
-    showError('No proposal specified.','Check the link you were sent and try again.');
-    return;
-  }
-
-  var localAcceptKey = 'proposal-accepted-'+proposalId;
-  var localAcceptData = null;
-  try { localAcceptData = JSON.parse(localStorage.getItem(localAcceptKey)); } catch(e){}
-
-  fetch('/proposals/'+proposalId+'.json?v='+Date.now())
-    .then(function(r){
-      if(!r.ok) throw new Error('not found');
-      return r.json();
-    })
-    .then(function(data){
-      if(data.status !== 'accepted' && localAcceptData){
-        data.status = 'accepted';
-        data.acceptedDate = localAcceptData.date;
-        data._localAccept = true;
-      }
-      if(data.status === 'accepted' && !data._localAccept){
-        try { localStorage.removeItem(localAcceptKey); } catch(e){}
-      }
-
-      if(data.deliverables){
-        data.deliverables.forEach(function(del){
-          if(del.isOptional && del.addonId){
-            selectedAddons[del.addonId] = !!del.selected;
-          }
-        });
-      }
-
-      proposalData = data;
-      renderProposal(data);
-    })
-    .catch(function(){ showError('Proposal not found.','This link may be incorrect or expired. Contact logan@colegrovemedia.com if you need help.'); });
-})();
-
-function showError(title, msg){
-  document.getElementById('proposalPage').innerHTML=
-    '<div class="proposal-error"><h2>'+title+'</h2><p>'+msg+'</p><a href="https://colegrovemedia.com">Back to Colegrove Media</a></div>';
-}
-
-function renderProposal(d){
-  var page = document.getElementById('proposalPage');
-  var isAccepted = d.status === 'accepted';
-
-  var baseDeliverables = d.deliverables.filter(function(del){ return !del.isOptional; });
-  var optionalDeliverables = d.deliverables.filter(function(del){ return del.isOptional; });
-  var anyOptional = optionalDeliverables.length > 0;
-  var allSelected = anyOptional && optionalDeliverables.every(function(del){ return !!selectedAddons[del.addonId]; });
-
-  document.title = d.title + ' - Colegrove Media';
-
-  var html = '';
-
-  html += '<div class="proposal-header">'
-    +'<div class="header-left">'
-    +'<img src="/assets/images/colegrove-media-favicon.svg" alt="Colegrove Media" class="header-favicon">'
-    +'<div class="header-info"><strong>Colegrove Media</strong>logan@colegrovemedia.com<br>(406) 209-9945<br>Bozeman, Montana</div>'
-    +'</div>'
-    +'<div class="header-right">'
-    +'<div class="header-title">'+d.title+'</div>'
-    +'<div class="header-meta">Date: '+d.date+'<br>Valid for: '+d.validFor+'</div>'
-    +'</div>'
-    +'</div>';
-
-  html += '<div class="client-block">'
-    +'<div class="client-label">Prepared For</div>'
-    +'<div class="client-name">'+d.contact+'</div>'
-    +'<div class="client-detail">'+d.client+'</div>'
-    +(d.contactEmail?'<div class="client-detail">'+d.contactEmail+'</div>':'')
-    +'</div>';
-
-  html += '<h2 class="section-h"><span>Scope of Work & Price</span></h2>';
-
-  baseDeliverables.forEach(function(del, i){
-    html += renderDeliverable(del, 'base-'+i, false, false, isAccepted, false);
-  });
-
-  html += '<div class="scope-clones" id="scopeClones">';
-  optionalDeliverables.forEach(function(del, i){
-    var isSelected = !!selectedAddons[del.addonId];
-    html += '<div class="scope-clone-slot'+(isSelected?' active':'')+'" id="scopeSlot-'+del.addonId+'" data-addon-id="'+del.addonId+'">';
-    html += renderDeliverable(del, 'scope-'+del.addonId, false, false, isAccepted, true);
-    html += '</div>';
-  });
-  html += '</div>';
-
-  html += '<div class="project-total"><span>Project Total</span><span class="project-total-amount" id="projectTotalAmount">$'+formatNum(calculateTotal())+'</span></div>';
-
-  if(anyOptional){
-    var subText, addAllLabel;
-    if(isAccepted){
-      subText = 'Your final selections are shown below.';
-    } else if(allSelected){
-      subText = 'All upgrades added to scope.';
-    } else {
-      subText = 'Click "Add" on any upgrade you\'d like included. Your selection saves automatically.';
-    }
-    addAllLabel = allSelected ? 'All added' : 'Add all';
-
-    var addAllBtnHtml = isAccepted ? '' :
-      '<button type="button" class="add-all-btn'+(allSelected?' all-added':'')+'" id="addAllBtn" onclick="toggleAddAll(event)">'
-      +'<svg class="plus-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>'
-      +'<svg class="check-icon" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-      +'<span class="add-all-label">'+addAllLabel+'</span>'
-      +'</button>';
-
-    html += '<div class="optional-section">'
-      +'<h2 class="section-h"><span>Optional Add-Ons <span class="save-indicator" id="saveIndicator"></span></span>'+addAllBtnHtml+'</h2>'
-      +'<p class="section-h-sub" id="optionalSubText">'+subText+'</p>';
-
-    optionalDeliverables.forEach(function(del, i){
-      html += renderDeliverable(del, 'src-'+del.addonId, false, true, isAccepted, false);
-    });
-
-    html += '</div>';
-  }
-
-  if(d.references && d.references.length){
-    html += '<div class="references"><div class="references-label">References:</div><ol>';
-    d.references.forEach(function(ref){
-      html += '<li><a href="'+ref.url+'" target="_blank" rel="noopener">'+ref.label+'</a></li>';
-    });
-    html += '</ol></div>';
-  }
-
-  html += '<div class="next-steps">'
-    +'<h2>Next Steps</h2>'
-    +'<p>If you\'d like to proceed, approve this proposal below and the project will commence. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
-    +'</div>';
-
-  html += '<div class="accepted-banner'+(isAccepted?' visible':'')+'" id="acceptedBanner">'
-    +'<div class="accepted-check"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
-    +'<div><div class="accepted-text">Proposal Accepted</div>'
-    +'<div class="accepted-date">'+(d.acceptedDate||'')+'</div>'
-    +'</div></div>';
-
-  if(!isAccepted && d.tallyFormId){
-    html += '<div class="tally-wrap" id="tallyWrap">'
-      +'<h3>Approve This Proposal</h3>'
-      +'<p>By signing below, you agree to the scope, pricing, and <a href="https://colegrovemedia.com/terms" target="_blank">terms and conditions</a>.</p>'
-      +'<iframe data-tally-src="https://tally.so/embed/'+d.tallyFormId+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&proposal_id='+encodeURIComponent(d.id)+'" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Approve Proposal" autocomplete="off"></iframe>'
-      +'</div>';
-
-    var tallyScript = document.createElement('script');
-    tallyScript.src = 'https://tally.so/widgets/embed.js';
-    tallyScript.onload = function(){
-      if(typeof Tally !== 'undefined') Tally.loadEmbeds();
-    };
-    document.body.appendChild(tallyScript);
-
-    window.addEventListener('message', function(e){
-      if(typeof e.data === 'string' && e.data.indexOf('Tally.FormSubmitted') > -1){
-        var now = new Date();
-        var dateStr = (now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
-        try {
-          localStorage.setItem('proposal-accepted-'+d.id, JSON.stringify({date: dateStr, ts: now.toISOString()}));
-        } catch(ex){}
-        var tallyEl = document.getElementById('tallyWrap');
-        if(tallyEl) tallyEl.style.display = 'none';
-        var banner = document.getElementById('acceptedBanner');
-        if(banner){
-          banner.querySelector('.accepted-date').textContent = dateStr;
-          banner.classList.add('visible');
-        }
-        var toggles = document.querySelectorAll('.addon-toggle, .add-all-btn');
-        toggles.forEach(function(t){ t.disabled = true; });
-        setTimeout(launchConfetti, 200);
-      }
-    });
-  }
-
-  html += '<div class="proposal-footer">'
-    +'<img src="/assets/images/Colegrove Media Black Logo.svg" alt="Colegrove Media" class="footer-logo" onerror="this.style.display=\'none\'">'
-    +'<div class="footer-contact"><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a><br><a href="tel:4062099945">(406) 209-9945</a></div>'
-    +'</div>';
-
-  page.innerHTML = html;
-
-  if(isAccepted){
-    var shouldConfetti = false;
-    if(d.acceptedDate){
-      var accepted = new Date(d.acceptedDate);
-      if(!isNaN(accepted.getTime()) && (new Date() - accepted) < 300000){
-        shouldConfetti = true;
-      }
-    }
-    if(!shouldConfetti && d._localAccept){
-      try {
-        var localData = JSON.parse(localStorage.getItem('proposal-accepted-'+d.id));
-        if(localData && localData.ts){
-          var localTime = new Date(localData.ts);
-          if((new Date() - localTime) < 300000) shouldConfetti = true;
-        }
-      } catch(e){}
-    }
-    if(shouldConfetti){
-      setTimeout(launchConfetti, 300);
-    }
-  }
-}
-
-function renderDeliverable(del, id, autoOpen, isOptional, isAccepted, isScopeClone){
-  var isSelected = false;
-  if(del.isOptional && del.addonId){
-    isSelected = !!selectedAddons[del.addonId];
-  }
-
-  var statusBadge = '';
-  if(isAccepted && isOptional){
-    if(isSelected){
-      statusBadge = '<span class="added-badge">✓ Added</span>';
-    } else {
-      statusBadge = '<span class="declined-badge">Not selected</span>';
-    }
-  }
-
-  var toggleBtn = '';
-  if(isOptional && !isAccepted && del.addonId){
-    toggleBtn = '<button type="button" class="addon-toggle'+(isSelected?' added':'')+'" onclick="toggleAddon(event, \''+del.addonId+'\')" data-addon-id="'+del.addonId+'">'
-      +'<svg class="plus-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>'
-      +'<svg class="check-icon" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-      +'<span class="addon-toggle-label">'+(isSelected?'Added':'Add')+'</span>'
-      +'</button>';
-  }
-
-  var classes = 'deliverable';
-  if(autoOpen) classes += ' open';
-  if(isOptional) classes += ' optional-deliverable';
-  if(isOptional && isSelected) classes += ' is-selected';
-  if(isScopeClone) classes += ' scope-clone-card';
-
-  var dataAttr = del.addonId ? ' data-addon-id="'+del.addonId+'"' : '';
-
-  var html = '<div class="'+classes+'" id="del-'+id+'"'+dataAttr+'>'
-    +'<div class="deliverable-header" onclick="toggleDel(\''+id+'\')">'
-    +'<div class="deliverable-title-wrap">'+toggleBtn+statusBadge+'<span class="deliverable-title">'+del.title+'</span></div>'
-    +'<div class="deliverable-price">$'+formatNum(del.total)+'</div>'
-    +'<svg class="deliverable-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>'
-    +'</div>'
-    +'<div class="deliverable-body">';
-
-  if(del.description) html += '<div class="deliverable-desc">'+del.description+'</div>';
-
-  html += '<table class="price-table"><thead><tr>'
-    +'<th>Service</th><th>Details</th><th class="num">Price</th><th class="num">Qty</th><th class="num">Total</th>'
-    +'</tr></thead><tbody>';
-  del.lineItems.forEach(function(li){
-    html += '<tr>'
-      +'<td class="svc">'+li.service+'</td>'
-      +'<td class="details">'+li.details+'</td>'
-      +'<td class="num">$'+formatPrice(li.price)+'</td>'
-      +'<td class="num">'+li.amount+'</td>'
-      +'<td class="num">$'+formatNum(li.total)+'</td>'
-      +'</tr>';
-  });
-  html += '</tbody></table>';
-
-  if(del.deliverablesList && del.deliverablesList.length){
-    html += '<div class="del-list-label">Deliverables:</div><ol class="del-list">';
-    del.deliverablesList.forEach(function(item,j){
-      html += '<li>'+item+'</li>';
-    });
-    html += '</ol>';
-  }
-
-  if(del.milestones && del.milestones.length){
-    if(del.timeline) html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
-    html += '<table class="timeline-table"><thead><tr><th>Date</th><th>Milestone</th><th>Responsible</th></tr></thead><tbody>';
-    del.milestones.forEach(function(m){
-      var respClass = m.responsible === 'Colegrove Media' ? 'resp-cm' : 'resp-client';
-      html += '<tr><td>'+m.date+'</td><td>'+m.milestone+'</td><td><span class="responsible '+respClass+'">'+m.responsible+'</span></td></tr>';
-    });
-    html += '</tbody></table>';
-  } else if(del.timeline){
-    html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
-  }
-
-  html += '</div></div>';
-  return html;
-}
-
-function toggleDel(id){
-  var el = document.getElementById('del-'+id);
-  if(el) el.classList.toggle('open');
-}
-
-function toggleAddon(event, addonId){
-  event.stopPropagation();
-  if(animatingAddons[addonId]) return;
-
-  var newState = !selectedAddons[addonId];
-  selectedAddons[addonId] = newState;
-  animatingAddons[addonId] = true;
-
-  if(newState){
-    animateAdd(addonId, function(){
-      animatingAddons[addonId] = false;
-    });
-  } else {
-    animateRemove(addonId, function(){
-      animatingAddons[addonId] = false;
-    });
-  }
-
-  updateToggleButton(addonId);
-  updateAddAllButton();
-  updateProjectTotal();
-  updateOptionalSubText();
-  scheduleSelectionSave();
-}
-
-function animateAdd(addonId, onComplete){
-  var sourceCard = document.querySelector('.optional-section .deliverable[data-addon-id="'+addonId+'"]');
-  var scopeSlot = document.getElementById('scopeSlot-'+addonId);
-  if(!sourceCard || !scopeSlot){
-    if(onComplete) onComplete();
-    return;
-  }
-
-  sourceCard.classList.remove('pulse-source');
-  void sourceCard.offsetWidth;
-  sourceCard.classList.add('pulse-source');
-
-  var srcRect = sourceCard.getBoundingClientRect();
-
-  scopeSlot.style.visibility = 'hidden';
-  scopeSlot.classList.add('active');
-  var targetRect = scopeSlot.getBoundingClientRect();
-  scopeSlot.classList.remove('active');
-  scopeSlot.style.visibility = '';
-
-  var clone = sourceCard.cloneNode(true);
-  clone.classList.add('flying-clone');
-  var cloneToggle = clone.querySelector('.addon-toggle');
-  if(cloneToggle) cloneToggle.remove();
-  clone.classList.remove('open');
-  clone.style.left = srcRect.left + 'px';
-  clone.style.top = srcRect.top + 'px';
-  clone.style.width = srcRect.width + 'px';
-  clone.style.transform = 'scale(1)';
-  clone.style.opacity = '1';
-  document.body.appendChild(clone);
-
-  void clone.offsetWidth;
-
-  var dx = targetRect.left - srcRect.left;
-  var dy = targetRect.top - srcRect.top;
-  clone.style.transform = 'translate('+dx+'px, '+dy+'px) scale(0.96)';
-  clone.style.opacity = '0.85';
-
-  var cleanedUp = false;
-  function cleanup(){
-    if(cleanedUp) return;
-    cleanedUp = true;
-    if(clone.parentNode) clone.parentNode.removeChild(clone);
-    scopeSlot.classList.add('active');
-    sourceCard.classList.add('is-selected');
-    if(onComplete) onComplete();
-  }
-
-  clone.addEventListener('transitionend', cleanup, { once: true });
-  setTimeout(cleanup, 500);
-}
-
-function animateRemove(addonId, onComplete){
-  var sourceCard = document.querySelector('.optional-section .deliverable[data-addon-id="'+addonId+'"]');
-  var scopeSlot = document.getElementById('scopeSlot-'+addonId);
-  if(!sourceCard || !scopeSlot){
-    if(onComplete) onComplete();
-    return;
-  }
-
-  var scopeCard = scopeSlot.querySelector('.deliverable');
-  if(!scopeCard){
-    scopeSlot.classList.remove('active');
-    sourceCard.classList.remove('is-selected');
-    if(onComplete) onComplete();
-    return;
-  }
-
-  var startRect = scopeCard.getBoundingClientRect();
-  var endRect = sourceCard.getBoundingClientRect();
-
-  scopeSlot.classList.remove('active');
-
-  var clone = scopeCard.cloneNode(true);
-  clone.classList.add('flying-clone');
-  clone.classList.remove('open');
-  clone.style.left = startRect.left + 'px';
-  clone.style.top = startRect.top + 'px';
-  clone.style.width = startRect.width + 'px';
-  clone.style.transform = 'scale(1)';
-  clone.style.opacity = '1';
-  document.body.appendChild(clone);
-
-  void clone.offsetWidth;
-
-  var dx = endRect.left - startRect.left;
-  var dy = endRect.top - startRect.top;
-  clone.style.transform = 'translate('+dx+'px, '+dy+'px) scale(0.94)';
-  clone.style.opacity = '0';
-
-  var cleanedUp = false;
-  function cleanup(){
-    if(cleanedUp) return;
-    cleanedUp = true;
-    if(clone.parentNode) clone.parentNode.removeChild(clone);
-    sourceCard.classList.remove('is-selected');
-    if(onComplete) onComplete();
-  }
-
-  clone.addEventListener('transitionend', cleanup, { once: true });
-  setTimeout(cleanup, 500);
-}
-
-function toggleAddAll(event){
-  event.stopPropagation();
-  if(!proposalData) return;
-
-  var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
-  var allCurrentlySelected = optionalDels.every(function(del){ return !!selectedAddons[del.addonId]; });
-
-  var idsToToggle = [];
-  optionalDels.forEach(function(del){
-    if(allCurrentlySelected){
-      idsToToggle.push({ addonId: del.addonId, newState: false });
-    } else {
-      if(!selectedAddons[del.addonId]){
-        idsToToggle.push({ addonId: del.addonId, newState: true });
-      }
-    }
-  });
-
-  idsToToggle.forEach(function(item, idx){
-    setTimeout(function(){
-      if(animatingAddons[item.addonId]) return;
-      selectedAddons[item.addonId] = item.newState;
-      animatingAddons[item.addonId] = true;
-      if(item.newState){
-        animateAdd(item.addonId, function(){ animatingAddons[item.addonId] = false; });
-      } else {
-        animateRemove(item.addonId, function(){ animatingAddons[item.addonId] = false; });
-      }
-      updateToggleButton(item.addonId);
-      updateProjectTotal();
-    }, idx * 100);
-  });
-
-  setTimeout(function(){
-    updateAddAllButton();
-    updateOptionalSubText();
-    scheduleSelectionSave();
-  }, idsToToggle.length * 100 + 50);
-}
-
-function updateToggleButton(addonId){
-  var btn = document.querySelector('.addon-toggle[data-addon-id="'+addonId+'"]');
-  if(!btn) return;
-  var isSelected = !!selectedAddons[addonId];
-  var label = btn.querySelector('.addon-toggle-label');
-  if(isSelected){
-    btn.classList.add('added');
-    if(label) label.textContent = 'Added';
-  } else {
-    btn.classList.remove('added');
-    if(label) label.textContent = 'Add';
-  }
-}
-
-function updateAddAllButton(){
-  var btn = document.getElementById('addAllBtn');
-  if(!btn || !proposalData) return;
-  var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
-  var allSelected = optionalDels.length > 0 && optionalDels.every(function(del){ return !!selectedAddons[del.addonId]; });
-  var label = btn.querySelector('.add-all-label');
-  if(allSelected){
-    btn.classList.add('all-added');
-    if(label) label.textContent = 'All added';
-  } else {
-    btn.classList.remove('all-added');
-    if(label) label.textContent = 'Add all';
-  }
-}
-
-function updateOptionalSubText(){
-  var el = document.getElementById('optionalSubText');
-  if(!el || !proposalData) return;
-  var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
-  var allSelected = optionalDels.length > 0 && optionalDels.every(function(del){ return !!selectedAddons[del.addonId]; });
-  if(allSelected){
-    el.textContent = 'All upgrades added to scope.';
-  } else {
-    el.textContent = 'Click "Add" on any upgrade you\'d like included. Your selection saves automatically.';
-  }
-}
-
-function updateProjectTotal(){
-  var el = document.getElementById('projectTotalAmount');
-  if(!el) return;
-  el.textContent = '$'+formatNum(calculateTotal());
-  el.classList.remove('flash');
-  void el.offsetWidth;
-  el.classList.add('flash');
-  setTimeout(function(){ el.classList.remove('flash'); }, 500);
-}
-
-function calculateTotal(){
-  if(!proposalData || !proposalData.deliverables) return 0;
-  var total = 0;
-  proposalData.deliverables.forEach(function(del){
-    if(!del.isOptional){
-      total += del.total;
-    } else if(del.addonId && selectedAddons[del.addonId]){
-      total += del.total;
-    }
-  });
-  return total;
-}
-
-function scheduleSelectionSave(){
-  if(saveTimeout) clearTimeout(saveTimeout);
-  showSaveIndicator('Saving...');
-  saveTimeout = setTimeout(saveSelectionsToWorker, 600);
-}
-
-function saveSelectionsToWorker(){
-  if(!proposalData) return;
-  var selectedIds = [];
-  Object.keys(selectedAddons).forEach(function(id){
-    if(selectedAddons[id]) selectedIds.push(id);
-  });
-  fetch(WORKER_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      action: 'updateSelections',
-      proposalId: proposalData.id,
-      selectedAddonIds: selectedIds
-    })
-  })
-  .then(function(r){
-    if(!r.ok) throw new Error('Save failed: '+r.status);
-    return r.json();
-  })
-  .then(function(){
-    showSaveIndicator('Saved');
-    setTimeout(function(){ hideSaveIndicator(); }, 1500);
-  })
-  .catch(function(err){
-    console.error('Failed to save selections:', err);
-    showSaveIndicator('Save failed', true);
-  });
-}
-
-function showSaveIndicator(text, isError){
-  var el = document.getElementById('saveIndicator');
-  if(!el) return;
-  el.textContent = text;
-  el.classList.add('visible');
-  if(isError) el.classList.add('error');
-  else el.classList.remove('error');
-}
-
-function hideSaveIndicator(){
-  var el = document.getElementById('saveIndicator');
-  if(el) el.classList.remove('visible');
-}
-
-function formatNum(n){
-  return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-function formatPrice(n){
-  if(n % 1 !== 0) return n.toFixed(2);
-  return n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-function launchConfetti(){
-  var canvas = document.createElement('canvas');
-  canvas.id = 'confetti-canvas';
-  document.body.appendChild(canvas);
-  var ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  var colors = ['#00d693','#1a1a1a','#00b87a','#5aaa8a','#e6faf3','#00d693'];
-  var pieces = [];
-  for(var i=0;i<140;i++){
-    pieces.push({
-      x:Math.random()*canvas.width,
-      y:-20-Math.random()*canvas.height*0.5,
-      w:5+Math.random()*7,
-      h:8+Math.random()*12,
-      r:Math.random()*Math.PI*2,
-      vx:(Math.random()-0.5)*3.5,
-      vy:2+Math.random()*3.5,
-      vr:(Math.random()-0.5)*0.12,
-      color:colors[Math.floor(Math.random()*colors.length)],
-      opacity:1,
-      shape:Math.random()>0.5?'rect':'circle'
-    });
-  }
-  var start=null,duration=3500;
-  function draw(ts){
-    if(!start) start=ts;
-    var elapsed=ts-start;
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    pieces.forEach(function(p){
-      p.x+=p.vx;p.y+=p.vy;p.vy+=0.05;p.r+=p.vr;
-      p.opacity=Math.max(0,1-(elapsed-2000)/1500);
-      ctx.save();ctx.globalAlpha=p.opacity;ctx.translate(p.x,p.y);ctx.rotate(p.r);ctx.fillStyle=p.color;
-      if(p.shape==='circle'){ctx.beginPath();ctx.arc(0,0,p.w/2,0,Math.PI*2);ctx.fill();}
-      else{ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);}
-      ctx.restore();
-    });
-    if(elapsed<duration) requestAnimationFrame(draw);
-    else canvas.remove();
-  }
-  requestAnimationFrame(draw);
-}
-</script>
-</body>
-</html>
+.footer-logo{height:40px;width:auto;opacity:0.
