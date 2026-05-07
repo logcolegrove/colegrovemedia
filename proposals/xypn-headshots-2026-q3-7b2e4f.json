@@ -33,7 +33,7 @@
       "title": "Additional Selects (+3 per person)",
       "isOptional": true,
       "addonId": "selects",
-      "selected": false,
+      "selected": true,
       "total": 600,
       "description": "Upgrade from one final image per person to four. Each person receives three additional edited headshots with slight variation in expression, angle, and framing.",
       "lineItems": [
