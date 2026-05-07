@@ -1,6 +1,6 @@
 {
   "id": "xypn-headshots-2026-q3-7b2e4f",
-  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for avg 10-12 min slots. Travel: none, XYPN office is downtown Bozeman.",
+  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for avg 10-12 min slots. Travel: none, XYPN office is downtown Bozeman. Crops add-on: $200 base, but if Selects are also added, true cost is $300 (pricing this manually if both selected).",
   "status": "pending",
   "acceptedDate": "",
   "title": "XYPN Team Headshots",
@@ -14,11 +14,11 @@
     {
       "title": "Team Headshots (20 People, Downtown Bozeman)",
       "total": 1300,
-      "description": "Outdoor headshot session for 20 team members at the XYPN office downtown. Natural light, average 10-12 minutes per person, live iPad review during the session.",
+      "description": "Outdoor natural-light headshot session for 20 team members at the XYPN office downtown. Reflectors and diffusion used as needed to keep the look clean and consistent. About 10-12 minutes per person, with live iPad review and same-day image selection during the session.",
       "lineItems": [
         {
-          "service": "Headshot Session + Editing",
-          "details": "On-location shoot at the XYPN downtown office, average 10-12 minutes per person. Natural light with reflectors and diffusion as conditions require. Live iPad review during the session. One final headshot per person delivered as a full-resolution JPEG with light retouching (teeth whitening, blemish cleanup, color correction).",
+          "service": "Team Headshot Package",
+          "details": "On-location shoot at the XYPN downtown office. Outdoor natural-light setup with reflectors and diffusion used as needed. About 10-12 minutes per person across 20 team members. Live iPad review and same-day image selection during the session. One final headshot per person delivered as a full-resolution JPEG with light retouching: basic blemish cleanup, subtle skin and teeth refinement, and color correction.",
           "price": 65,
           "amount": 20,
           "total": 1300
@@ -35,7 +35,7 @@
       "addonId": "selects",
       "selected": false,
       "total": 600,
-      "description": "Instead of one final image per person, deliver four. Each person gets three additional fully-edited options to choose from with slightly different expressions, angles, and crops.",
+      "description": "Upgrade from one final image per person to four. Each person receives three additional edited headshots with slight variation in expression, angle, and framing.",
       "lineItems": [
         {
           "service": "Additional Selects",
@@ -56,11 +56,11 @@
       "addonId": "crops",
       "selected": false,
       "total": 200,
-      "description": "Pre-cropped square and circular versions of every final image, ready to drop into LinkedIn, the website, Slack, or anywhere else without needing to re-crop.",
+      "description": "Square and circular crop exports of all delivered final images. $200 if Additional Selects are not added, $300 if they are (the larger image set requires more cropping and export work).",
       "lineItems": [
         {
           "service": "Multi-Format Crops",
-          "details": "Square (1:1) and circular crop exports of every delivered final image. Sized for web and social use.",
+          "details": "Square (1:1) and circular crop exports of every delivered final image, sized for web and social use.",
           "price": 200,
           "amount": 1,
           "total": 200
