@@ -14,11 +14,11 @@
     {
       "title": "Team Headshots (20 People, Downtown Bozeman)",
       "total": 1300,
-      "description": "Outdoor natural-light headshot session for 20 team members at the XYPN office downtown. Reflectors and diffusion used as needed to keep the look clean and consistent. About 10-12 minutes per person, with live iPad review and same-day image selection during the session.",
+      "description": "Outdoor natural-light headshot session for 20 team members at the XYPN office downtown. Reflectors and diffusion used as needed. About 10-12 minutes per person, with live iPad review during the session.",
       "lineItems": [
         {
           "service": "Team Headshot Package",
-          "details": "On-location shoot at the XYPN downtown office. Outdoor natural-light setup with reflectors and diffusion used as needed. About 10-12 minutes per person across 20 team members. Live iPad review and same-day image selection during the session. One final headshot per person delivered as a full-resolution JPEG with light retouching: basic blemish cleanup, subtle skin and teeth refinement, and color correction.",
+          "details": "On-location shoot at the XYPN downtown office. Outdoor natural-light setup with reflectors and diffusion used as needed. About 10-12 minutes per person across 20 team members. Live iPad review during the session. One final headshot per person delivered as a full-resolution JPEG with light retouching: basic blemish cleanup, subtle skin and teeth refinement, and color correction.",
           "price": 65,
           "amount": 20,
           "total": 1300
@@ -56,7 +56,7 @@
       "addonId": "crops",
       "selected": false,
       "total": 200,
-      "description": "Square and circular crop exports of all delivered final images. $200 if Additional Selects are not added, $300 if they are (the larger image set requires more cropping and export work).",
+      "description": "Square and circular crop exports of all delivered final images.",
       "lineItems": [
         {
           "service": "Multi-Format Crops",
