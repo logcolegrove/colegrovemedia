@@ -33,7 +33,7 @@
       "title": "Additional Selects (+3 per person)",
       "isOptional": true,
       "addonId": "selects",
-      "selected": true,
+      "selected": false,
       "total": 600,
       "description": "Instead of one final image per person, deliver four. Each person gets three additional fully-edited options to choose from with slightly different expressions, angles, and crops.",
       "lineItems": [
