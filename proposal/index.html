@@ -21,121 +21,156 @@
   --border:#e8e8e8;
   --border2:#f0f0f0;
   --teal:#00d693;
+  --teal-dark:#00b87a;
   --teal-light:#e6faf3;
   --teal-border:#b3edda;
+  --remove:#c44;
+  --remove-light:#fff0f0;
+  --addon-bg:#fafbfc;
 }
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;}
 a{color:var(--teal);text-decoration:none;}
 a:hover{text-decoration:underline;}
 
-/* LAYOUT */
+.team-mode-banner{display:none;background:#1a1a1a;color:#fff;padding:8px 20px;text-align:center;font-size:13px;font-weight:500;letter-spacing:0.02em;}
+.team-mode-banner.visible{display:block;}
+.team-mode-banner a{color:#00d693;text-decoration:underline;margin-left:8px;}
+
 .proposal-page{max-width:900px;margin:0 auto;padding:48px 40px 80px;}
 
-/* HEADER */
 .proposal-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding-bottom:32px;border-bottom:2px solid var(--text);margin-bottom:40px;}
 .header-left{display:flex;align-items:center;gap:16px;}
 .header-favicon{width:72px;height:72px;flex-shrink:0;border-radius:50%;overflow:hidden;}
-.header-info{font-size:15px;color:var(--text2);line-height:1.55;}
-.header-info strong{color:var(--text);font-weight:600;display:block;font-size:17px;}
+.header-info{font-size:16px;color:var(--text2);line-height:1.55;}
+.header-info strong{color:var(--text);font-weight:600;display:block;font-size:18px;}
 .header-right{text-align:right;}
 .header-title{font-size:28px;font-weight:700;color:var(--text);line-height:1.15;margin-bottom:8px;letter-spacing:-0.01em;}
-.header-meta{font-size:14px;color:var(--text2);line-height:1.7;}
+.header-meta{font-size:15px;color:var(--text2);line-height:1.7;}
 
-/* CLIENT INFO */
 .client-block{margin:32px 0 48px;padding:24px 28px;background:var(--bg2);border-radius:8px;border:1px solid var(--border2);}
 .client-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
-.client-name{font-size:18px;font-weight:600;color:var(--text);}
-.client-detail{font-size:16px;color:var(--text2);margin-top:2px;}
+.client-name{font-size:19px;font-weight:600;color:var(--text);}
+.client-detail{font-size:17px;color:var(--text2);margin-top:2px;}
 
-/* SECTION HEADERS */
-.section-h{font-size:28px;font-weight:700;color:var(--text);margin:48px 0 24px;padding-top:12px;}
+.section-h{font-size:28px;font-weight:700;color:var(--text);margin:48px 0 24px;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
 .section-h:first-of-type{margin-top:0;}
+.section-h-sub{font-size:15px;color:var(--text2);font-weight:400;margin:-16px 0 24px;line-height:1.6;}
 
-/* DELIVERABLE TOGGLE */
-.deliverable{margin-bottom:4px;}
+.deliverable{margin-bottom:4px;transition:opacity 250ms ease, max-height 350ms ease;}
 .deliverable-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0;border-top:1px solid var(--border);cursor:pointer;user-select:none;gap:16px;}
 .deliverable:first-child .deliverable-header{border-top:none;}
-.deliverable-title{font-size:18px;font-weight:600;color:var(--text);flex:1;}
-.deliverable-price{font-size:18px;font-weight:700;color:var(--text);white-space:nowrap;}
+.deliverable-title-wrap{display:flex;align-items:center;gap:12px;flex:1;min-width:0;}
+.deliverable-title{font-size:19px;font-weight:600;color:var(--text);}
+.deliverable-price{font-size:19px;font-weight:700;color:var(--text);white-space:nowrap;}
 .deliverable-chevron{width:20px;height:20px;color:var(--text3);transition:transform 0.25s;flex-shrink:0;}
 .deliverable.open .deliverable-chevron{transform:rotate(180deg);}
 .deliverable-body{display:none;padding:0 0 28px;}
 .deliverable.open .deliverable-body{display:block;}
-.deliverable-desc{font-size:16px;color:var(--text2);line-height:1.65;margin-bottom:28px;font-weight:300;}
+.deliverable-desc{font-size:17px;color:var(--text2);line-height:1.65;margin-bottom:28px;font-weight:400;}
 
-/* PRICING TABLE */
+.deliverable.collapsing{overflow:hidden;}
+.deliverable.fade-out{opacity:0;}
+
+.optional-section{margin:48px 0 32px;}
+.optional-section.section-empty{display:none;}
+.optional-section .deliverable{background:var(--addon-bg);border-radius:8px;margin-bottom:8px;padding:0 16px;border:1px solid var(--border2);}
+.optional-section .deliverable .deliverable-header{border-top:none;padding:18px 0;}
+.optional-section .deliverable-title{color:var(--text2);font-weight:500;}
+.optional-section .deliverable-price{color:var(--text2);font-weight:600;}
+.optional-section .deliverable-chevron{color:var(--text3);}
+.optional-section .deliverable.open{padding-bottom:8px;}
+
+.scope-clones{}
+.scope-clone-slot{display:none;}
+.scope-clone-slot.active{display:block;}
+.scope-clone-slot .deliverable-header{border-top:1px solid var(--border);}
+
+.addon-toggle{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-dark);font-family:inherit;font-size:13px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;flex-shrink:0;white-space:nowrap;}
+.addon-toggle:hover{background:var(--teal-light);}
+.addon-toggle:disabled{opacity:0.5;cursor:not-allowed;}
+.addon-toggle .plus-icon{width:11px;height:11px;}
+
+.scope-remove-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:transparent;border:1.5px solid var(--border);color:var(--text2);font-family:inherit;font-size:13px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;flex-shrink:0;white-space:nowrap;}
+.scope-remove-btn:hover{background:var(--remove-light);border-color:var(--remove);color:var(--remove);}
+.scope-remove-btn:disabled{opacity:0.5;cursor:not-allowed;}
+.scope-remove-btn .x-icon{width:11px;height:11px;}
+
+.add-all-link-wrap{margin-top:16px;}
+.add-all-link{display:inline-flex;align-items:center;gap:5px;padding:4px 0;background:transparent;border:none;color:var(--text3);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:color 0.15s;}
+.add-all-link:hover{color:var(--teal-dark);text-decoration:underline;}
+.add-all-link:disabled{opacity:0.5;cursor:not-allowed;}
+.add-all-link .plus-icon{width:11px;height:11px;}
+
+.added-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--teal-dark);background:var(--teal-light);padding:3px 10px;border-radius:4px;flex-shrink:0;}
+.declined-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--text3);background:var(--border2);padding:3px 10px;border-radius:4px;flex-shrink:0;}
+
 .price-table{width:100%;border-collapse:collapse;margin-bottom:28px;}
 .price-table th{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);}
 .price-table th.num{text-align:right;}
-.price-table td{font-size:15px;padding:16px 14px;border-bottom:1px solid var(--border2);vertical-align:top;color:var(--text2);}
+.price-table td{font-size:16px;padding:16px 14px;border-bottom:1px solid var(--border2);vertical-align:top;color:var(--text2);}
 .price-table td.svc{font-weight:500;color:var(--text);min-width:180px;}
-.price-table td.details{font-size:14px;color:var(--text2);line-height:1.6;font-weight:300;max-width:340px;}
+.price-table td.details{font-size:15px;color:var(--text2);line-height:1.6;font-weight:400;max-width:340px;}
 .price-table td.num{text-align:right;white-space:nowrap;font-weight:500;color:var(--text);}
-.price-table tr.sum-row td{border-bottom:none;border-top:2px solid var(--border);font-weight:700;color:var(--text);padding-top:14px;}
 
-/* DELIVERABLES LIST */
-.del-list-label{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;}
+.del-list-label{font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px;}
 .del-list{list-style:none;margin-bottom:28px;}
-.del-list li{font-size:16px;color:var(--text2);padding:5px 0;padding-left:22px;position:relative;font-weight:300;}
-.del-list li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--teal);}
+.del-list li{font-size:17px;color:var(--text2);padding:5px 0;padding-left:22px;position:relative;font-weight:400;}
+.del-list li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--teal);}
 
-/* TIMELINE */
-.timeline-simple{font-size:16px;color:var(--text2);font-weight:500;margin-bottom:10px;}
+.timeline-simple{font-size:17px;color:var(--text2);font-weight:500;margin-bottom:10px;}
 .timeline-table{width:100%;border-collapse:collapse;margin-bottom:10px;}
 .timeline-table th{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);text-align:left;padding:10px 14px;border-bottom:1px solid var(--border);}
-.timeline-table td{font-size:15px;padding:12px 14px;border-bottom:1px solid var(--border2);color:var(--text2);}
+.timeline-table td{font-size:16px;padding:12px 14px;border-bottom:1px solid var(--border2);color:var(--text2);}
 .timeline-table td:first-child{font-weight:500;color:var(--text);white-space:nowrap;}
 .timeline-table .responsible{font-size:13px;font-weight:500;padding:3px 12px;border-radius:4px;display:inline-block;}
 .resp-cm{background:#f0f0f0;color:var(--text2);}
 .resp-client{background:var(--teal-light);color:#1a7a5a;}
 
-/* PROJECT TOTAL */
 .project-total{display:flex;justify-content:space-between;align-items:baseline;margin:32px 0 48px;padding-top:20px;border-top:2px solid var(--text);font-size:22px;font-weight:700;color:var(--text);}
+.project-total-amount{transition:color 0.3s;}
+.project-total-amount.flash{color:var(--teal-dark);}
 
-/* REFERENCES */
+.flying-clone{position:fixed;z-index:9000;pointer-events:none;background:var(--bg);box-shadow:0 12px 40px rgba(0,0,0,0.18);border-radius:8px;padding:20px 16px;transition:transform 380ms cubic-bezier(0.34,1.2,0.64,1),opacity 380ms ease;}
+
 .references{margin:32px 0;}
-.references-label{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;}
+.references-label{font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px;}
 .references ol{padding-left:22px;}
-.references li{font-size:16px;color:var(--text2);padding:4px 0;font-weight:300;}
+.references li{font-size:17px;color:var(--text2);padding:4px 0;font-weight:400;}
 
-/* NEXT STEPS */
 .next-steps{margin:48px 0 32px;padding-top:32px;border-top:1px solid var(--border);}
 .next-steps h2{font-size:28px;font-weight:700;color:var(--text);margin-bottom:14px;}
-.next-steps p{font-size:16px;color:var(--text2);line-height:1.7;font-weight:300;}
+.next-steps p{font-size:17px;color:var(--text2);line-height:1.7;font-weight:400;}
 
-/* TALLY EMBED WRAPPER */
 .tally-wrap{margin:32px 0;padding:36px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;}
-.tally-wrap h3{font-size:18px;font-weight:600;color:var(--text);margin-bottom:6px;}
-.tally-wrap p{font-size:15px;color:var(--text3);margin-bottom:24px;font-weight:300;}
+.tally-wrap h3{font-size:19px;font-weight:600;color:var(--text);margin-bottom:6px;}
+.tally-wrap p{font-size:16px;color:var(--text3);margin-bottom:24px;font-weight:400;}
 
-/* ACCEPTED STATE */
 .accepted-banner{display:none;margin:32px 0;padding:28px 32px;background:var(--teal-light);border:1px solid var(--teal-border);border-radius:12px;}
 .accepted-banner.visible{display:flex;align-items:center;gap:16px;}
 .accepted-check{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.accepted-text{font-size:18px;font-weight:600;color:#1a7a5a;}
-.accepted-date{font-size:15px;color:#5aaa8a;font-weight:400;margin-top:2px;}
+.accepted-text{font-size:19px;font-weight:600;color:#1a7a5a;}
+.accepted-date{font-size:16px;color:#5aaa8a;font-weight:400;margin-top:2px;}
 
-/* FOOTER */
+.save-indicator{display:none;font-size:13px;color:var(--text3);margin-left:12px;font-weight:400;}
+.save-indicator.visible{display:inline;}
+.save-indicator.error{color:#c44;}
+
 .proposal-footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .footer-logo{height:40px;width:auto;opacity:0.8;}
-.footer-contact{text-align:right;font-size:15px;color:var(--text3);line-height:1.7;}
+.footer-contact{text-align:right;font-size:16px;color:var(--text3);line-height:1.7;}
 .footer-contact a{color:var(--text3);}
 .footer-contact a:hover{color:var(--teal);}
 
-/* CONFETTI */
 #confetti-canvas{position:fixed;inset:0;pointer-events:none;z-index:9999;}
 
-/* LOADING */
 .proposal-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;}
-.proposal-loading p{font-size:16px;color:var(--text3);}
+.proposal-loading p{font-size:17px;color:var(--text3);}
 
-/* ERROR */
 .proposal-error{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;text-align:center;}
 .proposal-error h2{font-size:28px;font-weight:700;color:var(--text);}
-.proposal-error p{font-size:16px;color:var(--text2);max-width:400px;}
+.proposal-error p{font-size:17px;color:var(--text2);max-width:400px;}
 
-/* RESPONSIVE */
 @media(max-width:640px){
   .proposal-page{padding:32px 20px 60px;}
   .proposal-header{flex-direction:column;gap:16px;}
@@ -143,8 +178,8 @@ a:hover{text-decoration:underline;}
   .header-right{text-align:left;}
   .header-title{font-size:22px;}
   .section-h{font-size:22px;}
-  .deliverable-title{font-size:16px;}
-  .deliverable-price{font-size:16px;}
+  .deliverable-title{font-size:17px;}
+  .deliverable-price{font-size:17px;}
   .price-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .price-table thead, .price-table tbody{min-width:600px;display:table;width:100%;table-layout:fixed;}
   .price-table colgroup{display:table-column-group;}
@@ -163,6 +198,11 @@ a:hover{text-decoration:underline;}
 </head>
 <body>
 
+<div class="team-mode-banner" id="teamModeBanner">
+  Team mode active. Views from this browser will not trigger notifications.
+  <a href="#" id="disableTeamMode">Disable</a>
+</div>
+
 <div class="proposal-page" id="proposalPage">
   <div class="proposal-loading" id="loadingState">
     <p>Loading proposal...</p>
@@ -170,6 +210,44 @@ a:hover{text-decoration:underline;}
 </div>
 
 <script>
+var WORKER_URL = 'https://proposal-accept.logcolegrove.workers.dev';
+var TEAM_MODE_KEY = 'cm-team-mode';
+var selectedAddons = {};
+var proposalData = null;
+var saveTimeout = null;
+var animatingAddons = {};
+
+(function handleTeamModeParams(){
+  var params = new URLSearchParams(window.location.search);
+  var teamModeParam = params.get('team_mode');
+  if(teamModeParam === 'enable'){
+    try { localStorage.setItem(TEAM_MODE_KEY, '1'); } catch(e){}
+  } else if(teamModeParam === 'disable'){
+    try { localStorage.removeItem(TEAM_MODE_KEY); } catch(e){}
+  }
+})();
+
+function isTeamMode(){
+  try { return localStorage.getItem(TEAM_MODE_KEY) === '1'; }
+  catch(e){ return false; }
+}
+
+(function showTeamBanner(){
+  if(isTeamMode()){
+    var banner = document.getElementById('teamModeBanner');
+    if(banner) banner.classList.add('visible');
+  }
+})();
+
+document.addEventListener('click', function(e){
+  if(e.target && e.target.id === 'disableTeamMode'){
+    e.preventDefault();
+    try { localStorage.removeItem(TEAM_MODE_KEY); } catch(err){}
+    var banner = document.getElementById('teamModeBanner');
+    if(banner) banner.classList.remove('visible');
+  }
+});
+
 (function(){
   var params = new URLSearchParams(window.location.search);
   var proposalId = params.get('id');
@@ -178,27 +256,39 @@ a:hover{text-decoration:underline;}
     return;
   }
 
-  // Check if this proposal was locally accepted (bridges the gap before Worker updates JSON)
   var localAcceptKey = 'proposal-accepted-'+proposalId;
   var localAcceptData = null;
   try { localAcceptData = JSON.parse(localStorage.getItem(localAcceptKey)); } catch(e){}
 
-  fetch('/proposals/'+proposalId+'.json?v='+Date.now())
+  var fetchUrl = WORKER_URL+'?id='+encodeURIComponent(proposalId);
+  if(isTeamMode()) fetchUrl += '&team=1';
+
+  fetch(fetchUrl, { cache: 'no-store' })
     .then(function(r){
       if(!r.ok) throw new Error('not found');
       return r.json();
     })
     .then(function(data){
-      // If JSON still says pending but we know it was locally accepted, override
+      if(data.error) throw new Error(data.error);
+
       if(data.status !== 'accepted' && localAcceptData){
         data.status = 'accepted';
         data.acceptedDate = localAcceptData.date;
         data._localAccept = true;
       }
-      // If JSON confirms accepted, clean up localStorage (no longer needed)
       if(data.status === 'accepted' && !data._localAccept){
         try { localStorage.removeItem(localAcceptKey); } catch(e){}
       }
+
+      if(data.deliverables){
+        data.deliverables.forEach(function(del){
+          if(del.isOptional && del.addonId){
+            selectedAddons[del.addonId] = !!del.selected;
+          }
+        });
+      }
+
+      proposalData = data;
       renderProposal(data);
     })
     .catch(function(){ showError('Proposal not found.','This link may be incorrect or expired. Contact logan@colegrovemedia.com if you need help.'); });
@@ -212,13 +302,18 @@ function showError(title, msg){
 function renderProposal(d){
   var page = document.getElementById('proposalPage');
   var isAccepted = d.status === 'accepted';
-  var totalSum = d.deliverables.reduce(function(s,del){return s+del.total;},0);
+
+  var baseDeliverables = d.deliverables.filter(function(del){ return !del.isOptional; });
+  var optionalDeliverables = d.deliverables.filter(function(del){ return del.isOptional; });
+  var anyOptional = optionalDeliverables.length > 0;
+  var unselectedOptional = optionalDeliverables.filter(function(del){ return !selectedAddons[del.addonId]; });
+  var allSelected = anyOptional && unselectedOptional.length === 0;
+  var noneSelected = anyOptional && unselectedOptional.length === optionalDeliverables.length;
 
   document.title = d.title + ' - Colegrove Media';
 
   var html = '';
 
-  // HEADER: favicon logo left, title right
   html += '<div class="proposal-header">'
     +'<div class="header-left">'
     +'<img src="/assets/images/colegrove-media-favicon.svg" alt="Colegrove Media" class="header-favicon">'
@@ -230,7 +325,6 @@ function renderProposal(d){
     +'</div>'
     +'</div>';
 
-  // CLIENT
   html += '<div class="client-block">'
     +'<div class="client-label">Prepared For</div>'
     +'<div class="client-name">'+d.contact+'</div>'
@@ -238,68 +332,48 @@ function renderProposal(d){
     +(d.contactEmail?'<div class="client-detail">'+d.contactEmail+'</div>':'')
     +'</div>';
 
-  // SCOPE HEADER
-  html += '<h2 class="section-h">Scope of Work & Price</h2>';
+  html += '<h2 class="section-h"><span>Scope of Work & Price</span></h2>';
 
-  // DELIVERABLES
-  d.deliverables.forEach(function(del, i){
-    html += '<div class="deliverable'+(d.deliverables.length===1?' open':'')+'" id="del-'+i+'">'
-      +'<div class="deliverable-header" onclick="toggleDel('+i+')">'
-      +'<div class="deliverable-title">'+del.title+'</div>'
-      +'<div class="deliverable-price">$'+formatNum(del.total)+'</div>'
-      +'<svg class="deliverable-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>'
-      +'</div>'
-      +'<div class="deliverable-body">';
-
-    if(del.description) html += '<div class="deliverable-desc">'+del.description+'</div>';
-
-    // PRICING TABLE
-    html += '<table class="price-table"><thead><tr>'
-      +'<th>Service</th><th>Details</th><th class="num">Price</th><th class="num">Qty</th><th class="num">Total</th>'
-      +'</tr></thead><tbody>';
-    del.lineItems.forEach(function(li){
-      html += '<tr>'
-        +'<td class="svc">'+li.service+'</td>'
-        +'<td class="details">'+li.details+'</td>'
-        +'<td class="num">$'+formatPrice(li.price)+'</td>'
-        +'<td class="num">'+li.amount+'</td>'
-        +'<td class="num">$'+formatNum(li.total)+'</td>'
-        +'</tr>';
-    });
-    html += '<tr class="sum-row"><td colspan="4" style="text-align:right;">Total</td><td class="num">$'+formatNum(del.total)+'</td></tr>';
-    html += '</tbody></table>';
-
-    // DELIVERABLES LIST
-    if(del.deliverablesList && del.deliverablesList.length){
-      html += '<div class="del-list-label">Deliverables:</div><ol class="del-list">';
-      del.deliverablesList.forEach(function(item,j){
-        html += '<li>'+item+'</li>';
-      });
-      html += '</ol>';
-    }
-
-    // TIMELINE
-    if(del.milestones && del.milestones.length){
-      if(del.timeline) html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
-      html += '<table class="timeline-table"><thead><tr><th>Date</th><th>Milestone</th><th>Responsible</th></tr></thead><tbody>';
-      del.milestones.forEach(function(m){
-        var respClass = m.responsible === 'Colegrove Media' ? 'resp-cm' : 'resp-client';
-        html += '<tr><td>'+m.date+'</td><td>'+m.milestone+'</td><td><span class="responsible '+respClass+'">'+m.responsible+'</span></td></tr>';
-      });
-      html += '</tbody></table>';
-    } else if(del.timeline){
-      html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
-    }
-
-    html += '</div></div>';
+  baseDeliverables.forEach(function(del, i){
+    html += renderDeliverable(del, 'base-'+i, false, false, isAccepted, false);
   });
 
-  // PROJECT TOTAL (only shown for multiple deliverables)
-  if(d.deliverables.length > 1){
-    html += '<div class="project-total"><span>Project Total</span><span>$'+formatNum(totalSum)+'</span></div>';
+  html += '<div class="scope-clones" id="scopeClones">';
+  optionalDeliverables.forEach(function(del, i){
+    var isSelected = !!selectedAddons[del.addonId];
+    html += '<div class="scope-clone-slot'+(isSelected?' active':'')+'" id="scopeSlot-'+del.addonId+'" data-addon-id="'+del.addonId+'">';
+    html += renderDeliverable(del, 'scope-'+del.addonId, false, false, isAccepted, true);
+    html += '</div>';
+  });
+  html += '</div>';
+
+  html += '<div class="project-total"><span>Project Total</span><span class="project-total-amount" id="projectTotalAmount">$'+formatNum(calculateTotal())+'</span></div>';
+
+  if(anyOptional){
+    var sectionVisible = isAccepted ? optionalDeliverables.some(function(del){ return !selectedAddons[del.addonId]; }) : !allSelected;
+    var subText = getOptionalSubText(noneSelected, allSelected, isAccepted);
+    var addAllVisible = !isAccepted && unselectedOptional.length > 1;
+
+    html += '<div class="optional-section'+(sectionVisible?'':' section-empty')+'" id="optionalSection">'
+      +'<h2 class="section-h"><span>Optional Add-Ons <span class="save-indicator" id="saveIndicator"></span></span></h2>'
+      +(subText ? '<p class="section-h-sub" id="optionalSubText">'+subText+'</p>' : '');
+
+    optionalDeliverables.forEach(function(del, i){
+      html += renderDeliverable(del, 'src-'+del.addonId, false, true, isAccepted, false);
+    });
+
+    if(addAllVisible){
+      html += '<div class="add-all-link-wrap" id="addAllWrap">'
+        +'<button type="button" class="add-all-link" id="addAllBtn" onclick="toggleAddAll(event)">'
+        +'<svg class="plus-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>'
+        +'<span>Add all to scope</span>'
+        +'</button>'
+        +'</div>';
+    }
+
+    html += '</div>';
   }
 
-  // REFERENCES
   if(d.references && d.references.length){
     html += '<div class="references"><div class="references-label">References:</div><ol>';
     d.references.forEach(function(ref){
@@ -308,20 +382,19 @@ function renderProposal(d){
     html += '</ol></div>';
   }
 
-  // NEXT STEPS + APPROVAL
-  html += '<div class="next-steps">'
-    +'<h2>Next Steps</h2>'
-    +'<p>If you\'d like to proceed, approve this proposal below and the project will commence. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
-    +'</div>';
+  if(!isAccepted){
+    html += '<div class="next-steps">'
+      +'<h2>Next Steps</h2>'
+      +'<p>If you\'d like to proceed, approve this proposal below and the project will be locked in. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
+      +'</div>';
+  }
 
-  // ACCEPTED STATE (always rendered, shown when status is accepted)
   html += '<div class="accepted-banner'+(isAccepted?' visible':'')+'" id="acceptedBanner">'
     +'<div class="accepted-check"><svg width="14" height="11" viewBox="0 0 14 11" fill="none"><path d="M1 5.5L5 9.5L13 1.5" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
     +'<div><div class="accepted-text">Proposal Accepted</div>'
     +'<div class="accepted-date">'+(d.acceptedDate||'')+'</div>'
     +'</div></div>';
 
-  // TALLY FORM (hidden when accepted)
   if(!isAccepted && d.tallyFormId){
     html += '<div class="tally-wrap" id="tallyWrap">'
       +'<h3>Approve This Proposal</h3>'
@@ -329,7 +402,6 @@ function renderProposal(d){
       +'<iframe data-tally-src="https://tally.so/embed/'+d.tallyFormId+'?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&proposal_id='+encodeURIComponent(d.id)+'" loading="lazy" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0" title="Approve Proposal" autocomplete="off"></iframe>'
       +'</div>';
 
-    // Load Tally embed script + listen for submission
     var tallyScript = document.createElement('script');
     tallyScript.src = 'https://tally.so/widgets/embed.js';
     tallyScript.onload = function(){
@@ -337,31 +409,29 @@ function renderProposal(d){
     };
     document.body.appendChild(tallyScript);
 
-    // Listen for Tally form submission via postMessage
     window.addEventListener('message', function(e){
       if(typeof e.data === 'string' && e.data.indexOf('Tally.FormSubmitted') > -1){
-        // Save accepted state locally so refreshes during Worker delay still show accepted
         var now = new Date();
         var dateStr = (now.getMonth()+1)+'/'+now.getDate()+'/'+now.getFullYear();
         try {
           localStorage.setItem('proposal-accepted-'+d.id, JSON.stringify({date: dateStr, ts: now.toISOString()}));
         } catch(ex){}
-        // Hide the Tally form
         var tallyEl = document.getElementById('tallyWrap');
         if(tallyEl) tallyEl.style.display = 'none';
-        // Show accepted banner
+        var nextStepsEl = document.querySelector('.next-steps');
+        if(nextStepsEl) nextStepsEl.style.display = 'none';
         var banner = document.getElementById('acceptedBanner');
         if(banner){
           banner.querySelector('.accepted-date').textContent = dateStr;
           banner.classList.add('visible');
         }
-        // Fire confetti
+        var toggles = document.querySelectorAll('.addon-toggle, .scope-remove-btn, .add-all-link');
+        toggles.forEach(function(t){ t.disabled = true; });
         setTimeout(launchConfetti, 200);
       }
     });
   }
 
-  // FOOTER: black logo left, contact right
   html += '<div class="proposal-footer">'
     +'<img src="/assets/images/Colegrove Media Black Logo.svg" alt="Colegrove Media" class="footer-logo" onerror="this.style.display=\'none\'">'
     +'<div class="footer-contact"><a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a><br><a href="tel:4062099945">(406) 209-9945</a></div>'
@@ -369,17 +439,21 @@ function renderProposal(d){
 
   page.innerHTML = html;
 
-  // Only fire confetti on page load if accepted within the last 5 minutes
+  optionalDeliverables.forEach(function(del){
+    if(selectedAddons[del.addonId]){
+      var sourceCard = document.querySelector('.optional-section .deliverable[data-addon-id="'+del.addonId+'"]');
+      if(sourceCard) sourceCard.style.display = 'none';
+    }
+  });
+
   if(isAccepted){
     var shouldConfetti = false;
-    // Check against acceptedDate from JSON
     if(d.acceptedDate){
       var accepted = new Date(d.acceptedDate);
       if(!isNaN(accepted.getTime()) && (new Date() - accepted) < 300000){
         shouldConfetti = true;
       }
     }
-    // Also check localStorage timestamp for locally accepted proposals (Worker hasn't updated yet)
     if(!shouldConfetti && d._localAccept){
       try {
         var localData = JSON.parse(localStorage.getItem('proposal-accepted-'+d.id));
@@ -395,9 +469,390 @@ function renderProposal(d){
   }
 }
 
-function toggleDel(i){
-  var el = document.getElementById('del-'+i);
+function getOptionalSubText(noneSelected, allSelected, isAccepted){
+  if(isAccepted){
+    return 'These were not included in the final scope.';
+  }
+  return '';
+}
+
+function renderDeliverable(del, id, autoOpen, isOptional, isAccepted, isScopeClone){
+  var isSelected = false;
+  if(del.isOptional && del.addonId){
+    isSelected = !!selectedAddons[del.addonId];
+  }
+
+  var statusBadge = '';
+  if(isAccepted && isOptional){
+    if(isSelected){
+      statusBadge = '<span class="added-badge">✓ Added</span>';
+    } else {
+      statusBadge = '<span class="declined-badge">Not selected</span>';
+    }
+  }
+
+  var actionBtn = '';
+  if(!isAccepted && del.isOptional && del.addonId){
+    if(isScopeClone){
+      actionBtn = '<button type="button" class="scope-remove-btn" onclick="toggleAddon(event, \''+del.addonId+'\')" data-addon-id="'+del.addonId+'">'
+        +'<svg class="x-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 3l8 8M11 3l-8 8"/></svg>'
+        +'<span>Remove</span>'
+        +'</button>';
+    } else {
+      actionBtn = '<button type="button" class="addon-toggle" onclick="toggleAddon(event, \''+del.addonId+'\')" data-addon-id="'+del.addonId+'">'
+        +'<svg class="plus-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>'
+        +'<span>Add</span>'
+        +'</button>';
+    }
+  }
+
+  var classes = 'deliverable';
+  if(autoOpen) classes += ' open';
+  if(isOptional) classes += ' optional-deliverable';
+  if(isScopeClone) classes += ' scope-clone-card';
+
+  var dataAttr = del.addonId ? ' data-addon-id="'+del.addonId+'"' : '';
+
+  var html = '<div class="'+classes+'" id="del-'+id+'"'+dataAttr+'>'
+    +'<div class="deliverable-header" onclick="toggleDel(\''+id+'\')">'
+    +'<div class="deliverable-title-wrap">'+actionBtn+statusBadge+'<span class="deliverable-title">'+del.title+'</span></div>'
+    +'<div class="deliverable-price">$'+formatNum(del.total)+'</div>'
+    +'<svg class="deliverable-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>'
+    +'</div>'
+    +'<div class="deliverable-body">';
+
+  if(del.description) html += '<div class="deliverable-desc">'+del.description+'</div>';
+
+  html += '<table class="price-table"><thead><tr>'
+    +'<th>Service</th><th>Details</th><th class="num">Price</th><th class="num">Qty</th><th class="num">Total</th>'
+    +'</tr></thead><tbody>';
+  del.lineItems.forEach(function(li){
+    html += '<tr>'
+      +'<td class="svc">'+li.service+'</td>'
+      +'<td class="details">'+li.details+'</td>'
+      +'<td class="num">$'+formatPrice(li.price)+'</td>'
+      +'<td class="num">'+li.amount+'</td>'
+      +'<td class="num">$'+formatNum(li.total)+'</td>'
+      +'</tr>';
+  });
+  html += '</tbody></table>';
+
+  if(del.deliverablesList && del.deliverablesList.length){
+    html += '<div class="del-list-label">Deliverables:</div><ol class="del-list">';
+    del.deliverablesList.forEach(function(item,j){
+      html += '<li>'+item+'</li>';
+    });
+    html += '</ol>';
+  }
+
+  if(del.milestones && del.milestones.length){
+    if(del.timeline) html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
+    html += '<table class="timeline-table"><thead><tr><th>Date</th><th>Milestone</th><th>Responsible</th></tr></thead><tbody>';
+    del.milestones.forEach(function(m){
+      var respClass = m.responsible === 'Colegrove Media' ? 'resp-cm' : 'resp-client';
+      html += '<tr><td>'+m.date+'</td><td>'+m.milestone+'</td><td><span class="responsible '+respClass+'">'+m.responsible+'</span></td></tr>';
+    });
+    html += '</tbody></table>';
+  } else if(del.timeline){
+    html += '<div class="timeline-simple">Timeline: '+del.timeline+'</div>';
+  }
+
+  html += '</div></div>';
+  return html;
+}
+
+function toggleDel(id){
+  var el = document.getElementById('del-'+id);
   if(el) el.classList.toggle('open');
+}
+
+function toggleAddon(event, addonId){
+  event.stopPropagation();
+  if(animatingAddons[addonId]) return;
+
+  var newState = !selectedAddons[addonId];
+  selectedAddons[addonId] = newState;
+  animatingAddons[addonId] = true;
+
+  if(newState){
+    animateAdd(addonId, function(){
+      animatingAddons[addonId] = false;
+      updateSectionVisibility();
+    });
+  } else {
+    animateRemove(addonId, function(){
+      animatingAddons[addonId] = false;
+      updateSectionVisibility();
+    });
+  }
+
+  updateAddAllButton();
+  updateProjectTotal();
+  updateOptionalSubText();
+  scheduleSelectionSave();
+}
+
+function animateAdd(addonId, onComplete){
+  var sourceCard = document.querySelector('.optional-section .deliverable[data-addon-id="'+addonId+'"]');
+  var scopeSlot = document.getElementById('scopeSlot-'+addonId);
+  if(!sourceCard || !scopeSlot){
+    if(onComplete) onComplete();
+    return;
+  }
+
+  var srcRect = sourceCard.getBoundingClientRect();
+
+  scopeSlot.style.visibility = 'hidden';
+  scopeSlot.classList.add('active');
+  var targetRect = scopeSlot.getBoundingClientRect();
+  scopeSlot.classList.remove('active');
+  scopeSlot.style.visibility = '';
+
+  var clone = sourceCard.cloneNode(true);
+  clone.classList.add('flying-clone');
+  var cloneToggle = clone.querySelector('.addon-toggle, .scope-remove-btn');
+  if(cloneToggle) cloneToggle.remove();
+  clone.classList.remove('open');
+  clone.style.left = srcRect.left + 'px';
+  clone.style.top = srcRect.top + 'px';
+  clone.style.width = srcRect.width + 'px';
+  clone.style.transform = 'scale(1)';
+  clone.style.opacity = '1';
+  document.body.appendChild(clone);
+
+  var srcHeight = sourceCard.offsetHeight;
+  sourceCard.style.maxHeight = srcHeight + 'px';
+  sourceCard.classList.add('collapsing');
+  void sourceCard.offsetWidth;
+  sourceCard.style.maxHeight = '0px';
+  sourceCard.style.opacity = '0';
+  sourceCard.style.padding = '0';
+  sourceCard.style.margin = '0';
+
+  void clone.offsetWidth;
+
+  var dx = targetRect.left - srcRect.left;
+  var dy = targetRect.top - srcRect.top;
+  clone.style.transform = 'translate('+dx+'px, '+dy+'px) scale(0.96)';
+  clone.style.opacity = '0.85';
+
+  var cleanedUp = false;
+  function cleanup(){
+    if(cleanedUp) return;
+    cleanedUp = true;
+    if(clone.parentNode) clone.parentNode.removeChild(clone);
+    scopeSlot.classList.add('active');
+    sourceCard.style.display = 'none';
+    if(onComplete) onComplete();
+  }
+
+  clone.addEventListener('transitionend', cleanup, { once: true });
+  setTimeout(cleanup, 500);
+}
+
+function animateRemove(addonId, onComplete){
+  var sourceCard = document.querySelector('.optional-section .deliverable[data-addon-id="'+addonId+'"]');
+  var scopeSlot = document.getElementById('scopeSlot-'+addonId);
+  if(!sourceCard || !scopeSlot){
+    if(onComplete) onComplete();
+    return;
+  }
+
+  var scopeCard = scopeSlot.querySelector('.deliverable');
+  if(!scopeCard){
+    scopeSlot.classList.remove('active');
+    if(onComplete) onComplete();
+    return;
+  }
+
+  sourceCard.style.display = '';
+  sourceCard.style.maxHeight = '';
+  sourceCard.style.opacity = '0';
+  sourceCard.style.padding = '';
+  sourceCard.style.margin = '';
+  sourceCard.classList.remove('collapsing');
+
+  var startRect = scopeCard.getBoundingClientRect();
+  var endRect = sourceCard.getBoundingClientRect();
+
+  scopeSlot.classList.remove('active');
+
+  var clone = scopeCard.cloneNode(true);
+  clone.classList.add('flying-clone');
+  var cloneBtn = clone.querySelector('.scope-remove-btn, .addon-toggle');
+  if(cloneBtn) cloneBtn.remove();
+  clone.classList.remove('open');
+  clone.style.left = startRect.left + 'px';
+  clone.style.top = startRect.top + 'px';
+  clone.style.width = startRect.width + 'px';
+  clone.style.transform = 'scale(1)';
+  clone.style.opacity = '1';
+  document.body.appendChild(clone);
+
+  void clone.offsetWidth;
+
+  var dx = endRect.left - startRect.left;
+  var dy = endRect.top - startRect.top;
+  clone.style.transform = 'translate('+dx+'px, '+dy+'px) scale(0.96)';
+  clone.style.opacity = '0.85';
+
+  setTimeout(function(){
+    sourceCard.style.transition = 'opacity 250ms ease';
+    sourceCard.style.opacity = '1';
+  }, 200);
+
+  var cleanedUp = false;
+  function cleanup(){
+    if(cleanedUp) return;
+    cleanedUp = true;
+    if(clone.parentNode) clone.parentNode.removeChild(clone);
+    sourceCard.style.opacity = '';
+    sourceCard.style.transition = '';
+    if(onComplete) onComplete();
+  }
+
+  clone.addEventListener('transitionend', cleanup, { once: true });
+  setTimeout(cleanup, 500);
+}
+
+function toggleAddAll(event){
+  event.stopPropagation();
+  if(!proposalData) return;
+
+  var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
+
+  var idsToToggle = [];
+  optionalDels.forEach(function(del){
+    if(!selectedAddons[del.addonId]){
+      idsToToggle.push({ addonId: del.addonId, newState: true });
+    }
+  });
+
+  idsToToggle.forEach(function(item, idx){
+    setTimeout(function(){
+      if(animatingAddons[item.addonId]) return;
+      selectedAddons[item.addonId] = item.newState;
+      animatingAddons[item.addonId] = true;
+      animateAdd(item.addonId, function(){
+        animatingAddons[item.addonId] = false;
+        updateSectionVisibility();
+      });
+      updateProjectTotal();
+    }, idx * 100);
+  });
+
+  setTimeout(function(){
+    updateAddAllButton();
+    updateOptionalSubText();
+    scheduleSelectionSave();
+  }, idsToToggle.length * 100 + 50);
+}
+
+function updateAddAllButton(){
+  var wrap = document.getElementById('addAllWrap');
+  if(!wrap || !proposalData) return;
+  var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
+  var unselectedCount = optionalDels.filter(function(del){ return !selectedAddons[del.addonId]; }).length;
+  if(unselectedCount < 2){
+    wrap.style.display = 'none';
+  } else {
+    wrap.style.display = '';
+  }
+}
+
+function updateSectionVisibility(){
+  var section = document.getElementById('optionalSection');
+  if(!section || !proposalData) return;
+  var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
+  var hasUnselected = optionalDels.some(function(del){ return !selectedAddons[del.addonId]; });
+  if(hasUnselected){
+    section.classList.remove('section-empty');
+  } else {
+    section.classList.add('section-empty');
+  }
+}
+
+function updateOptionalSubText(){
+  var el = document.getElementById('optionalSubText');
+  if(!el) return;
+  var newText = getOptionalSubText(false, false, false);
+  if(newText){
+    el.textContent = newText;
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+function updateProjectTotal(){
+  var el = document.getElementById('projectTotalAmount');
+  if(!el) return;
+  el.textContent = '$'+formatNum(calculateTotal());
+  el.classList.remove('flash');
+  void el.offsetWidth;
+  el.classList.add('flash');
+  setTimeout(function(){ el.classList.remove('flash'); }, 500);
+}
+
+function calculateTotal(){
+  if(!proposalData || !proposalData.deliverables) return 0;
+  var total = 0;
+  proposalData.deliverables.forEach(function(del){
+    if(!del.isOptional){
+      total += del.total;
+    } else if(del.addonId && selectedAddons[del.addonId]){
+      total += del.total;
+    }
+  });
+  return total;
+}
+
+function scheduleSelectionSave(){
+  if(saveTimeout) clearTimeout(saveTimeout);
+  showSaveIndicator('Saving...');
+  saveTimeout = setTimeout(saveSelectionsToWorker, 600);
+}
+
+function saveSelectionsToWorker(){
+  if(!proposalData) return;
+  var selectedIds = [];
+  Object.keys(selectedAddons).forEach(function(id){
+    if(selectedAddons[id]) selectedIds.push(id);
+  });
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      action: 'updateSelections',
+      proposalId: proposalData.id,
+      selectedAddonIds: selectedIds
+    })
+  })
+  .then(function(r){
+    if(!r.ok) throw new Error('Save failed: '+r.status);
+    return r.json();
+  })
+  .then(function(){
+    showSaveIndicator('Saved');
+    setTimeout(function(){ hideSaveIndicator(); }, 1500);
+  })
+  .catch(function(err){
+    console.error('Failed to save selections:', err);
+    showSaveIndicator('Save failed', true);
+  });
+}
+
+function showSaveIndicator(text, isError){
+  var el = document.getElementById('saveIndicator');
+  if(!el) return;
+  el.textContent = text;
+  el.classList.add('visible');
+  if(isError) el.classList.add('error');
+  else el.classList.remove('error');
+}
+
+function hideSaveIndicator(){
+  var el = document.getElementById('saveIndicator');
+  if(el) el.classList.remove('visible');
 }
 
 function formatNum(n){

@@ -1,0 +1,104 @@
+{
+  "id": "xypn-headshots-2026-q3-7b2e4f",
+  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for avg 10-12 min slots. Travel: none, XYPN office is downtown Bozeman.",
+  "status": "pending",
+  "acceptedDate": "",
+  "title": "XYPN Team Headshots",
+  "client": "XY Planning Network",
+  "contact": "Jade Deliso",
+  "contactEmail": "",
+  "date": "May 7, 2026",
+  "validFor": "15 days",
+  "tallyFormId": "wMERpY",
+  "deliverables": [
+    {
+      "title": "Team Headshots (20 People, Downtown Bozeman)",
+      "total": 1300,
+      "description": "Outdoor natural-light headshot session for 20 team members at the XYPN office downtown. Reflectors and diffusion used as needed. About 10-12 minutes per person, with live iPad review during the session.",
+      "lineItems": [
+        {
+          "service": "Team Headshot Package",
+          "details": "On-location shoot at the XYPN downtown office. Outdoor natural-light setup with reflectors and diffusion used as needed. About 10-12 minutes per person across 20 team members. Live iPad review during the session. One final headshot per person delivered as a full-resolution JPEG with light retouching: basic blemish cleanup, subtle skin and teeth refinement, and color correction.",
+          "price": 65,
+          "amount": 20,
+          "total": 1300
+        }
+      ],
+      "deliverablesList": [
+        "20 final headshots delivered as full-resolution JPEGs via shared link"
+      ],
+      "timeline": "Tuesday July 28 or Wednesday July 29. Noon start, 3.5 hours on site. Final images delivered within 1 week of the shoot."
+    },
+    {
+      "title": "Additional Selects (+3 per person)",
+      "isOptional": true,
+      "addonId": "selects",
+      "selected": false,
+      "total": 600,
+      "description": "Upgrade from one final image per person to four. Each person receives three additional edited headshots with slight variation in expression, angle, and framing.",
+      "lineItems": [
+        {
+          "service": "Additional Selects",
+          "details": "Three additional fully-retouched and color-corrected headshots per person, with variation in expression, angle, and framing. 60 additional final images total across the team.",
+          "price": 30,
+          "amount": 20,
+          "total": 600
+        }
+      ],
+      "deliverablesList": [
+        "Three additional final headshots per person (4 total per team member), delivered as full-resolution JPEGs via shared link"
+      ],
+      "timeline": "Delivered alongside the base headshots."
+    },
+    {
+      "title": "Cropped Versions (Square + Circle)",
+      "isOptional": true,
+      "addonId": "crops",
+      "selected": false,
+      "total": 200,
+      "description": "Square and circular crop exports of each person's primary headshot, ready to drop into LinkedIn, the website, or anywhere else without needing to re-crop.",
+      "lineItems": [
+        {
+          "service": "Multi-Format Crops",
+          "details": "Square (1:1) and circular crop exports of the primary final headshot per person (20 total). Sized for web and social use. Does not include crops of Additional Selects images if added.",
+          "price": 200,
+          "amount": 1,
+          "total": 200
+        }
+      ],
+      "deliverablesList": [
+        "Square and circular crop exports of each person's primary headshot, delivered as web-optimized JPEGs"
+      ],
+      "timeline": "Delivered alongside the final images."
+    }
+  ],
+  "references": [],
+  "viewLog": [
+    {
+      "timestamp": "2026-05-08T00:42:31.434Z",
+      "ipHash": "52a54849",
+      "country": "US"
+    },
+    {
+      "timestamp": "2026-05-08T00:46:18.038Z",
+      "ipHash": "52a54849",
+      "country": "US"
+    },
+    {
+      "timestamp": "2026-05-08T01:38:44.767Z",
+      "ipHash": "beca5570",
+      "country": "US"
+    },
+    {
+      "timestamp": "2026-05-08T03:38:37.652Z",
+      "ipHash": "a94c0776",
+      "country": "US"
+    },
+    {
+      "timestamp": "2026-05-08T03:38:42.239Z",
+      "ipHash": "fe068f70",
+      "country": "US"
+    }
+  ],
+  "notificationsSent": 4
+}
