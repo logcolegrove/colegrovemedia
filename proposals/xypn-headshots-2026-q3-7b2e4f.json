@@ -93,7 +93,12 @@
       "timestamp": "2026-05-08T03:38:37.652Z",
       "ipHash": "a94c0776",
       "country": "US"
+    },
+    {
+      "timestamp": "2026-05-08T03:38:42.239Z",
+      "ipHash": "fe068f70",
+      "country": "US"
     }
   ],
-  "notificationsSent": 3
+  "notificationsSent": 4
 }
