@@ -143,11 +143,11 @@ var SERVICES = {
       ind:['corporate','real-estate','tech'],
       sample:{ type:'gallery', projectSlug:'headshots' },
       link:'/headshots',
-      desc:'On-site team headshots for companies and organizations. I bring a full mobile lighting setup to your office so everyone gets a consistent, professional look without leaving the building.',
+      desc:'On-site team headshots for companies and organizations. Per-person rates that scale with team size. Same deliverables at every tier &mdash; mobile lighting, live iPad selection, 1 retouched image per person, delivered within 1 week.',
       tiers:[
-        {n:'Basic',p:'$1,250+',i:['Up to 6 people · $150/person after','One backdrop · 5-7 min/person','1 retouched image + crop per person']},
-        {n:'Standard',p:'$1,750+',i:['Up to 8 people · $195/person after','Real-time preview · 8-10 min/person','1 retouched image + 2 crops · 1 group photo']},
-        {n:'Advanced',p:'$2,800+',i:['Up to 10 people · $250/person after','Two looks · 12-15 min/person','2 retouched images, 3 crops · 2 group photos · candids']}
+        {n:'2-9 People',p:'$95/person',i:['Starts at $190 total','Same deliverables across all tiers','Mobile lighting · 8-12 min/person']},
+        {n:'10-19 People',p:'$85/person',i:['Starts at $850 total','Live iPad review and selection','1 retouched image per person']},
+        {n:'20+ People',p:'$75/person',i:['Starts at $1,500 total','Best per-person value','Add-ons available: group, drone, multi-format crops']}
       ]
     },
     {

@@ -101,9 +101,36 @@
 .ind-btn{display:block;text-align:center;padding:12px;border-radius:8px;font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--border);transition:color 0.18s,border-color 0.18s;cursor:pointer;}
 .ind-btn:hover{color:var(--white);border-color:rgba(0,242,166,0.4);}
 
+/* ── COMPACT TEAM CARDS ── */
+.t-price-unit{font-size:18px;font-weight:500;color:var(--muted);letter-spacing:0;margin-left:2px;}
+.t-min{font-size:13px;color:var(--muted);font-weight:400;margin-bottom:24px;}
+.team-card-compact{padding:36px 28px 28px;}
+.team-card-compact .t-divider{margin-top:auto;}
+
+/* ── INCLUDED LIST ── */
+.included-block{margin-top:32px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:32px 36px;}
+.included-label{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;}
+.included-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;}
+.included-list li{font-size:14px;color:var(--muted);font-weight:300;line-height:1.5;display:flex;align-items:flex-start;gap:10px;}
+.included-list li::before{content:'';width:14px;height:14px;border-radius:50%;background:rgba(0,242,166,0.1);border:1px solid rgba(0,242,166,0.3);flex-shrink:0;margin-top:3px;background-image:url("data:image/svg+xml,%3Csvg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3L3 5L7 1' stroke='%2300f2a6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:8px 6px;}
+
+/* ── ADD-ONS ── */
+.addons-list{margin-top:8px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.addon-row{padding:20px 28px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:6px 32px;align-items:baseline;transition:background 0.2s;}
+.addon-row:last-child{border-bottom:none;}
+.addon-row:hover{background:var(--bg3);}
+.addon-name{font-size:15px;font-weight:600;color:var(--white);}
+.addon-price{font-size:15px;color:var(--teal);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.addon-note{grid-column:1/-1;font-size:13px;color:var(--muted);font-weight:300;line-height:1.55;}
+.addon-footnote{margin-top:18px;font-size:13px;color:var(--muted);font-weight:300;line-height:1.65;}
+.addon-footnote strong{color:var(--white);font-weight:500;}
+
 @media(max-width:960px){
   .hs-section,.gallery-section{padding-left:24px;padding-right:24px;}
   .gallery-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:120px;}
+  .included-list{grid-template-columns:1fr;gap:10px;}
+  .included-block{padding:24px;}
+  .addon-row{padding:16px 20px;}
   .gi-1{grid-column:1/4;grid-row:1/3;}
   .gi-2{grid-column:4/7;grid-row:1/2;}
   .gi-3{grid-column:4/7;grid-row:2/3;}
@@ -166,75 +193,50 @@
   <div class="lb-counter" id="lbCounter"></div>
 </div>
 
-<!-- TEAM PACKAGES -->
+<!-- TEAM PRICING -->
 <div class="hs-section">
-  <div class="section-eyebrow reveal">01 - Team Packages</div>
-  <h2 class="section-title reveal">Team Headshots</h2>
-  <p class="section-sub reveal">I come to your office with a full mobile lighting setup. Everyone gets a consistent, professional look without anyone leaving the building.</p>
+  <div class="section-eyebrow reveal">01 - Team Pricing</div>
+  <h2 class="section-title reveal">Per-Person Rates That Scale With Your Team</h2>
+  <p class="section-sub reveal">I come to your office with a full mobile lighting setup. Same deliverables at every tier &mdash; only the per-person rate changes based on team size.</p>
 
   <div class="team-grid reveal">
-    <div class="team-card">
-      <div class="t-name">Basic</div>
-      <div class="t-price">$1,250</div>
-      <div class="t-price-sub">Includes up to 6 people</div>
-      <div class="t-extra">$150/person after 6</div>
+    <div class="team-card team-card-compact">
+      <div class="t-name">2-9 People</div>
+      <div class="t-price">$95<span class="t-price-unit">/person</span></div>
+      <div class="t-min">Starts at $190 total</div>
       <div class="t-divider"></div>
-      <ul class="t-features">
-        <li>Mobile professional lighting setup</li>
-        <li>One consistent backdrop or office background</li>
-        <li>5-7 minutes per person</li>
-        <li>Light posing direction</li>
-        <li>1 retouched final image per person</li>
-        <li>1 web/social-ready crop per person</li>
-      </ul>
       <a href="/brief" class="t-btn t-btn-outline">Get a Quote</a>
     </div>
 
-    <div class="team-card featured">
-      <div class="t-name">Standard</div>
-      <div class="t-price">$1,750</div>
-      <div class="t-price-sub">Includes up to 8 people</div>
-      <div class="t-extra">$195/person after 8</div>
+    <div class="team-card team-card-compact">
+      <div class="t-name">10-19 People</div>
+      <div class="t-price">$85<span class="t-price-unit">/person</span></div>
+      <div class="t-min">Starts at $850 total</div>
       <div class="t-divider"></div>
-      <ul class="t-features">
-        <li>Mobile professional lighting setup</li>
-        <li>One consistent headshot setup</li>
-        <li>8-10 minutes per person</li>
-        <li>Posing and expression coaching</li>
-        <li>Real-time image preview and selection</li>
-        <li>1 retouched final image per person</li>
-        <li>2 crops per person (full-res + square)</li>
-        <li>1 group photo</li>
-        <li>Full-res JPG + web/social JPG</li>
-      </ul>
-      <a href="/brief" class="t-btn t-btn-fill">Get a Quote</a>
+      <a href="/brief" class="t-btn t-btn-outline">Get a Quote</a>
     </div>
 
-    <div class="team-card">
-      <div class="t-name">Advanced</div>
-      <div class="t-price">$2,800</div>
-      <div class="t-price-sub">Includes up to 10 people</div>
-      <div class="t-extra">$250/person after 10</div>
+    <div class="team-card team-card-compact">
+      <div class="t-name">20+ People</div>
+      <div class="t-price">$75<span class="t-price-unit">/person</span></div>
+      <div class="t-min">Starts at $1,500 total</div>
       <div class="t-divider"></div>
-      <ul class="t-features">
-        <li>Mobile professional lighting setup</li>
-        <li>Two looks or two backgrounds</li>
-        <li>12-15 minutes per person</li>
-        <li>In-depth posing and coaching</li>
-        <li>Real-time image preview and selection</li>
-        <li>2 retouched final images per person</li>
-        <li>3 crops per selected image (full-res, square, horizontal)</li>
-        <li>2 group photos</li>
-        <li>15-25 light-edited team/culture candids</li>
-        <li>Full-res + web + square crops</li>
-      </ul>
       <a href="/brief" class="t-btn t-btn-outline">Get a Quote</a>
     </div>
   </div>
 
-  <div class="retouch-note reveal">
-    <div class="retouch-label">What "Light Retouching" Includes</div>
-    <div class="retouch-text">Natural skin cleanup, temporary blemish removal, under-eye softening, minor flyaway hair cleanup, color correction, exposure adjustments, and light background cleanup. Advanced retouching (body reshaping, major hair fixes, clothing reconstruction, object removal, or background replacement) is quoted separately. Background removal / transparent PNG available at $30/image.</div>
+  <div class="included-block reveal">
+    <div class="included-label">What's Included at Every Tier</div>
+    <ul class="included-list">
+      <li>Mobile professional lighting setup</li>
+      <li>Consistent indoor or outdoor setup</li>
+      <li>8-12 minutes per person</li>
+      <li>Posing and expression direction</li>
+      <li>Live iPad review and selection during the session</li>
+      <li>1 retouched final image per person (light retouching: skin/teeth refinement, color correction)</li>
+      <li>Full-resolution JPG via shared link</li>
+      <li>Final images delivered within 1 week</li>
+    </ul>
   </div>
 </div>
 
@@ -252,47 +254,94 @@
     <div class="proc-step">
       <div class="proc-n">02</div>
       <div class="proc-title">Shoot</div>
-      <div class="proc-desc">I show up with lighting and backdrops. Each person gets 5-15 minutes depending on the tier.</div>
+      <div class="proc-desc">I show up with lighting and backdrops. Each person gets 8-12 minutes in front of the camera.</div>
     </div>
     <div class="proc-step">
       <div class="proc-n">03</div>
       <div class="proc-title">Select</div>
-      <div class="proc-desc">Real-time image preview and selection so each person picks their best shot on the spot.</div>
+      <div class="proc-desc">Live iPad review during the session so each person picks their best shot on the spot.</div>
     </div>
     <div class="proc-step">
       <div class="proc-n">04</div>
       <div class="proc-title">Deliver</div>
-      <div class="proc-desc">Retouched, cropped, and delivered via Google Drive. Typically 5-7 business days.</div>
+      <div class="proc-desc">Retouched, cropped, and delivered via shared link. Final images within 1 week.</div>
     </div>
   </div>
 </div>
 
+<!-- ADD-ONS -->
+<div class="hs-section">
+  <div class="section-eyebrow reveal">03 - Add-Ons</div>
+  <h2 class="section-title reveal">Optional Extras</h2>
+  <p class="section-sub reveal">Pick anything that fits the shoot. Prices below are flat or per-person where noted. Anything more custom is quoted on a call.</p>
+
+  <div class="addons-list reveal">
+    <div class="addon-row">
+      <div class="addon-name">Additional Selects</div>
+      <div class="addon-price">$15/person</div>
+      <div class="addon-note">Per additional retouched final image. Example: +2 images each = $30/person, +3 each = $45/person.</div>
+    </div>
+    <div class="addon-row">
+      <div class="addon-name">Multi-Format Crops (Square + Circle)</div>
+      <div class="addon-price">$200 flat</div>
+      <div class="addon-note">Primary headshot per person delivered in additional square and circle crops, sized for LinkedIn, Slack, and other platforms.</div>
+    </div>
+    <div class="addon-row">
+      <div class="addon-name">Group Photo (ground level)</div>
+      <div class="addon-price">$200 flat</div>
+      <div class="addon-note">Single team group shot captured during the session.</div>
+    </div>
+    <div class="addon-row">
+      <div class="addon-name">Drone Coverage</div>
+      <div class="addon-price">$300 flat</div>
+      <div class="addon-note">Aerial group photo plus 5-10 establishing shots of the location, weather permitting.</div>
+    </div>
+    <div class="addon-row">
+      <div class="addon-name">Background Removal / PNG</div>
+      <div class="addon-price">$30/image</div>
+      <div class="addon-note">Transparent PNG cutout of any final image, ready to drop onto a website or slide.</div>
+    </div>
+    <div class="addon-row">
+      <div class="addon-name">Travel</div>
+      <div class="addon-price">$1.25/mile</div>
+      <div class="addon-note">Beyond the first 15 miles from Bozeman, MT.</div>
+    </div>
+    <div class="addon-row">
+      <div class="addon-name">Rush Delivery (3 business days)</div>
+      <div class="addon-price">+50% on total</div>
+      <div class="addon-note">Quoted on a case-by-case basis depending on team size and shoot date.</div>
+    </div>
+  </div>
+
+  <div class="addon-footnote reveal"><strong>Quoted on request:</strong> department or sub-group photos, outdoor location scouting at non-client locations, and any custom asks. Send a brief and I'll get you a number same-day.</div>
+</div>
+
 <!-- INDIVIDUAL ACCORDION -->
 <div class="hs-section">
-  <div class="section-eyebrow reveal">03 - Individual</div>
+  <div class="section-eyebrow reveal">04 - Individual</div>
   <h2 class="section-title reveal">Need Just One Headshot?</h2>
   <p class="section-sub reveal">Not part of a team session? Individual headshots are available for personal branding, LinkedIn, or professional profiles.</p>
 
   <div class="ind-header" onclick="toggleInd()">
-    <div class="ind-title">Individual Headshot Pricing</div>
+    <div class="ind-title">Individual Session Pricing</div>
     <div class="ind-toggle" id="ind-toggle">Expand <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M2 4.5l5 5 5-5"/></svg></div>
   </div>
   <div class="ind-grid" id="ind-grid">
     <div class="ind-card">
-      <div class="ind-name">Basic</div>
+      <div class="ind-name">Quick Session</div>
       <div class="ind-price">$150</div>
       <ul class="ind-features">
-        <li>Up to 30 minutes</li>
+        <li>30 minutes</li>
         <li>5 edited images</li>
         <li>Web/social-ready JPG</li>
       </ul>
       <a href="/brief" class="ind-btn">Book a Session</a>
     </div>
     <div class="ind-card">
-      <div class="ind-name">Standard</div>
+      <div class="ind-name">Standard Session</div>
       <div class="ind-price">$250</div>
       <ul class="ind-features">
-        <li>Up to 1 hour</li>
+        <li>1 hour</li>
         <li>15 edited images</li>
         <li>Outfit changes welcome</li>
         <li>Full-res + web/social JPG</li>
@@ -300,10 +349,10 @@
       <a href="/brief" class="ind-btn">Book a Session</a>
     </div>
     <div class="ind-card">
-      <div class="ind-name">Advanced</div>
+      <div class="ind-name">Premium Session</div>
       <div class="ind-price">$400</div>
       <ul class="ind-features">
-        <li>Up to 2 hours</li>
+        <li>2 hours</li>
         <li>30 edited images</li>
         <li>Full retouching + social kit</li>
         <li>Multiple crops included</li>
@@ -311,6 +360,13 @@
       <a href="/brief" class="ind-btn">Book a Session</a>
     </div>
   </div>
+</div>
+
+<!-- LIGHT RETOUCHING -->
+<div class="hs-section">
+  <div class="section-eyebrow reveal">05 - Retouching</div>
+  <h2 class="section-title reveal">What "Light Retouching" Includes</h2>
+  <p class="section-sub reveal">Natural skin cleanup, temporary blemish removal, under-eye softening, minor flyaway hair cleanup, color correction, exposure adjustments, and light background cleanup. Advanced retouching (body reshaping, major hair fixes, clothing reconstruction, object removal, or background replacement) is quoted separately. Background removal / transparent PNG available at $30/image.</p>
 </div>
 
 <!-- CTA -->
