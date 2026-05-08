@@ -1,6 +1,6 @@
 {
   "id": "xypn-headshots-2026-q3-7b2e4f",
-  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for avg 10-12 min slots. Travel: none, XYPN office is downtown Bozeman. Crops add-on: $200 base, but if Selects are also added, true cost is $300 (pricing this manually if both selected).",
+  "_notes": "FLAG: Base priced at $65/person ($1,300 total) for avg 10-12 min slots. Travel: none, XYPN office is downtown Bozeman.",
   "status": "pending",
   "acceptedDate": "",
   "title": "XYPN Team Headshots",
@@ -56,54 +56,21 @@
       "addonId": "crops",
       "selected": false,
       "total": 200,
-      "description": "Square and circular crop exports of all delivered final images.",
+      "description": "Square and circular crop exports of each person's primary headshot, ready to drop into LinkedIn, the website, or anywhere else without needing to re-crop.",
       "lineItems": [
         {
           "service": "Multi-Format Crops",
-          "details": "Square (1:1) and circular crop exports of every delivered final image, sized for web and social use.",
+          "details": "Square (1:1) and circular crop exports of the primary final headshot per person (20 total). Sized for web and social use. Does not include crops of Additional Selects images if added.",
           "price": 200,
           "amount": 1,
           "total": 200
         }
       ],
       "deliverablesList": [
-        "Square and circular crop exports of every final image, delivered as web-optimized JPEGs"
+        "Square and circular crop exports of each person's primary headshot, delivered as web-optimized JPEGs"
       ],
       "timeline": "Delivered alongside the final images."
     }
   ],
-  "references": [],
-  "viewLog": [
-    {
-      "timestamp": "2026-05-08T00:16:22.517Z",
-      "ipHash": "52a54849",
-      "country": "US"
-    },
-    {
-      "timestamp": "2026-05-08T00:18:04.119Z",
-      "ipHash": "52a54849",
-      "country": "US"
-    },
-    {
-      "timestamp": "2026-05-08T00:19:53.560Z",
-      "ipHash": "52a54849",
-      "country": "US"
-    },
-    {
-      "timestamp": "2026-05-08T00:29:56.859Z",
-      "ipHash": "52a54849",
-      "country": "US"
-    },
-    {
-      "timestamp": "2026-05-08T00:30:01.933Z",
-      "ipHash": "52a54849",
-      "country": "US"
-    },
-    {
-      "timestamp": "2026-05-08T00:30:26.126Z",
-      "ipHash": "52a54849",
-      "country": "US"
-    }
-  ],
-  "notificationsSent": 3
+  "references": []
 }
