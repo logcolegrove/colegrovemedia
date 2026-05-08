@@ -26,11 +26,16 @@
   --teal-border:#b3edda;
   --remove:#c44;
   --remove-light:#fff0f0;
+  --addon-bg:#fafbfc;
 }
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;}
 a{color:var(--teal);text-decoration:none;}
 a:hover{text-decoration:underline;}
+
+.team-mode-banner{display:none;background:#1a1a1a;color:#fff;padding:8px 20px;text-align:center;font-size:13px;font-weight:500;letter-spacing:0.02em;}
+.team-mode-banner.visible{display:block;}
+.team-mode-banner a{color:#00d693;text-decoration:underline;margin-left:8px;}
 
 .proposal-page{max-width:900px;margin:0 auto;padding:48px 40px 80px;}
 
@@ -67,10 +72,17 @@ a:hover{text-decoration:underline;}
 .deliverable.collapsing{overflow:hidden;}
 .deliverable.fade-out{opacity:0;}
 
+/* OPTIONAL ADD-ONS: visually distinct from in-scope items */
 .optional-section{margin:48px 0 32px;}
 .optional-section.section-empty{display:none;}
-.optional-section .deliverable:first-child .deliverable-header{border-top:1px solid var(--border);}
+.optional-section .deliverable{background:var(--addon-bg);border-radius:8px;margin-bottom:8px;padding:0 16px;border:1px solid var(--border2);}
+.optional-section .deliverable .deliverable-header{border-top:none;padding:18px 0;}
+.optional-section .deliverable-title{color:var(--text2);font-weight:500;}
+.optional-section .deliverable-price{color:var(--text2);font-weight:600;}
+.optional-section .deliverable-chevron{color:var(--text3);}
+.optional-section .deliverable.open{padding-bottom:8px;}
 
+/* SCOPE CLONES: full-weight styling, identical to base deliverables */
 .scope-clones{}
 .scope-clone-slot{display:none;}
 .scope-clone-slot.active{display:block;}
@@ -86,10 +98,12 @@ a:hover{text-decoration:underline;}
 .scope-remove-btn:disabled{opacity:0.5;cursor:not-allowed;}
 .scope-remove-btn .x-icon{width:11px;height:11px;}
 
-.add-all-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:transparent;border:1.5px solid var(--teal);color:var(--teal-dark);font-family:inherit;font-size:14px;font-weight:600;border-radius:5px;cursor:pointer;transition:all 0.15s;}
-.add-all-btn:hover{background:var(--teal-light);}
-.add-all-btn:disabled{opacity:0.5;cursor:not-allowed;}
-.add-all-btn .plus-icon{width:12px;height:12px;}
+/* ADD ALL: now a subtle text link, positioned below add-ons */
+.add-all-link-wrap{margin-top:16px;}
+.add-all-link{display:inline-flex;align-items:center;gap:5px;padding:4px 0;background:transparent;border:none;color:var(--text3);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:color 0.15s;}
+.add-all-link:hover{color:var(--teal-dark);text-decoration:underline;}
+.add-all-link:disabled{opacity:0.5;cursor:not-allowed;}
+.add-all-link .plus-icon{width:11px;height:11px;}
 
 .added-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--teal-dark);background:var(--teal-light);padding:3px 10px;border-radius:4px;flex-shrink:0;}
 .declined-badge{display:inline-flex;align-items:center;font-size:13px;font-weight:600;color:var(--text3);background:var(--border2);padding:3px 10px;border-radius:4px;flex-shrink:0;}
@@ -187,6 +201,11 @@ a:hover{text-decoration:underline;}
 </head>
 <body>
 
+<div class="team-mode-banner" id="teamModeBanner">
+  Team mode active. Views from this browser will not trigger notifications.
+  <a href="#" id="disableTeamMode">Disable</a>
+</div>
+
 <div class="proposal-page" id="proposalPage">
   <div class="proposal-loading" id="loadingState">
     <p>Loading proposal...</p>
@@ -195,10 +214,42 @@ a:hover{text-decoration:underline;}
 
 <script>
 var WORKER_URL = 'https://proposal-accept.logcolegrove.workers.dev';
+var TEAM_MODE_KEY = 'cm-team-mode';
 var selectedAddons = {};
 var proposalData = null;
 var saveTimeout = null;
 var animatingAddons = {};
+
+(function handleTeamModeParams(){
+  var params = new URLSearchParams(window.location.search);
+  var teamModeParam = params.get('team_mode');
+  if(teamModeParam === 'enable'){
+    try { localStorage.setItem(TEAM_MODE_KEY, '1'); } catch(e){}
+  } else if(teamModeParam === 'disable'){
+    try { localStorage.removeItem(TEAM_MODE_KEY); } catch(e){}
+  }
+})();
+
+function isTeamMode(){
+  try { return localStorage.getItem(TEAM_MODE_KEY) === '1'; }
+  catch(e){ return false; }
+}
+
+(function showTeamBanner(){
+  if(isTeamMode()){
+    var banner = document.getElementById('teamModeBanner');
+    if(banner) banner.classList.add('visible');
+  }
+})();
+
+document.addEventListener('click', function(e){
+  if(e.target && e.target.id === 'disableTeamMode'){
+    e.preventDefault();
+    try { localStorage.removeItem(TEAM_MODE_KEY); } catch(err){}
+    var banner = document.getElementById('teamModeBanner');
+    if(banner) banner.classList.remove('visible');
+  }
+});
 
 (function(){
   var params = new URLSearchParams(window.location.search);
@@ -212,7 +263,10 @@ var animatingAddons = {};
   var localAcceptData = null;
   try { localAcceptData = JSON.parse(localStorage.getItem(localAcceptKey)); } catch(e){}
 
-  fetch(WORKER_URL+'?id='+encodeURIComponent(proposalId), { cache: 'no-store' })
+  var fetchUrl = WORKER_URL+'?id='+encodeURIComponent(proposalId);
+  if(isTeamMode()) fetchUrl += '&team=1';
+
+  fetch(fetchUrl, { cache: 'no-store' })
     .then(function(r){
       if(!r.ok) throw new Error('not found');
       return r.json();
@@ -303,19 +357,23 @@ function renderProposal(d){
     var subText = getOptionalSubText(noneSelected, allSelected, isAccepted);
     var addAllVisible = !isAccepted && unselectedOptional.length > 1;
 
-    var addAllBtnHtml = addAllVisible ?
-      '<button type="button" class="add-all-btn" id="addAllBtn" onclick="toggleAddAll(event)">'
-      +'<svg class="plus-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>'
-      +'<span class="add-all-label">Add all</span>'
-      +'</button>' : '';
-
     html += '<div class="optional-section'+(sectionVisible?'':' section-empty')+'" id="optionalSection">'
-      +'<h2 class="section-h"><span>Optional Add-Ons <span class="save-indicator" id="saveIndicator"></span></span>'+addAllBtnHtml+'</h2>'
+      +'<h2 class="section-h"><span>Optional Add-Ons <span class="save-indicator" id="saveIndicator"></span></span></h2>'
       +'<p class="section-h-sub" id="optionalSubText">'+subText+'</p>';
 
     optionalDeliverables.forEach(function(del, i){
       html += renderDeliverable(del, 'src-'+del.addonId, false, true, isAccepted, false);
     });
+
+    // Add all link, positioned below add-ons
+    if(addAllVisible){
+      html += '<div class="add-all-link-wrap" id="addAllWrap">'
+        +'<button type="button" class="add-all-link" id="addAllBtn" onclick="toggleAddAll(event)">'
+        +'<svg class="plus-icon" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg>'
+        +'<span>Add all to scope</span>'
+        +'</button>'
+        +'</div>';
+    }
 
     html += '</div>';
   }
@@ -328,7 +386,6 @@ function renderProposal(d){
     html += '</ol></div>';
   }
 
-  // Next Steps section: only show pre-acceptance
   if(!isAccepted){
     html += '<div class="next-steps">'
       +'<h2>Next Steps</h2>'
@@ -372,7 +429,7 @@ function renderProposal(d){
           banner.querySelector('.accepted-date').textContent = dateStr;
           banner.classList.add('visible');
         }
-        var toggles = document.querySelectorAll('.addon-toggle, .scope-remove-btn, .add-all-btn');
+        var toggles = document.querySelectorAll('.addon-toggle, .scope-remove-btn, .add-all-link');
         toggles.forEach(function(t){ t.disabled = true; });
         setTimeout(launchConfetti, 200);
       }
@@ -702,14 +759,14 @@ function toggleAddAll(event){
 }
 
 function updateAddAllButton(){
-  var btn = document.getElementById('addAllBtn');
-  if(!btn || !proposalData) return;
+  var wrap = document.getElementById('addAllWrap');
+  if(!wrap || !proposalData) return;
   var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
   var unselectedCount = optionalDels.filter(function(del){ return !selectedAddons[del.addonId]; }).length;
   if(unselectedCount < 2){
-    btn.style.display = 'none';
+    wrap.style.display = 'none';
   } else {
-    btn.style.display = '';
+    wrap.style.display = '';
   }
 }
 
