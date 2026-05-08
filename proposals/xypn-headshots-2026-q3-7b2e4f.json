@@ -72,5 +72,13 @@
       "timeline": "Delivered alongside the final images."
     }
   ],
-  "references": []
+  "references": [],
+  "viewLog": [
+    {
+      "timestamp": "2026-05-08T00:16:22.517Z",
+      "ipHash": "52a54849",
+      "country": "US"
+    }
+  ],
+  "notificationsSent": 1
 }
