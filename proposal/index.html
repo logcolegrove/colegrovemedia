@@ -72,7 +72,6 @@ a:hover{text-decoration:underline;}
 .deliverable.collapsing{overflow:hidden;}
 .deliverable.fade-out{opacity:0;}
 
-/* OPTIONAL ADD-ONS: visually distinct from in-scope items */
 .optional-section{margin:48px 0 32px;}
 .optional-section.section-empty{display:none;}
 .optional-section .deliverable{background:var(--addon-bg);border-radius:8px;margin-bottom:8px;padding:0 16px;border:1px solid var(--border2);}
@@ -82,7 +81,6 @@ a:hover{text-decoration:underline;}
 .optional-section .deliverable-chevron{color:var(--text3);}
 .optional-section .deliverable.open{padding-bottom:8px;}
 
-/* SCOPE CLONES: full-weight styling, identical to base deliverables */
 .scope-clones{}
 .scope-clone-slot{display:none;}
 .scope-clone-slot.active{display:block;}
@@ -98,7 +96,6 @@ a:hover{text-decoration:underline;}
 .scope-remove-btn:disabled{opacity:0.5;cursor:not-allowed;}
 .scope-remove-btn .x-icon{width:11px;height:11px;}
 
-/* ADD ALL: now a subtle text link, positioned below add-ons */
 .add-all-link-wrap{margin-top:16px;}
 .add-all-link{display:inline-flex;align-items:center;gap:5px;padding:4px 0;background:transparent;border:none;color:var(--text3);font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:color 0.15s;}
 .add-all-link:hover{color:var(--teal-dark);text-decoration:underline;}
@@ -359,13 +356,12 @@ function renderProposal(d){
 
     html += '<div class="optional-section'+(sectionVisible?'':' section-empty')+'" id="optionalSection">'
       +'<h2 class="section-h"><span>Optional Add-Ons <span class="save-indicator" id="saveIndicator"></span></span></h2>'
-      +'<p class="section-h-sub" id="optionalSubText">'+subText+'</p>';
+      +(subText ? '<p class="section-h-sub" id="optionalSubText">'+subText+'</p>' : '');
 
     optionalDeliverables.forEach(function(del, i){
       html += renderDeliverable(del, 'src-'+del.addonId, false, true, isAccepted, false);
     });
 
-    // Add all link, positioned below add-ons
     if(addAllVisible){
       html += '<div class="add-all-link-wrap" id="addAllWrap">'
         +'<button type="button" class="add-all-link" id="addAllBtn" onclick="toggleAddAll(event)">'
@@ -389,7 +385,7 @@ function renderProposal(d){
   if(!isAccepted){
     html += '<div class="next-steps">'
       +'<h2>Next Steps</h2>'
-      +'<p>If you\'d like to proceed, approve this proposal below and the project will commence. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
+      +'<p>If you\'d like to proceed, approve this proposal below and the project will be locked in. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
       +'</div>';
   }
 
@@ -477,13 +473,7 @@ function getOptionalSubText(noneSelected, allSelected, isAccepted){
   if(isAccepted){
     return 'These were not included in the final scope.';
   }
-  if(allSelected){
-    return 'All upgrades added to scope.';
-  }
-  if(noneSelected){
-    return 'Optional upgrades you can include. Click Add to bring any into scope.';
-  }
-  return 'Other upgrades available.';
+  return '';
 }
 
 function renderDeliverable(del, id, autoOpen, isOptional, isAccepted, isScopeClone){
@@ -784,12 +774,13 @@ function updateSectionVisibility(){
 
 function updateOptionalSubText(){
   var el = document.getElementById('optionalSubText');
-  if(!el || !proposalData) return;
-  var optionalDels = proposalData.deliverables.filter(function(del){ return del.isOptional && del.addonId; });
-  var unselectedCount = optionalDels.filter(function(del){ return !selectedAddons[del.addonId]; }).length;
-  var noneSelected = unselectedCount === optionalDels.length;
-  var allSelected = unselectedCount === 0;
-  el.textContent = getOptionalSubText(noneSelected, allSelected, false);
+  if(!el) return;
+  var newText = getOptionalSubText(false, false, false);
+  if(newText){
+    el.textContent = newText;
+  } else {
+    el.style.display = 'none';
+  }
 }
 
 function updateProjectTotal(){
