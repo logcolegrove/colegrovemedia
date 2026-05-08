@@ -54,7 +54,7 @@
       "title": "Cropped Versions (Square + Circle)",
       "isOptional": true,
       "addonId": "crops",
-      "selected": true,
+      "selected": false,
       "total": 200,
       "description": "Square and circular crop exports of all delivered final images.",
       "lineItems": [
