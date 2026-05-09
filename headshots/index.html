@@ -18,37 +18,57 @@
 <style>
 .hs-section{padding:72px 40px;border-bottom:1px solid var(--border);}
 
-/* ── HERO GALLERY ── */
-.gallery-section{padding:0 40px 0;border-bottom:1px solid var(--border);}
-.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:140px;gap:6px;padding-bottom:72px;}
-.gallery-grid .gi{position:relative;overflow:hidden;border-radius:8px;cursor:pointer;}
-.gallery-grid .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(0.22,1,0.36,1),filter 0.4s ease;}
-.gallery-grid .gi::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0);transition:background 0.3s ease;}
-.gallery-grid .gi:hover::after{background:rgba(0,242,166,0.08);}
-.gallery-grid .gi:hover img{transform:scale(1.05);}
-/* Layout: carefully placed to handle mixed aspect ratios */
-.gi-1{grid-column:1/5;grid-row:1/4;}
-.gi-2{grid-column:5/8;grid-row:1/3;}
-.gi-3{grid-column:8/13;grid-row:1/3;}
-.gi-4{grid-column:5/8;grid-row:3/5;}
-.gi-5{grid-column:8/10;grid-row:3/5;}
-.gi-6{grid-column:10/13;grid-row:3/5;}
-.gi-7{grid-column:1/4;grid-row:4/6;}
-.gi-8{grid-column:4/7;grid-row:5/7;}
-.gi-9{grid-column:7/13;grid-row:5/7;}
+/* ── HERO ── */
+.hs-hero{padding:clamp(40px,5vw,80px) clamp(20px,4vw,56px) clamp(48px,6vw,96px);border-bottom:1px solid var(--border);}
+.hs-hero-inner{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,64px);align-items:start;}
+@media(min-width:980px){
+  .hs-hero{min-height:80vh;display:flex;align-items:center;}
+  .hs-hero-inner{grid-template-columns:minmax(320px,1fr) 1.45fr;gap:clamp(40px,4vw,80px);align-items:center;width:100%;}
+}
+.hs-hero-text{display:flex;flex-direction:column;gap:clamp(20px,2.4vw,28px);}
+.hs-h1{font-family:var(--display,var(--sans));font-size:clamp(40px,7vw,88px);line-height:1.04;font-weight:700;letter-spacing:-0.02em;color:var(--white);margin:0;}
+.hs-h1 em{font-style:italic;color:var(--teal);font-weight:600;}
+.hs-lede{font-size:clamp(15px,1.4vw,18px);line-height:1.6;color:var(--muted);font-weight:300;max-width:540px;margin:0;}
+.hs-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;}
+
+/* ── BENTO ── */
+.hs-bento{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(8px,1.2vw,14px);}
+@media(min-width:900px){
+  .hs-bento{grid-template-columns:repeat(3,1fr);}
+}
+.hs-col{display:flex;flex-direction:column;gap:clamp(8px,1.2vw,14px);min-width:0;}
+.hs-col-2{margin-top:clamp(16px,4vw,48px);}
+
+.hs-tile{position:relative;border:1px solid var(--border2);border-radius:12px;overflow:hidden;background:var(--bg3);cursor:zoom-in;padding:0;width:100%;display:block;font-family:inherit;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .25s,box-shadow .25s;}
+.hs-tile img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.92);transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .3s;}
+.hs-tile:hover{transform:translateY(-3px);border-color:rgba(0,242,166,.4);box-shadow:0 14px 40px rgba(0,0,0,.4),0 0 0 1px rgba(0,242,166,.18);}
+.hs-tile:hover img{transform:scale(1.04);filter:brightness(.78);}
+.hs-tile:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
+.hs-mag{position:absolute;bottom:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(0,242,166,.15);border:1px solid rgba(0,242,166,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:var(--teal);opacity:0;transform:scale(.85);transition:opacity .25s,transform .25s;pointer-events:none;}
+.hs-tile:hover .hs-mag{opacity:1;transform:scale(1);}
+
+@media (hover:none){
+  .hs-mag{opacity:.7;transform:scale(1);}
+  .hs-tile:hover{transform:none;border-color:var(--border2);box-shadow:none;}
+  .hs-tile:hover img{transform:none;filter:brightness(.92);}
+}
+@media (prefers-reduced-motion:reduce){
+  .hs-tile,.hs-tile img,.hs-mag{transition-property:opacity,color,border-color,outline !important;transition-duration:.2s !important;}
+  .hs-tile:hover{transform:none;}
+  .hs-tile:hover img{transform:none;}
+}
 
 /* ── LIGHTBOX ── */
-.lightbox{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s;padding:40px;}
+.lightbox{position:fixed;inset:0;z-index:600;background:rgba(11,14,20,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;padding:40px;}
 .lightbox.open{opacity:1;visibility:visible;}
-.lightbox img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,0.5);transform:scale(0.95);transition:transform 0.3s cubic-bezier(0.22,1,0.36,1);}
+.lightbox img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 0 0 1px rgba(0,242,166,.2),0 24px 80px rgba(0,0,0,.5);transform:scale(.97);transition:transform .3s cubic-bezier(.22,1,.36,1);}
 .lightbox.open img{transform:scale(1);}
-.lb-close{position:absolute;top:24px;right:24px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;z-index:2;}
-.lb-close:hover{background:rgba(0,242,166,0.15);}
-.lb-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.2s;font-size:20px;color:var(--white);user-select:none;z-index:2;}
-.lb-arrow:hover{background:rgba(0,242,166,0.15);}
-.lb-prev{left:20px;}
-.lb-next{right:20px;}
-.lb-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:13px;color:rgba(255,255,255,0.4);font-weight:500;letter-spacing:0.06em;}
+.lb-close,.lb-arrow{position:absolute;width:44px;height:44px;border-radius:50%;background:rgba(11,14,20,.6);border:1px solid rgba(0,242,166,.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--white);transition:background .2s,border-color .2s;padding:0;font-family:inherit;}
+.lb-close{top:24px;right:24px;z-index:2;}
+.lb-close:hover,.lb-arrow:hover{background:rgba(0,242,166,.18);border-color:rgba(0,242,166,.6);}
+.lb-arrow{top:50%;transform:translateY(-50%);font-size:22px;line-height:1;user-select:none;z-index:2;}
+.lb-prev{left:20px;}.lb-next{right:20px;}
+.lb-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--teal);font-weight:500;letter-spacing:.18em;text-transform:uppercase;font-family:var(--sans);font-variant-numeric:tabular-nums;}
 
 /* ── TEAM PACKAGES ── */
 .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border-radius:12px;overflow:visible;}
@@ -126,35 +146,21 @@
 .addon-footnote strong{color:var(--white);font-weight:500;}
 
 @media(max-width:960px){
-  .hs-section,.gallery-section{padding-left:24px;padding-right:24px;}
-  .gallery-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:120px;}
+  .hs-section{padding-left:24px;padding-right:24px;}
   .included-list{grid-template-columns:1fr;gap:10px;}
   .included-block{padding:24px;}
   .addon-row{padding:16px 20px;}
-  .gi-1{grid-column:1/4;grid-row:1/3;}
-  .gi-2{grid-column:4/7;grid-row:1/2;}
-  .gi-3{grid-column:4/7;grid-row:2/3;}
-  .gi-4{grid-column:1/3;grid-row:3/5;}
-  .gi-5{grid-column:3/5;grid-row:3/4;}
-  .gi-6{grid-column:5/7;grid-row:3/4;}
-  .gi-7{grid-column:3/5;grid-row:4/5;}
-  .gi-8{grid-column:5/7;grid-row:4/5;}
-  .gi-9{display:none;}
   .team-grid,.ind-grid{grid-template-columns:1fr;}
   .process-row{grid-template-columns:1fr 1fr;}
   .lightbox{padding:20px;}
-  .lb-arrow{width:36px;height:36px;font-size:16px;}
+  .lb-close,.lb-arrow{width:40px;height:40px;font-size:18px;}
+  .lb-close{top:16px;right:16px;}
   .lb-prev{left:12px;}.lb-next{right:12px;}
 }
 @media(max-width:580px){
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px;}
-  .gi-1{grid-column:1/3;grid-row:1/3;}
-  .gi-2{grid-column:1/2;grid-row:3/4;}
-  .gi-3{grid-column:2/3;grid-row:3/4;}
-  .gi-4{grid-column:1/3;grid-row:4/5;}
-  .gi-5,.gi-6,.gi-7,.gi-8,.gi-9{display:none;}
   .process-row{grid-template-columns:1fr;}
   .ind-grid{grid-template-columns:1fr!important;}
+  .lb-counter{bottom:16px;font-size:10px;}
 }
 </style>
 </head>
@@ -163,34 +169,28 @@
 <div id="site-nav" data-active=""></div>
 
 <!-- HERO -->
-<div class="page-hero" style="padding-bottom:32px;">
-  <div class="eyebrow reveal">Photo</div>
-  <h1 class="page-h1 reveal">Professional Headshots</h1>
-  <p class="page-desc reveal">Polished, consistent headshots for your team or yourself. Mobile lighting setup at your office, fast turnaround, and images that actually get used.</p>
-</div>
-
-<!-- GALLERY -->
-<div class="gallery-section">
-  <div class="gallery-grid reveal" id="galleryGrid">
-    <div class="gi gi-1" onclick="openLightbox(0)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c134434654e76e7cb7274_example%204.jpg" alt="Professional headshot" style="object-position:center 20%"></div>
-    <div class="gi gi-2" onclick="openLightbox(1)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/663179c1f5a90335108d93b8_da.jpg" alt="Professional headshot" style="object-position:center 25%"></div>
-    <div class="gi gi-3" onclick="openLightbox(2)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/Image%20(71).jpg" alt="Group photo"></div>
-    <div class="gi gi-4" onclick="openLightbox(3)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c13434caa97fd4c1224de_example%202.jpg" alt="Professional headshot" style="object-position:center 20%"></div>
-    <div class="gi gi-5" onclick="openLightbox(4)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c13433914007fc72b25d2_RCropped.jpg" alt="Professional headshot"></div>
-    <div class="gi gi-6" onclick="openLightbox(5)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c13433a76d3c494e761a0_code.jpg" alt="Professional headshot"></div>
-    <div class="gi gi-7" onclick="openLightbox(6)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c1343e8508c0e32155bdd_dr%20tim%20medium.jpg" alt="Professional headshot"></div>
-    <div class="gi gi-8" onclick="openLightbox(7)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c134394751dfdf861b934_doggy.jpg" alt="Pet portrait"></div>
-    <div class="gi gi-9" onclick="openLightbox(8)"><img src="https://logcolegrove.github.io/colegrovemedia/assets/images/654c1753bc298f11cb658f44_spanky.jpg" alt="Pet portrait"></div>
+<section class="hs-hero">
+  <div class="hs-hero-inner">
+    <div class="hs-hero-text">
+      <div class="eyebrow reveal">Photo</div>
+      <h1 class="hs-h1 reveal">Professional <em>Headshots.</em></h1>
+      <p class="hs-lede reveal">Polished, consistent headshots for your team or yourself. Mobile lighting setup at your office, fast turnaround, and images that actually get used.</p>
+      <div class="hs-cta-row reveal">
+        <a href="/brief" class="btn-fill">Start a project brief &rarr;</a>
+        <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-ghost">Book a call</a>
+      </div>
+    </div>
+    <div class="hs-bento reveal" id="hsBento" aria-label="Headshot photo gallery"></div>
   </div>
-</div>
+</section>
 
 <!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="handleLbClick(event)">
-  <div class="lb-close" onclick="closeLightbox()"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></div>
-  <div class="lb-arrow lb-prev" onclick="event.stopPropagation();shiftLb(-1)">&#8249;</div>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" onclick="handleLbClick(event)">
+  <button class="lb-close" type="button" onclick="closeLightbox()" aria-label="Close photo viewer"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></button>
+  <button class="lb-arrow lb-prev" type="button" onclick="event.stopPropagation();shiftLb(-1)" aria-label="Previous photo">&#8249;</button>
   <img id="lbImg" src="" alt="">
-  <div class="lb-arrow lb-next" onclick="event.stopPropagation();shiftLb(1)">&#8250;</div>
-  <div class="lb-counter" id="lbCounter"></div>
+  <button class="lb-arrow lb-next" type="button" onclick="event.stopPropagation();shiftLb(1)" aria-label="Next photo">&#8250;</button>
+  <div class="lb-counter" id="lbCounter" aria-live="polite"></div>
 </div>
 
 <!-- TEAM PRICING -->
@@ -385,44 +385,152 @@
 <script src="/assets/js/components.js"></script>
 <script src="/assets/js/shared.js"></script>
 <script>
-/* ── LIGHTBOX ── */
-var lbImages=[
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/654c134434654e76e7cb7274_example%204.jpg',
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/663179c1f5a90335108d93b8_da.jpg',
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/Image%20(71).jpg',
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/654c13434caa97fd4c1224de_example%202.jpg',
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/654c13433914007fc72b25d2_RCropped.jpg',
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/654c13433a76d3c494e761a0_code.jpg',
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/654c1343e8508c0e32155bdd_dr%20tim%20medium.jpg',
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/654c134394751dfdf861b934_doggy.jpg',
-  'https://logcolegrove.github.io/colegrovemedia/assets/images/654c1753bc298f11cb658f44_spanky.jpg'
+/* ── BENTO GALLERY ── */
+var IMAGES = [
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c134434654e76e7cb7274_example%204.jpg', alt:'Professional headshot', ratio:0.75},
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/663179c1f5a90335108d93b8_da.jpg', alt:'Professional headshot', ratio:0.75},
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/Image%20(71).jpg', alt:'Team group photo', ratio:1.5},
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c13434caa97fd4c1224de_example%202.jpg', alt:'Professional headshot', ratio:0.75},
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c13433914007fc72b25d2_RCropped.jpg', alt:'Professional headshot', ratio:0.8},
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c13433a76d3c494e761a0_code.jpg', alt:'Professional headshot', ratio:0.75},
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c1343e8508c0e32155bdd_dr%20tim%20medium.jpg', alt:'Professional headshot of Dr. Tim', ratio:0.75},
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c134394751dfdf861b934_doggy.jpg', alt:'Pet portrait', ratio:1},
+  {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c1753bc298f11cb658f44_spanky.jpg', alt:'Pet portrait', ratio:1}
 ];
-var lbIdx=0;
+
+var MAG_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>';
+
+function buildTile(img, idx){
+  var btn = document.createElement('button');
+  btn.className = 'hs-tile reveal';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Open ' + img.alt);
+  btn.style.aspectRatio = img.ratio;
+  btn.dataset.i = idx;
+  btn.onclick = function(){ openLightbox(idx); };
+
+  var im = document.createElement('img');
+  im.src = img.src;
+  im.alt = img.alt;
+  im.loading = idx < 3 ? 'eager' : 'lazy';
+  im.decoding = 'async';
+  if(idx < 3) im.setAttribute('fetchpriority', 'high');
+  im.addEventListener('load', function(){
+    if(this.naturalWidth && this.naturalHeight){
+      var r = this.naturalWidth / this.naturalHeight;
+      if(Math.abs(r - img.ratio) > 0.04){
+        img.ratio = r;
+        btn.style.aspectRatio = r;
+      }
+    }
+  });
+  btn.appendChild(im);
+
+  var icon = document.createElement('span');
+  icon.className = 'hs-mag';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.innerHTML = MAG_SVG;
+  btn.appendChild(icon);
+
+  return btn;
+}
+
+function layoutBento(){
+  var bento = document.getElementById('hsBento');
+  if(!bento) return;
+  var cols = window.innerWidth >= 900 ? 3 : 2;
+  bento.innerHTML = '';
+  var colEls = [];
+  for(var i = 0; i < cols; i++){
+    var c = document.createElement('div');
+    c.className = 'hs-col hs-col-' + (i + 1);
+    bento.appendChild(c);
+    colEls.push({el:c, h:0});
+  }
+  IMAGES.forEach(function(img, idx){
+    var target = colEls[0];
+    for(var i = 1; i < colEls.length; i++){
+      if(colEls[i].h < target.h) target = colEls[i];
+    }
+    target.el.appendChild(buildTile(img, idx));
+    target.h += 1 / img.ratio;
+  });
+}
+
+layoutBento();
+
+var _bentoT;
+var _lastCols = window.innerWidth >= 900 ? 3 : 2;
+window.addEventListener('resize', function(){
+  clearTimeout(_bentoT);
+  _bentoT = setTimeout(function(){
+    var cols = window.innerWidth >= 900 ? 3 : 2;
+    if(cols !== _lastCols){
+      _lastCols = cols;
+      layoutBento();
+    }
+  }, 150);
+});
+
+/* ── LIGHTBOX ── */
+var lbIdx = 0;
+var _lbLast = null;
 
 function openLightbox(i){
-  lbIdx=i;
-  document.getElementById('lbImg').src=lbImages[i];
-  document.getElementById('lbCounter').textContent=(i+1)+' / '+lbImages.length;
+  lbIdx = i;
+  _lbLast = document.activeElement;
+  var img = IMAGES[i];
+  var lbImg = document.getElementById('lbImg');
+  lbImg.src = img.src;
+  lbImg.alt = img.alt;
+  updateLbCounter();
   document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
+  preloadAdjacent();
+  setTimeout(function(){
+    var c = document.querySelector('.lb-close');
+    if(c) c.focus();
+  }, 50);
+}
+function updateLbCounter(){
+  var n = IMAGES.length;
+  var pad = function(v){ return v < 10 ? '0' + v : '' + v; };
+  document.getElementById('lbCounter').textContent = pad(lbIdx + 1) + ' / ' + pad(n);
+}
+function preloadAdjacent(){
+  var n = IMAGES.length;
+  var nxt = new Image(); nxt.src = IMAGES[(lbIdx + 1) % n].src;
+  var prv = new Image(); prv.src = IMAGES[(lbIdx - 1 + n) % n].src;
+}
+function shiftLb(dir){
+  lbIdx = (lbIdx + dir + IMAGES.length) % IMAGES.length;
+  var img = IMAGES[lbIdx];
+  var lbImg = document.getElementById('lbImg');
+  lbImg.src = img.src;
+  lbImg.alt = img.alt;
+  updateLbCounter();
+  preloadAdjacent();
 }
 function closeLightbox(){
   document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow='';
-}
-function shiftLb(dir){
-  lbIdx=(lbIdx+dir+lbImages.length)%lbImages.length;
-  document.getElementById('lbImg').src=lbImages[lbIdx];
-  document.getElementById('lbCounter').textContent=(lbIdx+1)+' / '+lbImages.length;
+  document.body.style.overflow = '';
+  if(_lbLast && _lbLast.focus) _lbLast.focus();
 }
 function handleLbClick(e){
-  if(e.target===document.getElementById('lightbox'))closeLightbox();
+  if(e.target === document.getElementById('lightbox')) closeLightbox();
 }
-document.addEventListener('keydown',function(e){
-  if(!document.getElementById('lightbox').classList.contains('open'))return;
-  if(e.key==='Escape')closeLightbox();
-  else if(e.key==='ArrowRight')shiftLb(1);
-  else if(e.key==='ArrowLeft')shiftLb(-1);
+document.addEventListener('keydown', function(e){
+  if(!document.getElementById('lightbox').classList.contains('open')) return;
+  if(e.key === 'Escape'){ closeLightbox(); }
+  else if(e.key === 'ArrowRight'){ shiftLb(1); }
+  else if(e.key === 'ArrowLeft'){ shiftLb(-1); }
+  else if(e.key === 'Tab'){
+    var f = document.querySelectorAll('.lightbox button');
+    if(!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+    else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+  }
 });
 
 /* ── INDIVIDUAL ACCORDION ── */
