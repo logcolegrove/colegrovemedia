@@ -27,7 +27,7 @@
 }
 .hs-hero-text{display:flex;flex-direction:column;gap:clamp(20px,2.4vw,28px);}
 .hs-h1{font-family:var(--display,var(--sans));font-size:clamp(40px,7vw,88px);line-height:1.04;font-weight:700;letter-spacing:-0.02em;color:var(--white);margin:0;}
-.hs-h1 em{font-style:italic;color:var(--teal);font-weight:600;}
+.hs-h1 em{font-style:normal;color:var(--teal);font-weight:700;}
 .hs-lede{font-size:clamp(15px,1.4vw,18px);line-height:1.6;color:var(--muted);font-weight:300;max-width:540px;margin:0;}
 .hs-cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;}
 
@@ -180,7 +180,7 @@
         <a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-ghost">Book a call</a>
       </div>
     </div>
-    <div class="hs-bento reveal" id="hsBento" aria-label="Headshot photo gallery"></div>
+    <div class="hs-bento" id="hsBento" aria-label="Headshot photo gallery"></div>
   </div>
 </section>
 
@@ -402,7 +402,7 @@ var MAG_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" strok
 
 function buildTile(img, idx){
   var btn = document.createElement('button');
-  btn.className = 'hs-tile reveal';
+  btn.className = 'hs-tile';
   btn.type = 'button';
   btn.setAttribute('aria-label', 'Open ' + img.alt);
   btn.style.aspectRatio = img.ratio;
