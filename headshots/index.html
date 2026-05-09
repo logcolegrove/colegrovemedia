@@ -44,16 +44,13 @@
 .hs-tile:hover{transform:translateY(-3px);border-color:rgba(0,242,166,.4);box-shadow:0 14px 40px rgba(0,0,0,.4),0 0 0 1px rgba(0,242,166,.18);}
 .hs-tile:hover img{transform:scale(1.04);filter:brightness(.78);}
 .hs-tile:focus-visible{outline:2px solid var(--teal);outline-offset:2px;}
-.hs-mag{position:absolute;bottom:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(0,242,166,.15);border:1px solid rgba(0,242,166,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:var(--teal);opacity:0;transform:scale(.85);transition:opacity .25s,transform .25s;pointer-events:none;}
-.hs-tile:hover .hs-mag{opacity:1;transform:scale(1);}
 
 @media (hover:none){
-  .hs-mag{opacity:.7;transform:scale(1);}
   .hs-tile:hover{transform:none;border-color:var(--border2);box-shadow:none;}
   .hs-tile:hover img{transform:none;filter:brightness(.92);}
 }
 @media (prefers-reduced-motion:reduce){
-  .hs-tile,.hs-tile img,.hs-mag{transition-property:opacity,color,border-color,outline !important;transition-duration:.2s !important;}
+  .hs-tile,.hs-tile img{transition-property:opacity,color,border-color,outline !important;transition-duration:.2s !important;}
   .hs-tile:hover{transform:none;}
   .hs-tile:hover img{transform:none;}
 }
@@ -331,7 +328,7 @@
       <div class="ind-name">Quick Session</div>
       <div class="ind-price">$150</div>
       <ul class="ind-features">
-        <li>30 minutes</li>
+        <li>15 minutes</li>
         <li>5 edited images</li>
         <li>Web/social-ready JPG</li>
       </ul>
@@ -341,7 +338,7 @@
       <div class="ind-name">Standard Session</div>
       <div class="ind-price">$250</div>
       <ul class="ind-features">
-        <li>1 hour</li>
+        <li>30 minutes</li>
         <li>15 edited images</li>
         <li>Outfit changes welcome</li>
         <li>Full-res + web/social JPG</li>
@@ -352,7 +349,7 @@
       <div class="ind-name">Premium Session</div>
       <div class="ind-price">$400</div>
       <ul class="ind-features">
-        <li>2 hours</li>
+        <li>1 hour</li>
         <li>30 edited images</li>
         <li>Full retouching + social kit</li>
         <li>Multiple crops included</li>
@@ -360,13 +357,6 @@
       <a href="/brief" class="ind-btn">Book a Session</a>
     </div>
   </div>
-</div>
-
-<!-- LIGHT RETOUCHING -->
-<div class="hs-section">
-  <div class="section-eyebrow reveal">05 - Retouching</div>
-  <h2 class="section-title reveal">What "Light Retouching" Includes</h2>
-  <p class="section-sub reveal">Natural skin cleanup, temporary blemish removal, under-eye softening, minor flyaway hair cleanup, color correction, exposure adjustments, and light background cleanup. Advanced retouching (body reshaping, major hair fixes, clothing reconstruction, object removal, or background replacement) is quoted separately. Background removal / transparent PNG available at $30/image.</p>
 </div>
 
 <!-- CTA -->
@@ -398,8 +388,6 @@ var IMAGES = [
   {src:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c1753bc298f11cb658f44_spanky.jpg', alt:'Pet portrait', ratio:1}
 ];
 
-var MAG_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>';
-
 function buildTile(img, idx){
   var btn = document.createElement('button');
   btn.className = 'hs-tile';
@@ -425,12 +413,6 @@ function buildTile(img, idx){
     }
   });
   btn.appendChild(im);
-
-  var icon = document.createElement('span');
-  icon.className = 'hs-mag';
-  icon.setAttribute('aria-hidden', 'true');
-  icon.innerHTML = MAG_SVG;
-  btn.appendChild(icon);
 
   return btn;
 }
