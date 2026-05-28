@@ -30,7 +30,7 @@
       {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/mega/logan-headshot.jpg'},
       {name:'Real Estate Photos', link:'/real-estate-photos', thumb:'/assets/images/mega/thumb-spring-ridge.jpg'},
       {name:'Drone Photos',      link:'/drone-photos',    thumb:'/assets/images/mega/thumb-iceland.jpg'},
-      {name:'3D Virtual Tours',  link:'/3d-virtual-tours', thumb:''}
+      {name:'3D Virtual Tours',  link:'/3d-virtual-tours', thumb:'', icon:'3d-virtual-tour'}
     ]},
     {label:'Animation', link:'/services?cat=animation',
      desc:'Complex ideas made clear. Motion design, narration, and sound working together to educate and inspire.',
@@ -44,14 +44,22 @@
      desc:'Visual identity that holds together. From the first impression to the final touchpoint, design that reflects who you are.',
      items:[
       {name:'Graphic Design',    link:'/graphic-design',  thumb:'/assets/images/mega/thumb-foundant-brand.jpg'},
-      {name:'Web Design',        link:'/web-design',      thumb:''},
+      {name:'Web Design',        link:'/web-design',      thumb:'', icon:'web-design'},
       {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'/assets/images/mega/thumb-someday-ranch.jpg'},
-      {name:'Satellite Maps',    link:'/satellite-maps',  thumb:''}
+      {name:'Satellite Maps',    link:'/satellite-maps',  thumb:'', icon:'satellite-map'}
     ]}
   ];
 
-  // Fallback SVG used when a service has no thumbnail image
+  // Fallback SVG used when a service has no thumbnail image AND no icon mapped
   var FALLBACK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6M7 12H1m17.07-7.07l-4.24 4.24M9.17 14.83l-4.24 4.24m0-14.14l4.24 4.24m5.66 5.66l4.24 4.24"/></svg>';
+
+  // Service icons (mirror CS_ICONS from portfolio-data.js for visual consistency
+  // with the "Coming Soon" tiles on the work page)
+  var ICON_MAP = {
+    '3d-virtual-tour':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2L18 6v8l-8 4-8-4V6z"/><path d="M10 2v12M2 6l8 4 8-4"/></svg>',
+    'web-design':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="18" height="14" rx="2"/><path d="M1 7h18M5 5h.01M7 5h.01M9 5h.01"/></svg>',
+    'satellite-map':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 3a9 9 0 0 1 0 14M3 10h14"/></svg>'
+  };
 
   // ── FEATURED PORTFOLIO ──
   // hero = the cinematic centerpiece. grid = 4 supporting pieces showing range.
@@ -60,13 +68,13 @@
     slug:'powering-wildfire-intelligence',
     title:'Powering Wildfire Intelligence',
     cat:'Brand Video',
-    thumb:'/assets/images/mega/thumb-ignis.jpg'
+    thumb:'/assets/images/mega-lg/thumb-ignis.jpg'
   };
   var PORTFOLIO_GRID = [
-    {slug:'iceland-in-motion',             title:'Iceland in Motion',       cat:'Drone / FPV',        thumb:'/assets/images/mega/thumb-iceland.jpg'},
-    {slug:'streamline-your-nonprofit',     title:'Streamline Your Nonprofit', cat:'Animated Explainer', thumb:'/assets/images/mega/thumb-nonprofit-explainer.jpg'},
-    {slug:'anything-for-the-grasslands',   title:'Anything For The Grasslands', cat:'Testimonial',    thumb:'/assets/images/mega/Anything-For-The-Graslands-Thumbnail-PF.jpg'},
-    {slug:'smartsimple-animated-explainer', title:'SmartSimple Explainer',  cat:'Animated Explainer', thumb:'/assets/images/mega/thumb-smartsimple.jpg'}
+    {slug:'iceland-in-motion',             title:'Iceland in Motion',       cat:'Drone / FPV',        thumb:'/assets/images/mega-lg/thumb-iceland.jpg'},
+    {slug:'streamline-your-nonprofit',     title:'Streamline Your Nonprofit', cat:'Animated Explainer', thumb:'/assets/images/mega-lg/thumb-nonprofit-explainer.jpg'},
+    {slug:'anything-for-the-grasslands',   title:'Anything For The Grasslands', cat:'Testimonial',    thumb:'/assets/images/mega-lg/Anything-For-The-Graslands-Thumbnail-PF.jpg'},
+    {slug:'smartsimple-animated-explainer', title:'SmartSimple Explainer',  cat:'Animated Explainer', thumb:'/assets/images/mega-lg/thumb-smartsimple.jpg'}
   ];
 
   // ── HELPERS ──
@@ -112,9 +120,14 @@
       html += '<p class="mega-cat-desc">' + esc(cat.desc) + '</p>';
       html += '<div class="mega-col-items">';
       cat.items.forEach(function(it){
-        var thumbInner = it.thumb
-          ? '<img src="' + esc(it.thumb) + '" alt="" loading="eager" decoding="async">'
-          : FALLBACK_SVG;
+        var thumbInner;
+        if (it.thumb) {
+          thumbInner = '<img src="' + esc(it.thumb) + '" alt="" loading="eager" decoding="async">';
+        } else if (it.icon && ICON_MAP[it.icon]) {
+          thumbInner = ICON_MAP[it.icon];
+        } else {
+          thumbInner = FALLBACK_SVG;
+        }
         html += '<a class="mega-item" href="' + esc(it.link) + '" role="menuitem">'
               + '<span class="mega-item-thumb" aria-hidden="true">' + thumbInner + '</span>'
               + '<span class="mega-item-name">' + esc(it.name) + '</span>'
