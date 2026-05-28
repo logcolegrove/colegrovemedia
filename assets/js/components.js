@@ -106,10 +106,14 @@
 
   // ── BUILD: PORTFOLIO MEGA ──
   function buildPortfolioMega(){
+    var PLAY_SVG = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg>';
     function featCard(p, isHero){
       var href = '/work?p=' + encodeURIComponent(p.slug);
       return '<a class="mega-feat' + (isHero ? ' mega-feat-hero' : '') + '" href="' + esc(href) + '" role="menuitem">'
-           + '<div class="mega-feat-thumb"><img src="' + esc(p.thumb) + '" alt="" loading="eager" decoding="async"></div>'
+           + '<div class="mega-feat-thumb">'
+             + '<img src="' + esc(p.thumb) + '" alt="" loading="eager" decoding="async">'
+             + '<div class="mega-feat-play" aria-hidden="true">' + PLAY_SVG + '</div>'
+           + '</div>'
            + '<div class="mega-feat-meta">'
              + '<div class="mega-feat-cat">' + esc(p.cat) + '</div>'
              + '<div class="mega-feat-title">' + esc(p.title) + '</div>'
@@ -119,6 +123,7 @@
 
     var html = '<div class="mega mega-portfolio-panel" id="megaPortfolio" role="menu" aria-label="Portfolio menu">';
     html += '<div class="mega-inner">';
+    html += '<div class="mega-portfolio-header">Featured Work</div>';
     html += '<div class="mega-portfolio">';
     // Hero (left) + 2x2 grid (right)
     html += '<div class="mega-portfolio-hero">' + featCard(PORTFOLIO_HERO, true) + '</div>';
@@ -183,8 +188,8 @@
     var nav = document.createElement('nav');
     nav.id = 'main-nav';
 
-    var serviceTrigger = '<button class="nav-trigger" type="button" data-mega="megaServices" aria-haspopup="true" aria-expanded="false" aria-controls="megaServices">Services ' + CHEV + '</button>';
-    var portfolioTrigger = '<button class="nav-trigger" type="button" data-mega="megaPortfolio" aria-haspopup="true" aria-expanded="false" aria-controls="megaPortfolio">Portfolio ' + CHEV + '</button>';
+    var serviceTrigger = '<a class="nav-trigger" href="/services" data-mega="megaServices" aria-haspopup="true" aria-expanded="false" aria-controls="megaServices">Services ' + CHEV + '</a>';
+    var portfolioTrigger = '<a class="nav-trigger" href="/work" data-mega="megaPortfolio" aria-haspopup="true" aria-expanded="false" aria-controls="megaPortfolio">Portfolio ' + CHEV + '</a>';
 
     nav.innerHTML =
       '<div class="nav-logo"><a href="/" aria-label="Colegrove Media home"><img src="/assets/images/logo.svg" alt="Colegrove Media"></a></div>'

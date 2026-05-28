@@ -107,11 +107,8 @@
     // Keep mega open when hovering the panel itself
     p.addEventListener('mouseenter', clearCloseTimer);
     p.addEventListener('mouseleave', scheduleClose);
-    t.addEventListener('click', function(e){
-      e.preventDefault();
-      var isOpen = p.classList.contains('open');
-      if (isOpen) closeAllMega(); else openMega(id);
-    });
+    // Click on the trigger anchor navigates by default (default link behavior).
+    // We do not preventDefault here. Hover handles mega open; ArrowDown also opens for keyboard users.
     t.addEventListener('keydown', function(e){
       if (e.key === 'Escape') { closeAllMega(); t.focus(); }
       else if (e.key === 'ArrowDown') {
