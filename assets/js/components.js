@@ -14,33 +14,36 @@
 
   // ── SERVICE LIST (mirrors homepage "What We Do") ──
   // link = future per-service page path. Pages without files 404 until built.
-  // thumb = optional thumbnail image. Empty string = colored box fallback.
+  // thumb = optional thumbnail image. Empty/null = fallback SVG icon.
   var SERVICE_CATS = [
     {label:'Video', items:[
-      {name:'Brand Videos',     link:'/services/brand-videos',     thumb:'/assets/images/thumb-ignis.jpeg'},
-      {name:'Testimonials',     link:'/services/testimonials',     thumb:'/assets/images/thumb-team-testimonial.jpeg'},
-      {name:'Social Clips / Ads', link:'/services/social-clips',   thumb:'/assets/images/thumb-girls-on-the-run.jpeg'},
-      {name:'Live Streams',     link:'/services/live-streams',     thumb:'/assets/images/thumb-salt-lake-summit.jpeg'}
+      {name:'Brand Videos',     link:'/brand-videos',     thumb:'/assets/images/thumb-ignis.jpeg'},
+      {name:'Testimonials',     link:'/testimonials',     thumb:'/assets/images/thumb-team-testimonial.jpeg'},
+      {name:'Social Clips / Ads', link:'/social-clips',   thumb:'/assets/images/thumb-girls-on-the-run.jpeg'},
+      {name:'Live Streams',     link:'/live-streams',     thumb:'/assets/images/thumb-salt-lake-summit.jpeg'}
     ]},
     {label:'Photo', items:[
-      {name:'Headshots',         link:'/headshots',                thumb:'https://logcolegrove.github.io/colegrovemedia/assets/images/654c134434654e76e7cb7274_example%204.jpg'},
-      {name:'Real Estate Photos', link:'/services/real-estate-photos', thumb:'/assets/images/thumb-spring-ridge.jpeg'},
-      {name:'Drone Photos',      link:'/services/drone-photos',    thumb:'/assets/images/thumb-iceland.jpg'},
-      {name:'3D Virtual Tours',  link:'/services/3d-virtual-tours', thumb:''}
+      {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/logan-headshot.jpg'},
+      {name:'Real Estate Photos', link:'/real-estate-photos', thumb:'/assets/images/thumb-spring-ridge.jpeg'},
+      {name:'Drone Photos',      link:'/drone-photos',    thumb:'/assets/images/thumb-iceland.jpg'},
+      {name:'3D Virtual Tours',  link:'/3d-virtual-tours', thumb:''}
     ]},
     {label:'Animation', items:[
-      {name:'Animated Explainers', link:'/services/animated-explainers', thumb:'/assets/images/thumb-nonprofit-explainer.jpeg'},
-      {name:'Motion Graphics',   link:'/services/motion-graphics', thumb:'/assets/images/thumb-smartsimple.jpg'},
-      {name:'Logo Animations',   link:'/services/logo-animations', thumb:''},
-      {name:'Website Animations / Lottie', link:'/services/website-animations', thumb:''}
+      {name:'Animated Explainers', link:'/animated-explainers', thumb:'/assets/images/thumb-nonprofit-explainer.jpeg'},
+      {name:'Motion Graphics',   link:'/motion-graphics', thumb:'/assets/images/thumb-smartsimple.jpg'},
+      {name:'Logo Animations',   link:'/logo-animations', thumb:'/assets/images/logo.svg'},
+      {name:'Website Animations / Lottie', link:'/website-animations', thumb:'/assets/images/thumb-smartsimple.jpg'}
     ]},
     {label:'Design', items:[
-      {name:'Graphic Design',    link:'/services/graphic-design',  thumb:'/assets/images/thumb-foundant-brand.jpeg'},
-      {name:'Web Design',        link:'/services/web-design',      thumb:''},
-      {name:'Virtual Stagings',  link:'/services/virtual-stagings', thumb:'/assets/images/thumb-someday-ranch.jpeg'},
-      {name:'Satellite Maps',    link:'/services/satellite-maps',  thumb:''}
+      {name:'Graphic Design',    link:'/graphic-design',  thumb:'/assets/images/thumb-foundant-brand.jpeg'},
+      {name:'Web Design',        link:'/web-design',      thumb:''},
+      {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'/assets/images/thumb-someday-ranch.jpeg'},
+      {name:'Satellite Maps',    link:'/satellite-maps',  thumb:''}
     ]}
   ];
+
+  // Fallback SVG used when a service has no thumbnail image
+  var FALLBACK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6M7 12H1m17.07-7.07l-4.24 4.24M9.17 14.83l-4.24 4.24m0-14.14l4.24 4.24m5.66 5.66l4.24 4.24"/></svg>';
 
   // ── FEATURED PORTFOLIO (top 3 by featuredOrder) ──
   var FEATURED_PORTFOLIO = [
@@ -57,13 +60,16 @@
   // ── BUILD: SERVICES MEGA ──
   function buildServicesMega(){
     var html = '<div class="mega mega-services" id="megaServices" role="menu" aria-label="Services menu">';
+    html += '<div class="mega-services-grid">';
     SERVICE_CATS.forEach(function(cat){
       html += '<div class="mega-col">';
       html += '<div class="mega-cat-title">' + esc(cat.label) + '</div>';
       cat.items.forEach(function(it){
-        var thumbStyle = it.thumb ? ' style="background-image:url(' + JSON.stringify(it.thumb).slice(1,-1) + ')"' : '';
+        var thumbInner = it.thumb
+          ? '<img src="' + esc(it.thumb) + '" alt="" loading="eager" decoding="async">'
+          : FALLBACK_SVG;
         html += '<a class="mega-item" href="' + esc(it.link) + '" role="menuitem">'
-              + '<span class="mega-item-thumb"' + thumbStyle + ' aria-hidden="true"></span>'
+              + '<span class="mega-item-thumb" aria-hidden="true">' + thumbInner + '</span>'
               + '<span class="mega-item-name">' + esc(it.name) + '</span>'
               + '<span class="mega-item-arrow" aria-hidden="true">&rarr;</span>'
               + '</a>';
@@ -71,17 +77,18 @@
       html += '</div>';
     });
     html += '</div>';
+    html += '<div class="mega-foot"><a href="/services">See all services <span>&rarr;</span></a></div>';
+    html += '</div>';
     return html;
   }
 
   // ── BUILD: PORTFOLIO MEGA ──
   function buildPortfolioMega(){
-    var html = '<div class="mega" id="megaPortfolio" role="menu" aria-label="Portfolio menu">';
+    var html = '<div class="mega mega-portfolio-panel" id="megaPortfolio" role="menu" aria-label="Portfolio menu">';
     html += '<div class="mega-portfolio">';
     FEATURED_PORTFOLIO.forEach(function(p){
-      var thumbStyle = ' style="background-image:url(' + JSON.stringify(p.thumb).slice(1,-1) + ')"';
       html += '<a class="mega-feat" href="' + esc(p.href) + '" role="menuitem">'
-            + '<div class="mega-feat-thumb"' + thumbStyle + '></div>'
+            + '<div class="mega-feat-thumb"><img src="' + esc(p.thumb) + '" alt="" loading="eager" decoding="async"></div>'
             + '<div class="mega-feat-meta">'
               + '<div class="mega-feat-cat">' + esc(p.cat) + '</div>'
               + '<div class="mega-feat-title">' + esc(p.title) + '</div>'
@@ -98,7 +105,7 @@
   function buildMobileMenu(active){
     var html = '<div class="mobile-menu" id="mobileMenu" aria-hidden="true">';
 
-    // Services (collapsible)
+    // Services (collapsible, categorized)
     html += '<div class="mm-section">'
           + '<div class="mm-row" data-mm-section="services">'
             + '<a href="/services"' + (active === 'services' ? ' aria-current="page"' : '') + '>Services</a>'
@@ -106,6 +113,7 @@
           + '</div>'
           + '<div class="mm-sub" id="mmSubServices">';
     SERVICE_CATS.forEach(function(cat){
+      html += '<div class="mm-cat-label">' + esc(cat.label) + '</div>';
       cat.items.forEach(function(it){
         html += '<a href="' + esc(it.link) + '">' + esc(it.name) + '</a>';
       });
@@ -123,6 +131,14 @@
     html += '<div class="mm-cta-row">'
           + '<a href="/brief" class="btn-fill">Get a Quote</a>'
           + '<a href="https://calendar.app.google/VkHDTa5U2EankpWW6" class="btn-ghost">Book a call</a>'
+          + '</div>';
+
+    // Contact
+    html += '<div class="mm-contact">'
+          + '<div class="mm-contact-label">Contact</div>'
+          + '<a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a>'
+          + '<a href="tel:4062099945">(406) 209-9945</a>'
+          + '<a href="https://maps.app.goo.gl/hJnk5TnfzeGA8EU29">Bozeman, Montana</a>'
           + '</div>';
 
     html += '</div>';

@@ -163,5 +163,13 @@
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
+    // Auto-close when viewport crosses to desktop width
+    var resizeT;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeT);
+      resizeT = setTimeout(function(){
+        if (window.innerWidth > 960 && mobile.classList.contains('open')) closeMobile();
+      }, 120);
+    });
   }
 })();
