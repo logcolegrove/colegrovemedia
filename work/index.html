@@ -208,6 +208,18 @@ function handleBackdropClick(e){if(e.target===document.getElementById('modal-bac
 document.addEventListener('keydown',function(e){var backdrop=document.getElementById('modal-backdrop');if(!backdrop||!backdrop.classList.contains('open'))return;if(e.key==='Escape')closeModal();else if(e.key==='ArrowRight'){if(_lottieAnim&&window.shiftLottie)shiftLottie(1);else shiftGallery(1);}else if(e.key==='ArrowLeft'){if(_lottieAnim&&window.shiftLottie)shiftLottie(-1);else shiftGallery(-1);}});
 
 render();
+
+// Deep-link: /work?p=<slug> auto-opens that project's modal
+(function(){
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var slug = params.get('p');
+    if (slug && typeof findProject === 'function' && findProject(slug)) {
+      // Defer a tick so the modal markup + listeners are wired
+      setTimeout(function(){ openModal(slug); }, 0);
+    }
+  } catch (e) { /* no-op */ }
+})();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 </body>

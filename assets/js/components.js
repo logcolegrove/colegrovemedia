@@ -53,11 +53,20 @@
   // Fallback SVG used when a service has no thumbnail image
   var FALLBACK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6m11-11h-6M7 12H1m17.07-7.07l-4.24 4.24M9.17 14.83l-4.24 4.24m0-14.14l4.24 4.24m5.66 5.66l4.24 4.24"/></svg>';
 
-  // ── FEATURED PORTFOLIO (top 3 by featuredOrder) ──
-  var FEATURED_PORTFOLIO = [
-    {title:'Powering Wildfire Intelligence', cat:'Brand Video', thumb:'/assets/images/thumb-ignis.jpeg', href:'/work'},
-    {title:'Nonprofit Explainer',           cat:'Animated Explainer', thumb:'/assets/images/thumb-nonprofit-explainer.jpeg', href:'/work'},
-    {title:'Iceland',                       cat:'Drone / FPV', thumb:'/assets/images/thumb-iceland.jpg', href:'/work'}
+  // ── FEATURED PORTFOLIO ──
+  // hero = the cinematic centerpiece. grid = 4 supporting pieces showing range.
+  // Each href deep-links into /work, where openModal(slug) fires on load.
+  var PORTFOLIO_HERO = {
+    slug:'powering-wildfire-intelligence',
+    title:'Powering Wildfire Intelligence',
+    cat:'Brand Video',
+    thumb:'/assets/images/thumb-ignis.jpeg'
+  };
+  var PORTFOLIO_GRID = [
+    {slug:'iceland-in-motion',             title:'Iceland in Motion',       cat:'Drone / FPV',        thumb:'/assets/images/thumb-iceland.jpg'},
+    {slug:'streamline-your-nonprofit',     title:'Streamline Your Nonprofit', cat:'Animated Explainer', thumb:'/assets/images/thumb-nonprofit-explainer.jpeg'},
+    {slug:'anything-for-the-grasslands',   title:'Anything For The Grasslands', cat:'Testimonial',    thumb:'/assets/images/Anything For The Graslands Thumbnail PF.jpg'},
+    {slug:'smartsimple-animated-explainer', title:'SmartSimple Explainer',  cat:'Animated Explainer', thumb:'/assets/images/thumb-smartsimple.jpg'}
   ];
 
   // ── HELPERS ──
@@ -97,18 +106,25 @@
 
   // ── BUILD: PORTFOLIO MEGA ──
   function buildPortfolioMega(){
+    function featCard(p, isHero){
+      var href = '/work?p=' + encodeURIComponent(p.slug);
+      return '<a class="mega-feat' + (isHero ? ' mega-feat-hero' : '') + '" href="' + esc(href) + '" role="menuitem">'
+           + '<div class="mega-feat-thumb"><img src="' + esc(p.thumb) + '" alt="" loading="eager" decoding="async"></div>'
+           + '<div class="mega-feat-meta">'
+             + '<div class="mega-feat-cat">' + esc(p.cat) + '</div>'
+             + '<div class="mega-feat-title">' + esc(p.title) + '</div>'
+           + '</div>'
+           + '</a>';
+    }
+
     var html = '<div class="mega mega-portfolio-panel" id="megaPortfolio" role="menu" aria-label="Portfolio menu">';
-    html += '<div class="mega-inner mega-inner-narrow">';
+    html += '<div class="mega-inner">';
     html += '<div class="mega-portfolio">';
-    FEATURED_PORTFOLIO.forEach(function(p){
-      html += '<a class="mega-feat" href="' + esc(p.href) + '" role="menuitem">'
-            + '<div class="mega-feat-thumb"><img src="' + esc(p.thumb) + '" alt="" loading="eager" decoding="async"></div>'
-            + '<div class="mega-feat-meta">'
-              + '<div class="mega-feat-cat">' + esc(p.cat) + '</div>'
-              + '<div class="mega-feat-title">' + esc(p.title) + '</div>'
-            + '</div>'
-            + '</a>';
-    });
+    // Hero (left) + 2x2 grid (right)
+    html += '<div class="mega-portfolio-hero">' + featCard(PORTFOLIO_HERO, true) + '</div>';
+    html += '<div class="mega-portfolio-grid">';
+    PORTFOLIO_GRID.forEach(function(p){ html += featCard(p, false); });
+    html += '</div>';
     html += '</div>';
     html += '<div class="mega-foot"><a href="/work">See all work <span>&rarr;</span></a></div>';
     html += '</div>';
@@ -128,7 +144,7 @@
           + '</div>'
           + '<div class="mm-sub" id="mmSubServices">';
     SERVICE_CATS.forEach(function(cat){
-      html += '<div class="mm-cat-label">' + esc(cat.label) + '</div>';
+      html += '<a class="mm-cat-link" href="' + esc(cat.link) + '"><span>' + esc(cat.label) + '</span></a>';
       cat.items.forEach(function(it){
         html += '<a href="' + esc(it.link) + '">' + esc(it.name) + '</a>';
       });
