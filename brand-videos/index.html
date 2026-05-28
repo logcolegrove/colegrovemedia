@@ -104,6 +104,21 @@
 .bv-addon-foot{margin-top:18px;font-size:13px;color:var(--muted);font-weight:300;line-height:1.65;}
 .bv-addon-foot strong{color:var(--white);font-weight:500;}
 
+/* ── VIDEO MODAL ── */
+.bv-modal{position:fixed;inset:0;z-index:600;background:rgba(11,14,20,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s;}
+.bv-modal.open{opacity:1;visibility:visible;}
+.bv-modal-frame{width:min(1200px,92vw);aspect-ratio:16/9;max-height:88vh;background:#000;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,242,166,0.2),0 24px 80px rgba(0,0,0,0.5);position:relative;transform:scale(0.97);transition:transform 0.3s cubic-bezier(0.22,1,0.36,1);}
+.bv-modal.open .bv-modal-frame{transform:scale(1);}
+.bv-modal-video{width:100%;height:100%;position:relative;}
+.bv-modal-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
+.bv-modal-close{position:absolute;top:24px;right:24px;width:44px;height:44px;border-radius:50%;background:rgba(11,14,20,0.6);border:1px solid rgba(0,242,166,0.3);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--white);transition:background 0.2s,border-color 0.2s;padding:0;z-index:2;}
+.bv-modal-close:hover{background:rgba(0,242,166,0.18);border-color:rgba(0,242,166,0.6);}
+@media(max-width:580px){
+  .bv-modal{padding:20px;}
+  .bv-modal-close{top:16px;right:16px;width:40px;height:40px;}
+}
+body.bv-modal-open{overflow:hidden;}
+
 /* ── FAQ ── */
 .bv-faq-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);}
 .bv-faq{border-bottom:1px solid var(--border);}
@@ -138,7 +153,6 @@
 <section class="bv-hero">
   <div class="bv-hero-inner">
     <div class="bv-hero-text">
-      <div class="eyebrow reveal">Video</div>
       <h1 class="bv-h1 reveal">Cinematic <em>Brand Films.</em></h1>
       <p class="bv-lede reveal">A cinematic brand video that makes your mission unmistakable and your audience pay attention. Built around your story, shot to match your standards, delivered ready to publish.</p>
       <div class="bv-cta-row reveal">
@@ -147,14 +161,7 @@
       </div>
     </div>
     <div class="bv-hero-video reveal">
-      <iframe src="https://player.vimeo.com/video/1011394531?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0&color=00f2a6" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      <a class="bv-hero-video-link" href="/work?p=powering-wildfire-intelligence" aria-label="Open Powering Wildfire Intelligence in the portfolio"></a>
-      <div class="bv-hero-video-cap">
-        <div>
-          <div class="bv-hero-video-cap-l">Featured</div>
-          <div class="bv-hero-video-cap-t">Powering Wildfire Intelligence &middot; Ignis Technologies</div>
-        </div>
-      </div>
+      <iframe src="https://player.vimeo.com/video/1011394531?title=0&byline=0&portrait=0&color=00f2a6" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -169,7 +176,7 @@
     <a href="/work?cat=video">See all video work &rarr;</a>
   </div>
   <div class="bv-feat-grid reveal">
-    <a class="bv-feat" href="/work?p=painted-hills-gvlt">
+    <a class="bv-feat" href="/work?p=painted-hills-gvlt" onclick="event.preventDefault();bvOpenModal('1011446090');return false;">
       <div class="bv-feat-thumb">
         <img src="/assets/images/mega-lg/thumb-painted-hills.jpg" alt="Painted Hills brand video" loading="lazy" decoding="async">
         <div class="bv-feat-play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg></div>
@@ -179,7 +186,7 @@
         <div class="bv-feat-title">Painted Hills</div>
       </div>
     </a>
-    <a class="bv-feat" href="/work?p=montana-grassland-initiative">
+    <a class="bv-feat" href="/work?p=montana-grassland-initiative" onclick="event.preventDefault();bvOpenModal('1072711800');return false;">
       <div class="bv-feat-thumb">
         <img src="/assets/images/mega-lg/thumb-grassland-initiative.jpg" alt="Montana Grassland Initiative" loading="lazy" decoding="async">
         <div class="bv-feat-play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg></div>
@@ -189,7 +196,7 @@
         <div class="bv-feat-title">Montana Grassland Initiative</div>
       </div>
     </a>
-    <a class="bv-feat" href="/work?p=foundant-brand-overview">
+    <a class="bv-feat" href="/work?p=foundant-brand-overview" onclick="event.preventDefault();bvOpenModal('1011467483');return false;">
       <div class="bv-feat-thumb">
         <img src="/assets/images/mega-lg/thumb-foundant-brand.jpg" alt="Foundant Brand Overview" loading="lazy" decoding="async">
         <div class="bv-feat-play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg></div>
@@ -199,7 +206,7 @@
         <div class="bv-feat-title">Foundant Brand Overview</div>
       </div>
     </a>
-    <a class="bv-feat" href="/work?p=girls-on-the-run">
+    <a class="bv-feat" href="/work?p=girls-on-the-run" onclick="event.preventDefault();bvOpenModal('1011397220');return false;">
       <div class="bv-feat-thumb">
         <img src="/assets/images/mega-lg/thumb-girls-on-the-run.jpg" alt="Girls On The Run charity video" loading="lazy" decoding="async">
         <div class="bv-feat-play" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 18 18" fill="none"><path d="M5 3L15 9L5 15V3Z" fill="rgba(0,242,166,0.95)"/></svg></div>
@@ -212,29 +219,17 @@
   </div>
 </section>
 
-<!-- WHAT'S INCLUDED -->
-<section class="bv-section">
-  <div class="section-eyebrow reveal">02 - What's Included</div>
-  <h2 class="section-title reveal">Standard at Every Tier</h2>
-  <p class="section-sub reveal">Every brand video project, regardless of tier, includes the fundamentals. Tiers scale up production scope and deliverables &mdash; not the craft.</p>
-  <div class="bv-included reveal">
-    <div class="bv-included-label">Always Included</div>
-    <ul class="bv-included-list">
-      <li>Pre-shoot strategy and creative direction call</li>
-      <li>Professional cinema camera, lighting, and audio</li>
-      <li>On-location production by me, end-to-end</li>
-      <li>Color graded, sound-mixed master file</li>
-      <li>Licensed music + custom title cards</li>
-      <li>Deliverables in horizontal, vertical, and square crops</li>
-      <li>Hosting-ready exports (Vimeo, YouTube, web, social)</li>
-      <li>One round of structured revisions before final delivery</li>
-    </ul>
+<!-- VIDEO MODAL -->
+<div class="bv-modal" id="bvModal" role="dialog" aria-modal="true" aria-label="Video viewer" onclick="bvBackdropClick(event)">
+  <button class="bv-modal-close" type="button" onclick="bvCloseModal()" aria-label="Close video"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l12 12M13 1L1 13"/></svg></button>
+  <div class="bv-modal-frame">
+    <div class="bv-modal-video" id="bvModalVideo"></div>
   </div>
-</section>
+</div>
 
 <!-- PRICING -->
 <section class="bv-section">
-  <div class="section-eyebrow reveal">03 - Pricing</div>
+  <div class="section-eyebrow reveal">02 - Pricing</div>
   <h2 class="section-title reveal">Three Tiers, Built for Scope</h2>
   <p class="section-sub reveal">All pricing assumes one shoot day or less within 15 miles of Bozeman. Multi-day, travel, and custom scope are quoted on a call &mdash; see add-ons below.</p>
 
@@ -291,7 +286,7 @@
 
 <!-- PROCESS -->
 <section class="bv-section">
-  <div class="section-eyebrow reveal">04 - How It Works</div>
+  <div class="section-eyebrow reveal">03 - How It Works</div>
   <h2 class="section-title reveal">From First Call to Final Cut</h2>
 
   <div class="bv-process reveal">
@@ -318,55 +313,9 @@
   </div>
 </section>
 
-<!-- ADD-ONS -->
-<section class="bv-section">
-  <div class="section-eyebrow reveal">05 - Add-Ons</div>
-  <h2 class="section-title reveal">Optional Extras</h2>
-  <p class="section-sub reveal">Add to any tier. Most are flat-fee. Anything more custom gets quoted on a call.</p>
-
-  <div class="bv-addons reveal">
-    <div class="bv-addon-row">
-      <div class="bv-addon-name">Additional Shoot Day</div>
-      <div class="bv-addon-price">$1,800/day</div>
-      <div class="bv-addon-note">Full crew + gear, within 15 miles of Bozeman. Includes editing time for the additional footage.</div>
-    </div>
-    <div class="bv-addon-row">
-      <div class="bv-addon-name">Drone Coverage</div>
-      <div class="bv-addon-price">$700</div>
-      <div class="bv-addon-note">FAA-licensed pilot. Cinematic aerial shots integrated into the edit. Weather permitting.</div>
-    </div>
-    <div class="bv-addon-row">
-      <div class="bv-addon-name">FPV Drone</div>
-      <div class="bv-addon-price">$900</div>
-      <div class="bv-addon-note">First-person view drone for dynamic, immersive shots that traditional drones can't capture.</div>
-    </div>
-    <div class="bv-addon-row">
-      <div class="bv-addon-name">Additional Social Cuts</div>
-      <div class="bv-addon-price">$750/cut</div>
-      <div class="bv-addon-note">Re-edited from existing footage for a specific platform (Reels, TikTok, LinkedIn). 15-30 seconds, all-inclusive.</div>
-    </div>
-    <div class="bv-addon-row">
-      <div class="bv-addon-name">Professional Voiceover</div>
-      <div class="bv-addon-price">$400-$900</div>
-      <div class="bv-addon-note">Casting, direction, and licensed VO from a professional artist. Range depends on script length and usage rights.</div>
-    </div>
-    <div class="bv-addon-row">
-      <div class="bv-addon-name">Travel</div>
-      <div class="bv-addon-price">$1.25/mile</div>
-      <div class="bv-addon-note">Beyond the first 15 miles from Bozeman, MT. Air and lodging quoted at cost for further trips.</div>
-    </div>
-    <div class="bv-addon-row">
-      <div class="bv-addon-name">Rush Delivery</div>
-      <div class="bv-addon-price">+50% on total</div>
-      <div class="bv-addon-note">Compressed timeline (cut your turnaround in half). Quoted case-by-case based on team availability.</div>
-    </div>
-  </div>
-  <div class="bv-addon-foot reveal"><strong>Quoted on request:</strong> additional cameras, animation overlays, paid actors, props or set construction, multi-language deliverables, ongoing retainer arrangements. Send a brief and I'll get back same-day.</div>
-</section>
-
 <!-- FAQ -->
 <section class="bv-section">
-  <div class="section-eyebrow reveal">06 - FAQ</div>
+  <div class="section-eyebrow reveal">04 - FAQ</div>
   <h2 class="section-title reveal">Common Questions</h2>
   <div class="bv-faq-list reveal">
     <div class="bv-faq">
@@ -436,15 +385,6 @@
         <p>I've shot in Montana, throughout the Mountain West, and internationally for select projects.</p>
       </div></div>
     </div>
-    <div class="bv-faq">
-      <button class="bv-faq-q" type="button" aria-expanded="false">
-        <span>How does payment work?</span>
-        <span class="bv-faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 1v12M1 7h12"/></svg></span>
-      </button>
-      <div class="bv-faq-a"><div class="bv-faq-a-inner">
-        <p>50% deposit to confirm the shoot date, balance due on final delivery. Invoices accept ACH, credit card, and checks. For Advanced projects we can split into thirds (kickoff, mid-project, delivery).</p>
-      </div></div>
-    </div>
   </div>
 </section>
 
@@ -473,6 +413,28 @@
     });
   });
 })();
+
+// ── VIDEO MODAL ──
+function bvOpenModal(vimeoId){
+  var box = document.getElementById('bvModalVideo');
+  box.innerHTML = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+  document.getElementById('bvModal').classList.add('open');
+  document.body.classList.add('bv-modal-open');
+}
+function bvCloseModal(){
+  var modal = document.getElementById('bvModal');
+  if (!modal.classList.contains('open')) return;
+  modal.classList.remove('open');
+  document.body.classList.remove('bv-modal-open');
+  // Clear the iframe so the video stops playing
+  document.getElementById('bvModalVideo').innerHTML = '';
+}
+function bvBackdropClick(e){
+  if (e.target === document.getElementById('bvModal')) bvCloseModal();
+}
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') bvCloseModal();
+});
 </script>
 </body>
 </html>
