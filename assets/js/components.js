@@ -38,7 +38,7 @@
       {name:'Animated Explainers', link:'/animated-explainers', thumb:'/assets/images/mega/thumb-nonprofit-explainer.jpg'},
       {name:'Motion Graphics',   link:'/motion-graphics', thumb:'/assets/images/mega/thumb-smartsimple.jpg'},
       {name:'Logo Animations',   link:'/logo-animations', thumb:'/assets/images/colegrove-media-favicon.svg'},
-      {name:'Website Animations / Lottie', link:'/website-animations', thumb:'', icon:'lottie-animation'}
+      {name:'Website Animations / Lottie', link:'/website-animations', thumb:'/assets/images/mega/lottie-thumb.jpg', icon:'lottie-animation'}
     ]},
     {label:'Design', link:'/services?cat=design',
      desc:'Visual identity that holds together from first impression to final touchpoint.',
@@ -122,13 +122,14 @@
       html += '<p class="mega-cat-desc">' + esc(cat.desc) + '</p>';
       html += '<div class="mega-col-items">';
       cat.items.forEach(function(it){
+        var fallback = it.icon && ICON_MAP[it.icon] ? ICON_MAP[it.icon] : FALLBACK_SVG;
         var thumbInner;
         if (it.thumb) {
-          thumbInner = '<img src="' + esc(it.thumb) + '" alt="" loading="eager" decoding="async">';
-        } else if (it.icon && ICON_MAP[it.icon]) {
-          thumbInner = ICON_MAP[it.icon];
+          // onerror swaps in the icon fallback if the image file is missing/404
+          var onerr = 'this.outerHTML=' + JSON.stringify(fallback).replace(/"/g, '&quot;');
+          thumbInner = '<img src="' + esc(it.thumb) + '" alt="" loading="eager" decoding="async" onerror="' + onerr + '">';
         } else {
-          thumbInner = FALLBACK_SVG;
+          thumbInner = fallback;
         }
         html += '<a class="mega-item" href="' + esc(it.link) + '" role="menuitem">'
               + '<span class="mega-item-thumb" aria-hidden="true">' + thumbInner + '</span>'
