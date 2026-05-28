@@ -16,25 +16,33 @@
   // link = future per-service page path. Pages without files 404 until built.
   // thumb = optional thumbnail image. Empty/null = fallback SVG icon.
   var SERVICE_CATS = [
-    {label:'Video', items:[
+    {label:'Video', link:'/services?cat=video',
+     desc:"Cinematic storytelling that connects emotionally and drives people to act. Whether it's a 10-second social cut or a full-length brand film.",
+     items:[
       {name:'Brand Videos',     link:'/brand-videos',     thumb:'/assets/images/thumb-ignis.jpeg'},
       {name:'Testimonials',     link:'/testimonials',     thumb:'/assets/images/thumb-team-testimonial.jpeg'},
       {name:'Social Clips / Ads', link:'/social-clips',   thumb:'/assets/images/thumb-girls-on-the-run.jpeg'},
       {name:'Live Streams',     link:'/live-streams',     thumb:'/assets/images/thumb-salt-lake-summit.jpeg'}
     ]},
-    {label:'Photo', items:[
+    {label:'Photo', link:'/services?cat=photo',
+     desc:'Stills captured on location or in studio. Authentic, expertly composed and retouched.',
+     items:[
       {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/logan-headshot.jpg'},
       {name:'Real Estate Photos', link:'/real-estate-photos', thumb:'/assets/images/thumb-spring-ridge.jpeg'},
       {name:'Drone Photos',      link:'/drone-photos',    thumb:'/assets/images/thumb-iceland.jpg'},
       {name:'3D Virtual Tours',  link:'/3d-virtual-tours', thumb:''}
     ]},
-    {label:'Animation', items:[
+    {label:'Animation', link:'/services?cat=animation',
+     desc:'Complex ideas made clear. Motion design, narration, and sound working together to educate and inspire.',
+     items:[
       {name:'Animated Explainers', link:'/animated-explainers', thumb:'/assets/images/thumb-nonprofit-explainer.jpeg'},
       {name:'Motion Graphics',   link:'/motion-graphics', thumb:'/assets/images/thumb-smartsimple.jpg'},
       {name:'Logo Animations',   link:'/logo-animations', thumb:'/assets/images/logo.svg'},
       {name:'Website Animations / Lottie', link:'/website-animations', thumb:'/assets/images/thumb-smartsimple.jpg'}
     ]},
-    {label:'Design', items:[
+    {label:'Design', link:'/services?cat=design',
+     desc:'Visual identity that holds together. From the first impression to the final touchpoint, design that reflects who you are.',
+     items:[
       {name:'Graphic Design',    link:'/graphic-design',  thumb:'/assets/images/thumb-foundant-brand.jpeg'},
       {name:'Web Design',        link:'/web-design',      thumb:''},
       {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'/assets/images/thumb-someday-ranch.jpeg'},
@@ -60,10 +68,13 @@
   // ── BUILD: SERVICES MEGA ──
   function buildServicesMega(){
     var html = '<div class="mega mega-services" id="megaServices" role="menu" aria-label="Services menu">';
+    html += '<div class="mega-inner">';
     html += '<div class="mega-services-grid">';
     SERVICE_CATS.forEach(function(cat){
       html += '<div class="mega-col">';
-      html += '<div class="mega-cat-title">' + esc(cat.label) + '</div>';
+      html += '<a class="mega-cat-title" href="' + esc(cat.link) + '"><span>' + esc(cat.label) + '</span></a>';
+      html += '<p class="mega-cat-desc">' + esc(cat.desc) + '</p>';
+      html += '<div class="mega-col-items">';
       cat.items.forEach(function(it){
         var thumbInner = it.thumb
           ? '<img src="' + esc(it.thumb) + '" alt="" loading="eager" decoding="async">'
@@ -75,9 +86,11 @@
               + '</a>';
       });
       html += '</div>';
+      html += '</div>';
     });
     html += '</div>';
     html += '<div class="mega-foot"><a href="/services">See all services <span>&rarr;</span></a></div>';
+    html += '</div>';
     html += '</div>';
     return html;
   }
@@ -85,6 +98,7 @@
   // ── BUILD: PORTFOLIO MEGA ──
   function buildPortfolioMega(){
     var html = '<div class="mega mega-portfolio-panel" id="megaPortfolio" role="menu" aria-label="Portfolio menu">';
+    html += '<div class="mega-inner mega-inner-narrow">';
     html += '<div class="mega-portfolio">';
     FEATURED_PORTFOLIO.forEach(function(p){
       html += '<a class="mega-feat" href="' + esc(p.href) + '" role="menuitem">'
@@ -97,6 +111,7 @@
     });
     html += '</div>';
     html += '<div class="mega-foot"><a href="/work">See all work <span>&rarr;</span></a></div>';
+    html += '</div>';
     html += '</div>';
     return html;
   }

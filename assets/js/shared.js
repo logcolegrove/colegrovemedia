@@ -62,7 +62,18 @@
     if (panel) panels[id] = {trigger:t, panel:panel};
   });
 
+  // Single shared close-timer — any openMega call cancels any pending close
+  var closeTimer = null;
+  function clearCloseTimer(){ if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } }
+  function scheduleClose(){
+    clearCloseTimer();
+    closeTimer = setTimeout(function(){
+      if (window.matchMedia('(hover: hover)').matches) closeAllMega();
+    }, 140);
+  }
+
   function openMega(id){
+    clearCloseTimer();
     Object.keys(panels).forEach(function(k){
       if (k === id) {
         panels[k].panel.classList.add('open');
@@ -74,6 +85,7 @@
     });
   }
   function closeAllMega(){
+    clearCloseTimer();
     Object.keys(panels).forEach(function(k){
       panels[k].panel.classList.remove('open');
       panels[k].trigger.setAttribute('aria-expanded', 'false');
@@ -85,17 +97,16 @@
     var t = panels[id].trigger;
     var p = panels[id].panel;
     var li = t.parentElement;
-    var hoverT;
 
     li.addEventListener('mouseenter', function(){
-      clearTimeout(hoverT);
       if (window.matchMedia('(hover: hover)').matches) openMega(id);
     });
     li.addEventListener('mouseleave', function(){
-      hoverT = setTimeout(function(){
-        if (window.matchMedia('(hover: hover)').matches) closeAllMega();
-      }, 120);
+      scheduleClose();
     });
+    // Keep mega open when hovering the panel itself
+    p.addEventListener('mouseenter', clearCloseTimer);
+    p.addEventListener('mouseleave', scheduleClose);
     t.addEventListener('click', function(e){
       e.preventDefault();
       var isOpen = p.classList.contains('open');
