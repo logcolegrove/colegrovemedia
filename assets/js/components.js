@@ -27,7 +27,7 @@
     {label:'Photo', link:'/services?cat=photo',
      desc:'Stills captured on location or in studio with authentic, polished retouching.',
      items:[
-      {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/mega/logan-headshot.jpg'},
+      {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/mega/headshot-dog.jpg'},
       {name:'Real Estate Photos', link:'/real-estate-photos', thumb:'/assets/images/mega/thumb-spring-ridge.jpg'},
       {name:'Drone Photos',      link:'/drone-photos',    thumb:'/assets/images/mega/thumb-iceland.jpg'},
       {name:'3D Virtual Tours',  link:'/3d-virtual-tours', thumb:'', icon:'3d-virtual-tour'}
@@ -37,16 +37,16 @@
      items:[
       {name:'Animated Explainers', link:'/animated-explainers', thumb:'/assets/images/mega/thumb-nonprofit-explainer.jpg'},
       {name:'Motion Graphics',   link:'/motion-graphics', thumb:'/assets/images/mega/thumb-smartsimple.jpg'},
-      {name:'Logo Animations',   link:'/logo-animations', thumb:'/assets/images/logo.svg'},
-      {name:'Website Animations / Lottie', link:'/website-animations', thumb:'/assets/images/mega/thumb-smartsimple.jpg'}
+      {name:'Logo Animations',   link:'/logo-animations', thumb:'/assets/images/colegrove-media-favicon.svg'},
+      {name:'Website Animations / Lottie', link:'/website-animations', thumb:'', icon:'lottie-animation'}
     ]},
     {label:'Design', link:'/services?cat=design',
      desc:'Visual identity that holds together from first impression to final touchpoint.',
      items:[
       {name:'Graphic Design',    link:'/graphic-design',  thumb:'/assets/images/mega/thumb-foundant-brand.jpg'},
       {name:'Web Design',        link:'/web-design',      thumb:'', icon:'web-design'},
-      {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'/assets/images/mega/thumb-someday-ranch.jpg'},
-      {name:'Satellite Maps',    link:'/satellite-maps',  thumb:'', icon:'satellite-map'}
+      {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'', icon:'virtual-staging'},
+      {name:'Satellite Maps',    link:'/satellite-maps',  thumb:'/assets/images/mega/thumb-someday-ranch.jpg'}
     ]}
   ];
 
@@ -58,7 +58,9 @@
   var ICON_MAP = {
     '3d-virtual-tour':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2L18 6v8l-8 4-8-4V6z"/><path d="M10 2v12M2 6l8 4 8-4"/></svg>',
     'web-design':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="18" height="14" rx="2"/><path d="M1 7h18M5 5h.01M7 5h.01M9 5h.01"/></svg>',
-    'satellite-map':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 3a9 9 0 0 1 0 14M3 10h14"/></svg>'
+    'satellite-map':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 3a9 9 0 0 1 0 14M3 10h14"/></svg>',
+    'lottie-animation':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M7 10l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    'virtual-staging':'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="16" height="9" rx="1"/><path d="M6 7V5a4 4 0 0 1 8 0v2"/></svg>'
   };
 
   // ── FEATURED PORTFOLIO ──
