@@ -17,7 +17,7 @@
   // thumb = optional thumbnail image. Empty/null = fallback SVG icon.
   var SERVICE_CATS = [
     {label:'Video', link:'/services?cat=video',
-     desc:"Cinematic storytelling that connects emotionally and drives people to act. Whether it's a 10-second social cut or a full-length brand film.",
+     desc:'Cinematic storytelling that connects emotionally and drives people to act.',
      items:[
       {name:'Brand Videos',     link:'/brand-videos',     thumb:'/assets/images/mega/thumb-ignis.jpg'},
       {name:'Testimonials',     link:'/testimonials',     thumb:'/assets/images/mega/thumb-team-testimonial.jpg'},
@@ -25,7 +25,7 @@
       {name:'Live Streams',     link:'/live-streams',     thumb:'/assets/images/mega/thumb-salt-lake-summit.jpg'}
     ]},
     {label:'Photo', link:'/services?cat=photo',
-     desc:'Stills captured on location or in studio. Authentic, expertly composed and retouched.',
+     desc:'Stills captured on location or in studio with authentic, polished retouching.',
      items:[
       {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/mega/logan-headshot.jpg'},
       {name:'Real Estate Photos', link:'/real-estate-photos', thumb:'/assets/images/mega/thumb-spring-ridge.jpg'},
@@ -33,7 +33,7 @@
       {name:'3D Virtual Tours',  link:'/3d-virtual-tours', thumb:'', icon:'3d-virtual-tour'}
     ]},
     {label:'Animation', link:'/services?cat=animation',
-     desc:'Complex ideas made clear. Motion design, narration, and sound working together to educate and inspire.',
+     desc:'Complex ideas made clear through motion, narration, and sound design.',
      items:[
       {name:'Animated Explainers', link:'/animated-explainers', thumb:'/assets/images/mega/thumb-nonprofit-explainer.jpg'},
       {name:'Motion Graphics',   link:'/motion-graphics', thumb:'/assets/images/mega/thumb-smartsimple.jpg'},
@@ -41,7 +41,7 @@
       {name:'Website Animations / Lottie', link:'/website-animations', thumb:'/assets/images/mega/thumb-smartsimple.jpg'}
     ]},
     {label:'Design', link:'/services?cat=design',
-     desc:'Visual identity that holds together. From the first impression to the final touchpoint, design that reflects who you are.',
+     desc:'Visual identity that holds together from first impression to final touchpoint.',
      items:[
       {name:'Graphic Design',    link:'/graphic-design',  thumb:'/assets/images/mega/thumb-foundant-brand.jpg'},
       {name:'Web Design',        link:'/web-design',      thumb:'', icon:'web-design'},
