@@ -19,33 +19,33 @@
     {label:'Video', link:'/services?cat=video',
      desc:"Cinematic storytelling that connects emotionally and drives people to act. Whether it's a 10-second social cut or a full-length brand film.",
      items:[
-      {name:'Brand Videos',     link:'/brand-videos',     thumb:'/assets/images/thumb-ignis.jpeg'},
-      {name:'Testimonials',     link:'/testimonials',     thumb:'/assets/images/thumb-team-testimonial.jpeg'},
-      {name:'Social Clips / Ads', link:'/social-clips',   thumb:'/assets/images/thumb-girls-on-the-run.jpeg'},
-      {name:'Live Streams',     link:'/live-streams',     thumb:'/assets/images/thumb-salt-lake-summit.jpeg'}
+      {name:'Brand Videos',     link:'/brand-videos',     thumb:'/assets/images/mega/thumb-ignis.jpg'},
+      {name:'Testimonials',     link:'/testimonials',     thumb:'/assets/images/mega/thumb-team-testimonial.jpg'},
+      {name:'Social Clips / Ads', link:'/social-clips',   thumb:'/assets/images/mega/thumb-girls-on-the-run.jpg'},
+      {name:'Live Streams',     link:'/live-streams',     thumb:'/assets/images/mega/thumb-salt-lake-summit.jpg'}
     ]},
     {label:'Photo', link:'/services?cat=photo',
      desc:'Stills captured on location or in studio. Authentic, expertly composed and retouched.',
      items:[
-      {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/logan-headshot.jpg'},
-      {name:'Real Estate Photos', link:'/real-estate-photos', thumb:'/assets/images/thumb-spring-ridge.jpeg'},
-      {name:'Drone Photos',      link:'/drone-photos',    thumb:'/assets/images/thumb-iceland.jpg'},
+      {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/mega/logan-headshot.jpg'},
+      {name:'Real Estate Photos', link:'/real-estate-photos', thumb:'/assets/images/mega/thumb-spring-ridge.jpg'},
+      {name:'Drone Photos',      link:'/drone-photos',    thumb:'/assets/images/mega/thumb-iceland.jpg'},
       {name:'3D Virtual Tours',  link:'/3d-virtual-tours', thumb:''}
     ]},
     {label:'Animation', link:'/services?cat=animation',
      desc:'Complex ideas made clear. Motion design, narration, and sound working together to educate and inspire.',
      items:[
-      {name:'Animated Explainers', link:'/animated-explainers', thumb:'/assets/images/thumb-nonprofit-explainer.jpeg'},
-      {name:'Motion Graphics',   link:'/motion-graphics', thumb:'/assets/images/thumb-smartsimple.jpg'},
+      {name:'Animated Explainers', link:'/animated-explainers', thumb:'/assets/images/mega/thumb-nonprofit-explainer.jpg'},
+      {name:'Motion Graphics',   link:'/motion-graphics', thumb:'/assets/images/mega/thumb-smartsimple.jpg'},
       {name:'Logo Animations',   link:'/logo-animations', thumb:'/assets/images/logo.svg'},
-      {name:'Website Animations / Lottie', link:'/website-animations', thumb:'/assets/images/thumb-smartsimple.jpg'}
+      {name:'Website Animations / Lottie', link:'/website-animations', thumb:'/assets/images/mega/thumb-smartsimple.jpg'}
     ]},
     {label:'Design', link:'/services?cat=design',
      desc:'Visual identity that holds together. From the first impression to the final touchpoint, design that reflects who you are.',
      items:[
-      {name:'Graphic Design',    link:'/graphic-design',  thumb:'/assets/images/thumb-foundant-brand.jpeg'},
+      {name:'Graphic Design',    link:'/graphic-design',  thumb:'/assets/images/mega/thumb-foundant-brand.jpg'},
       {name:'Web Design',        link:'/web-design',      thumb:''},
-      {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'/assets/images/thumb-someday-ranch.jpeg'},
+      {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'/assets/images/mega/thumb-someday-ranch.jpg'},
       {name:'Satellite Maps',    link:'/satellite-maps',  thumb:''}
     ]}
   ];
@@ -60,19 +60,46 @@
     slug:'powering-wildfire-intelligence',
     title:'Powering Wildfire Intelligence',
     cat:'Brand Video',
-    thumb:'/assets/images/thumb-ignis.jpeg'
+    thumb:'/assets/images/mega/thumb-ignis.jpg'
   };
   var PORTFOLIO_GRID = [
-    {slug:'iceland-in-motion',             title:'Iceland in Motion',       cat:'Drone / FPV',        thumb:'/assets/images/thumb-iceland.jpg'},
-    {slug:'streamline-your-nonprofit',     title:'Streamline Your Nonprofit', cat:'Animated Explainer', thumb:'/assets/images/thumb-nonprofit-explainer.jpeg'},
-    {slug:'anything-for-the-grasslands',   title:'Anything For The Grasslands', cat:'Testimonial',    thumb:'/assets/images/Anything For The Graslands Thumbnail PF.jpg'},
-    {slug:'smartsimple-animated-explainer', title:'SmartSimple Explainer',  cat:'Animated Explainer', thumb:'/assets/images/thumb-smartsimple.jpg'}
+    {slug:'iceland-in-motion',             title:'Iceland in Motion',       cat:'Drone / FPV',        thumb:'/assets/images/mega/thumb-iceland.jpg'},
+    {slug:'streamline-your-nonprofit',     title:'Streamline Your Nonprofit', cat:'Animated Explainer', thumb:'/assets/images/mega/thumb-nonprofit-explainer.jpg'},
+    {slug:'anything-for-the-grasslands',   title:'Anything For The Grasslands', cat:'Testimonial',    thumb:'/assets/images/mega/Anything-For-The-Graslands-Thumbnail-PF.jpg'},
+    {slug:'smartsimple-animated-explainer', title:'SmartSimple Explainer',  cat:'Animated Explainer', thumb:'/assets/images/mega/thumb-smartsimple.jpg'}
   ];
 
   // ── HELPERS ──
   function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   var CHEV = '<svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 3.75l2.5 2.5 2.5-2.5"/></svg>';
   var CHEV_LG = '<svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5l4 4 4-4"/></svg>';
+
+  // ── PRELOAD MEGA THUMBNAILS ──
+  // Warm the browser cache immediately so hovering the mega menu shows
+  // images instantly instead of waiting for a network fetch. Uses both
+  // <link rel="preload"> (high-priority hint) and Image() (cache trigger).
+  (function preloadMegaThumbs(){
+    var urls = [];
+    SERVICE_CATS.forEach(function(cat){
+      cat.items.forEach(function(it){ if (it.thumb) urls.push(it.thumb); });
+    });
+    if (PORTFOLIO_HERO && PORTFOLIO_HERO.thumb) urls.push(PORTFOLIO_HERO.thumb);
+    PORTFOLIO_GRID.forEach(function(p){ if (p.thumb) urls.push(p.thumb); });
+    // Dedupe
+    var seen = {};
+    urls = urls.filter(function(u){ if (seen[u]) return false; seen[u] = true; return true; });
+    urls.forEach(function(u){
+      var link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = u;
+      link.fetchPriority = 'high';
+      document.head.appendChild(link);
+      // Also kick off a low-level cache fetch as belt-and-suspenders
+      var im = new Image();
+      im.src = u;
+    });
+  })();
 
   // ── BUILD: SERVICES MEGA ──
   function buildServicesMega(){
