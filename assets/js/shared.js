@@ -116,8 +116,17 @@
     // Keep mega open when hovering the panel itself
     p.addEventListener('mouseenter', clearCloseTimer);
     p.addEventListener('mouseleave', scheduleClose);
-    // Click on the trigger anchor navigates by default (default link behavior).
-    // We do not preventDefault here. Hover handles mega open; ArrowDown also opens for keyboard users.
+    // Click behavior split:
+    //   - Click on the chevron icon → toggle the mega (open/close), don't navigate
+    //   - Click anywhere else on the trigger → navigate to the page (default link)
+    t.addEventListener('click', function(e){
+      var svg = e.target.closest('svg');
+      if (svg && t.contains(svg)) {
+        e.preventDefault();
+        if (p.classList.contains('open')) closeAllMega();
+        else openMega(id);
+      }
+    });
     t.addEventListener('keydown', function(e){
       if (e.key === 'Escape') { closeAllMega(); t.focus(); }
       else if (e.key === 'ArrowDown') {
