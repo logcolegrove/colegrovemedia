@@ -72,6 +72,14 @@
     }, 140);
   }
 
+  // Hover cooldown after page load: if the user just navigated by clicking a
+  // trigger, their mouse is still over it. Any micro-movement would fire a
+  // fresh mouseenter and re-open the mega, which feels like a popup spam.
+  // Suppress hover-open for the first 500ms so the user perceives the page
+  // transition first; deliberate hovers after that work normally.
+  var navMountedAt = Date.now();
+  function inHoverCooldown(){ return (Date.now() - navMountedAt) < 500; }
+
   function openMega(id){
     clearCloseTimer();
     Object.keys(panels).forEach(function(k){
@@ -99,6 +107,7 @@
     var li = t.parentElement;
 
     li.addEventListener('mouseenter', function(){
+      if (inHoverCooldown()) return;
       if (window.matchMedia('(hover: hover)').matches) openMega(id);
     });
     li.addEventListener('mouseleave', function(){
