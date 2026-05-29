@@ -54,6 +54,7 @@ var SERVICES = {
       id:'testimonial', name:'Testimonials',
       ind:['corporate','nonprofit','tech','real-estate'],
       sample:{ type:'video', projectSlug:'not-jumping-ship' },
+      link:'/testimonials',
       desc:'Let your satisfied customers do the talking. Committed to making interviewees feel comfortable while capturing high-impact, authentic content.',
       tiers:[
         {n:'Basic',p:'$2,000',i:['1 participant · 1 location','Professional lighting, audio, 2-camera setup','Polished final cut · 2 revisions']},
@@ -87,6 +88,7 @@ var SERVICES = {
       id:'live-stream', name:'Live Streams',
       ind:['corporate','nonprofit','events'],
       sample:null,
+      link:'/live-streams',
       desc:'Professionally broadcast your conference, meeting, or special occasion. Public or private link via Zoom, YouTube, social media, and more.',
       tiers:[
         {n:'Basic',p:'$1,500',i:['1-hour 1080p stream · 1 static camera','1 streaming technician · PowerPoint integration']},
@@ -120,6 +122,7 @@ var SERVICES = {
       id:'social-clips', name:'Social Clips / Ads',
       ind:['corporate','real-estate','nonprofit','tech','social-media'],
       sample:{ type:'video', projectSlug:'sharp-tails-and-grasslands' },
+      link:'/social-clips',
       desc:'Market your products and services on social media or YouTube. Short-form content cut for attention and optimized for wherever your audience lives.',
       tiers:[
         {n:'Basic',p:'$1,500',i:['Single-platform ad cut · Existing footage · 1 revision']},
@@ -155,6 +158,7 @@ var SERVICES = {
       id:'real-estate-photos', name:'Real Estate Photos',
       ind:['real-estate'],
       sample:null,
+      link:'/real-estate-photos',
       desc:'Carefully planned, composed, and retouched interior and exterior property images. Optimized for MLS, Zillow, and marketing materials.',
       tiers:[
         {n:'Basic',p:'$150',i:['15 edited interior + exterior photos']},
@@ -166,6 +170,7 @@ var SERVICES = {
       id:'drone-photos', name:'Drone Photos',
       ind:['real-estate','corporate','events'],
       sample:null,
+      link:'/drone-photos',
       desc:'Stunning aerial imagery of real estate, landscapes, events, and more. FAA licensed pilot. Available standalone or paired with ground photography.',
       tiers:[
         {n:'Basic',p:'$100',i:['10 edited aerial photos · FAA licensed']},
@@ -177,6 +182,7 @@ var SERVICES = {
       id:'3d-virtual-tour', name:'3D Virtual Tours',
       ind:['real-estate'],
       sample:null,
+      link:'/3d-virtual-tours',
       desc:'Interactive 360° Matterport tours allowing buyers to explore every angle of a property anytime, anywhere.',
       tiers:[
         {n:'Standard',p:'Contact for quote',i:['Full Matterport 3D scan','Hosted tour link · Floor plan included','Embedded into any website or MLS listing']}
@@ -189,6 +195,7 @@ var SERVICES = {
       id:'animated-explainer', name:'Animated Explainers',
       ind:['tech','nonprofit','corporate'],
       sample:{ type:'video', projectSlug:'streamline-your-nonprofit' },
+      link:'/animated-explainers',
       desc:'Complex ideas made clear in under 2 minutes. High retention, high trust. Motion and narration working together to explain what words alone can\'t.',
       tiers:[
         {n:'Basic',p:'$2,500',i:['Up to 60 seconds · Simple 2D motion graphics · 1 revision']},
@@ -200,6 +207,7 @@ var SERVICES = {
       id:'motion-graphics', name:'Motion Graphics',
       ind:['corporate','tech','social-media'],
       sample:null,
+      link:'/motion-graphics',
       desc:'Animated graphics for ads, social content, presentations, and video overlays. Motion that makes your brand impossible to ignore.',
       tiers:[
         {n:'Basic',p:'$500',i:['Single animated graphic · Looping + one-shot · 1 revision']},
@@ -211,6 +219,7 @@ var SERVICES = {
       id:'logo-animation', name:'Logo Animations',
       ind:['corporate','tech','nonprofit','social-media'],
       sample:{ type:'lottie', projectSlug:'logo-animations' },
+      link:'/logo-animations',
       desc:'Bring your logo to life with a custom animated intro. Perfect for video openers, social profiles, and presentations.',
       tiers:[
         {n:'Basic',p:'$300',i:['Simple reveal animation · MP4 + transparent version · 1 revision']},
@@ -222,6 +231,7 @@ var SERVICES = {
       id:'lottie-animation', name:'Website Animations / Lottie',
       ind:['tech','corporate'],
       sample:{ type:'lottie', projectSlug:'lottie-collaboration' },
+      link:'/website-animations',
       desc:'Lightweight, scalable animations built for the web. Lottie files that integrate seamlessly into any website or app without slowing it down.',
       tiers:[
         {n:'Basic',p:'$400',i:['Single Lottie animation · JSON + MP4 export · 1 revision']},
@@ -236,6 +246,7 @@ var SERVICES = {
       id:'graphic-design', name:'Graphic Design',
       ind:['corporate','nonprofit','real-estate','events','social-media'],
       sample:null,
+      link:'/graphic-design',
       desc:'Custom visuals for digital and print: brand assets, social graphics, pitch decks, ads, signage, packaging, and more. Every project starts with a quick scope call so you know exactly what to expect.',
       tiers:[
         {n:'Graphic Design',p:'$125/hr',i:['Brand assets, print materials, social graphics, ads, and more','Quote provided before work begins']}
@@ -245,6 +256,7 @@ var SERVICES = {
       id:'web-design', name:'Web Design',
       ind:['corporate','nonprofit','tech','real-estate'],
       sample:null,
+      link:'/web-design',
       desc:'Custom websites that are responsive, fast, and built to convert. Every build includes mobile optimization, SEO fundamentals, and a training session so you can manage it yourself.',
       tiers:[
         {n:'Custom Website',p:'$1,500+',i:['Scope and quote based on your goals','Mobile responsive · SEO fundamentals','Training session included','Ongoing updates available at $125/hr']}
@@ -254,6 +266,7 @@ var SERVICES = {
       id:'satellite-map', name:'Satellite Maps',
       ind:['real-estate'],
       sample:null,
+      link:'/satellite-maps',
       desc:'Animated Google Earth flyovers showing property lines, nearby attractions, and custom labels. A powerful tool for real estate and land listings.',
       tiers:[
         {n:'Basic',p:'$150',i:['Simple flyover · Property boundary overlay · 1 revision']},
@@ -265,6 +278,7 @@ var SERVICES = {
       id:'virtual-staging', name:'Virtual Staging',
       ind:['real-estate'],
       sample:null,
+      link:'/virtual-stagings',
       desc:'Transform any empty room into a fully-furnished, beautifully designed space without moving a single piece of furniture.',
       tiers:[
         {n:'1 Image',p:'$50',i:['1 virtually staged room · 2 style options · 2 revisions']},

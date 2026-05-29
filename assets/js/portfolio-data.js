@@ -682,6 +682,20 @@ var TYPE_CTA = {
 // Add a new entry here as each per-service page ships.
 var TYPE_SERVICE_HREF = {
   'brand-video':'/brand-videos',
+  'testimonial':'/testimonials',
+  'animated-explainer':'/animated-explainers',
+  'motion-graphics':'/motion-graphics',
+  'drone-photos':'/drone-photos',
+  'real-estate-photos':'/real-estate-photos',
+  'social-clips':'/social-clips',
+  'live-stream':'/live-streams',
+  'logo-animation':'/logo-animations',
+  'lottie-animation':'/website-animations',
+  'graphic-design':'/graphic-design',
+  '3d-virtual-tour':'/3d-virtual-tours',
+  'web-design':'/web-design',
+  'virtual-staging':'/virtual-stagings',
+  'satellite-map':'/satellite-maps',
   'headshots':'/headshots'
 };
 
