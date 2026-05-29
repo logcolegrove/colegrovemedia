@@ -263,6 +263,52 @@
     var mm = document.createElement('div');
     mm.innerHTML = buildMobileMenu(active);
     document.body.appendChild(mm.firstChild);
+
+    // Render the Website Animations mega thumb as a live Lottie at a paused frame.
+    // Matches the work page's approach for Lottie thumbnails in the modal strip.
+    setupWebsiteAnimationsLottieThumb();
+  }
+
+  // ── LOTTIE THUMB FOR WEBSITE ANIMATIONS ──
+  function setupWebsiteAnimationsLottieThumb(){
+    var LOTTIE_LIB = 'https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js';
+    var LOTTIE_URL = 'https://raw.githubusercontent.com/logcolegrove/lott/main/5%20Collaboration%20v2%20Animation.json';
+
+    function getThumbEl(){
+      var link = document.querySelector('.mega-item[href="/website-animations"]');
+      return link ? link.querySelector('.mega-item-thumb') : null;
+    }
+
+    function render(){
+      var thumb = getThumbEl();
+      if (!thumb || !window.lottie) return;
+      // Clear current content (icon/img) and mount a container the Lottie can fill.
+      thumb.innerHTML = '<div class="mega-item-lottie" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;"></div>';
+      var container = thumb.querySelector('.mega-item-lottie');
+      try {
+        var anim = window.lottie.loadAnimation({
+          container: container,
+          renderer: 'svg',
+          loop: false,
+          autoplay: false,
+          path: LOTTIE_URL
+        });
+        anim.addEventListener('DOMLoaded', function(){
+          // Stop at 85% of the animation so it's a representative still
+          anim.goToAndStop(Math.round((anim.totalFrames || 1) * 0.85), true);
+        });
+      } catch(e) { /* fall back silently — original icon already rendered */ }
+    }
+
+    if (window.lottie) { render(); return; }
+    var existing = document.querySelector('script[data-lottie-lib]');
+    if (existing) { existing.addEventListener('load', render); return; }
+    var s = document.createElement('script');
+    s.src = LOTTIE_LIB;
+    s.async = true;
+    s.setAttribute('data-lottie-lib', '');
+    s.onload = render;
+    document.head.appendChild(s);
   }
 
   // ── FOOTER ──
