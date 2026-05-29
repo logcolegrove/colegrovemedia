@@ -676,6 +676,15 @@ var TYPE_CTA = {
   'virtual-staging':'Get Your Space Staged →'
 };
 
+// Maps a project type to its dedicated service page.
+// When a modal opens for one of these types, the "See Pricing" CTA
+// routes to the service page instead of the generic /pricing page.
+// Add a new entry here as each per-service page ships.
+var TYPE_SERVICE_HREF = {
+  'brand-video':'/brand-videos',
+  'headshots':'/headshots'
+};
+
 var SUBTYPES = {
   video:[
     {type:'brand-video',label:'Brand Video'},

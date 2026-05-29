@@ -42,6 +42,7 @@ var SERVICES = {
       id:'brand-video', name:'Brand Videos',
       ind:['corporate','nonprofit','tech','social-media'],
       sample:{ type:'video', projectSlug:'powering-wildfire-intelligence' },
+      link:'/brand-videos',
       desc:'Communicate your mission, values, and offering with a cinematic brand film. Content that makes an impact and drives real results.',
       tiers:[
         {n:'Basic',p:'$3,500',i:['1 shooting location','1 voiceover or interview','Professional lighting, audio, and branding','1 revision · 1 final edit']},

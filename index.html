@@ -195,7 +195,7 @@ body{font-size:20px;}
       <div class="modal-divider"></div>
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
-      <div class="modal-cta"><a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a><a href="/pricing" class="modal-btn-ghost">See Pricing</a></div>
+      <div class="modal-cta"><a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a><a href="/pricing" class="modal-btn-ghost" id="modal-cta-secondary">See Pricing</a></div>
     </div>
   </div>
 </div>
@@ -349,6 +349,8 @@ function openHomeModal(slug){
   }).join('');
   document.getElementById('modal-iframe').src = 'https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
   document.getElementById('modal-cta-primary').textContent = p.cta || TYPE_CTA[p.type] || 'Get a Quote →';
+  var ctaSec3 = document.getElementById('modal-cta-secondary');
+  if (ctaSec3) ctaSec3.href = (typeof TYPE_SERVICE_HREF !== 'undefined' && TYPE_SERVICE_HREF[p.type]) ? TYPE_SERVICE_HREF[p.type] : '/pricing';
   // related
   var related = getRelatedProjects(p.slug, p.type, 3);
   var relatedEl = document.getElementById('modal-related');

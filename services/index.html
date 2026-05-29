@@ -119,7 +119,7 @@
       <div class="modal-divider"></div>
       <div class="modal-cta">
         <a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a>
-        <a href="/pricing" class="modal-btn-ghost">See Pricing</a>
+        <a href="/pricing" class="modal-btn-ghost" id="modal-cta-secondary">See Pricing</a>
       </div>
     </div>
   </div>
@@ -216,6 +216,7 @@ function openSvcModal(svcId){
   document.getElementById('modal-specs').innerHTML=p.specs.map(function(sp){return '<div class="modal-spec"><span class="modal-spec-k">'+sp.k+'</span><span class="modal-spec-v">'+sp.v+'</span></div>';}).join('');
   var dividers=document.querySelectorAll('.modal-divider');if(dividers[1])dividers[1].style.display=p.specs.length?'':'none';
   document.getElementById('modal-cta-primary').textContent=p.cta||TYPE_CTA[p.type]||'Get a Quote →';
+  var ctaSec2=document.getElementById('modal-cta-secondary');if(ctaSec2){ctaSec2.href=(typeof TYPE_SERVICE_HREF!=='undefined'&&TYPE_SERVICE_HREF[p.type])?TYPE_SERVICE_HREF[p.type]:'/pricing';}
   var ml=document.getElementById('modal-left');ml.innerHTML='';
   if(sample.type==='gallery') buildGalleryModal(p,ml);
   else if(sample.type==='lottie') buildLottieModal(p,ml);

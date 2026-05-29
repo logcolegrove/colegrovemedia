@@ -159,6 +159,7 @@ function openModal(slug){
   document.getElementById('modal-specs').innerHTML=w.specs.map(function(s){return '<div class="modal-spec"><span class="modal-spec-k">'+s.k+'</span><span class="modal-spec-v">'+s.v+'</span></div>';}).join('');
   var dividers=document.querySelectorAll('.modal-divider');if(dividers[1])dividers[1].style.display=w.specs.length?'':'none';
   var ctaEl=document.getElementById('modal-cta-primary');if(ctaEl){ctaEl.textContent=w.cta||TYPE_CTA[w.type]||'Get a Quote →';ctaEl.href=w.ctaHref||'/brief';}
+  var ctaSec=document.getElementById('modal-cta-secondary');if(ctaSec){ctaSec.href=(typeof TYPE_SERVICE_HREF!=='undefined'&&TYPE_SERVICE_HREF[w.type])?TYPE_SERVICE_HREF[w.type]:'/pricing';}
   var ml=document.getElementById('modal-left');ml.innerHTML='';
   var isLottie=!!w.lottieUrl;var isStatic=(w.cat==='photo'||w.cat==='design');
   if(isLottie)buildLottieModal(w,ml);else if(isStatic)buildStaticModal(w,ml);else buildVideoModal(w,ml);
