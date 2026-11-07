@@ -68,7 +68,7 @@ nav.nav-hidden{transform:translateY(-100%);}
 .mega-inner-narrow{max-width:1080px;}
 .mega-services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
 .mega-col{display:flex;flex-direction:column;min-width:0;}
-.mega-cat-title{display:inline-block;align-self:flex-start;color:var(--white);font-size:28px;font-weight:700;letter-spacing:-0.015em;text-transform:none;padding:0 0 4px;margin:0;text-decoration:none;position:relative;cursor:pointer;transition:color 0.2s;line-height:1.05;}
+.mega-cat-title{display:inline-block;align-self:flex-start;color:var(--white);font-size:28px;font-weight:700;letter-spacing:-0.015em;text-transform:none;padding:0 0 4px;margin:0 0 14px;text-decoration:none;position:relative;cursor:pointer;transition:color 0.2s;line-height:1.05;}
 .mega-cat-title > span{position:relative;display:inline-block;}
 .mega-cat-title > span::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.28s cubic-bezier(0.2,0.8,0.2,1);}
 .mega-cat-title:hover{color:var(--teal);}
@@ -170,17 +170,14 @@ body.mm-open{overflow:hidden;}
 /* ── PAGE HERO (shared across services, work, pricing, about, terms, brief) ── */
 .page-hero{padding:80px 40px 56px;border-bottom:1px solid var(--border);}
 .eyebrow{font-size:14px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
 .page-h1{font-size:clamp(44px,5.5vw,72px);font-weight:700;line-height:1;letter-spacing:-0.02em;margin-bottom:16px;}
 .page-desc{font-size:18px;color:var(--muted);max-width:560px;line-height:1.75;font-weight:300;}
 
 /* ── SECTION PATTERNS ── */
 .section{padding:88px 40px;border-bottom:1px solid var(--border);}
 .section-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.section-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
 /* Large version for homepage */
 .section-eyebrow-lg{font-size:14px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.section-eyebrow-lg::before{content:'';display:block;width:20px;height:1px;background:var(--teal);opacity:0.5;}
 .section-title{font-size:clamp(32px,4vw,48px);font-weight:700;line-height:1;letter-spacing:-0.01em;margin-bottom:8px;}
 .section-title-lg{font-family:var(--display);font-size:clamp(44px,5vw,64px);font-weight:700;line-height:1;letter-spacing:-0.01em;color:var(--white);}
 .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;gap:20px;}

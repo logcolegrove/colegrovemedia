@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services — Colegrove Media</title>
-<meta name="description" content="Video, photo, animation, and design services from Colegrove Media — Bozeman, MT.">
+<title>Services &amp; Pricing — Colegrove Media | Videographer in Bozeman, MT</title>
+<meta name="description" content="Video, photo, animation, and design services with transparent pricing. Hire a videographer in Bozeman, MT by the hour ($125/hr) or day ($1,000/day), or book a full production.">
 <meta property="og:title" content="Services — Colegrove Media">
 <meta property="og:description" content="Video, photo, animation, and design services from Colegrove Media — Bozeman, MT.">
 <meta property="og:image" content="https://colegrovemedia.com/assets/images/colegrove-media-og-image.jpg">
@@ -38,7 +38,6 @@
 .cat-section.hidden{display:none;}
 .cat-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:20px;}
 .cat-eyebrow{font-size:12px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.cat-eyebrow::before{content:'';width:20px;height:1px;background:var(--teal);opacity:0.5;display:block;}
 .cat-title{font-size:clamp(28px,3.5vw,42px);font-weight:700;line-height:1;letter-spacing:-0.01em;}
 .cat-desc{font-size:16px;color:var(--muted);max-width:480px;line-height:1.7;font-weight:300;margin-top:12px;}
 .no-results{padding:48px;text-align:center;color:var(--muted);font-size:15px;background:var(--bg2);border-radius:12px;margin-top:64px;}
@@ -119,7 +118,7 @@
       <div class="modal-divider"></div>
       <div class="modal-cta">
         <a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a>
-        <a href="/pricing" class="modal-btn-ghost" id="modal-cta-secondary">See Pricing</a>
+        <a href="/services" class="modal-btn-ghost" id="modal-cta-secondary">See Pricing</a>
       </div>
     </div>
   </div>
@@ -216,7 +215,7 @@ function openSvcModal(svcId){
   document.getElementById('modal-specs').innerHTML=p.specs.map(function(sp){return '<div class="modal-spec"><span class="modal-spec-k">'+sp.k+'</span><span class="modal-spec-v">'+sp.v+'</span></div>';}).join('');
   var dividers=document.querySelectorAll('.modal-divider');if(dividers[1])dividers[1].style.display=p.specs.length?'':'none';
   document.getElementById('modal-cta-primary').textContent=p.cta||TYPE_CTA[p.type]||'Get a Quote →';
-  var ctaSec2=document.getElementById('modal-cta-secondary');if(ctaSec2){ctaSec2.href=(typeof TYPE_SERVICE_HREF!=='undefined'&&TYPE_SERVICE_HREF[p.type])?TYPE_SERVICE_HREF[p.type]:'/pricing';}
+  var ctaSec2=document.getElementById('modal-cta-secondary');if(ctaSec2){var svcHref=(typeof TYPE_SERVICE_HREF!=='undefined')?TYPE_SERVICE_HREF[p.type]:null;if(svcHref){ctaSec2.href=svcHref;ctaSec2.style.display='';}else{ctaSec2.style.display='none';}}
   var ml=document.getElementById('modal-left');ml.innerHTML='';
   if(sample.type==='gallery') buildGalleryModal(p,ml);
   else if(sample.type==='lottie') buildLottieModal(p,ml);

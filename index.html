@@ -22,8 +22,11 @@ body{font-size:20px;}
 #loader{position:fixed;inset:0;z-index:9999;background:#161a25;display:flex;align-items:center;justify-content:center;pointer-events:none;}
 #loader.hide{animation:loaderWipe 0.9s cubic-bezier(0.76,0,0.24,1) forwards;}
 @keyframes loaderWipe{0%{clip-path:inset(0 0 0 0);opacity:1;}100%{clip-path:inset(0 0 100% 0);opacity:1;}}
-#lottie-wrap{width:90vw;transform:translateX(9vw);opacity:0;transition:opacity 0.2s ease;}
-@media(min-width:769px){#lottie-wrap{width:min(900px,85vw);transform:translateX(1vw);}}
+/* The logo's final frame sits 9.17% left of the Lottie canvas center (measured
+   from the rendered last frame). Shifting by a % of the element's own width
+   keeps it perfectly centered at every screen size. */
+#lottie-wrap{width:90vw;transform:translateX(9.17%);opacity:0;transition:opacity 0.2s ease;}
+@media(min-width:769px){#lottie-wrap{width:min(900px,85vw);}}
 #lottie-wrap.visible{opacity:1;}
 
 .hero{position:relative;height:calc(100vh - 68px);min-height:520px;overflow:hidden;border-bottom:1px solid var(--border);}
@@ -144,26 +147,22 @@ body{font-size:20px;}
     <div class="service-card reveal reveal-delay-1" onclick="location.href='/services?cat=video'">
       <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polygon points="6,4 16,10 6,16" fill="currentColor" opacity="0.9"/></svg></div>
       <div class="s-name">Video</div>
-      <p class="s-desc">Cinematic storytelling that connects emotionally and drives people to act. Whether it's a 10-second social cut or a full-length brand film.</p>
-      <ul class="s-list"><li onclick="event.stopPropagation();location.href='/brand-videos';"><a href="/brand-videos" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Brand Videos</a></li><li onclick="event.stopPropagation();location.href='/testimonials';"><a href="/testimonials" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Testimonials</a></li><li onclick="event.stopPropagation();location.href='/social-clips';"><a href="/social-clips" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Social Clips / Ads</a></li><li onclick="event.stopPropagation();location.href='/live-streams';"><a href="/live-streams" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Live Streams</a></li></ul>
+      <ul class="s-list"><li onclick="event.stopPropagation();location.href='/testimonials';"><a href="/testimonials" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Testimonials</a></li><li onclick="event.stopPropagation();location.href='/brand-videos';"><a href="/brand-videos" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Brand Videos</a></li><li onclick="event.stopPropagation();location.href='/social-clips';"><a href="/social-clips" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Social Clips / Ads</a></li></ul>
     </div>
     <div class="service-card reveal reveal-delay-2" onclick="location.href='/services?cat=photo'">
       <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="16" height="12" rx="2"/><circle cx="10" cy="11" r="3" fill="currentColor" stroke="none" opacity="0.7"/><path d="M7 5l1.5-2h3L13 5" stroke-linecap="round"/></svg></div>
       <div class="s-name">Photo</div>
-      <p class="s-desc">Stills captured on location or in studio. Authentic, expertly composed and retouched.</p>
-      <ul class="s-list"><li onclick="event.stopPropagation();location.href='/headshots';"><a href="/headshots" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Headshots</a></li><li onclick="event.stopPropagation();location.href='/real-estate-photos';"><a href="/real-estate-photos" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Real Estate Photos</a></li><li onclick="event.stopPropagation();location.href='/drone-photos';"><a href="/drone-photos" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Drone Photos</a></li><li onclick="event.stopPropagation();location.href='/3d-virtual-tours';"><a href="/3d-virtual-tours" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">3D Virtual Tours</a></li></ul>
+      <ul class="s-list"><li onclick="event.stopPropagation();location.href='/headshots';"><a href="/headshots" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Headshots</a></li><li onclick="event.stopPropagation();location.href='/real-estate-photos';"><a href="/real-estate-photos" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Real Estate Photos</a></li><li onclick="event.stopPropagation();location.href='/3d-virtual-tours';"><a href="/3d-virtual-tours" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">3D Virtual Tours</a></li></ul>
     </div>
     <div class="service-card reveal reveal-delay-3" onclick="location.href='/services?cat=animation'">
       <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 10 Q7 3 10 10 Q13 17 17 10" stroke-linecap="round"/><circle cx="10" cy="10" r="2.5" fill="currentColor" stroke="none" opacity="0.8"/></svg></div>
       <div class="s-name">Animation</div>
-      <p class="s-desc">Complex ideas made clear. Motion design, narration, and sound working together to educate and inspire.</p>
-      <ul class="s-list"><li onclick="event.stopPropagation();location.href='/animated-explainers';"><a href="/animated-explainers" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Animated Explainers</a></li><li onclick="event.stopPropagation();location.href='/motion-graphics';"><a href="/motion-graphics" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Motion Graphics</a></li><li onclick="event.stopPropagation();location.href='/logo-animations';"><a href="/logo-animations" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Logo Animations</a></li><li onclick="event.stopPropagation();location.href='/website-animations';"><a href="/website-animations" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Website Animations / Lottie</a></li></ul>
+      <ul class="s-list"><li onclick="event.stopPropagation();location.href='/animated-explainers';"><a href="/animated-explainers" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Animated Explainers</a></li><li onclick="event.stopPropagation();location.href='/logo-animations';"><a href="/logo-animations" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Logo Animations</a></li><li onclick="event.stopPropagation();location.href='/website-animations';"><a href="/website-animations" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Website Animations / Lottie</a></li></ul>
     </div>
     <div class="service-card reveal reveal-delay-4" onclick="location.href='/services?cat=design'">
       <div class="s-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2.5" y="2.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.9"/><rect x="11.5" y="2.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/><rect x="2.5" y="11.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.4"/><rect x="11.5" y="11.5" width="6" height="6" rx="1.5" fill="currentColor" opacity="0.9"/></svg></div>
       <div class="s-name">Design</div>
-      <p class="s-desc">Visual identity that holds together. From the first impression to the final touchpoint, design that reflects who you are.</p>
-      <ul class="s-list"><li onclick="event.stopPropagation();location.href='/graphic-design';"><a href="/graphic-design" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Graphic Design</a></li><li onclick="event.stopPropagation();location.href='/web-design';"><a href="/web-design" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Web Design</a></li><li onclick="event.stopPropagation();location.href='/virtual-stagings';"><a href="/virtual-stagings" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Virtual Stagings</a></li><li onclick="event.stopPropagation();location.href='/satellite-maps';"><a href="/satellite-maps" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Satellite Maps</a></li></ul>
+      <ul class="s-list"><li onclick="event.stopPropagation();location.href='/graphic-design';"><a href="/graphic-design" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Graphic Design</a></li><li onclick="event.stopPropagation();location.href='/web-design';"><a href="/web-design" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Web Design</a></li><li onclick="event.stopPropagation();location.href='/virtual-stagings';"><a href="/virtual-stagings" onclick="event.stopPropagation();" style="color:inherit;text-decoration:none;flex:1;">Virtual Stagings</a></li></ul>
     </div>
   </div>
 </section>
@@ -195,7 +194,7 @@ body{font-size:20px;}
       <div class="modal-divider"></div>
       <div class="modal-specs" id="modal-specs"></div>
       <div class="modal-divider"></div>
-      <div class="modal-cta"><a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a><a href="/pricing" class="modal-btn-ghost" id="modal-cta-secondary">See Pricing</a></div>
+      <div class="modal-cta"><a href="/brief" class="modal-btn-fill" id="modal-cta-primary">Get a Quote →</a><a href="/services" class="modal-btn-ghost" id="modal-cta-secondary">See Pricing</a></div>
     </div>
   </div>
 </div>
@@ -231,7 +230,7 @@ body{font-size:20px;}
   </div>
   <div class="process-grid">
     <div class="process-step reveal reveal-delay-1"><div class="step-n">01</div><div class="step-name">Reach Out</div><p class="step-desc">Tell us about your goals. A quick call or a project brief, either works as a starting point.</p><a href="/brief" class="step-link">Start a Brief →</a></div>
-    <div class="process-step reveal reveal-delay-2"><div class="step-n">02</div><div class="step-name">Get a Proposal</div><p class="step-desc">You'll receive a clear timeline, deliverables list, and a quote. No vague estimates.</p><a href="/pricing" class="step-link">See Pricing →</a></div>
+    <div class="process-step reveal reveal-delay-2"><div class="step-n">02</div><div class="step-name">Get a Proposal</div><p class="step-desc">You'll receive a clear timeline, deliverables list, and a quote. No vague estimates.</p><a href="/services" class="step-link">See Services &amp; Pricing →</a></div>
     <div class="process-step reveal reveal-delay-3"><div class="step-n">03</div><div class="step-name">Get Great Media</div><p class="step-desc">We handle production start to finish. You get a polished final product you're proud to share.</p><a href="/work" class="step-link">See Examples →</a></div>
   </div>
 </section>
@@ -350,7 +349,7 @@ function openHomeModal(slug){
   document.getElementById('modal-iframe').src = 'https://player.vimeo.com/video/'+p.vimeoId+'?autoplay=1&title=0&byline=0&portrait=0&color=00f2a6';
   document.getElementById('modal-cta-primary').textContent = p.cta || TYPE_CTA[p.type] || 'Get a Quote →';
   var ctaSec3 = document.getElementById('modal-cta-secondary');
-  if (ctaSec3) ctaSec3.href = (typeof TYPE_SERVICE_HREF !== 'undefined' && TYPE_SERVICE_HREF[p.type]) ? TYPE_SERVICE_HREF[p.type] : '/pricing';
+  if (ctaSec3) ctaSec3.href = (typeof TYPE_SERVICE_HREF !== 'undefined' && TYPE_SERVICE_HREF[p.type]) ? TYPE_SERVICE_HREF[p.type] : ('/services?cat=' + (p.cat || ''));
   // related
   var related = getRelatedProjects(p.slug, p.type, 3);
   var relatedEl = document.getElementById('modal-related');

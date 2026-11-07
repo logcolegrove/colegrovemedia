@@ -6,47 +6,41 @@
      <div id="site-nav" data-active="services"></div>
      <div id="site-footer"></div>
 
-   data-active values: home, services, work, about, pricing
+   data-active values: home, services, work, about
    (omit or leave empty for pages with no active nav state)
    ═══════════════════════════════════════════════════════════════ */
 
 (function(){
 
-  // ── SERVICE LIST (mirrors homepage "What We Do") ──
-  // link = future per-service page path. Pages without files 404 until built.
+  // ── FEATURED SERVICE LIST (mirrors homepage "What We Do") ──
+  // Three featured services per category. Services not listed here (Live
+  // Streams, Drone Photos, Motion Graphics, Satellite Maps, etc.) still have
+  // their own pages and still appear on /services.
   // thumb = optional thumbnail image. Empty/null = fallback SVG icon.
   var SERVICE_CATS = [
     {label:'Video', link:'/services?cat=video',
-     desc:'Cinematic storytelling that connects emotionally and drives people to act.',
      items:[
-      {name:'Brand Videos',     link:'/brand-videos',     thumb:'/assets/images/mega/thumb-ignis.jpg'},
       {name:'Testimonials',     link:'/testimonials',     thumb:'/assets/images/mega/thumb-team-testimonial.jpg'},
-      {name:'Social Clips / Ads', link:'/social-clips',   thumb:'/assets/images/mega/thumb-girls-on-the-run.jpg'},
-      {name:'Live Streams',     link:'/live-streams',     thumb:'/assets/images/mega/thumb-salt-lake-summit.jpg'}
+      {name:'Brand Videos',     link:'/brand-videos',     thumb:'/assets/images/mega/thumb-ignis.jpg'},
+      {name:'Social Clips / Ads', link:'/social-clips',   thumb:'/assets/images/mega/social-clip-sharptail.jpg'}
     ]},
     {label:'Photo', link:'/services?cat=photo',
-     desc:'Stills captured on location or in studio with authentic, polished retouching.',
      items:[
       {name:'Headshots',         link:'/headshots',                thumb:'/assets/images/mega/headshot-dog.jpg'},
       {name:'Real Estate Photos', link:'/real-estate-photos', thumb:'/assets/images/mega/thumb-spring-ridge.jpg'},
-      {name:'Drone Photos',      link:'/drone-photos',    thumb:'/assets/images/mega/thumb-iceland.jpg'},
       {name:'3D Virtual Tours',  link:'/3d-virtual-tours', thumb:'', icon:'3d-virtual-tour'}
     ]},
     {label:'Animation', link:'/services?cat=animation',
-     desc:'Complex ideas made clear through motion, narration, and sound design.',
      items:[
       {name:'Animated Explainers', link:'/animated-explainers', thumb:'/assets/images/mega/thumb-nonprofit-explainer.jpg'},
-      {name:'Motion Graphics',   link:'/motion-graphics', thumb:'/assets/images/mega/thumb-smartsimple.jpg'},
       {name:'Logo Animations',   link:'/logo-animations', thumb:'/assets/images/colegrove-media-favicon.svg'},
       {name:'Website Animations / Lottie', link:'/website-animations', thumb:'/assets/images/mega/lottie-thumb.jpg', icon:'lottie-animation'}
     ]},
     {label:'Design', link:'/services?cat=design',
-     desc:'Visual identity that holds together from first impression to final touchpoint.',
      items:[
       {name:'Graphic Design',    link:'/graphic-design',  thumb:'/assets/images/mega/thumb-foundant-brand.jpg'},
       {name:'Web Design',        link:'/web-design',      thumb:'', icon:'web-design'},
-      {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'', icon:'virtual-staging'},
-      {name:'Satellite Maps',    link:'/satellite-maps',  thumb:'/assets/images/mega/thumb-someday-ranch.jpg'}
+      {name:'Virtual Stagings',  link:'/virtual-stagings', thumb:'', icon:'virtual-staging'}
     ]}
   ];
 
@@ -119,7 +113,6 @@
     SERVICE_CATS.forEach(function(cat){
       html += '<div class="mega-col">';
       html += '<a class="mega-cat-title" href="' + esc(cat.link) + '"><span>' + esc(cat.label) + '</span></a>';
-      html += '<p class="mega-cat-desc">' + esc(cat.desc) + '</p>';
       html += '<div class="mega-col-items">';
       cat.items.forEach(function(it){
         var fallback = it.icon && ICON_MAP[it.icon] ? ICON_MAP[it.icon] : FALLBACK_SVG;
@@ -202,9 +195,8 @@
     // Portfolio (single link, no submenu)
     html += '<div class="mm-section"><div class="mm-row"><a href="/work"' + (active === 'work' ? ' aria-current="page"' : '') + '>Portfolio</a></div></div>';
 
-    // About / Pricing
+    // About
     html += '<div class="mm-section"><div class="mm-row"><a href="/about"' + (active === 'about' ? ' aria-current="page"' : '') + '>About</a></div></div>';
-    html += '<div class="mm-section"><div class="mm-row"><a href="/pricing"' + (active === 'pricing' ? ' aria-current="page"' : '') + '>Pricing</a></div></div>';
 
     // CTAs
     html += '<div class="mm-cta-row">'
@@ -240,7 +232,6 @@
         + '<li>' + serviceTrigger + buildServicesMega() + '</li>'
         + '<li>' + portfolioTrigger + buildPortfolioMega() + '</li>'
         + '<li><a href="/about"' + (active === 'about' ? ' class="active"' : '') + '>About</a></li>'
-        + '<li><a href="/pricing"' + (active === 'pricing' ? ' class="active"' : '') + '>Pricing</a></li>'
       + '</ul>'
       + '<a href="/brief" class="nav-cta">Get a Quote</a>'
       + '<button class="nav-burger" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu">'
@@ -328,7 +319,6 @@
             + '<li><a href="/work">Portfolio</a></li>'
             + '<li><a href="/about">About</a></li>'
             + '<li><a href="/services">Services</a></li>'
-            + '<li><a href="/pricing">Pricing</a></li>'
           + '</ul>'
         + '</div>'
         + '<div>'

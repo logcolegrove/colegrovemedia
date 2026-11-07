@@ -28,6 +28,16 @@
 var SERVICES = {
   video: [
     {
+      id:'videographer-for-hire', name:'Videographer for Hire',
+      ind:['corporate','nonprofit','tech','real-estate','events','social-media'],
+      sample:null,
+      desc:'Need a camera operator for an event, an extra shooter on your production, or a videographer embedded with your team? Book me by the hour or by the day.',
+      tiers:[
+        {n:'Hourly',p:'$125/hr',i:['Filming, editing, or on-site production support','Professional camera, audio, and lighting','Great for short shoots and add-on coverage']},
+        {n:'Day Rate',p:'$1,000/day',i:['Up to 8 hours on location','Professional camera, audio, and lighting','Raw or lightly edited footage delivered via shared link']}
+      ]
+    },
+    {
       id:'real-estate-video', name:'Real Estate Video',
       ind:['real-estate'],
       sample:{ type:'video', projectSlug:'someday-ranch' },
