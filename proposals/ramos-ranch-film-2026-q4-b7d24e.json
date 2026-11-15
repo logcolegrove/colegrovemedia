@@ -1,35 +1,35 @@
 {
-  "_notes": "FLAG 1: Estimate only. \"type\": \"estimate\" needs a template update to hide the Tally signature block and Next Steps. FLAG 2: The references section needs a template update to render \"referencesTitle\" and \"referencesSubtitle\" in place of the hardcoded References heading. FLAG 3: Reference URLs are placeholders. Logan to supply the portfolio page URL, the Someday Ranch modal link format, and the second film. FLAG 4: The Sit-Down Interview is priced at the $200 Lighting and Audio Package only. Consider adding interview time. FLAG 5: California travel is an at-cost estimate with no travel-day fee. FLAG 6: contactEmail is blank.",
+  "_notes": "FLAG 1: Template update needed to (a) hide the Tally block when \"type\" is \"estimate\", (b) render \"nextSteps\" in its place, (c) render \"referencesTitle\" and \"referencesSubtitle\", and (d) hide the Valid For line when \"validFor\" is empty. FLAG 2: Placeholders still to fill: CALENDAR_BOOKING_LINK, the reference modal links, the second film and PORTFOLIO_PAGE_URL. FLAG 3: Travel trimmed for a one-day shoot (2 nights lodging, 3-day rental). FLAG 4: contactEmail is blank.",
   "id": "ramos-ranch-film-2026-q4-b7d24e",
   "type": "estimate",
   "status": "pending",
   "acceptedDate": "",
-  "title": "Ranch Property Film Estimate",
+  "title": "Ranch/Property Film Estimate",
   "client": "Joe Ramos",
   "contact": "Joe Ramos",
   "contactEmail": "",
   "date": "November 15, 2026",
-  "validFor": "15 days",
+  "validFor": "",
   "tallyFormId": "wMERpY",
   "deliverables": [
     {
       "title": "Ranch Property Film (Lean Production)",
-      "total": 4125,
-      "description": "A story-driven ranch film shot by one operator over two days.",
+      "total": 2925,
+      "description": "A story-driven ranch film shot by one operator.",
       "lineItems": [
         {
-          "service": "Filming + Aerial Cinematography (2 Days On Location)",
-          "details": "Landscape, ranch operations, structures and water, with drone coverage of the full property. Includes pre-production planning and a shot list.",
-          "price": 2300,
+          "service": "Filming + Aerial Cinematography (Per Day)",
+          "details": "Landscape, ranch operations, structures and water, with drone coverage of the full property. Includes pre-production planning and a shot list. One day covers most properties. Larger properties can add days.",
+          "price": 1000,
           "amount": 1,
-          "total": 2300
+          "total": 1000
         },
         {
           "service": "Sit-Down Interview",
-          "details": "Owner or steward interview with the Professional Lighting and Audio Package: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs. Prefer something lighter? I can capture a follow-along walkthrough interview on a gimbal instead.",
-          "price": 200,
+          "details": "Owner or steward interview with professional lighting and audio. I can also capture a follow-along walkthrough interview on a gimbal.",
+          "price": 500,
           "amount": 1,
-          "total": 200
+          "total": 500
         },
         {
           "service": "Editing",
@@ -41,9 +41,9 @@
         {
           "service": "Titles, Graphics + Animated Property Map",
           "details": "Intro/outro titles with the property name and your logo, lower thirds, and a satellite map animation showing boundaries, acreage, key features and proximity to nearby draws.",
-          "price": 400,
+          "price": 200,
           "amount": 1,
-          "total": 400
+          "total": 200
         },
         {
           "service": "Background Music",
@@ -70,7 +70,7 @@
       "milestones": [
         { "date": "Week 1", "milestone": "Discovery call, creative approach and shot list", "responsible": "Colegrove Media" },
         { "date": "Week 1", "milestone": "Property access, interview subject and boundary data", "responsible": "Joe Ramos" },
-        { "date": "Week 2", "milestone": "Two-day on-location shoot", "responsible": "Colegrove Media" },
+        { "date": "Week 2", "milestone": "On-location shoot", "responsible": "Colegrove Media" },
         { "date": "Week 4", "milestone": "First cut delivered", "responsible": "Colegrove Media" },
         { "date": "Week 4", "milestone": "Feedback", "responsible": "Joe Ramos" },
         { "date": "Week 5", "milestone": "Final film and social cut delivered", "responsible": "Colegrove Media" }
@@ -78,7 +78,7 @@
     },
     {
       "title": "Travel to California (Estimated, Billed at Cost)",
-      "total": 1750,
+      "total": 1450,
       "description": "Billed at actual cost. Final number set once the property and dates are confirmed.",
       "lineItems": [
         {
@@ -90,17 +90,17 @@
         },
         {
           "service": "Lodging",
-          "details": "Three nights near the property.",
+          "details": "Two nights near the property.",
           "price": 200,
-          "amount": 3,
-          "total": 600
+          "amount": 2,
+          "total": 400
         },
         {
           "service": "Rental Vehicle",
-          "details": "Four-day rental with clearance for ranch roads.",
-          "price": 400,
+          "details": "Three-day rental with clearance for ranch roads.",
+          "price": 300,
           "amount": 1,
-          "total": 400
+          "total": 300
         }
       ],
       "deliverablesList": [],
@@ -108,6 +108,13 @@
       "milestones": []
     }
   ],
+  "nextSteps": {
+    "heading": "Next Steps",
+    "text": "If you'd like to learn more, grab any open time on my calendar and we'll talk through your properties and what you need. Or just email me.",
+    "ctaLabel": "Book a time",
+    "ctaUrl": "CALENDAR_BOOKING_LINK",
+    "email": "logan@colegrovemedia.com"
+  },
   "referencesTitle": "Relevant Work",
   "referencesSubtitle": "Comparable films I directed, shot and edited.",
   "references": [
