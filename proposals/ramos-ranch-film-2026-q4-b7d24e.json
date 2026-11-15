@@ -1,5 +1,5 @@
 {
-  "_notes": "FLAG 1: Template update needed to (a) hide the Tally block when \"type\" is \"estimate\", (b) render \"nextSteps\" in its place, (c) render \"referencesTitle\" and \"referencesSubtitle\", and (d) hide the Valid For line when \"validFor\" is empty. FLAG 2: Placeholders still to fill: CALENDAR_BOOKING_LINK, the reference modal links, the second film and PORTFOLIO_PAGE_URL. FLAG 3: Travel trimmed for a one-day shoot (2 nights lodging, 3-day rental). FLAG 4: contactEmail is blank.",
+  "_notes": "FLAG 1: Template update needed to (a) hide the Tally block when \"type\" is \"estimate\", (b) render \"nextSteps\" in its place, (c) render \"referencesTitle\" and \"referencesSubtitle\", and (d) hide the Valid For line when \"validFor\" is empty. FLAG 2: CALENDAR_BOOKING_LINK still needed. Confirm roles listed on the two reference films. FLAG 3: Travel trimmed for a one-day shoot (2 nights lodging, 3-day rental). FLAG 4: contactEmail is blank.",
   "id": "ramos-ranch-film-2026-q4-b7d24e",
   "type": "estimate",
   "status": "pending",
@@ -118,8 +118,8 @@
   "referencesTitle": "Relevant Work",
   "referencesSubtitle": "Comparable films I directed, shot and edited.",
   "references": [
-    { "label": "Someday Ranch property film (my role: director, camera, drone, editor)", "url": "SOMEDAY_RANCH_MODAL_LINK" },
-    { "label": "SECOND_FILM_TITLE (my role: TBD)", "url": "SECOND_FILM_MODAL_LINK" },
-    { "label": "Full portfolio", "url": "PORTFOLIO_PAGE_URL" }
+    { "label": "Someday Ranch property film (my role: director, camera, drone, editor)", "url": "https://colegrovemedia.com/work?p=someday-ranch" },
+    { "label": "From Farmland to Grassland (my role: director, camera, editor)", "url": "https://colegrovemedia.com/work?p=from-farmland-to-grassland" },
+    { "label": "Full portfolio", "url": "https://colegrovemedia.com/work" }
   ]
 }
