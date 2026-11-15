@@ -1,5 +1,5 @@
 {
-  "_notes": "FLAG 1: Requires the updated proposal/index.html (estimate type, nextSteps, referencesTitle/Subtitle, empty validFor). FLAG 2: Confirm roles listed on the two reference films. FLAG 3: Travel trimmed for a one-day shoot (2 nights lodging, 3-day rental). FLAG 4: contactEmail is blank.",
+  "_notes": "FLAG 1: Requires the updated proposal/index.html (estimate type, nextSteps, referencesTitle/Subtitle, empty validFor). FLAG 3: Travel trimmed for a one-day shoot (2 nights lodging, 3-day rental). FLAG 4: contactEmail is blank.",
   "id": "ramos-ranch-film-2026-q4-b7d24e",
   "type": "estimate",
   "status": "pending",
@@ -25,8 +25,8 @@
           "total": 1000
         },
         {
-          "service": "Sit-Down Interview",
-          "details": "Owner or steward interview with professional lighting and audio. I can also capture a follow-along walkthrough interview on a gimbal.",
+          "service": "Interview",
+          "details": "Owner or steward interview, either sit-down with professional lighting and audio or a follow-along walkthrough on a gimbal.",
           "price": 500,
           "amount": 1,
           "total": 500
@@ -68,12 +68,36 @@
       ],
       "timeline": "Delivered within 5 weeks of kickoff",
       "milestones": [
-        { "date": "Week 1", "milestone": "Discovery call, creative approach and shot list", "responsible": "Colegrove Media" },
-        { "date": "Week 1", "milestone": "Property access, interview subject and boundary data", "responsible": "Joe Ramos" },
-        { "date": "Week 2", "milestone": "On-location shoot", "responsible": "Colegrove Media" },
-        { "date": "Week 4", "milestone": "First cut delivered", "responsible": "Colegrove Media" },
-        { "date": "Week 4", "milestone": "Feedback", "responsible": "Joe Ramos" },
-        { "date": "Week 5", "milestone": "Final film and social cut delivered", "responsible": "Colegrove Media" }
+        {
+          "date": "Week 1",
+          "milestone": "Discovery call, creative approach and shot list",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 1",
+          "milestone": "Property access, coordination and introductions with relevant parties",
+          "responsible": "Joe Ramos"
+        },
+        {
+          "date": "Week 2",
+          "milestone": "On-location shoot",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 4",
+          "milestone": "First cut delivered",
+          "responsible": "Colegrove Media"
+        },
+        {
+          "date": "Week 4",
+          "milestone": "Feedback",
+          "responsible": "Joe Ramos"
+        },
+        {
+          "date": "Week 5",
+          "milestone": "Final film and social cut delivered",
+          "responsible": "Colegrove Media"
+        }
       ]
     },
     {
@@ -83,7 +107,7 @@
       "lineItems": [
         {
           "service": "Airfare + Checked Gear",
-          "details": "Round trip from Bozeman to the nearest regional airport, including checked camera and drone cases.",
+          "details": "Round trip from Bozeman, including checked camera and drone cases.",
           "price": 750,
           "amount": 1,
           "total": 750
@@ -116,10 +140,19 @@
     "email": "logan@colegrovemedia.com"
   },
   "referencesTitle": "Relevant Work",
-  "referencesSubtitle": "Comparable films I directed, shot and edited.",
+  "referencesSubtitle": "Two films worth a look, one on an Idaho ranch and one in Montana. Someday Ranch leans on aerials and animated maps to show the property's scale and the selling points buyers care about. From Farmland to Grassland takes a more human approach, built around an interview with the people who work the land.",
   "references": [
-    { "label": "Someday Ranch property film (my role: director, camera, drone, editor)", "url": "https://colegrovemedia.com/work?p=someday-ranch" },
-    { "label": "From Farmland to Grassland (my role: director, camera, editor)", "url": "https://colegrovemedia.com/work?p=from-farmland-to-grassland" },
-    { "label": "Full portfolio", "url": "https://colegrovemedia.com/work" }
+    {
+      "label": "Someday Ranch Film",
+      "url": "https://colegrovemedia.com/work?p=someday-ranch"
+    },
+    {
+      "label": "From Farmland to Grassland",
+      "url": "https://colegrovemedia.com/work?p=from-farmland-to-grassland"
+    },
+    {
+      "label": "Full portfolio",
+      "url": "https://colegrovemedia.com/work"
+    }
   ]
 }
