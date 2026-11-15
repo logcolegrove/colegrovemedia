@@ -1,5 +1,5 @@
 {
-  "_notes": "FLAG 1: Estimate only. Added \"type\": \"estimate\" so the template can hide the Tally signature block and Next Steps. Template does not support this yet, so the signature block will still render until proposal/index.html is updated. FLAG 2: Joe asked for filming and editing itemized separately, so this breaks from the usual Recording + Editing line. Filming uses the $1,000/day rate x 2. Editing is $1,000 (8 hrs at $125). FLAG 3: California travel is outside Montana, priced as an at-cost estimate (airfare + gear, 3 nights lodging, rental). No travel-day fee included. Consider adding one. FLAG 4: Two rounds of revisions is an assumption, not a documented policy. Revisions and Usage Rights are $0 line items so they read as itemized. Confirm the page renders $0 cleanly. FLAG 5: Confirm the two reference films and your role in each. Rancher's Take is filed as a remote client story, so swap in a land or conservation film you shot in person if you have a stronger one. FLAG 6: No company name or email in the inquiry. Client set to Joe Ramos, contactEmail blank. His current films are from VirTour Media (Huasna) and Naples Ranch, Goleta.",
+  "_notes": "FLAG 1: Estimate only. \"type\": \"estimate\" needs a template update to hide the Tally signature block and Next Steps. FLAG 2: The references section needs a template update to render \"referencesTitle\" and \"referencesSubtitle\" in place of the hardcoded References heading. FLAG 3: Reference URLs are placeholders. Logan to supply the portfolio page URL, the Someday Ranch modal link format, and the second film. FLAG 4: The Sit-Down Interview is priced at the $200 Lighting and Audio Package only. Consider adding interview time. FLAG 5: California travel is an at-cost estimate with no travel-day fee. FLAG 6: contactEmail is blank.",
   "id": "ramos-ranch-film-2026-q4-b7d24e",
   "type": "estimate",
   "status": "pending",
@@ -14,50 +14,36 @@
   "deliverables": [
     {
       "title": "Ranch Property Film (Lean Production)",
-      "total": 3975,
-      "description": "A story-driven ranch film shot by one operator over two days, with no crew to fly in. Your current films lead with landscape and history. I'd anchor the story in a person: the owner or steward on camera explaining what this land has meant and why it matters, with aerials and an animated boundary map carrying the scale.",
+      "total": 4125,
+      "description": "A story-driven ranch film shot by one operator over two days.",
       "lineItems": [
         {
-          "service": "Filming (2 Days On Location)",
-          "details": "Sunrise-to-sunset coverage over two days to catch golden hour on both ends and work around weather. Landscape, ranch operations, structures and water, plus a sit-down owner or steward interview. Includes pre-production planning and a shot list.",
-          "price": 1000,
-          "amount": 2,
-          "total": 2000
-        },
-        {
-          "service": "Editing",
-          "details": "Story development and edit of a 3-4 minute film built around the interview, with color grading and sound design.",
-          "price": 1000,
+          "service": "Filming + Aerial Cinematography (2 Days On Location)",
+          "details": "Landscape, ranch operations, structures and water, with drone coverage of the full property. Includes pre-production planning and a shot list.",
+          "price": 2300,
           "amount": 1,
-          "total": 1000
+          "total": 2300
         },
         {
-          "service": "Aerial Drone Cinematography",
-          "details": "Aerial coverage of the full property: terrain, boundaries, water, structures and access.",
-          "price": 300,
-          "amount": 1,
-          "total": 300
-        },
-        {
-          "service": "Professional Lighting and Audio Package",
-          "details": "Includes an extra hour for setup and teardown and the following lights: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs.",
+          "service": "Sit-Down Interview",
+          "details": "Owner or steward interview with the Professional Lighting and Audio Package: Aputure Nova, Aputure MC (x4), Amaran T4C, Amaran F22x + dBtx lavalier microphone packs. Prefer something lighter? I can capture a follow-along walkthrough interview on a gimbal instead.",
           "price": 200,
           "amount": 1,
           "total": 200
         },
         {
-          "service": "Animated Property Map",
-          "details": "Satellite map animation showing property boundaries, acreage and key features.",
-          "price": 300,
+          "service": "Editing",
+          "details": "Story development and edit of a 2-4 minute film, with color grading and sound design.",
+          "price": 1000,
           "amount": 1,
-          "total": 300
+          "total": 1000
         },
         {
-          "service": "Titles and Graphics",
-          "details": "Simple intro/outro title slides with the property name and your logo, and a lower thirds graphic with the interviewee's name.",
-          "price": 100,
+          "service": "Titles, Graphics + Animated Property Map",
+          "details": "Intro/outro titles with the property name and your logo, lower thirds, and a satellite map animation showing boundaries, acreage, key features and proximity to nearby draws.",
+          "price": 400,
           "amount": 1,
-          "total": 100
+          "total": 400
         },
         {
           "service": "Background Music",
@@ -67,42 +53,33 @@
           "total": 75
         },
         {
-          "service": "Revisions",
-          "details": "Two rounds of revisions on the edit.",
-          "price": 0,
+          "service": "Social Optimized Edit",
+          "details": "30-second vertical cut optimized for social media.",
+          "price": 150,
           "amount": 1,
-          "total": 0
-        },
-        {
-          "service": "Usage Rights",
-          "details": "Full transfer on delivery. Use it on listings, web, social, broadcast and paid ads with no ongoing licensing fees.",
-          "price": 0,
-          "amount": 1,
-          "total": 0
+          "total": 150
         }
       ],
       "deliverablesList": [
-        "3-4 minute ranch property film (16:9)",
-        "Owner or steward interview woven through the story",
-        "Aerial cinematography and animated boundary map",
-        "Licensed music, two rounds of revisions, full usage rights"
+        "2-4 minute ranch property film",
+        "30-second social cut",
+        "Unlimited editing revisions",
+        "Full usage rights on delivery, no licensing fees"
       ],
       "timeline": "Delivered within 5 weeks of kickoff",
       "milestones": [
         { "date": "Week 1", "milestone": "Discovery call, creative approach and shot list", "responsible": "Colegrove Media" },
         { "date": "Week 1", "milestone": "Property access, interview subject and boundary data", "responsible": "Joe Ramos" },
         { "date": "Week 2", "milestone": "Two-day on-location shoot", "responsible": "Colegrove Media" },
-        { "date": "Week 2", "milestone": "Interview subject available on site", "responsible": "Joe Ramos" },
         { "date": "Week 4", "milestone": "First cut delivered", "responsible": "Colegrove Media" },
-        { "date": "Week 4", "milestone": "Round 1 feedback", "responsible": "Joe Ramos" },
-        { "date": "Week 5", "milestone": "Revisions and final film delivered", "responsible": "Colegrove Media" },
-        { "date": "Week 5", "milestone": "Final approval", "responsible": "Joe Ramos" }
+        { "date": "Week 4", "milestone": "Feedback", "responsible": "Joe Ramos" },
+        { "date": "Week 5", "milestone": "Final film and social cut delivered", "responsible": "Colegrove Media" }
       ]
     },
     {
       "title": "Travel to California (Estimated, Billed at Cost)",
       "total": 1750,
-      "description": "Flying beats driving 2,300+ miles round trip on both cost and time. Billed at actual cost, with the final number set once the property and dates are confirmed.",
+      "description": "Billed at actual cost. Final number set once the property and dates are confirmed.",
       "lineItems": [
         {
           "service": "Airfare + Checked Gear",
@@ -129,71 +106,13 @@
       "deliverablesList": [],
       "timeline": "",
       "milestones": []
-    },
-    {
-      "title": "FPV Flythrough Upgrade",
-      "isOptional": true,
-      "addonId": "fpv",
-      "selected": false,
-      "total": 600,
-      "description": "A continuous first-person flight through the homestead, barns or along a ridgeline. The shot people remember.",
-      "lineItems": [
-        {
-          "service": "FPV Drone Cinematography",
-          "details": "Upgrades aerial coverage to the Regular + FPV package ($900 total).",
-          "price": 600,
-          "amount": 1,
-          "total": 600
-        }
-      ],
-      "deliverablesList": [],
-      "timeline": "",
-      "milestones": []
-    },
-    {
-      "title": "Aerial Photo Set",
-      "isOptional": true,
-      "addonId": "drone-photos",
-      "selected": false,
-      "total": 175,
-      "description": "Edited aerial stills for the listing, brochure and web, captured during the shoot.",
-      "lineItems": [
-        {
-          "service": "Drone Photos",
-          "details": "Edited high-resolution aerial photos of the property.",
-          "price": 175,
-          "amount": 1,
-          "total": 175
-        }
-      ],
-      "deliverablesList": [],
-      "timeline": "",
-      "milestones": []
-    },
-    {
-      "title": "Social Optimized Edit",
-      "isOptional": true,
-      "addonId": "social",
-      "selected": false,
-      "total": 150,
-      "description": "A vertical cut of the film for Instagram, Facebook and paid social.",
-      "lineItems": [
-        {
-          "service": "Social Optimized Edit",
-          "details": "Edited vertical version optimized for social media.",
-          "price": 150,
-          "amount": 1,
-          "total": 150
-        }
-      ],
-      "deliverablesList": [],
-      "timeline": "",
-      "milestones": []
     }
   ],
+  "referencesTitle": "Relevant Work",
+  "referencesSubtitle": "Comparable films I directed, shot and edited.",
   "references": [
-    { "label": "Rancher's Take, Pheasants Forever landowner story (my role: director, camera, editor)", "url": "https://vimeo.com/1134497582" },
-    { "label": "Iceland aerial and FPV film (my role: drone and FPV pilot, editor)", "url": "https://vimeo.com/1036921693" },
-    { "label": "Full portfolio", "url": "https://vimeo.com/colegrovemedia" }
+    { "label": "Someday Ranch property film (my role: director, camera, drone, editor)", "url": "SOMEDAY_RANCH_MODAL_LINK" },
+    { "label": "SECOND_FILM_TITLE (my role: TBD)", "url": "SECOND_FILM_MODAL_LINK" },
+    { "label": "Full portfolio", "url": "PORTFOLIO_PAGE_URL" }
   ]
 }
