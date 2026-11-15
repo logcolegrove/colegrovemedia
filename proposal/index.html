@@ -137,10 +137,15 @@ a:hover{text-decoration:underline;}
 .references-label{font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px;}
 .references ol{padding-left:22px;}
 .references li{font-size:17px;color:var(--text2);padding:4px 0;font-weight:400;}
+.references-sub{font-size:15px;color:var(--text2);margin:-4px 0 10px;line-height:1.6;}
 
 .next-steps{margin:48px 0 32px;padding-top:32px;border-top:1px solid var(--border);}
 .next-steps h2{font-size:28px;font-weight:700;color:var(--text);margin-bottom:14px;}
 .next-steps p{font-size:17px;color:var(--text2);line-height:1.7;font-weight:400;}
+.next-steps-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px;margin-top:24px;}
+.cta-btn{display:inline-flex;align-items:center;padding:12px 24px;background:var(--teal);color:#fff;font-size:16px;font-weight:600;border-radius:6px;transition:background 0.15s;}
+.cta-btn:hover{background:var(--teal-dark);text-decoration:none;}
+.cta-email{font-size:16px;color:var(--text2);}
 
 .tally-wrap{margin:32px 0;padding:36px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;}
 .tally-wrap h3{font-size:19px;font-weight:600;color:var(--text);margin-bottom:6px;}
@@ -302,6 +307,7 @@ function showError(title, msg){
 function renderProposal(d){
   var page = document.getElementById('proposalPage');
   var isAccepted = d.status === 'accepted';
+  var isEstimate = d.type === 'estimate';
 
   var baseDeliverables = d.deliverables.filter(function(del){ return !del.isOptional; });
   var optionalDeliverables = d.deliverables.filter(function(del){ return del.isOptional; });
@@ -321,14 +327,14 @@ function renderProposal(d){
     +'</div>'
     +'<div class="header-right">'
     +'<div class="header-title">'+d.title+'</div>'
-    +'<div class="header-meta">Date: '+d.date+'<br>Valid for: '+d.validFor+'</div>'
+    +'<div class="header-meta">Date: '+d.date+(d.validFor?'<br>Valid for: '+d.validFor:'')+'</div>'
     +'</div>'
     +'</div>';
 
   html += '<div class="client-block">'
     +'<div class="client-label">Prepared For</div>'
     +'<div class="client-name">'+d.contact+'</div>'
-    +'<div class="client-detail">'+d.client+'</div>'
+    +(d.client && d.client!==d.contact?'<div class="client-detail">'+d.client+'</div>':'')
     +(d.contactEmail?'<div class="client-detail">'+d.contactEmail+'</div>':'')
     +'</div>';
 
@@ -347,7 +353,7 @@ function renderProposal(d){
   });
   html += '</div>';
 
-  html += '<div class="project-total"><span>Project Total</span><span class="project-total-amount" id="projectTotalAmount">$'+formatNum(calculateTotal())+'</span></div>';
+  html += '<div class="project-total"><span>'+(isEstimate?'Estimated Total':'Project Total')+'</span><span class="project-total-amount" id="projectTotalAmount">$'+formatNum(calculateTotal())+'</span></div>';
 
   if(anyOptional){
     var sectionVisible = isAccepted ? optionalDeliverables.some(function(del){ return !selectedAddons[del.addonId]; }) : !allSelected;
@@ -375,14 +381,27 @@ function renderProposal(d){
   }
 
   if(d.references && d.references.length){
-    html += '<div class="references"><div class="references-label">References:</div><ol>';
+    html += '<div class="references"><div class="references-label">'+(d.referencesTitle||'References:')+'</div>'
+      +(d.referencesSubtitle?'<p class="references-sub">'+d.referencesSubtitle+'</p>':'')
+      +'<ol>';
     d.references.forEach(function(ref){
       html += '<li><a href="'+ref.url+'" target="_blank" rel="noopener">'+ref.label+'</a></li>';
     });
     html += '</ol></div>';
   }
 
-  if(!isAccepted){
+  if(!isAccepted && d.nextSteps){
+    var ns = d.nextSteps;
+    var nsEmail = ns.email || 'logan@colegrovemedia.com';
+    html += '<div class="next-steps">'
+      +'<h2>'+(ns.heading||'Next Steps')+'</h2>'
+      +(ns.text?'<p>'+ns.text+'</p>':'')
+      +'<div class="next-steps-actions">'
+      +(ns.ctaUrl?'<a class="cta-btn" href="'+ns.ctaUrl+'" target="_blank" rel="noopener">'+(ns.ctaLabel||'Book a time')+'</a>':'')
+      +'<span class="cta-email">or email <a href="mailto:'+nsEmail+'">'+nsEmail+'</a></span>'
+      +'</div>'
+      +'</div>';
+  } else if(!isAccepted){
     html += '<div class="next-steps">'
       +'<h2>Next Steps</h2>'
       +'<p>If you\'d like to proceed, approve this proposal below and the project will be locked in. If you have any questions or would like to make adjustments, email <a href="mailto:logan@colegrovemedia.com">logan@colegrovemedia.com</a> before you approve.</p>'
@@ -395,7 +414,7 @@ function renderProposal(d){
     +'<div class="accepted-date">'+(d.acceptedDate||'')+'</div>'
     +'</div></div>';
 
-  if(!isAccepted && d.tallyFormId){
+  if(!isAccepted && !isEstimate && d.tallyFormId){
     html += '<div class="tally-wrap" id="tallyWrap">'
       +'<h3>Approve This Proposal</h3>'
       +'<p>By signing below, you agree to the scope, pricing, and <a href="https://colegrovemedia.com/terms" target="_blank">terms and conditions</a>.</p>'
