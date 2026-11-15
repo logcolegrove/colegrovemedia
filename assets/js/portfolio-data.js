@@ -154,8 +154,8 @@ var PORTFOLIO = [
     cat:'video', type:'testimonial', typeLabel:'Testimonial',
     thumb:'/assets/images/thumb-sterling.jpg',
     vimeoId:'1104993187',
-    desc:'A rancher shares his conservation journey — an intimate, story-driven testimonial about grassland restoration on a Montana family farm.',
-    specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Pheasants Forever'},{k:'Location',v:'Montana'}],
+    desc:'A rancher shares his conservation journey in an intimate, story-driven testimonial about grassland restoration on a Montana family farm.',
+    specs:[{k:'Type',v:'In-Person Testimonial'},{k:'Client',v:'Pheasants Forever'},{k:'Role',v:'Director, camera + drone operator, editor, coordinator'},{k:'Location',v:'Montana'},{k:'Deliverables',v:'Full video + social cut'}],
     featured:false,
     servicePages:['testimonial']
   },
@@ -358,8 +358,8 @@ var PORTFOLIO = [
     cat:'video', type:'real-estate-video', typeLabel:'Real Estate Video',
     thumb:'/assets/images/thumb-someday-ranch.jpeg',
     vimeoId:'1011395960',
-    desc:'An immersive real estate video for an Idaho ranch listing combining drone and ground-level cinematics. Showcases the property\'s scale, landscape, and lifestyle in a way that photos simply can\'t.',
-    specs:[{k:'Type',v:'Real Estate Video'},{k:'Location',v:'Idaho'},{k:'Services',v:'Drone / FPV, Animated Satellite Map'},{k:'Deliverables',v:'Full video + social cut'}],
+    desc:'An immersive real estate video for an Idaho ranch listing. This project leans heavily into aerial cinematics and animated Google Maps elements to show the property\'s scale, while presenting the selling points that matter most to buyers in a clear, visual way. Built to inform, not just to look pretty.',
+    specs:[{k:'Type',v:'Real Estate Video'},{k:'Role',v:'Director, camera + drone operator, editor, coordinator'},{k:'Location',v:'Idaho'},{k:'Services',v:'Drone / FPV, Animated Satellite Map'},{k:'Deliverables',v:'Full video + social cut'}],
     featured:false,
     servicePages:['real-estate-video','drone-video-fpv']
   },
