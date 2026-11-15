@@ -1,5 +1,5 @@
 {
-  "_notes": "FLAG 1: Template update needed to (a) hide the Tally block when \"type\" is \"estimate\", (b) render \"nextSteps\" in its place, (c) render \"referencesTitle\" and \"referencesSubtitle\", and (d) hide the Valid For line when \"validFor\" is empty. FLAG 2: CALENDAR_BOOKING_LINK still needed. Confirm roles listed on the two reference films. FLAG 3: Travel trimmed for a one-day shoot (2 nights lodging, 3-day rental). FLAG 4: contactEmail is blank.",
+  "_notes": "FLAG 1: Requires the updated proposal/index.html (estimate type, nextSteps, referencesTitle/Subtitle, empty validFor). FLAG 2: Confirm roles listed on the two reference films. FLAG 3: Travel trimmed for a one-day shoot (2 nights lodging, 3-day rental). FLAG 4: contactEmail is blank.",
   "id": "ramos-ranch-film-2026-q4-b7d24e",
   "type": "estimate",
   "status": "pending",
@@ -110,9 +110,9 @@
   ],
   "nextSteps": {
     "heading": "Next Steps",
-    "text": "If you'd like to learn more, grab any open time on my calendar and we'll talk through your properties and what you need. Or just email me.",
+    "text": "If you'd like to learn more, grab any open time on my calendar and we'll talk through your properties and what you need.",
     "ctaLabel": "Book a time",
-    "ctaUrl": "CALENDAR_BOOKING_LINK",
+    "ctaUrl": "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3BQmByhE5NABmtPlPju2pn6uxOqMEZ6OD6M84V-Be71HJhQ6sxftrcEoJbnnM5mEfs76i0_1GM",
     "email": "logan@colegrovemedia.com"
   },
   "referencesTitle": "Relevant Work",
