@@ -154,5 +154,13 @@
       "label": "Full portfolio",
       "url": "https://colegrovemedia.com/work"
     }
-  ]
+  ],
+  "viewLog": [
+    {
+      "timestamp": "2026-11-16T02:54:02.497Z",
+      "ipHash": "52a54849",
+      "country": "US"
+    }
+  ],
+  "notificationsSent": 1
 }
